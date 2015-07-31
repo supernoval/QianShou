@@ -18,7 +18,7 @@
     [super viewDidLoad];
 
     self.tabBarController.tabBar.tintColor = TabbarTintColor;
-    self.navigationController.navigationBar.backgroundColor = NavigationBarColor;
+//    self.navigationController.navigationBar.backgroundColor = NavigationBarColor;
     
     
 }

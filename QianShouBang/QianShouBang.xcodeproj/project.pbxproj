@@ -30,6 +30,33 @@
 		13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983ACE1B6B478000D44BF0 /* UIScrollView+MJRefresh.m */; };
 		13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AD01B6B478000D44BF0 /* UIView+MJExtension.m */; };
 		13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */; };
+		13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AEB1B6B5A4400D44BF0 /* RequestCenter.m */; };
+		13983B011B6B5A6000D44BF0 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AEF1B6B5A6000D44BF0 /* AFHTTPRequestOperation.m */; };
+		13983B021B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AF11B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m */; };
+		13983B031B6B5A6000D44BF0 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AF31B6B5A6000D44BF0 /* AFHTTPSessionManager.m */; };
+		13983B041B6B5A6000D44BF0 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AF61B6B5A6000D44BF0 /* AFNetworkReachabilityManager.m */; };
+		13983B051B6B5A6000D44BF0 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AF81B6B5A6000D44BF0 /* AFSecurityPolicy.m */; };
+		13983B061B6B5A6000D44BF0 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AFA1B6B5A6000D44BF0 /* AFURLConnectionOperation.m */; };
+		13983B071B6B5A6000D44BF0 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AFC1B6B5A6000D44BF0 /* AFURLRequestSerialization.m */; };
+		13983B081B6B5A6000D44BF0 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983AFE1B6B5A6000D44BF0 /* AFURLResponseSerialization.m */; };
+		13983B091B6B5A6000D44BF0 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983B001B6B5A6000D44BF0 /* AFURLSessionManager.m */; };
+		13983B0B1B6B5B8A00D44BF0 /* BmobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B0A1B6B5B8A00D44BF0 /* BmobSDK.framework */; };
+		13983B0D1B6B5B9D00D44BF0 /* BmobIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B0C1B6B5B9D00D44BF0 /* BmobIM.framework */; };
+		13983B101B6B5BDF00D44BF0 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13983B0F1B6B5BDF00D44BF0 /* AlipaySDK.bundle */; };
+		13983B121B6B5BE400D44BF0 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B111B6B5BE400D44BF0 /* AlipaySDK.framework */; };
+		13983B141B6B5BE800D44BF0 /* BmobPay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B131B6B5BE800D44BF0 /* BmobPay.framework */; };
+		13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B151B6B5FF200D44BF0 /* CoreLocation.framework */; };
+		13983B181B6B5FF800D44BF0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B171B6B5FF800D44BF0 /* Security.framework */; };
+		13983B1A1B6B600000D44BF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B191B6B600000D44BF0 /* CoreGraphics.framework */; };
+		13983B1C1B6B600600D44BF0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B1B1B6B600600D44BF0 /* MobileCoreServices.framework */; };
+		13983B1E1B6B600D00D44BF0 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B1D1B6B600D00D44BF0 /* CFNetwork.framework */; };
+		13983B201B6B601500D44BF0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B1F1B6B601500D44BF0 /* CoreTelephony.framework */; };
+		13983B221B6B601C00D44BF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B211B6B601C00D44BF0 /* SystemConfiguration.framework */; };
+		13983B241B6B602A00D44BF0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B231B6B602A00D44BF0 /* libz.1.2.5.dylib */; };
+		13983B261B6B603200D44BF0 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B251B6B603200D44BF0 /* libicucore.dylib */; };
+		13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B271B6B603A00D44BF0 /* libsqlite3.dylib */; };
+		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
+		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +115,44 @@
 		13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatchOrderTVC.h; sourceTree = "<group>"; };
 		13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderTVC.m; sourceTree = "<group>"; };
 		13983AE61B6B51BD00D44BF0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		13983AEA1B6B5A4400D44BF0 /* RequestCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestCenter.h; sourceTree = "<group>"; };
+		13983AEB1B6B5A4400D44BF0 /* RequestCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestCenter.m; sourceTree = "<group>"; };
+		13983AEE1B6B5A6000D44BF0 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		13983AEF1B6B5A6000D44BF0 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		13983AF01B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		13983AF11B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		13983AF21B6B5A6000D44BF0 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		13983AF31B6B5A6000D44BF0 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		13983AF41B6B5A6000D44BF0 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		13983AF51B6B5A6000D44BF0 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		13983AF61B6B5A6000D44BF0 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		13983AF71B6B5A6000D44BF0 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		13983AF81B6B5A6000D44BF0 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		13983AF91B6B5A6000D44BF0 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		13983AFA1B6B5A6000D44BF0 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		13983AFB1B6B5A6000D44BF0 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		13983AFC1B6B5A6000D44BF0 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		13983AFD1B6B5A6000D44BF0 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		13983AFE1B6B5A6000D44BF0 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		13983AFF1B6B5A6000D44BF0 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		13983B001B6B5A6000D44BF0 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		13983B0A1B6B5B8A00D44BF0 /* BmobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobSDK.framework; sourceTree = "<group>"; };
+		13983B0C1B6B5B9D00D44BF0 /* BmobIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobIM.framework; sourceTree = "<group>"; };
+		13983B0F1B6B5BDF00D44BF0 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		13983B111B6B5BE400D44BF0 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		13983B131B6B5BE800D44BF0 /* BmobPay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BmobPay.framework; sourceTree = "<group>"; };
+		13983B151B6B5FF200D44BF0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		13983B171B6B5FF800D44BF0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		13983B191B6B600000D44BF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		13983B1B1B6B600600D44BF0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		13983B1D1B6B600D00D44BF0 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		13983B1F1B6B601500D44BF0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		13983B211B6B601C00D44BF0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		13983B231B6B602A00D44BF0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		13983B251B6B603200D44BF0 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +160,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */,
+				13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */,
+				13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */,
+				13983B261B6B603200D44BF0 /* libicucore.dylib in Frameworks */,
+				13983B241B6B602A00D44BF0 /* libz.1.2.5.dylib in Frameworks */,
+				13983B221B6B601C00D44BF0 /* SystemConfiguration.framework in Frameworks */,
+				13983B201B6B601500D44BF0 /* CoreTelephony.framework in Frameworks */,
+				13983B1E1B6B600D00D44BF0 /* CFNetwork.framework in Frameworks */,
+				13983B1C1B6B600600D44BF0 /* MobileCoreServices.framework in Frameworks */,
+				13983B1A1B6B600000D44BF0 /* CoreGraphics.framework in Frameworks */,
+				13983B181B6B5FF800D44BF0 /* Security.framework in Frameworks */,
+				13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */,
+				13983B0D1B6B5B9D00D44BF0 /* BmobIM.framework in Frameworks */,
+				13983B0B1B6B5B8A00D44BF0 /* BmobSDK.framework in Frameworks */,
+				13983B121B6B5BE400D44BF0 /* AlipaySDK.framework in Frameworks */,
+				13983B141B6B5BE800D44BF0 /* BmobPay.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +192,18 @@
 		13983A1A1B6B261500D44BF0 = {
 			isa = PBXGroup;
 			children = (
+				13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */,
+				13983B291B6B604000D44BF0 /* AVFoundation.framework */,
+				13983B271B6B603A00D44BF0 /* libsqlite3.dylib */,
+				13983B251B6B603200D44BF0 /* libicucore.dylib */,
+				13983B231B6B602A00D44BF0 /* libz.1.2.5.dylib */,
+				13983B211B6B601C00D44BF0 /* SystemConfiguration.framework */,
+				13983B1F1B6B601500D44BF0 /* CoreTelephony.framework */,
+				13983B1D1B6B600D00D44BF0 /* CFNetwork.framework */,
+				13983B1B1B6B600600D44BF0 /* MobileCoreServices.framework */,
+				13983B191B6B600000D44BF0 /* CoreGraphics.framework */,
+				13983B171B6B5FF800D44BF0 /* Security.framework */,
+				13983B151B6B5FF200D44BF0 /* CoreLocation.framework */,
 				13983A251B6B261500D44BF0 /* QianShouBang */,
 				13983A3F1B6B261500D44BF0 /* QianShouBangTests */,
 				13983A241B6B261500D44BF0 /* Products */,
@@ -129,6 +222,7 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				13983AE91B6B5A0A00D44BF0 /* NetWorkClass */,
 				13983AE51B6B51AB00D44BF0 /* constants */,
 				13983AE11B6B510E00D44BF0 /* 我的 */,
 				13983AE01B6B510900D44BF0 /* 通讯录 */,
@@ -176,6 +270,10 @@
 		13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */ = {
 			isa = PBXGroup;
 			children = (
+				13983B0E1B6B5BCC00D44BF0 /* BmobPay */,
+				13983B0C1B6B5B9D00D44BF0 /* BmobIM.framework */,
+				13983B0A1B6B5B8A00D44BF0 /* BmobSDK.framework */,
+				13983AED1B6B5A6000D44BF0 /* AFNetworking */,
 				13983AB81B6B478000D44BF0 /* MJRefresh */,
 				13983A511B6B3A7300D44BF0 /* ProgressHUD */,
 			);
@@ -279,6 +377,51 @@
 			path = constants;
 			sourceTree = "<group>";
 		};
+		13983AE91B6B5A0A00D44BF0 /* NetWorkClass */ = {
+			isa = PBXGroup;
+			children = (
+				13983AEA1B6B5A4400D44BF0 /* RequestCenter.h */,
+				13983AEB1B6B5A4400D44BF0 /* RequestCenter.m */,
+			);
+			path = NetWorkClass;
+			sourceTree = "<group>";
+		};
+		13983AED1B6B5A6000D44BF0 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				13983AEE1B6B5A6000D44BF0 /* AFHTTPRequestOperation.h */,
+				13983AEF1B6B5A6000D44BF0 /* AFHTTPRequestOperation.m */,
+				13983AF01B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.h */,
+				13983AF11B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m */,
+				13983AF21B6B5A6000D44BF0 /* AFHTTPSessionManager.h */,
+				13983AF31B6B5A6000D44BF0 /* AFHTTPSessionManager.m */,
+				13983AF41B6B5A6000D44BF0 /* AFNetworking.h */,
+				13983AF51B6B5A6000D44BF0 /* AFNetworkReachabilityManager.h */,
+				13983AF61B6B5A6000D44BF0 /* AFNetworkReachabilityManager.m */,
+				13983AF71B6B5A6000D44BF0 /* AFSecurityPolicy.h */,
+				13983AF81B6B5A6000D44BF0 /* AFSecurityPolicy.m */,
+				13983AF91B6B5A6000D44BF0 /* AFURLConnectionOperation.h */,
+				13983AFA1B6B5A6000D44BF0 /* AFURLConnectionOperation.m */,
+				13983AFB1B6B5A6000D44BF0 /* AFURLRequestSerialization.h */,
+				13983AFC1B6B5A6000D44BF0 /* AFURLRequestSerialization.m */,
+				13983AFD1B6B5A6000D44BF0 /* AFURLResponseSerialization.h */,
+				13983AFE1B6B5A6000D44BF0 /* AFURLResponseSerialization.m */,
+				13983AFF1B6B5A6000D44BF0 /* AFURLSessionManager.h */,
+				13983B001B6B5A6000D44BF0 /* AFURLSessionManager.m */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		13983B0E1B6B5BCC00D44BF0 /* BmobPay */ = {
+			isa = PBXGroup;
+			children = (
+				13983B131B6B5BE800D44BF0 /* BmobPay.framework */,
+				13983B111B6B5BE400D44BF0 /* AlipaySDK.framework */,
+				13983B0F1B6B5BDF00D44BF0 /* AlipaySDK.bundle */,
+			);
+			name = BmobPay;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +502,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13983B101B6B5BDF00D44BF0 /* AlipaySDK.bundle in Resources */,
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
 				13983A321B6B261500D44BF0 /* Main.storyboard in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
@@ -383,6 +527,9 @@
 			files = (
 				13983AD31B6B478000D44BF0 /* MJRefreshConst.m in Sources */,
 				13983AD91B6B478000D44BF0 /* MJRefreshLegendHeader.m in Sources */,
+				13983B051B6B5A6000D44BF0 /* AFSecurityPolicy.m in Sources */,
+				13983B021B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m in Sources */,
+				13983B011B6B5A6000D44BF0 /* AFHTTPRequestOperation.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				13983A2C1B6B261500D44BF0 /* AppDelegate.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
@@ -391,12 +538,19 @@
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
 				13983AD51B6B478000D44BF0 /* MJRefreshGifFooter.m in Sources */,
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
+				13983B031B6B5A6000D44BF0 /* AFHTTPSessionManager.m in Sources */,
 				13983AD71B6B478000D44BF0 /* MJRefreshHeader.m in Sources */,
 				13983AD21B6B478000D44BF0 /* MJRefreshComponent.m in Sources */,
+				13983B061B6B5A6000D44BF0 /* AFURLConnectionOperation.m in Sources */,
+				13983B071B6B5A6000D44BF0 /* AFURLRequestSerialization.m in Sources */,
+				13983B091B6B5A6000D44BF0 /* AFURLSessionManager.m in Sources */,
+				13983B081B6B5A6000D44BF0 /* AFURLResponseSerialization.m in Sources */,
 				13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */,
 				13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */,
+				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
+				13983B041B6B5A6000D44BF0 /* AFNetworkReachabilityManager.m in Sources */,
 				13983AD61B6B478000D44BF0 /* MJRefreshGifHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,7 +631,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -523,9 +677,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
+				);
 				INFOPLIST_FILE = QianShouBang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -534,6 +693,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
+				);
 				INFOPLIST_FILE = QianShouBang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
