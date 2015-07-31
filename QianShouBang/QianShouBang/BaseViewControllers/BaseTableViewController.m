@@ -20,7 +20,7 @@
     self.tabBarController.tabBar.tintColor = TabbarTintColor;
 //    self.navigationController.navigationBar.backgroundColor = NavigationBarColor;
     
-    
+    [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
     
     
 }
