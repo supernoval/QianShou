@@ -189,21 +189,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		136A920A1B6F3BD40064B541 /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				13983B151B6B5FF200D44BF0 /* CoreLocation.framework */,
+				13983B171B6B5FF800D44BF0 /* Security.framework */,
+				13983B191B6B600000D44BF0 /* CoreGraphics.framework */,
+				13983B1B1B6B600600D44BF0 /* MobileCoreServices.framework */,
+				13983B1D1B6B600D00D44BF0 /* CFNetwork.framework */,
+				13983B1F1B6B601500D44BF0 /* CoreTelephony.framework */,
+				13983B211B6B601C00D44BF0 /* SystemConfiguration.framework */,
+				13983B231B6B602A00D44BF0 /* libz.1.2.5.dylib */,
+				13983B251B6B603200D44BF0 /* libicucore.dylib */,
+				13983B271B6B603A00D44BF0 /* libsqlite3.dylib */,
+				13983B291B6B604000D44BF0 /* AVFoundation.framework */,
+				13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		13983A1A1B6B261500D44BF0 = {
 			isa = PBXGroup;
 			children = (
-				13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */,
-				13983B291B6B604000D44BF0 /* AVFoundation.framework */,
-				13983B271B6B603A00D44BF0 /* libsqlite3.dylib */,
-				13983B251B6B603200D44BF0 /* libicucore.dylib */,
-				13983B231B6B602A00D44BF0 /* libz.1.2.5.dylib */,
-				13983B211B6B601C00D44BF0 /* SystemConfiguration.framework */,
-				13983B1F1B6B601500D44BF0 /* CoreTelephony.framework */,
-				13983B1D1B6B600D00D44BF0 /* CFNetwork.framework */,
-				13983B1B1B6B600600D44BF0 /* MobileCoreServices.framework */,
-				13983B191B6B600000D44BF0 /* CoreGraphics.framework */,
-				13983B171B6B5FF800D44BF0 /* Security.framework */,
-				13983B151B6B5FF200D44BF0 /* CoreLocation.framework */,
 				13983A251B6B261500D44BF0 /* QianShouBang */,
 				13983A3F1B6B261500D44BF0 /* QianShouBangTests */,
 				13983A241B6B261500D44BF0 /* Products */,
@@ -236,6 +243,7 @@
 				13983A301B6B261500D44BF0 /* Main.storyboard */,
 				13983A331B6B261500D44BF0 /* Images.xcassets */,
 				13983A351B6B261500D44BF0 /* LaunchScreen.xib */,
+				136A920A1B6F3BD40064B541 /* Framework */,
 				13983A261B6B261500D44BF0 /* Supporting Files */,
 			);
 			path = QianShouBang;
@@ -757,6 +765,7 @@
 				13983A481B6B261500D44BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		13983A491B6B261500D44BF0 /* Build configuration list for PBXNativeTarget "QianShouBangTests" */ = {
 			isa = XCConfigurationList;
@@ -765,6 +774,7 @@
 				13983A4B1B6B261500D44BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
