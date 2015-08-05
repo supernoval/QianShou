@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     self.tabBarController.tabBar.tintColor = TabbarTintColor;
-
+    
     
      _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
  

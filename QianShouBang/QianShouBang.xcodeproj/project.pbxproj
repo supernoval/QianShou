@@ -618,6 +618,7 @@
 				TargetAttributes = {
 					13983A221B6B261500D44BF0 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = K5443SNRTU;
 					};
 					13983A3B1B6B261500D44BF0 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -842,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
@@ -859,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
