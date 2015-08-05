@@ -70,6 +70,11 @@
 		13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B271B6B603A00D44BF0 /* libsqlite3.dylib */; };
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
+		B392A3621B7238A600B7CA6D /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392A3611B7238A600B7CA6D /* InfoCell.xib */; };
+		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
+		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
+		B392A36B1B723B4E00B7CA6D /* singleRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */; };
+		B392A36E1B723B6D00B7CA6D /* SingleRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +193,14 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		B392A3611B7238A600B7CA6D /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
+		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
+		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
+		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
+		B392A3681B72396B00B7CA6D /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = SOURCE_ROOT; };
+		B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = singleRowCell.xib; sourceTree = SOURCE_ROOT; };
+		B392A36C1B723B6D00B7CA6D /* SingleRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleRowCell.h; sourceTree = SOURCE_ROOT; };
+		B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleRowCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -483,6 +496,8 @@
 		13983ADE1B6B50FE00D44BF0 /* personcenter */ = {
 			isa = PBXGroup;
 			children = (
+				B392A3631B7238BD00B7CA6D /* 个人中心 */,
+				B392A3601B72388300B7CA6D /* cell */,
 			);
 			name = personcenter;
 			path = "个人中心";
@@ -569,6 +584,28 @@
 			name = BmobPay;
 			sourceTree = "<group>";
 		};
+		B392A3601B72388300B7CA6D /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				B392A3611B7238A600B7CA6D /* InfoCell.xib */,
+				B392A3671B72396B00B7CA6D /* InfoCell.h */,
+				B392A3681B72396B00B7CA6D /* InfoCell.m */,
+				B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */,
+				B392A36C1B723B6D00B7CA6D /* SingleRowCell.h */,
+				B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		B392A3631B7238BD00B7CA6D /* 个人中心 */ = {
+			isa = PBXGroup;
+			children = (
+				B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */,
+				B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */,
+			);
+			name = "个人中心";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -652,7 +689,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13983B101B6B5BDF00D44BF0 /* AlipaySDK.bundle in Resources */,
+				B392A3621B7238A600B7CA6D /* InfoCell.xib in Resources */,
 				13838B531B719E96007CA809 /* SMS_SDKLocalizable.strings in Resources */,
+				B392A36B1B723B4E00B7CA6D /* singleRowCell.xib in Resources */,
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
 				13983A321B6B261500D44BF0 /* Main.storyboard in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
@@ -686,12 +725,14 @@
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				13983A2C1B6B261500D44BF0 /* AppDelegate.m in Sources */,
 				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
+				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
 				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13983AD41B6B478000D44BF0 /* MJRefreshFooter.m in Sources */,
 				13983AD81B6B478000D44BF0 /* MJRefreshLegendFooter.m in Sources */,
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
+				B392A36E1B723B6D00B7CA6D /* SingleRowCell.m in Sources */,
 				13983AD51B6B478000D44BF0 /* MJRefreshGifFooter.m in Sources */,
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
 				13983B031B6B5A6000D44BF0 /* AFHTTPSessionManager.m in Sources */,
@@ -703,6 +744,7 @@
 				13983B081B6B5A6000D44BF0 /* AFURLResponseSerialization.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */,
+				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
 				13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,

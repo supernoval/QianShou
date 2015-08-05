@@ -20,7 +20,14 @@
 #define kHadLogin              @"HadLoginKey"
 
 
+/*宽高*/
+#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
+
+
+/*颜色*/
+#define RGB(a,b,c,d) [UIColor colorWithRed:a/255.0 green:b/255.0 blue:c/255.0 alpha:d]
 //tabar 选中颜色
 #define TabbarTintColor  [UIColor greenColor]
 
@@ -28,4 +35,7 @@
 #define NavigationBarColor  [UIColor redColor]
 
 
-#define NavigationBarColor  [UIColor colorWithRed:20.0/255.0 green:45.0/255.0 blue:100/255.0 alpha:1]
+//#define NavigationBarColor RGB(20,45,100,1)
+//背景色
+#define kBackgroundColor RGB(250,250,250,1)
+#define kContentColor [UIColor whiteColor]
