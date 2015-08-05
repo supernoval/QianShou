@@ -69,6 +69,8 @@
 
 #pragma mark -  显示错误提示
 +(void)showDefaultErrorString:(NSString*)errorStr;
++(void)showAlertString:(NSString*)alert delegate:(id)delegate tag:(NSInteger)tag;
+
 
 
 @end

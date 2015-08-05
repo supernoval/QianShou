@@ -67,12 +67,17 @@
                 if ([deviceToken isEqualToString:qsuser.ANDROID_ID])
                 {
                     
+                    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:kHadLogin];
+                    [[NSUserDefaults standardUserDefaults ] synchronize];
+                    
                     [self dismissViewControllerAnimated:YES completion:nil];
                     
                     
                 }
                 else
                 {
+                    
+                    [QSUser logout];
                     
                     [CommonMethods showDefaultErrorString:@"抱歉,不能在其它手机上登录"];
                     

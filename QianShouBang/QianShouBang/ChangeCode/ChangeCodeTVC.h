@@ -10,4 +10,12 @@
 
 @interface ChangeCodeTVC : BaseTableViewController
 
+
+@property (nonatomic) NSString *phoneNum;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *newpwdTF;
+@property (weak, nonatomic) IBOutlet UITextField *againpwdTF;
+- (IBAction)changeCodeAction:(id)sender;
+
 @end

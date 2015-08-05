@@ -66,26 +66,8 @@
     if ([CommonMethods checkTel:_phoneTF.text])
     {
         
-        _sendCodeButton.enabled = NO;
-        [MyProgressHUD showProgress];
-        [SMS_SDK getVerificationCodeBySMSWithPhone:_phoneTF.text zone:@"86" result:^(SMS_SDKError *error) {
-            
-            [MyProgressHUD dismiss];
-            
-            if (!error)
-            {
-                
-                [self getAutoCodeTime];
-                
-            }
-            else
-            {
-                _sendCodeButton.userInteractionEnabled = YES;
-                [MyProgressHUD showError:error.errorDescription];
-                
-            }
-            
-        }];
+  
+        [self checkPhonehadRegist];
         
         
     }
@@ -167,7 +149,8 @@
         }
         else
         {
-            [MyProgressHUD showError:@"验证码不正确"];
+            [CommonMethods showDefaultErrorString:@"验证码不正确"];
+            
             
         }
     }];
@@ -182,27 +165,64 @@
     user.username = _phoneTF.text;
     user.password = _codeTF.text;
     user.ANDROID_ID = dviceToken;
+    [user setObject:dviceToken forKey:@"ANDROID_ID"];
+    
     user.mobilePhoneNumber = _phoneTF.text;
+    
+    [user setObject:_phoneTF.text forKey:@"mobilePhoneNumber"];
+    
+    
     user.agent_user = 0;
+    [user setObject:@0 forKey:@"agent_user"];
+    
     user.user_sex = 1;
+    [user setObject:@1 forKey:@"user_sex"];
+    
     user.user_individuality_signature = @"主人很懒，什么都没留下";
+    [user setObject:@"主人很懒，什么都没留下" forKey:@"user_individuality_signature"];
+    
     user.user_phone = _phoneTF.text;
+    [user setObject:_phoneTF.text forKey:@"user_phone"];
+    
     
     BmobGeoPoint *point = [[BmobGeoPoint alloc]initWithLongitude:0.0 WithLatitude:0.0];
+    [user setObject:point forKey:@"geoPoint"];
+    
     user.geoPoint = point;
     user.nick = @"邦果";
+    [user setObject:@"帮果" forKey:@"nick"];
+    
+    
     user.balance = 0;
+    [user setObject:@0 forKey:@"balance"];
+    
     user.user_level = @"0";
+    [user setObject:@"0" forKey:@"user_level"];
+    
     user.deviceType = @"ios";
-    user.installId = dviceToken;
- 
-    user.version_code = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+    [user setObject:@"ios" forKey:@"deviceType"];
+    
+    user.recommendUser = _recommendPhone.text;
+    
+    if (_recommendPhone.text.length > 0)
+    {
+        
+        [user setObject:_recommendPhone.text forKey:@"recommendUser"];
+        
+    }
+    
     
     [user signUpInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
         
         if (isSuccessful) {
             
             NSLog(@"注册成功");
+            
+            [MyProgressHUD showError:@"注册成功"];
+            
+            [self login:_phoneTF.text code:_codeTF.text];
+            
+            
             
         }
         else
@@ -222,7 +242,7 @@
 
 #pragma mark - 倒计时
 -(void)getAutoCodeTime{
-    __block int timeout=60;
+    __block int timeout=30;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
     dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
@@ -235,7 +255,7 @@
                 
             });
         }else{
-            int seconds = timeout % 61;
+            int seconds = timeout % 31;
             NSString *strTime = [NSString stringWithFormat:@"%.2d", seconds];
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"____%@",strTime);
@@ -252,6 +272,62 @@
     dispatch_resume(_timer);
 }
 
+#pragma mark - 查询手机号码是否注册过
+-(void)checkPhonehadRegist
+{
+
+    BmobQuery *bquery =[[BmobQuery alloc]initWithClassName:kUserClassName];
+    
+    [bquery whereKey:@"username" equalTo:_phoneTF.text];
+    
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (array.count > 0)
+        {
+            
+            NSLog(@"hadRegist:%@",array);
+            
+            [CommonMethods showDefaultErrorString:@"该手机号码已经注册,不能重复注册"];
+            
+        
+            
+            
+            
+            
+        }
+        else
+        {
+            
+            NSLog(@"phone num None Regist!");
+          
+            
+            _sendCodeButton.enabled = NO;
+            [MyProgressHUD showProgress];
+            [SMS_SDK getVerificationCodeBySMSWithPhone:_phoneTF.text zone:@"86" result:^(SMS_SDKError *error) {
+                
+                [MyProgressHUD dismiss];
+                
+                if (!error)
+                {
+                    
+                    [self getAutoCodeTime];
+                    
+                }
+                else
+                {
+                    _sendCodeButton.userInteractionEnabled = YES;
+                    [MyProgressHUD showError:error.errorDescription];
+                    
+                }
+                
+            }];
+            
+            
+            
+        }
+    }];
+    
+}
 
 #pragma mark - 查询设备是否注册过
 -(void)checkMobileHadRegist
@@ -306,6 +382,35 @@
         return;
         
     }
+}
+
+#pragma mar - 自动登录
+-(void)login:(NSString*)phone  code:(NSString*)code
+{
+    
+    [MyProgressHUD showProgress];
+    
+     [QSUser loginInbackgroundWithAccount:phone andPassword:code block:^(BmobUser *user, NSError *error) {
+        
+         [MyProgressHUD dismiss];
+         
+         if (!error) {
+             
+             [[NSUserDefaults standardUserDefaults ] setObject:@1 forKey:kHadLogin];
+             [[NSUserDefaults standardUserDefaults ] synchronize];
+             
+             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+             
+             
+         }
+         else
+         {
+             [self.navigationController popViewControllerAnimated:YES];
+             
+         }
+         
+     }];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

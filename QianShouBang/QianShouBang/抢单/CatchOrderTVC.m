@@ -35,13 +35,13 @@
 {
     [super viewDidAppear:animated];
     
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
-//    {
-//        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
-//        
-//        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
-//        
-//    }
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
+    {
+        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+        
+        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

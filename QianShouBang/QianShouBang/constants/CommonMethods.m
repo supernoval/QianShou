@@ -456,4 +456,14 @@
     
 }
 
++(void)showAlertString:(NSString *)alert delegate:(id)delegate tag:(NSInteger)tag
+{
+    
+      UIAlertView * alertview = [[UIAlertView alloc]initWithTitle:nil message:alert delegate:delegate cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+    alertview.tag = tag;
+    
+    [alertview show];
+    
+}
+
 @end
