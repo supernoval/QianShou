@@ -23,7 +23,7 @@
 
 @implementation ProgressHUD
 
-@synthesize window, hud, spinner, image, label;
+@synthesize window, hud, spinner, label;
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 + (ProgressHUD *)shared
@@ -77,7 +77,9 @@
 		window = [delegate performSelector:@selector(window)];
 	else window = [[UIApplication sharedApplication] keyWindow];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	hud = nil; spinner = nil; image = nil; label = nil;
+	hud = nil; spinner = nil;
+//    image = nil;
+    label = nil;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	self.alpha = 0;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,13 +95,25 @@
 	label.text = status;
 	label.hidden = (status == nil) ? YES : NO;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	image.image = img;
-	image.hidden = (img == nil) ? YES : NO;
+//	image.image = img;
+//	image.hidden = (img == nil) ? YES : NO;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	if (spin) [spinner startAnimating]; else [spinner stopAnimating];
+   
+    
+	
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[self hudOrient];
 	[self hudSize];
+    spinner.center = CGPointMake(CGRectGetWidth(hud.frame)/2, CGRectGetHeight(hud.frame)/2);
+    
+    if (spin){ [spinner startAnimating]; label.hidden = YES;}
+    else
+    {
+        [spinner stopAnimating];
+        label.hidden = NO;
+    
+    };
+    
 	[self hudShow];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (hide) [NSThread detachNewThreadSelector:@selector(timedHide) toTarget:self withObject:nil];
@@ -127,14 +141,16 @@
 		spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 		spinner.color = HUD_SPINNER_COLOR;
 		spinner.hidesWhenStopped = YES;
+        spinner.frame = CGRectMake(0, 0, 30, 30);
+        
 	}
 	if (spinner.superview == nil) [hud addSubview:spinner];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
-	if (image == nil)
-	{
-		image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
-	}
-	if (image.superview == nil) [hud addSubview:image];
+//	if (image == nil)
+//	{
+//		image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
+//	}
+//	if (image.superview == nil) [hud addSubview:image];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (label == nil)
 	{
@@ -157,7 +173,7 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	[label removeFromSuperview];	label = nil;
-	[image removeFromSuperview];	image = nil;
+//	[image removeFromSuperview];	image = nil;
 	[spinner removeFromSuperview];	spinner = nil;
 	[hud removeFromSuperview];		hud = nil;
 }
@@ -198,11 +214,11 @@
 		NSInteger options = NSStringDrawingUsesFontLeading | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin;
 		labelRect = [label.text boundingRectWithSize:CGSizeMake(200, 300) options:options attributes:attributes context:NULL];
 
-		labelRect.origin.x = 12;
-		labelRect.origin.y = 66;
+        labelRect.origin.x = 8;
+        labelRect.origin.y = 8;
 
-		hudWidth = labelRect.size.width + 24;
-		hudHeight = labelRect.size.height + 80;
+		hudWidth = labelRect.size.width + 16;
+		hudHeight = labelRect.size.height + 16 ;
 
 		if (hudWidth < 100)
 		{
@@ -210,18 +226,21 @@
 			labelRect.origin.x = 0;
 			labelRect.size.width = 100;
 		}
+        
+       
 	}
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	CGSize screen = [UIScreen mainScreen].bounds.size;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	hud.center = CGPointMake(screen.width/2, screen.height/2);
 	hud.bounds = CGRectMake(0, 0, hudWidth, hudHeight);
-	//---------------------------------------------------------------------------------------------------------------------------------------------
-	CGFloat imagex = hudWidth/2;
-	CGFloat imagey = (label.text == nil) ? hudHeight/2 : 36;
-	image.center = spinner.center = CGPointMake(imagex, imagey);
-	//---------------------------------------------------------------------------------------------------------------------------------------------
+   
+    
+
 	label.frame = labelRect;
+    
+    
+    
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------

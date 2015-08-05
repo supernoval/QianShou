@@ -9,7 +9,9 @@
 #import "BaseTableViewController.h"
 
 @interface BaseTableViewController ()
-
+{
+     UITapGestureRecognizer *_tapResign;
+}
 @end
 
 @implementation BaseTableViewController
@@ -20,6 +22,7 @@
     self.tabBarController.tabBar.tintColor = TabbarTintColor;
 
     
+     _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
  
     
     
@@ -28,7 +31,24 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboarddidShow) name:UIKeyboardDidShowNotification object:nil];
 }
+
+-(void)keyboarddidShow
+{
+    [self.view addGestureRecognizer:_tapResign];
+    
+    
+}
+-(void)hideKeyboard
+{
+    [self.view endEditing:YES];
+    
+    [self.view removeGestureRecognizer:_tapResign];
+    
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {

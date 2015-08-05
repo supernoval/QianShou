@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import <SMS_SDK/SMS_SDK.h>
+#import <BmobSDK/Bmob.h>
 
 @interface AppDelegate ()
 
@@ -21,8 +23,72 @@
     // Override point for customization after application launch.
     
 //    [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
+    
+    //remoteNotification  远程通知
+    
+
+    //bmob
+    [Bmob registerWithAppKey:kBmobApplicationID];
+    
+    //sharesdk sms 注册
+    [SMS_SDK registerApp:kShareSDKSMSAppKey withSecret:kShareSDKSMSAppSecret];
+    
+    
+    if ([[UIDevice currentDevice].systemVersion floatValue] >=8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+    }
+    
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeBadge |UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
+    }
+    
     return YES;
 }
+
+#ifdef __IPHONE_8_0
+
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    [application registerForRemoteNotifications];
+    
+}
+
+-(void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
+{
+    
+}
+#endif
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString *dToken = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+
+    dToken = [dToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSLog(@"STR:%@",dToken);
+    
+    
+    if (dToken)
+    {
+        
+        [[NSUserDefaults standardUserDefaults ] setObject:dToken forKey:kDeviceTokenKey];
+        
+        [[NSUserDefaults standardUserDefaults ] synchronize];
+        
+    }
+    
+}
+
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"Registfail%@",error);
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

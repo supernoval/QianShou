@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13838B531B719E96007CA809 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 13838B4F1B719E96007CA809 /* SMS_SDKLocalizable.strings */; };
+		13838B541B719E96007CA809 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B511B719E96007CA809 /* SMS_SDK.framework */; };
+		13838B561B719F5F007CA809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B551B719F5F007CA809 /* libz.dylib */; };
+		13838B581B719F69007CA809 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B571B719F69007CA809 /* MessageUI.framework */; };
+		13838B5A1B71A0C8007CA809 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B591B71A0C8007CA809 /* AddressBook.framework */; };
+		13838B5C1B71A0CD007CA809 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B5B1B71A0CD007CA809 /* AddressBookUI.framework */; };
+		13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B621B71AA77007CA809 /* RegistTableViewController.m */; };
+		13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B691B71ABF9007CA809 /* LoginViewController.m */; };
+		13838B6F1B71B780007CA809 /* QSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B6E1B71B780007CA809 /* QSUser.m */; };
+		13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B711B71D4F5007CA809 /* CommonMethods.m */; };
+		13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B781B71DC56007CA809 /* ForgetCodeTVC.m */; };
+		13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B7C1B71E203007CA809 /* ChangeCodeTVC.m */; };
+		13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B811B71E35B007CA809 /* MyProgressHUD.m */; };
 		13983A291B6B261500D44BF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A281B6B261500D44BF0 /* main.m */; };
 		13983A2C1B6B261500D44BF0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		13983A321B6B261500D44BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13983A301B6B261500D44BF0 /* Main.storyboard */; };
@@ -70,6 +83,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13838B501B719E96007CA809 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
+		13838B511B719E96007CA809 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
+		13838B521B719E96007CA809 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/SMS_SDKLocalizable.strings"; sourceTree = "<group>"; };
+		13838B551B719F5F007CA809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		13838B571B719F69007CA809 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		13838B591B71A0C8007CA809 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		13838B5B1B71A0CD007CA809 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		13838B611B71AA77007CA809 /* RegistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistTableViewController.h; path = regist/RegistTableViewController.h; sourceTree = "<group>"; };
+		13838B621B71AA77007CA809 /* RegistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistTableViewController.m; path = regist/RegistTableViewController.m; sourceTree = "<group>"; };
+		13838B681B71ABF9007CA809 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Login/LoginViewController.h; sourceTree = "<group>"; };
+		13838B691B71ABF9007CA809 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Login/LoginViewController.m; sourceTree = "<group>"; };
+		13838B6D1B71B780007CA809 /* QSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSUser.h; path = UserModel/QSUser.h; sourceTree = "<group>"; };
+		13838B6E1B71B780007CA809 /* QSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSUser.m; path = UserModel/QSUser.m; sourceTree = "<group>"; };
+		13838B701B71D4F1007CA809 /* CommonMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMethods.h; sourceTree = "<group>"; };
+		13838B711B71D4F5007CA809 /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
+		13838B771B71DC56007CA809 /* ForgetCodeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetCodeTVC.h; path = ForgetCode/ForgetCodeTVC.h; sourceTree = "<group>"; };
+		13838B781B71DC56007CA809 /* ForgetCodeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetCodeTVC.m; path = ForgetCode/ForgetCodeTVC.m; sourceTree = "<group>"; };
+		13838B7B1B71E203007CA809 /* ChangeCodeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeCodeTVC.h; path = ChangeCode/ChangeCodeTVC.h; sourceTree = "<group>"; };
+		13838B7C1B71E203007CA809 /* ChangeCodeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangeCodeTVC.m; path = ChangeCode/ChangeCodeTVC.m; sourceTree = "<group>"; };
+		13838B801B71E35B007CA809 /* MyProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProgressHUD.h; path = ProgressHUD/MyProgressHUD.h; sourceTree = "<group>"; };
+		13838B811B71E35B007CA809 /* MyProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyProgressHUD.m; path = ProgressHUD/MyProgressHUD.m; sourceTree = "<group>"; };
+		13838B831B71FBEA007CA809 /* BmobDataListName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BmobDataListName.h; path = BmobDataListName/BmobDataListName.h; sourceTree = "<group>"; };
 		13983A231B6B261500D44BF0 /* QianShouBang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QianShouBang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13983A271B6B261500D44BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		13983A281B6B261500D44BF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -160,11 +195,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13838B5C1B71A0CD007CA809 /* AddressBookUI.framework in Frameworks */,
+				13838B5A1B71A0C8007CA809 /* AddressBook.framework in Frameworks */,
+				13838B581B719F69007CA809 /* MessageUI.framework in Frameworks */,
+				13838B561B719F5F007CA809 /* libz.dylib in Frameworks */,
+				13983B261B6B603200D44BF0 /* libicucore.dylib in Frameworks */,
 				13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */,
 				13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */,
 				13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */,
-				13983B261B6B603200D44BF0 /* libicucore.dylib in Frameworks */,
 				13983B241B6B602A00D44BF0 /* libz.1.2.5.dylib in Frameworks */,
+				13838B541B719E96007CA809 /* SMS_SDK.framework in Frameworks */,
 				13983B221B6B601C00D44BF0 /* SystemConfiguration.framework in Frameworks */,
 				13983B201B6B601500D44BF0 /* CoreTelephony.framework in Frameworks */,
 				13983B1E1B6B600D00D44BF0 /* CFNetwork.framework in Frameworks */,
@@ -192,6 +232,11 @@
 		136A920A1B6F3BD40064B541 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				13838B551B719F5F007CA809 /* libz.dylib */,
+				13838B571B719F69007CA809 /* MessageUI.framework */,
+				13838B591B71A0C8007CA809 /* AddressBook.framework */,
+				13838B5B1B71A0CD007CA809 /* AddressBookUI.framework */,
+				13838B4E1B719E96007CA809 /* SMS_SDK */,
 				13983B151B6B5FF200D44BF0 /* CoreLocation.framework */,
 				13983B171B6B5FF800D44BF0 /* Security.framework */,
 				13983B191B6B600000D44BF0 /* CoreGraphics.framework */,
@@ -206,6 +251,88 @@
 				13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		13838B4E1B719E96007CA809 /* SMS_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				13838B4F1B719E96007CA809 /* SMS_SDKLocalizable.strings */,
+				13838B511B719E96007CA809 /* SMS_SDK.framework */,
+			);
+			path = SMS_SDK;
+			sourceTree = "<group>";
+		};
+		13838B5D1B71A50A007CA809 /* regist */ = {
+			isa = PBXGroup;
+			children = (
+				13838B611B71AA77007CA809 /* RegistTableViewController.h */,
+				13838B621B71AA77007CA809 /* RegistTableViewController.m */,
+			);
+			name = regist;
+			sourceTree = "<group>";
+		};
+		13838B641B71AAB9007CA809 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				13838B681B71ABF9007CA809 /* LoginViewController.h */,
+				13838B691B71ABF9007CA809 /* LoginViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		13838B6B1B71B722007CA809 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				13838B6C1B71B753007CA809 /* UserModel */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		13838B6C1B71B753007CA809 /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				13838B6D1B71B780007CA809 /* QSUser.h */,
+				13838B6E1B71B780007CA809 /* QSUser.m */,
+			);
+			name = UserModel;
+			sourceTree = "<group>";
+		};
+		13838B761B71DAF3007CA809 /* forgetpassword */ = {
+			isa = PBXGroup;
+			children = (
+				13838B771B71DC56007CA809 /* ForgetCodeTVC.h */,
+				13838B781B71DC56007CA809 /* ForgetCodeTVC.m */,
+			);
+			name = forgetpassword;
+			sourceTree = "<group>";
+		};
+		13838B7A1B71E1E4007CA809 /* ChangeCode */ = {
+			isa = PBXGroup;
+			children = (
+				13838B7B1B71E203007CA809 /* ChangeCodeTVC.h */,
+				13838B7C1B71E203007CA809 /* ChangeCodeTVC.m */,
+			);
+			name = ChangeCode;
+			sourceTree = "<group>";
+		};
+		13838B7E1B71E269007CA809 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				13838B5D1B71A50A007CA809 /* regist */,
+				13838B641B71AAB9007CA809 /* Login */,
+				13838B761B71DAF3007CA809 /* forgetpassword */,
+				13838B7A1B71E1E4007CA809 /* ChangeCode */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		13838B7F1B71E331007CA809 /* MyProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				13838B801B71E35B007CA809 /* MyProgressHUD.h */,
+				13838B811B71E35B007CA809 /* MyProgressHUD.m */,
+			);
+			name = MyProgressHUD;
 			sourceTree = "<group>";
 		};
 		13983A1A1B6B261500D44BF0 = {
@@ -229,13 +356,16 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				13838B7F1B71E331007CA809 /* MyProgressHUD */,
+				13838B6B1B71B722007CA809 /* Model */,
+				13838B7E1B71E269007CA809 /* Account */,
 				13983AE91B6B5A0A00D44BF0 /* NetWorkClass */,
-				13983AE51B6B51AB00D44BF0 /* constants */,
-				13983AE11B6B510E00D44BF0 /* 我的 */,
-				13983AE01B6B510900D44BF0 /* 通讯录 */,
-				13983ADF1B6B510300D44BF0 /* 呐喊 */,
-				13983ADE1B6B50FE00D44BF0 /* 个人中心 */,
-				13983ADD1B6B50B300D44BF0 /* 抢单 */,
+				13983AE51B6B51AB00D44BF0 /* 常量 */,
+				13983AE11B6B510E00D44BF0 /* mine */,
+				13983AE01B6B510900D44BF0 /* contacts */,
+				13983ADF1B6B510300D44BF0 /* yell */,
+				13983ADE1B6B50FE00D44BF0 /* personcenter */,
+				13983ADD1B6B50B300D44BF0 /* catchorder */,
 				13983A571B6B3A9800D44BF0 /* BaseViewControllers */,
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
 				13983A2A1B6B261500D44BF0 /* AppDelegate.h */,
@@ -340,48 +470,57 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
-		13983ADD1B6B50B300D44BF0 /* 抢单 */ = {
+		13983ADD1B6B50B300D44BF0 /* catchorder */ = {
 			isa = PBXGroup;
 			children = (
 				13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */,
 				13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */,
 			);
+			name = catchorder;
 			path = "抢单";
 			sourceTree = "<group>";
 		};
-		13983ADE1B6B50FE00D44BF0 /* 个人中心 */ = {
+		13983ADE1B6B50FE00D44BF0 /* personcenter */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			name = personcenter;
 			path = "个人中心";
 			sourceTree = "<group>";
 		};
-		13983ADF1B6B510300D44BF0 /* 呐喊 */ = {
+		13983ADF1B6B510300D44BF0 /* yell */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			name = yell;
 			path = "呐喊";
 			sourceTree = "<group>";
 		};
-		13983AE01B6B510900D44BF0 /* 通讯录 */ = {
+		13983AE01B6B510900D44BF0 /* contacts */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			name = contacts;
 			path = "通讯录";
 			sourceTree = "<group>";
 		};
-		13983AE11B6B510E00D44BF0 /* 我的 */ = {
+		13983AE11B6B510E00D44BF0 /* mine */ = {
 			isa = PBXGroup;
 			children = (
 			);
+			name = mine;
 			path = "我的";
 			sourceTree = "<group>";
 		};
-		13983AE51B6B51AB00D44BF0 /* constants */ = {
+		13983AE51B6B51AB00D44BF0 /* 常量 */ = {
 			isa = PBXGroup;
 			children = (
+				13838B701B71D4F1007CA809 /* CommonMethods.h */,
+				13838B711B71D4F5007CA809 /* CommonMethods.m */,
 				13983AE61B6B51BD00D44BF0 /* Constants.h */,
+				13838B831B71FBEA007CA809 /* BmobDataListName.h */,
 			);
+			name = "常量";
 			path = constants;
 			sourceTree = "<group>";
 		};
@@ -493,6 +632,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 13983A1A1B6B261500D44BF0;
 			productRefGroup = 13983A241B6B261500D44BF0 /* Products */;
@@ -511,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13983B101B6B5BDF00D44BF0 /* AlipaySDK.bundle in Resources */,
+				13838B531B719E96007CA809 /* SMS_SDKLocalizable.strings in Resources */,
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
 				13983A321B6B261500D44BF0 /* Main.storyboard in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
@@ -533,13 +674,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				13983AD31B6B478000D44BF0 /* MJRefreshConst.m in Sources */,
 				13983AD91B6B478000D44BF0 /* MJRefreshLegendHeader.m in Sources */,
 				13983B051B6B5A6000D44BF0 /* AFSecurityPolicy.m in Sources */,
+				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
+				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				13983B021B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m in Sources */,
 				13983B011B6B5A6000D44BF0 /* AFHTTPRequestOperation.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				13983A2C1B6B261500D44BF0 /* AppDelegate.m in Sources */,
+				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
+				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
+				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13983AD41B6B478000D44BF0 /* MJRefreshFooter.m in Sources */,
 				13983AD81B6B478000D44BF0 /* MJRefreshLegendFooter.m in Sources */,
@@ -553,6 +700,7 @@
 				13983B071B6B5A6000D44BF0 /* AFURLRequestSerialization.m in Sources */,
 				13983B091B6B5A6000D44BF0 /* AFURLSessionManager.m in Sources */,
 				13983B081B6B5A6000D44BF0 /* AFURLResponseSerialization.m in Sources */,
+				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */,
 				13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
@@ -582,6 +730,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		13838B4F1B719E96007CA809 /* SMS_SDKLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				13838B501B719E96007CA809 /* en */,
+				13838B521B719E96007CA809 /* zh-Hans */,
+			);
+			name = SMS_SDKLocalizable.strings;
+			sourceTree = "<group>";
+		};
 		13983A301B6B261500D44BF0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -688,6 +845,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
+					"$(PROJECT_DIR)/QianShouBang/SMS_SDK",
 				);
 				INFOPLIST_FILE = QianShouBang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -704,6 +862,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
+					"$(PROJECT_DIR)/QianShouBang/SMS_SDK",
 				);
 				INFOPLIST_FILE = QianShouBang/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

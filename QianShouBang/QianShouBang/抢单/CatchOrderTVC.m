@@ -7,6 +7,7 @@
 //
 
 #import "CatchOrderTVC.h"
+#import "LoginViewController.h"
 
 @interface CatchOrderTVC ()
 
@@ -18,10 +19,28 @@
     [super viewDidLoad];
    
     
+  
     
     
     
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
+ 
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
+    {
+        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+        
+        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {

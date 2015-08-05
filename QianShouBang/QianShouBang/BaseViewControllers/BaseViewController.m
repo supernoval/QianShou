@@ -9,7 +9,9 @@
 #import "BaseViewController.h"
 
 @interface BaseViewController ()
-
+{
+    UITapGestureRecognizer *_tapResign;
+}
 @end
 
 @implementation BaseViewController
@@ -20,8 +22,33 @@
     self.tabBarController.tabBar.tintColor = TabbarTintColor;
 //    self.navigationController.navigationBar.backgroundColor = NavigationBarColor;
     
+     _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+    
+    
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboarddidShow) name:UIKeyboardDidShowNotification object:nil];
+}
+
+-(void)keyboarddidShow
+{
+    [self.view addGestureRecognizer:_tapResign];
+    
+    
+}
+-(void)hideKeyboard
+{
+    [self.view endEditing:YES];
+    
+    [self.view removeGestureRecognizer:_tapResign];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
