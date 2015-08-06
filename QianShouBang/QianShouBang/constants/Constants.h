@@ -32,10 +32,11 @@
 #define TabbarTintColor  [UIColor greenColor]
 
 //navigationbar 颜色
-#define NavigationBarColor  [UIColor redColor]
+#define NavigationBarColor  RGB(65,174,158,0.9)
 
 
 //#define NavigationBarColor RGB(20,45,100,1)
 //背景色
 #define kBackgroundColor RGB(250,250,250,1)
 #define kContentColor [UIColor whiteColor]
+#define kDarkTintColor   RGB(49, 46, 46, 1)

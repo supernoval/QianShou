@@ -19,13 +19,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    self.tabBarController.tabBar.tintColor = TabbarTintColor;
-//    self.navigationController.navigationBar.backgroundColor = NavigationBarColor;
+
     
      _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
     
     
-    
+    if (self.title.length > 0) {
+        
+        [self setNavigationTitleColor];
+        
+        
+    }
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -48,6 +52,20 @@
     
 }
 
+
+
+#pragma mark - 设置title  颜色
+-(void)setNavigationTitleColor
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 30)];
+    self.navigationItem.titleView = label;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"Heiti SC" size:18];
+    label.backgroundColor = [UIColor clearColor];
+    //    label.textColor = [UIColor colorWithRed:0.686 green:0.49 blue:0.231 alpha:1];
+    label.textColor = [UIColor whiteColor];
+    label.text = self.title;
+}
 
 
 - (void)didReceiveMemoryWarning {

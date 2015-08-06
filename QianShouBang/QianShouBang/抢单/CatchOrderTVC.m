@@ -16,10 +16,15 @@
 @implementation CatchOrderTVC
 
 - (void)viewDidLoad {
+    
+    self.notNeedSetTitle = YES;
+    
     [super viewDidLoad];
+    
+    
    
     
-  
+    
     
     
     
