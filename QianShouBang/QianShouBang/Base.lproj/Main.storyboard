@@ -1599,7 +1599,7 @@
         <!--Root View Controller-->
         <scene sceneID="nxH-XG-EDg">
             <objects>
-                <tableViewController id="z3E-EZ-FKi" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ContactTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="z3E-EZ-FKi" customClass="ContactTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="v02-cz-usc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1643,7 +1643,7 @@
         <!--Root View Controller-->
         <scene sceneID="qsa-qe-fXp">
             <objects>
-                <tableViewController id="hRA-YQ-Wmv" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PersonCenterTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hRA-YQ-Wmv" customClass="PersonCenterTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="19t-7q-tHa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

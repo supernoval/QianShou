@@ -1,18 +1,15 @@
 //
-//  SingleRowCell.h
+//  RowTextCell.h
 //  QianShouBang
 //
-//  Created by Leo on 15/8/5.
+//  Created by ucan on 15/8/6.
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SingleRowCell : UITableViewCell
-
-@property (strong, nonatomic) IBOutlet UIImageView *image;
-
+@interface RowTextCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *text;
-
 @property (strong, nonatomic) IBOutlet UILabel *extraText;
+
 @end

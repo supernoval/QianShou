@@ -1,14 +1,14 @@
 //
-//  SingleRowCell.m
+//  ContactCell.m
 //  QianShouBang
 //
-//  Created by Leo on 15/8/5.
+//  Created by ucan on 15/8/6.
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
-#import "SingleRowCell.h"
+#import "ContactCell.h"
 
-@implementation SingleRowCell
+@implementation ContactCell
 
 - (void)awakeFromNib {
     // Initialization code
