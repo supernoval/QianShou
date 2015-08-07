@@ -178,11 +178,10 @@ static NSString *tipsCell = @"tipsCell";
         
         for (BmobObject *ob in array) {
           
-            NSDictionary *bmobdataDic = [ob objectForKey:@"bmobDataDic"];
+           
             
-            NSLog(@"bmobdataDic:%@",bmobdataDic);
+           
             
-            [rewardModel setValuesForKeysWithDictionary:ob];
             
         }
         
