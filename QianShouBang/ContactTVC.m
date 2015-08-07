@@ -9,6 +9,7 @@
 #import "ContactTVC.h"
 #import "ContactCell.h"
 #import "SettingTVC.h"
+#import "PersonInfoSettingTVC.h"
 
 @interface ContactTVC ()
 @property(strong,nonatomic)UISearchBar *headSearchBar;
@@ -141,8 +142,8 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     
-    SettingTVC *SettingTVC = [sb instantiateViewControllerWithIdentifier:@"SettingTVC"];
-    [self.navigationController pushViewController:SettingTVC animated:YES];
+    PersonInfoSettingTVC *personSettingTVC = [sb instantiateViewControllerWithIdentifier:@"PersonInfoSettingTVC"];
+    [self.navigationController pushViewController:personSettingTVC animated:YES];
     //    switch (indexPath.section) {
     //        case 0:
     //            self.view.backgroundColor = kBackgroundColor;

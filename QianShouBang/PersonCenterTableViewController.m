@@ -12,6 +12,7 @@
 #import "MyPurseTableViewController.h"
 #import "RankTVC.h"
 #import "SettingTVC.h"
+#import "PersonInfoSettingTVC.h"
 
 
 @interface PersonCenterTableViewController ()
@@ -94,7 +95,6 @@
         RowCell *singleCell = [tableView dequeueReusableCellWithIdentifier:cellId ];
         if (singleCell == nil) {
             
-             NSLog(@"1111112");
             singleCell = [[NSBundle mainBundle]loadNibNamed:@"RowCell" owner:self options:nil][0];
         }
         if (indexPath.section == 1) {
@@ -156,10 +156,11 @@
     
     
     if (indexPath.section == 0) {
-        NSLog(@"000000");
-        self.view.backgroundColor = [UIColor redColor];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
         
-        
+        PersonInfoSettingTVC *personSettingTVC = [sb instantiateViewControllerWithIdentifier:@"PersonInfoSettingTVC"];
+        [self.navigationController pushViewController:personSettingTVC animated:YES];
+
     }else if(indexPath.section == 1){
         if (indexPath.row == 0) {
             self.view.backgroundColor = [UIColor blueColor];

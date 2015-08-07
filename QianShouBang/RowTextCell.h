@@ -11,5 +11,7 @@
 @interface RowTextCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *text;
 @property (strong, nonatomic) IBOutlet UILabel *extraText;
+@property (strong, nonatomic) IBOutlet UIImageView *arrow;
+
 
 @end

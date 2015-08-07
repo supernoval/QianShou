@@ -63,6 +63,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="arrow" destination="uIX-Gj-ckI" id="Mp2-IN-DBm"/>
                 <outlet property="extraText" destination="jeT-MF-Uj9" id="URz-ft-xUo"/>
                 <outlet property="text" destination="ssx-f1-19Z" id="Xrb-hU-Xbu"/>
             </connections>

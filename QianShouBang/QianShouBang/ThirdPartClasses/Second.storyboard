@@ -32,6 +32,33 @@
             </objects>
             <point key="canvasLocation" x="252" y="336"/>
         </scene>
+        <!--Person Info SettingTVC-->
+        <scene sceneID="z3x-sh-trF">
+            <objects>
+                <tableViewController storyboardIdentifier="PersonInfoSettingTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YH1-Vs-G2c" customClass="PersonInfoSettingTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cVO-wh-bzU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yaj-cu-AjS">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yaj-cu-AjS" id="0BX-g3-f4x">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YH1-Vs-G2c" id="Ht3-L3-7UP"/>
+                            <outlet property="delegate" destination="YH1-Vs-G2c" id="lBQ-30-8pq"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPl-wV-2Qr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="883"/>
+        </scene>
         <!--RankTVC-->
         <scene sceneID="nqt-SB-tyP">
             <objects>
