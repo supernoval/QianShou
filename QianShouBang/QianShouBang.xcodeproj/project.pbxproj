@@ -36,7 +36,6 @@
 		13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B7C1B71E203007CA809 /* ChangeCodeTVC.m */; };
 		13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B811B71E35B007CA809 /* MyProgressHUD.m */; };
 		13983A291B6B261500D44BF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A281B6B261500D44BF0 /* main.m */; };
-		13983A321B6B261500D44BF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13983A301B6B261500D44BF0 /* Main.storyboard */; };
 		13983A341B6B261500D44BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13983A331B6B261500D44BF0 /* Images.xcassets */; };
 		13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13983A351B6B261500D44BF0 /* LaunchScreen.xib */; };
 		13983A431B6B261500D44BF0 /* QianShouBangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A421B6B261500D44BF0 /* QianShouBangTests.m */; };
@@ -71,6 +70,7 @@
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
+		157E642C1B751384007A1AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157E642B1B751384007A1AFD /* Main.storyboard */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
@@ -167,7 +167,6 @@
 		13983A281B6B261500D44BF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13983A2A1B6B261500D44BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13983A2B1B6B261500D44BF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13983A311B6B261500D44BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		13983A331B6B261500D44BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13983A361B6B261500D44BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13983A3C1B6B261500D44BF0 /* QianShouBangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QianShouBangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +220,7 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		157E642B1B751384007A1AFD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
@@ -525,7 +525,7 @@
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
 				13983A2A1B6B261500D44BF0 /* AppDelegate.h */,
 				13983A2B1B6B261500D44BF0 /* AppDelegate.m */,
-				13983A301B6B261500D44BF0 /* Main.storyboard */,
+				157E642B1B751384007A1AFD /* Main.storyboard */,
 				D28FEA9D1B730D700026D674 /* Second.storyboard */,
 				13983A331B6B261500D44BF0 /* Images.xcassets */,
 				13983A351B6B261500D44BF0 /* LaunchScreen.xib */,
@@ -923,11 +923,11 @@
 			files = (
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
-				13983A321B6B261500D44BF0 /* Main.storyboard in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				13983AD11B6B478000D44BF0 /* MJRefresh.bundle in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
+				157E642C1B751384007A1AFD /* Main.storyboard in Resources */,
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
 				D24C37031B74792600228886 /* MallCell.xib in Resources */,
@@ -1038,14 +1038,6 @@
 				137263ED1B744FF90006661C /* zh-Hans */,
 			);
 			name = SMS_SDKLocalizable.strings;
-			sourceTree = "<group>";
-		};
-		13983A301B6B261500D44BF0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13983A311B6B261500D44BF0 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		13983A351B6B261500D44BF0 /* LaunchScreen.xib */ = {
