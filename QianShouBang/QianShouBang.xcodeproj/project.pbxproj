@@ -83,11 +83,25 @@
 		13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B271B6B603A00D44BF0 /* libsqlite3.dylib */; };
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
-		B392A3621B7238A600B7CA6D /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392A3611B7238A600B7CA6D /* InfoCell.xib */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
-		B392A36B1B723B4E00B7CA6D /* singleRowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */; };
-		B392A36E1B723B6D00B7CA6D /* SingleRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */; };
+		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
+		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
+		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
+		D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA961B72FF560026D674 /* ContactTVC.m */; };
+		D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA981B73015C0026D674 /* ContactCell.xib */; };
+		D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA9B1B73017D0026D674 /* ContactCell.m */; };
+		D28FEA9E1B730D700026D674 /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA9D1B730D700026D674 /* Second.storyboard */; };
+		D28FEAA21B7323D80026D674 /* MyPurseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAA11B7323D80026D674 /* MyPurseTableViewController.m */; };
+		D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEAA31B73244B0026D674 /* RowTextCell.xib */; };
+		D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAA61B73246B0026D674 /* RowTextCell.m */; };
+		D28FEAAC1B7336240026D674 /* RankTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAAB1B7336240026D674 /* RankTVC.m */; };
+		D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEAAD1B7336E80026D674 /* RankCell.xib */; };
+		D28FEAB11B7337060026D674 /* RankCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAB01B7337060026D674 /* RankCell.m */; };
+		D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAB41B7348550026D674 /* SettingTVC.m */; };
+		D28FEAB91B7352560026D674 /* PersonInfoSettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAB81B7352560026D674 /* PersonInfoSettingTVC.m */; };
+		D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEABA1B7353380026D674 /* PortraitCell.xib */; };
+		D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEABD1B73535D0026D674 /* PortraitCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,14 +247,37 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		B392A3611B7238A600B7CA6D /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
 		B392A3681B72396B00B7CA6D /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = SOURCE_ROOT; };
-		B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = singleRowCell.xib; sourceTree = SOURCE_ROOT; };
-		B392A36C1B723B6D00B7CA6D /* SingleRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleRowCell.h; sourceTree = SOURCE_ROOT; };
-		B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleRowCell.m; sourceTree = SOURCE_ROOT; };
+		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
+		D28FEA911B72F2A60026D674 /* RowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowCell.m; sourceTree = SOURCE_ROOT; };
+		D28FEA951B72FF560026D674 /* ContactTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTVC.h; sourceTree = SOURCE_ROOT; };
+		D28FEA961B72FF560026D674 /* ContactTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTVC.m; sourceTree = SOURCE_ROOT; };
+		D28FEA981B73015C0026D674 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEA9A1B73017D0026D674 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = SOURCE_ROOT; };
+		D28FEA9B1B73017D0026D674 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = SOURCE_ROOT; };
+		D28FEA9D1B730D700026D674 /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Second.storyboard; path = ThirdPartClasses/Second.storyboard; sourceTree = "<group>"; };
+		D28FEAA01B7323D80026D674 /* MyPurseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPurseTableViewController.h; sourceTree = SOURCE_ROOT; };
+		D28FEAA11B7323D80026D674 /* MyPurseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPurseTableViewController.m; sourceTree = SOURCE_ROOT; };
+		D28FEAA31B73244B0026D674 /* RowTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowTextCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEAA51B73246B0026D674 /* RowTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowTextCell.h; sourceTree = SOURCE_ROOT; };
+		D28FEAA61B73246B0026D674 /* RowTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RowTextCell.m; sourceTree = SOURCE_ROOT; };
+		D28FEAAA1B7336240026D674 /* RankTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankTVC.h; sourceTree = SOURCE_ROOT; };
+		D28FEAAB1B7336240026D674 /* RankTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankTVC.m; sourceTree = SOURCE_ROOT; };
+		D28FEAAD1B7336E80026D674 /* RankCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEAAF1B7337060026D674 /* RankCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCell.h; sourceTree = SOURCE_ROOT; };
+		D28FEAB01B7337060026D674 /* RankCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCell.m; sourceTree = SOURCE_ROOT; };
+		D28FEAB31B7348550026D674 /* SettingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTVC.h; sourceTree = SOURCE_ROOT; };
+		D28FEAB41B7348550026D674 /* SettingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTVC.m; sourceTree = SOURCE_ROOT; };
+		D28FEAB71B7352560026D674 /* PersonInfoSettingTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonInfoSettingTVC.h; sourceTree = SOURCE_ROOT; };
+		D28FEAB81B7352560026D674 /* PersonInfoSettingTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonInfoSettingTVC.m; sourceTree = SOURCE_ROOT; };
+		D28FEABA1B7353380026D674 /* PortraitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitCell.xib; sourceTree = SOURCE_ROOT; };
+		D28FEABC1B73535D0026D674 /* PortraitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitCell.h; sourceTree = SOURCE_ROOT; };
+		D28FEABD1B73535D0026D674 /* PortraitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitCell.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -496,13 +533,13 @@
 				13983AE11B6B510E00D44BF0 /* mine */,
 				13983AE01B6B510900D44BF0 /* contacts */,
 				13983ADF1B6B510300D44BF0 /* yell */,
-				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 				13983ADD1B6B50B300D44BF0 /* catchorder */,
 				13983A571B6B3A9800D44BF0 /* BaseViewControllers */,
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
 				13983A2A1B6B261500D44BF0 /* AppDelegate.h */,
 				13983A2B1B6B261500D44BF0 /* AppDelegate.m */,
 				13983A301B6B261500D44BF0 /* Main.storyboard */,
+				D28FEA9D1B730D700026D674 /* Second.storyboard */,
 				13983A331B6B261500D44BF0 /* Images.xcassets */,
 				13983A351B6B261500D44BF0 /* LaunchScreen.xib */,
 				136A920A1B6F3BD40064B541 /* Framework */,
@@ -616,16 +653,21 @@
 		13983ADE1B6B50FE00D44BF0 /* personcenter */ = {
 			isa = PBXGroup;
 			children = (
+				D28FEAB61B73521E0026D674 /* 个人信息设置 */,
+				D28FEAB21B7348200026D674 /* 设置 */,
+				D28FEAA91B7335E10026D674 /* 排行榜 */,
+				D28FEA9F1B730EE00026D674 /* 我的钱包 */,
 				B392A3631B7238BD00B7CA6D /* 个人中心 */,
 				B392A3601B72388300B7CA6D /* cell */,
 			);
 			name = personcenter;
-			path = "个人中心";
+			path = "../个人中心";
 			sourceTree = "<group>";
 		};
 		13983ADF1B6B510300D44BF0 /* yell */ = {
 			isa = PBXGroup;
 			children = (
+				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 			);
 			name = yell;
 			path = "呐喊";
@@ -634,6 +676,8 @@
 		13983AE01B6B510900D44BF0 /* contacts */ = {
 			isa = PBXGroup;
 			children = (
+				D28FEA931B72FEDA0026D674 /* 通讯录 */,
+				D28FEA941B72FEE60026D674 /* Cell */,
 			);
 			name = contacts;
 			path = "通讯录";
@@ -710,12 +754,21 @@
 		B392A3601B72388300B7CA6D /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				B392A3611B7238A600B7CA6D /* InfoCell.xib */,
+				D28FEA891B72EF3C0026D674 /* InfoCell.xib */,
 				B392A3671B72396B00B7CA6D /* InfoCell.h */,
 				B392A3681B72396B00B7CA6D /* InfoCell.m */,
-				B392A36A1B723B4E00B7CA6D /* singleRowCell.xib */,
-				B392A36C1B723B6D00B7CA6D /* SingleRowCell.h */,
-				B392A36D1B723B6D00B7CA6D /* SingleRowCell.m */,
+				D28FEA8B1B72F14B0026D674 /* RowCell.xib */,
+				D28FEA901B72F2A60026D674 /* RowCell.h */,
+				D28FEA911B72F2A60026D674 /* RowCell.m */,
+				D28FEAA31B73244B0026D674 /* RowTextCell.xib */,
+				D28FEAA51B73246B0026D674 /* RowTextCell.h */,
+				D28FEAA61B73246B0026D674 /* RowTextCell.m */,
+				D28FEAAD1B7336E80026D674 /* RankCell.xib */,
+				D28FEAAF1B7337060026D674 /* RankCell.h */,
+				D28FEAB01B7337060026D674 /* RankCell.m */,
+				D28FEABA1B7353380026D674 /* PortraitCell.xib */,
+				D28FEABC1B73535D0026D674 /* PortraitCell.h */,
+				D28FEABD1B73535D0026D674 /* PortraitCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -727,6 +780,61 @@
 				B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */,
 			);
 			name = "个人中心";
+			sourceTree = "<group>";
+		};
+		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEA951B72FF560026D674 /* ContactTVC.h */,
+				D28FEA961B72FF560026D674 /* ContactTVC.m */,
+			);
+			name = "通讯录";
+			sourceTree = "<group>";
+		};
+		D28FEA941B72FEE60026D674 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEA981B73015C0026D674 /* ContactCell.xib */,
+				D28FEA9A1B73017D0026D674 /* ContactCell.h */,
+				D28FEA9B1B73017D0026D674 /* ContactCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D28FEA9F1B730EE00026D674 /* 我的钱包 */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEAA01B7323D80026D674 /* MyPurseTableViewController.h */,
+				D28FEAA11B7323D80026D674 /* MyPurseTableViewController.m */,
+			);
+			name = "我的钱包";
+			sourceTree = "<group>";
+		};
+		D28FEAA91B7335E10026D674 /* 排行榜 */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEAAA1B7336240026D674 /* RankTVC.h */,
+				D28FEAAB1B7336240026D674 /* RankTVC.m */,
+			);
+			name = "排行榜";
+			sourceTree = "<group>";
+		};
+		D28FEAB21B7348200026D674 /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEAB31B7348550026D674 /* SettingTVC.h */,
+				D28FEAB41B7348550026D674 /* SettingTVC.m */,
+			);
+			name = "设置";
+			sourceTree = "<group>";
+		};
+		D28FEAB61B73521E0026D674 /* 个人信息设置 */ = {
+			isa = PBXGroup;
+			children = (
+				D28FEAB71B7352560026D674 /* PersonInfoSettingTVC.h */,
+				D28FEAB81B7352560026D674 /* PersonInfoSettingTVC.m */,
+			);
+			name = "个人信息设置";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -812,14 +920,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				13983B101B6B5BDF00D44BF0 /* AlipaySDK.bundle in Resources */,
-				B392A3621B7238A600B7CA6D /* InfoCell.xib in Resources */,
 				13838B531B719E96007CA809 /* SMS_SDKLocalizable.strings in Resources */,
-				B392A36B1B723B4E00B7CA6D /* singleRowCell.xib in Resources */,
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
+				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
 				13983A321B6B261500D44BF0 /* Main.storyboard in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
+				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				13983AD11B6B478000D44BF0 /* MJRefresh.bundle in Resources */,
+				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
+				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
+				D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */,
+				D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */,
 				13983A341B6B261500D44BF0 /* Images.xcassets in Resources */,
+				D28FEA9E1B730D700026D674 /* Second.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -837,18 +950,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28FEAB91B7352560026D674 /* PersonInfoSettingTVC.m in Sources */,
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				13983AD31B6B478000D44BF0 /* MJRefreshConst.m in Sources */,
-				1377761A1B735237005C2C53 /* JSONModelError.m in Sources */,
+				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				13983AD91B6B478000D44BF0 /* MJRefreshLegendHeader.m in Sources */,
 				13983B051B6B5A6000D44BF0 /* AFSecurityPolicy.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
+				D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */,
+				D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */,
+				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,
 				13983B021B6B5A6000D44BF0 /* AFHTTPRequestOperationManager.m in Sources */,
 				13983B011B6B5A6000D44BF0 /* AFHTTPRequestOperation.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
+				D28FEAB11B7337060026D674 /* RankCell.m in Sources */,
+				D28FEAAC1B7336240026D674 /* RankTVC.m in Sources */,
 				137776171B735237005C2C53 /* JSONModel.m in Sources */,
-				13983A2C1B6B261500D44BF0 /* AppDelegate.m in Sources */,
 				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */,
@@ -867,9 +985,10 @@
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
 				137776241B735273005C2C53 /* RewardLimitationModel.m in Sources */,
 				13983B031B6B5A6000D44BF0 /* AFHTTPSessionManager.m in Sources */,
+				D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */,
 				13983AD71B6B478000D44BF0 /* MJRefreshHeader.m in Sources */,
 				13983AD21B6B478000D44BF0 /* MJRefreshComponent.m in Sources */,
-				1377761E1B735237005C2C53 /* JSONModel+networking.m in Sources */,
+				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
 				13983B061B6B5A6000D44BF0 /* AFURLConnectionOperation.m in Sources */,
 				13983B071B6B5A6000D44BF0 /* AFURLRequestSerialization.m in Sources */,
 				13983B091B6B5A6000D44BF0 /* AFURLSessionManager.m in Sources */,
@@ -882,6 +1001,7 @@
 				1377761D1B735237005C2C53 /* JSONHTTPClient.m in Sources */,
 				1377761C1B735237005C2C53 /* JSONAPI.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
+				D28FEAA21B7323D80026D674 /* MyPurseTableViewController.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
 				1377761B1B735237005C2C53 /* NSArray+JSONModel.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,

@@ -20,10 +20,24 @@
 #define kHadLogin              @"HadLoginKey"
 
 
+
+/*故事板*/
+#define kSecondStoryboard @"Second"
+
+
+
 /*宽高*/
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
+
+/*字体*/
+#define FONT_18 [UIFont systemFontOfSize:18]
+#define FONT_17 [UIFont systemFontOfSize:17]
+#define FONT_16 [UIFont systemFontOfSize:16]
+#define FONT_15 [UIFont systemFontOfSize:15]
+#define FONT_14 [UIFont systemFontOfSize:14]
+#define FONT_12 [UIFont systemFontOfSize:12]
 
 
 /*颜色*/
@@ -39,4 +53,13 @@
 //背景色
 #define kBackgroundColor RGB(250,250,250,1)
 #define kContentColor [UIColor whiteColor]
+#define kLineColor RGB(220,220,220,1)
+//蓝绿字体
+#define kBlueColor RGB(67,202,245,1)
+
+//黄色字体
+#define kYellowColor RGB(253,159,8,1)
+
+//浅灰色气体
+#define kLightTintColor  RGBColor(124, 124, 124, 1)
 #define kDarkTintColor   RGB(49, 46, 46, 1)
