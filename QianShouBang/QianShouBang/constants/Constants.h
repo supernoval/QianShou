@@ -62,3 +62,4 @@
 
 //浅灰色气体
 #define kLightTintColor  RGBColor(124, 124, 124, 1)
+#define kDarkTintColor   RGB(49, 46, 46, 1)
