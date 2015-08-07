@@ -35,6 +35,7 @@
                 case 0: //发布需求
                 {
                     SendNeedTableViewController *sendTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SendNeedTableViewController"];
+                    sendTVC.hidesBottomBarWhenPushed =YES;
                     
                     [self.navigationController pushViewController:sendTVC animated:YES];
                     

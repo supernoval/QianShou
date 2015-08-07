@@ -24,18 +24,21 @@
      _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
     
  
-    if (self.title.length > 0 && !_notNeedSetTitle) {
-        
-        [self setNavigationTitleColor];
-        
-        
-    }
+  
     
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    
+    if (self.title.length > 0 && !_notNeedSetTitle) {
+        
+        [self setNavigationTitleColor];
+        
+        
+    }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboarddidShow) name:UIKeyboardDidShowNotification object:nil];
 }
