@@ -22,7 +22,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
+    //设置naigationbar 背景颜色和字体颜色
+    [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UITabBar appearance] setTintColor:NavigationBarColor];
     
     //remoteNotification  远程通知
     

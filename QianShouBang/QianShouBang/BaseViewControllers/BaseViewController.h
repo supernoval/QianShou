@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import <SMS_SDK/SMS_SDK.h>
+#import "CommonMethods.h"
+#import "MyProgressHUD.h"
+#import "QSUser.h"
+#import "BmobDataListName.h"
 @interface BaseViewController : UIViewController
 
 @end

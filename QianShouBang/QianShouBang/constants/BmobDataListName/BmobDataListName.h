@@ -12,3 +12,6 @@
 //用户表
 #define kUserClassName  @"_User"
 
+//奖励机制表
+#define kRewardClassName  @"RewardLimitation"
+
