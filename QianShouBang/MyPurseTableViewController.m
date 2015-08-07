@@ -19,6 +19,8 @@
     [super viewDidLoad];
     self.title = @"个人账户";
     self.view.backgroundColor = kBackgroundColor;
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     

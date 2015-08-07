@@ -37,6 +37,7 @@
 #define FONT_16 [UIFont systemFontOfSize:16]
 #define FONT_15 [UIFont systemFontOfSize:15]
 #define FONT_14 [UIFont systemFontOfSize:14]
+#define FONT_13 [UIFont systemFontOfSize:13]
 #define FONT_12 [UIFont systemFontOfSize:12]
 
 
@@ -51,7 +52,7 @@
 
 //#define NavigationBarColor RGB(20,45,100,1)
 //背景色
-#define kBackgroundColor RGB(250,250,250,1)
+#define kBackgroundColor RGB(239,239,244,1)
 #define kContentColor [UIColor whiteColor]
 #define kLineColor RGB(220,220,220,1)
 //蓝绿字体
@@ -61,5 +62,5 @@
 #define kYellowColor RGB(253,159,8,1)
 
 //浅灰色气体
-#define kLightTintColor  RGBColor(124, 124, 124, 1)
+#define kLightTintColor  RGB(124, 124, 124, 1)
 #define kDarkTintColor   RGB(49, 46, 46, 1)

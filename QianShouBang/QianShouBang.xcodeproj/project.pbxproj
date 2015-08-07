@@ -73,6 +73,14 @@
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
+		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
+		D24C37031B74792600228886 /* MallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C37021B74792600228886 /* MallCell.xib */; };
+		D24C37061B74794200228886 /* MallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37051B74794200228886 /* MallCell.m */; };
+		D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37091B74931600228886 /* MessageTableViewController.m */; };
+		D24C370C1B74933100228886 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C370B1B74933100228886 /* MessageCell.xib */; };
+		D24C370F1B74934F00228886 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C370E1B74934F00228886 /* MessageCell.m */; };
+		D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */; };
+		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -217,6 +225,20 @@
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
 		B392A3681B72396B00B7CA6D /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = SOURCE_ROOT; };
+		D24C36FF1B7478F300228886 /* MallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallTableViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C37001B7478F300228886 /* MallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallTableViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C37021B74792600228886 /* MallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallCell.xib; sourceTree = SOURCE_ROOT; };
+		D24C37041B74794200228886 /* MallCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallCell.h; sourceTree = SOURCE_ROOT; };
+		D24C37051B74794200228886 /* MallCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallCell.m; sourceTree = SOURCE_ROOT; };
+		D24C37081B74931600228886 /* MessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C37091B74931600228886 /* MessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C370B1B74933100228886 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = SOURCE_ROOT; };
+		D24C370D1B74934F00228886 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = SOURCE_ROOT; };
+		D24C370E1B74934F00228886 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = SOURCE_ROOT; };
+		D24C37131B749E3900228886 /* IntroduceYourselfViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceYourselfViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceYourselfViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C37161B74A84400228886 /* NickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C37171B74A84400228886 /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -489,6 +511,7 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 				13838B7F1B71E331007CA809 /* MyProgressHUD */,
 				13838B6B1B71B722007CA809 /* Model */,
 				13838B7E1B71E269007CA809 /* Account */,
@@ -615,6 +638,8 @@
 		13983ADE1B6B50FE00D44BF0 /* personcenter */ = {
 			isa = PBXGroup;
 			children = (
+				D24C37071B7492E300228886 /* 消息中心 */,
+				D24C36FE1B7477C400228886 /* 牵手币商城 */,
 				D28FEAB61B73521E0026D674 /* 个人信息设置 */,
 				D28FEAB21B7348200026D674 /* 设置 */,
 				D28FEAA91B7335E10026D674 /* 排行榜 */,
@@ -623,13 +648,12 @@
 				B392A3601B72388300B7CA6D /* cell */,
 			);
 			name = personcenter;
-			path = "../个人中心";
+			path = "个人中心";
 			sourceTree = "<group>";
 		};
 		13983ADF1B6B510300D44BF0 /* yell */ = {
 			isa = PBXGroup;
 			children = (
-				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 			);
 			name = yell;
 			path = "呐喊";
@@ -695,6 +719,12 @@
 				D28FEABA1B7353380026D674 /* PortraitCell.xib */,
 				D28FEABC1B73535D0026D674 /* PortraitCell.h */,
 				D28FEABD1B73535D0026D674 /* PortraitCell.m */,
+				D24C37021B74792600228886 /* MallCell.xib */,
+				D24C37041B74794200228886 /* MallCell.h */,
+				D24C37051B74794200228886 /* MallCell.m */,
+				D24C370B1B74933100228886 /* MessageCell.xib */,
+				D24C370D1B74934F00228886 /* MessageCell.h */,
+				D24C370E1B74934F00228886 /* MessageCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -706,6 +736,49 @@
 				B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */,
 			);
 			name = "个人中心";
+			sourceTree = "<group>";
+		};
+		D24C36FE1B7477C400228886 /* 牵手币商城 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C36FF1B7478F300228886 /* MallTableViewController.h */,
+				D24C37001B7478F300228886 /* MallTableViewController.m */,
+			);
+			name = "牵手币商城";
+			sourceTree = "<group>";
+		};
+		D24C37071B7492E300228886 /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C37081B74931600228886 /* MessageTableViewController.h */,
+				D24C37091B74931600228886 /* MessageTableViewController.m */,
+			);
+			name = "消息中心";
+			sourceTree = "<group>";
+		};
+		D24C37101B749D6C00228886 /* 自我描述 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C37131B749E3900228886 /* IntroduceYourselfViewController.h */,
+				D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */,
+			);
+			name = "自我描述";
+			sourceTree = "<group>";
+		};
+		D24C37111B749D7A00228886 /* 昵称 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C37161B74A84400228886 /* NickNameViewController.h */,
+				D24C37171B74A84400228886 /* NickNameViewController.m */,
+			);
+			name = "昵称";
+			sourceTree = "<group>";
+		};
+		D24C37121B749D9100228886 /* 手机号 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "手机号";
 			sourceTree = "<group>";
 		};
 		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
@@ -757,6 +830,9 @@
 		D28FEAB61B73521E0026D674 /* 个人信息设置 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C37121B749D9100228886 /* 手机号 */,
+				D24C37111B749D7A00228886 /* 昵称 */,
+				D24C37101B749D6C00228886 /* 自我描述 */,
 				D28FEAB71B7352560026D674 /* PersonInfoSettingTVC.h */,
 				D28FEAB81B7352560026D674 /* PersonInfoSettingTVC.m */,
 			);
@@ -854,6 +930,8 @@
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
+				D24C37031B74792600228886 /* MallCell.xib in Resources */,
+				D24C370C1B74933100228886 /* MessageCell.xib in Resources */,
 				D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */,
 				D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */,
 				13983A341B6B261500D44BF0 /* Images.xcassets in Resources */,
@@ -883,15 +961,18 @@
 				13983AD91B6B478000D44BF0 /* MJRefreshLegendHeader.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
+				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
 				D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */,
 				D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */,
 				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				D28FEAB11B7337060026D674 /* RankCell.m in Sources */,
 				137263E41B744E3D0006661C /* JSONValueTransformer.m in Sources */,
+				D24C370F1B74934F00228886 /* MessageCell.m in Sources */,
 				D28FEAAC1B7336240026D674 /* RankTVC.m in Sources */,
 				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
+				D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */,
 				137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */,
 				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
 				137263E11B744E3D0006661C /* JSONHTTPClient.m in Sources */,
@@ -912,6 +993,7 @@
 				137263DF1B744E3D0006661C /* NSArray+JSONModel.m in Sources */,
 				13983AD21B6B478000D44BF0 /* MJRefreshComponent.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
+				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */,
@@ -919,8 +1001,10 @@
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
 				13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
+				D24C37181B74A84400228886 /* NickNameViewController.m in Sources */,
 				D28FEAA21B7323D80026D674 /* MyPurseTableViewController.m in Sources */,
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
+				D24C37061B74794200228886 /* MallCell.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,

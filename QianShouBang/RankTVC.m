@@ -52,7 +52,7 @@
     //头像
     cell.image.image = [UIImage imageNamed:@"setting"];
     //姓名
-    cell.name.text = @"超人不会飞";
+    cell.name.text = @"超人飞";
     
     //简介
     cell.intro_text.text = @"去尼玛的超人不会飞";

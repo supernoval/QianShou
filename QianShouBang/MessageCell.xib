@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageCell" id="xeW-lB-vHx" customClass="MessageCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xeW-lB-vHx" id="TRR-Mb-Q8c">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于刷单特别提醒" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la0-2j-GPW">
+                        <rect key="frame" x="32" y="0.0" width="216" height="39"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450980392156" green="0.48627450980392156" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07/18" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihf-qA-Vox">
+                        <rect key="frame" x="248" y="18" width="64" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="64" id="BFV-wa-Pzh"/>
+                            <constraint firstAttribute="height" constant="21" id="BcM-M4-xgt"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.48627450979999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="f2u-L5-Sbp">
+                        <rect key="frame" x="8" y="13" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="ECR-cW-IsA"/>
+                            <constraint firstAttribute="height" constant="14" id="etj-H1-z8F"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="la0-2j-GPW" firstAttribute="leading" secondItem="f2u-L5-Sbp" secondAttribute="trailing" constant="10" id="7MZ-0z-nQR"/>
+                    <constraint firstAttribute="trailing" secondItem="ihf-qA-Vox" secondAttribute="trailing" constant="8" id="Hoa-WZ-Bob"/>
+                    <constraint firstItem="f2u-L5-Sbp" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" constant="13" id="HtS-Uu-R4r"/>
+                    <constraint firstItem="ihf-qA-Vox" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" constant="18" id="QWo-EK-Jdi"/>
+                    <constraint firstItem="f2u-L5-Sbp" firstAttribute="leading" secondItem="TRR-Mb-Q8c" secondAttribute="leading" constant="8" id="UXD-Yy-RD1"/>
+                    <constraint firstAttribute="trailing" secondItem="la0-2j-GPW" secondAttribute="trailing" constant="72" id="bti-Qd-E7a"/>
+                    <constraint firstItem="la0-2j-GPW" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" id="kPT-EE-0h8"/>
+                    <constraint firstAttribute="bottom" secondItem="la0-2j-GPW" secondAttribute="bottom" id="uGD-0w-f6f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="image" destination="f2u-L5-Sbp" id="WOB-af-Kl3"/>
+                <outlet property="timeText" destination="ihf-qA-Vox" id="bhS-C1-GIc"/>
+                <outlet property="titleText" destination="la0-2j-GPW" id="5eL-Gj-mOO"/>
+            </connections>
+            <point key="canvasLocation" x="374" y="63"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="green_dot" width="8" height="8"/>
+    </resources>
+</document>
