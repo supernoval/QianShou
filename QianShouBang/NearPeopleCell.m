@@ -12,8 +12,29 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    self.nameBtn.selected = NO;
+//    self.nameBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+//    self.nameBtn.imageView.contentMode = UIViewContentModeBottomRight;
+    [self.nameBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 5, 0, 0)];
+    
+    
+    
 }
 
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+//    CGRect titleF = self.nameBtn.titleLabel.frame;
+//    CGRect imageF = self.nameBtn.imageView.frame;
+//    
+//    titleF.origin.x = imageF.origin.x;
+//    self.nameBtn.titleLabel.frame = titleF;
+//    imageF.origin.x = CGRectGetMaxX(titleF);
+//    self.nameBtn.imageView.frame = imageF;
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

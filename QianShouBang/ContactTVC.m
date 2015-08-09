@@ -10,6 +10,7 @@
 #import "ContactCell.h"
 #import "SettingTVC.h"
 #import "PersonInfoSettingTVC.h"
+#import "NearPeopleTVC.h"
 
 @interface ContactTVC ()
 @property(strong,nonatomic)UISearchBar *headSearchBar;
@@ -20,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"通讯录";
+    self.title = @"联系人";
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -142,24 +143,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     
-    PersonInfoSettingTVC *personSettingTVC = [sb instantiateViewControllerWithIdentifier:@"PersonInfoSettingTVC"];
-    [self.navigationController pushViewController:personSettingTVC animated:YES];
-    //    switch (indexPath.section) {
-    //        case 0:
-    //            self.view.backgroundColor = kBackgroundColor;
-    //            break;
-    //
-    //        case 1:
-    //            <#statements#>
-    //            break;
-    //
-    //        case 2:
-    //            <#statements#>
-    //            break;
-    //            
-    //        default:
-    //            break;
-    //    }
+        switch (indexPath.section) {
+                
+            case 0:
+            {
+               
+            }
+                break;
+    
+            case 1:
+            {
+            }
+                break;
+    
+            case 2:
+            {
+                NearPeopleTVC *nearTVC = [sb instantiateViewControllerWithIdentifier:@"NearPeopleTVC"];
+                [self.navigationController pushViewController:nearTVC animated:YES];
+            }
+                break;
+                
+            default:
+                break;
+        }
 }
 
 

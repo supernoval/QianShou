@@ -8,6 +8,7 @@
 
 #import "MyPurseTableViewController.h"
 #import "RowTextCell.h"
+#import "WithDrawCashViewController.h"
 
 @interface MyPurseTableViewController ()
 
@@ -83,5 +84,30 @@
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    switch (indexPath.row) {
+        case 0://钱包余额
+        {
+        }
+            break;
+            
+        case 1://牵手币
+        {
+        }
+            break;
+            
+        case 2://余额转出（提现）
+        {
+            WithDrawCashViewController *cashVC = [sb instantiateViewControllerWithIdentifier:@"WithDrawCashViewController"];
+            [self.navigationController pushViewController:cashVC animated:YES];
+        }
+            break;
+            
+            
+        default:
+            break;
+    }
+}
 @end

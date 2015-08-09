@@ -20,6 +20,8 @@
     self.title = @"设置";
     self.view.backgroundColor = kBackgroundColor;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     self.tableView.tableFooterView = [self tableFooterView];
 }
 

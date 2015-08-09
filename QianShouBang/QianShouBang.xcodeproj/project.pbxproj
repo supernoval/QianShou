@@ -87,9 +87,24 @@
 		15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722661B771686005A2303 /* RSADataSigner.m */; };
 		15A722701B771686005A2303 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722681B771686005A2303 /* RSADataVerifier.m */; };
 		15A722721B7716F2005A2303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A722711B7716F2005A2303 /* Main.storyboard */; };
+<<<<<<< .mine
+		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
+		B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069721B771A940045CF10 /* NearPeopleCell.m */; };
+		B35069771B7728BF0045CF10 /* NearPeopleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069761B7728BF0045CF10 /* NearPeopleTVC.m */; };
+		B350697A1B773A500045CF10 /* BindPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069791B773A500045CF10 /* BindPhoneViewController.m */; };
+		B35069801B7749740045CF10 /* WithDrawCashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B350697F1B7749740045CF10 /* WithDrawCashViewController.m */; };
+		B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069831B774CF90045CF10 /* GoodsDetailTVC.m */; };
+		B35069871B774E6D0045CF10 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35069861B774E6D0045CF10 /* ImageCell.xib */; };
+		B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069891B774F1C0045CF10 /* ImageCell.m */; };
+		B350698C1B774FD20045CF10 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350698B1B774FD20045CF10 /* TitleCell.xib */; };
+		B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350698E1B7750AE0045CF10 /* TitleCell.m */; };
+		B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069911B77510E0045CF10 /* GoodsDescripCell.m */; };
+		B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35069931B7751270045CF10 /* GoodsDescripCell.xib */; };
+=======
 		15A7227D1B772E81005A2303 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A7227C1B772E81005A2303 /* LocationManager.m */; };
 		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
 		B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069721B771A940045CF10 /* NearPeopleCell.m */; };
+>>>>>>> .r39
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
@@ -345,11 +360,34 @@
 		15A722671B771686005A2303 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		15A722681B771686005A2303 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		15A722711B7716F2005A2303 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+<<<<<<< .mine
+		B350696F1B771A730045CF10 /* NearPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPeopleCell.xib; sourceTree = SOURCE_ROOT; };
+		B35069711B771A940045CF10 /* NearPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleCell.h; sourceTree = SOURCE_ROOT; };
+		B35069721B771A940045CF10 /* NearPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleCell.m; sourceTree = SOURCE_ROOT; };
+		B35069751B7728BF0045CF10 /* NearPeopleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleTVC.h; sourceTree = SOURCE_ROOT; };
+		B35069761B7728BF0045CF10 /* NearPeopleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleTVC.m; sourceTree = SOURCE_ROOT; };
+		B35069781B773A500045CF10 /* BindPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindPhoneViewController.h; sourceTree = SOURCE_ROOT; };
+		B35069791B773A500045CF10 /* BindPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindPhoneViewController.m; sourceTree = SOURCE_ROOT; };
+		B350697E1B7749740045CF10 /* WithDrawCashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithDrawCashViewController.h; sourceTree = SOURCE_ROOT; };
+		B350697F1B7749740045CF10 /* WithDrawCashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithDrawCashViewController.m; sourceTree = SOURCE_ROOT; };
+		B35069821B774CF90045CF10 /* GoodsDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDetailTVC.h; sourceTree = SOURCE_ROOT; };
+		B35069831B774CF90045CF10 /* GoodsDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDetailTVC.m; sourceTree = SOURCE_ROOT; };
+		B35069861B774E6D0045CF10 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = SOURCE_ROOT; };
+		B35069881B774F1C0045CF10 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = SOURCE_ROOT; };
+		B35069891B774F1C0045CF10 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = SOURCE_ROOT; };
+		B350698B1B774FD20045CF10 /* TitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = SOURCE_ROOT; };
+		B350698D1B7750AE0045CF10 /* TitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleCell.h; sourceTree = SOURCE_ROOT; };
+		B350698E1B7750AE0045CF10 /* TitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleCell.m; sourceTree = SOURCE_ROOT; };
+		B35069901B77510E0045CF10 /* GoodsDescripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDescripCell.h; sourceTree = SOURCE_ROOT; };
+		B35069911B77510E0045CF10 /* GoodsDescripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDescripCell.m; sourceTree = SOURCE_ROOT; };
+		B35069931B7751270045CF10 /* GoodsDescripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDescripCell.xib; sourceTree = SOURCE_ROOT; };
+=======
 		15A7227B1B772E81005A2303 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		15A7227C1B772E81005A2303 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		B350696F1B771A730045CF10 /* NearPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPeopleCell.xib; sourceTree = SOURCE_ROOT; };
 		B35069711B771A940045CF10 /* NearPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleCell.h; sourceTree = SOURCE_ROOT; };
 		B35069721B771A940045CF10 /* NearPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleCell.m; sourceTree = SOURCE_ROOT; };
+>>>>>>> .r39
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
@@ -796,6 +834,7 @@
 		13983AE01B6B510900D44BF0 /* contacts */ = {
 			isa = PBXGroup;
 			children = (
+				B35069741B7728950045CF10 /* 附近人 */,
 				D28FEA931B72FEDA0026D674 /* 通讯录 */,
 				D28FEA941B72FEE60026D674 /* Cell */,
 			);
@@ -987,6 +1026,66 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+<<<<<<< .mine
+		B35069741B7728950045CF10 /* 附近人 */ = {
+			isa = PBXGroup;
+			children = (
+				B35069751B7728BF0045CF10 /* NearPeopleTVC.h */,
+				B35069761B7728BF0045CF10 /* NearPeopleTVC.m */,
+			);
+			name = "附近人";
+			sourceTree = "<group>";
+		};
+		B350697B1B7747890045CF10 /* 钱包余额 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "钱包余额";
+			sourceTree = "<group>";
+		};
+		B350697C1B7747960045CF10 /* 牵手币 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "牵手币";
+			sourceTree = "<group>";
+		};
+		B350697D1B7747A10045CF10 /* 余额提现 */ = {
+			isa = PBXGroup;
+			children = (
+				B350697E1B7749740045CF10 /* WithDrawCashViewController.h */,
+				B350697F1B7749740045CF10 /* WithDrawCashViewController.m */,
+			);
+			name = "余额提现";
+			sourceTree = "<group>";
+		};
+		B35069811B774CB90045CF10 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				B35069821B774CF90045CF10 /* GoodsDetailTVC.h */,
+				B35069831B774CF90045CF10 /* GoodsDetailTVC.m */,
+				B35069851B774E360045CF10 /* Cell */,
+			);
+			name = "商品详情";
+			sourceTree = "<group>";
+		};
+		B35069851B774E360045CF10 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B35069861B774E6D0045CF10 /* ImageCell.xib */,
+				B35069881B774F1C0045CF10 /* ImageCell.h */,
+				B35069891B774F1C0045CF10 /* ImageCell.m */,
+				B350698B1B774FD20045CF10 /* TitleCell.xib */,
+				B350698D1B7750AE0045CF10 /* TitleCell.h */,
+				B350698E1B7750AE0045CF10 /* TitleCell.m */,
+				B35069931B7751270045CF10 /* GoodsDescripCell.xib */,
+				B35069901B77510E0045CF10 /* GoodsDescripCell.h */,
+				B35069911B77510E0045CF10 /* GoodsDescripCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+=======
 		15A7227A1B772E81005A2303 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -996,6 +1095,7 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
+>>>>>>> .r39
 		B392A3601B72388300B7CA6D /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1139,7 @@
 		D24C36FE1B7477C400228886 /* 牵手币商城 */ = {
 			isa = PBXGroup;
 			children = (
+				B35069811B774CB90045CF10 /* 商品详情 */,
 				D24C36FF1B7478F300228886 /* MallTableViewController.h */,
 				D24C37001B7478F300228886 /* MallTableViewController.m */,
 			);
@@ -1075,6 +1176,8 @@
 		D24C37121B749D9100228886 /* 手机号 */ = {
 			isa = PBXGroup;
 			children = (
+				B35069781B773A500045CF10 /* BindPhoneViewController.h */,
+				B35069791B773A500045CF10 /* BindPhoneViewController.m */,
 			);
 			name = "手机号";
 			sourceTree = "<group>";
@@ -1101,6 +1204,9 @@
 		D28FEA9F1B730EE00026D674 /* 我的钱包 */ = {
 			isa = PBXGroup;
 			children = (
+				B350697D1B7747A10045CF10 /* 余额提现 */,
+				B350697C1B7747960045CF10 /* 牵手币 */,
+				B350697B1B7747890045CF10 /* 钱包余额 */,
 				D28FEAA01B7323D80026D674 /* MyPurseTableViewController.h */,
 				D28FEAA11B7323D80026D674 /* MyPurseTableViewController.m */,
 			);
@@ -1234,6 +1340,9 @@
 				D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */,
 				D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */,
 				13983A341B6B261500D44BF0 /* Images.xcassets in Resources */,
+				B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */,
+				B35069871B774E6D0045CF10 /* ImageCell.xib in Resources */,
+				B350698C1B774FD20045CF10 /* TitleCell.xib in Resources */,
 				B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */,
 				D28FEA9E1B730D700026D674 /* Second.storyboard in Resources */,
 			);
@@ -1260,6 +1369,7 @@
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				13983AD91B6B478000D44BF0 /* MJRefreshLegendHeader.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
+				B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
@@ -1279,6 +1389,7 @@
 				137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */,
 				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
 				137263E11B744E3D0006661C /* JSONHTTPClient.m in Sources */,
+				B35069771B7728BF0045CF10 /* NearPeopleTVC.m in Sources */,
 				137263E01B744E3D0006661C /* JSONAPI.m in Sources */,
 				137775FC1B730DF7005C2C53 /* SendNeedTableViewController.m in Sources */,
 				15A7226B1B771686005A2303 /* DataVerifier.m in Sources */,
@@ -1289,7 +1400,11 @@
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				13983AD51B6B478000D44BF0 /* MJRefreshGifFooter.m in Sources */,
+<<<<<<< .mine
+				B350697A1B773A500045CF10 /* BindPhoneViewController.m in Sources */,
+=======
 				15A7227D1B772E81005A2303 /* LocationManager.m in Sources */,
+>>>>>>> .r39
 				15A722701B771686005A2303 /* RSADataVerifier.m in Sources */,
 				15A722691B771686005A2303 /* base64.m in Sources */,
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
@@ -1299,9 +1414,11 @@
 				D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */,
 				13983AD71B6B478000D44BF0 /* MJRefreshHeader.m in Sources */,
 				B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */,
+				B35069801B7749740045CF10 /* WithDrawCashViewController.m in Sources */,
 				137263DF1B744E3D0006661C /* NSArray+JSONModel.m in Sources */,
 				15A7226E1B771686005A2303 /* openssl_wrapper.m in Sources */,
 				13983AD21B6B478000D44BF0 /* MJRefreshComponent.m in Sources */,
+				B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
 				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
@@ -1321,8 +1438,10 @@
 				D24C37061B74794200228886 /* MallCell.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
+				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
 				13983AD61B6B478000D44BF0 /* MJRefreshGifHeader.m in Sources */,
+				B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

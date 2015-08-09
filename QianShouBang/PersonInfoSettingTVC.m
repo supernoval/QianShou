@@ -11,9 +11,10 @@
 #import "PortraitCell.h"
 #import "IntroduceYourselfViewController.h"
 #import "NickNameViewController.h"
+#import "BindPhoneViewController.h"
 
 @interface PersonInfoSettingTVC ()
-
+@property (nonatomic, strong)UIActionSheet *sexAC;
 @end
 
 @implementation PersonInfoSettingTVC
@@ -237,7 +238,10 @@
         switch (indexPath.row) {
                 //手机号
             case 0:
-                self.view.backgroundColor = [UIColor redColor];
+            {
+                BindPhoneViewController *bindVC = [sb instantiateViewControllerWithIdentifier:@"BindPhoneViewController"];
+                [self.navigationController pushViewController:bindVC animated:YES];
+            }
                 break;
                 
                 //生日
@@ -252,11 +256,26 @@
                 
                 //性别
             case 3:
-                self.view.backgroundColor = [UIColor redColor];
+            {
+                self.sexAC = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男性",@"女性", nil];
+                [self.sexAC addButtonWithTitle:@"取消"];
+                self.sexAC.cancelButtonIndex = 2;
+                [self.sexAC showInView:self.view];
+            }
                 break;
                 
             default:
                 break;
+        }
+    }
+}
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (actionSheet == self.sexAC) {
+        if (buttonIndex == 0) {//男性
+                    }else if(buttonIndex == 1){//女性
         }
     }
 }

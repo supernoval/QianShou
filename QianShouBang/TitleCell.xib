@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TitleCell" id="Acc-Jp-Pr5" customClass="TitleCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Acc-Jp-Pr5" id="lGP-FL-YL8">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="兑换标题:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdU-py-CS8">
+                        <rect key="frame" x="8" y="10" width="74" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="rOd-28-OcJ"/>
+                            <constraint firstAttribute="width" constant="74" id="wrQ-qx-UXd"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.26274509800000001" green="0.79215686269999996" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="云南游" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cse-BQ-IOZ">
+                        <rect key="frame" x="84" y="10" width="228" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="GsK-Mu-oAP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gtW-Z1-nhM">
+                        <rect key="frame" x="8" y="39" width="312" height="1"/>
+                        <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="rcX-oa-01p"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="gtW-Z1-nhM" firstAttribute="leading" secondItem="lGP-FL-YL8" secondAttribute="leading" constant="8" id="2bh-u4-vx8"/>
+                    <constraint firstItem="cse-BQ-IOZ" firstAttribute="top" secondItem="lGP-FL-YL8" secondAttribute="top" constant="10" id="8Qg-YK-RyD"/>
+                    <constraint firstAttribute="bottom" secondItem="RdU-py-CS8" secondAttribute="bottom" constant="8" id="ETz-2I-End"/>
+                    <constraint firstItem="cse-BQ-IOZ" firstAttribute="leading" secondItem="RdU-py-CS8" secondAttribute="trailing" constant="2" id="U8Q-5e-0iA"/>
+                    <constraint firstItem="RdU-py-CS8" firstAttribute="leading" secondItem="lGP-FL-YL8" secondAttribute="leading" constant="8" id="f7b-sU-ayb"/>
+                    <constraint firstAttribute="trailing" secondItem="gtW-Z1-nhM" secondAttribute="trailing" id="mOb-OK-Gdk"/>
+                    <constraint firstAttribute="bottom" secondItem="gtW-Z1-nhM" secondAttribute="bottom" constant="-1" id="xgn-dJ-1NR"/>
+                    <constraint firstAttribute="trailing" secondItem="cse-BQ-IOZ" secondAttribute="trailing" constant="8" id="yaj-fk-aS8"/>
+                    <constraint firstItem="RdU-py-CS8" firstAttribute="top" secondItem="lGP-FL-YL8" secondAttribute="top" constant="10" id="zLx-cm-vUN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="text" destination="cse-BQ-IOZ" id="lhB-yA-7Mh"/>
+                <outlet property="title" destination="RdU-py-CS8" id="Ecq-VG-soU"/>
+            </connections>
+            <point key="canvasLocation" x="212" y="172"/>
+        </tableViewCell>
+    </objects>
+</document>

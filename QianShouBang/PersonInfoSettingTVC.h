@@ -8,6 +8,6 @@
 
 #import "BaseTableViewController.h"
 
-@interface PersonInfoSettingTVC : BaseTableViewController<UITableViewDataSource,UITabBarDelegate>
+@interface PersonInfoSettingTVC : BaseTableViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>
 
 @end

@@ -8,6 +8,7 @@
 
 #import "MallTableViewController.h"
 #import "MallCell.h"
+#import "GoodsDetailTVC.h"
 
 @interface MallTableViewController ()
 
@@ -133,6 +134,15 @@
     
     return cell;
 }
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    GoodsDetailTVC *goodsTVC = [sb instantiateViewControllerWithIdentifier:@"GoodsDetailTVC"];
+    [self.navigationController pushViewController:goodsTVC animated:YES];
+}
+
+
 - (void)exchangeGoods:(UIButton *)button{
 }
 

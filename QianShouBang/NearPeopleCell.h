@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface NearPeopleCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *image;
+@property (strong, nonatomic) IBOutlet UIButton *nameBtn;
+@property (strong, nonatomic) IBOutlet UILabel *distance;
+@property (strong, nonatomic) IBOutlet UILabel *portrait;
+
 
 @end
