@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     
-   
+    
     
     
     
@@ -33,20 +33,21 @@
 {
     [super viewWillAppear:animated];
     
- 
+    
+    //    [MyProgressHUD showProgress];
     
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
-//    {
-//        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
-//        
-//        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
-//        
-//    }
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
+    {
+        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+        
+        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
+        
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,13 +56,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

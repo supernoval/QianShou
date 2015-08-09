@@ -10,6 +10,7 @@
 
 @interface SendNeedTableViewController : BaseTableViewController
 @property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UITableViewCell *imagesViewCell;
 @property (weak, nonatomic) IBOutlet UIButton *publishButton;
 
 - (IBAction)publishAction:(id)sender;

@@ -8,6 +8,9 @@
 
 #import "MineTableViewController.h"
 #import "SendNeedTableViewController.h"
+#import "DarenTableViewController.h"
+#import "MyOrdersTableViewController.h"
+
 
 @interface MineTableViewController ()
 
@@ -18,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   self.title = @"订单管理";
+    self.title = @"订单管理";
     
     
 }
@@ -41,8 +44,12 @@
                     
                 }
                     break;
-                case 1:
+                case 1:  //发布达人
                 {
+                    DarenTableViewController *darenTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DarenTableViewController"];
+                    darenTVC.hidesBottomBarWhenPushed = YES;
+                    
+                    [self.navigationController pushViewController:darenTVC animated:YES];
                     
                 }
                     break;
@@ -54,7 +61,26 @@
             break;
         case 1:
         {
-            
+            switch (indexPath.row) {
+                case 0: //我的订单
+                {
+                    MyOrdersTableViewController *myOrderTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyOrdersTableViewController"];
+                    myOrderTVC.hidesBottomBarWhenPushed = YES;
+                    
+                    [self.navigationController pushViewController:myOrderTVC animated:YES];
+                    
+                }
+                    break;
+                case 1:  //我的达人
+                {
+                    
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
+            }
         }
             break;
         case 2:
@@ -76,13 +102,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

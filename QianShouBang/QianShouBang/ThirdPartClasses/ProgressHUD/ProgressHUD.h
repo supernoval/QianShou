@@ -57,6 +57,7 @@
 + (void)showError:(NSString *)status;
 
 @property (atomic, strong) UIWindow *window;
+@property (atomic,strong)  UIView *backGroundView;
 @property (atomic, strong) UIToolbar *hud;
 @property (atomic, strong) UIActivityIndicatorView *spinner;
 //@property (atomic, strong) UIImageView *image;
