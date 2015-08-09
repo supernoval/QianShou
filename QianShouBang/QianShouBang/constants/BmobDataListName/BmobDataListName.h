@@ -15,3 +15,10 @@
 //奖励机制表
 #define kRewardClassName  @"RewardLimitation"
 
+//图片
+#define kAttachItem       @"AttachItem"
+//订单
+#define kOrder             @"Order"
+//明细
+#define kDetailAccount    @"DetailAccount"
+

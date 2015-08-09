@@ -71,6 +71,9 @@
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		157E642C1B751384007A1AFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 157E642B1B751384007A1AFD /* Main.storyboard */; };
+		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
+		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
+		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
@@ -221,6 +224,13 @@
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		157E642B1B751384007A1AFD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		15A721E61B7712AD005A2303 /* NotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKey.h; sourceTree = "<group>"; };
+		15A721F41B77137B005A2303 /* DarenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenTableViewController.h; sourceTree = "<group>"; };
+		15A721F51B77137B005A2303 /* DarenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenTableViewController.m; sourceTree = "<group>"; };
+		15A721F81B771393005A2303 /* PayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrder.h; sourceTree = "<group>"; };
+		15A721F91B771393005A2303 /* PayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrder.m; sourceTree = "<group>"; };
+		15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersTableViewController.h; sourceTree = "<group>"; };
+		15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersTableViewController.m; sourceTree = "<group>"; };
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
@@ -672,6 +682,9 @@
 		13983AE11B6B510E00D44BF0 /* mine */ = {
 			isa = PBXGroup;
 			children = (
+				15A721FB1B7713A1005A2303 /* MyOrders */,
+				15A721F71B771393005A2303 /* PayOrder */,
+				15A721F31B77137B005A2303 /* Daren */,
 				137775F91B730DCD005C2C53 /* sendNeed */,
 				137775F61B72F430005C2C53 /* MineTableViewController.h */,
 				137775F71B72F430005C2C53 /* MineTableViewController.m */,
@@ -687,6 +700,7 @@
 				13838B711B71D4F5007CA809 /* CommonMethods.m */,
 				13983AE61B6B51BD00D44BF0 /* Constants.h */,
 				13838B831B71FBEA007CA809 /* BmobDataListName.h */,
+				15A721E61B7712AD005A2303 /* NotificationKey.h */,
 			);
 			name = "常量";
 			path = constants;
@@ -699,6 +713,33 @@
 				13983AEB1B6B5A4400D44BF0 /* RequestCenter.m */,
 			);
 			path = NetWorkClass;
+			sourceTree = "<group>";
+		};
+		15A721F31B77137B005A2303 /* Daren */ = {
+			isa = PBXGroup;
+			children = (
+				15A721F41B77137B005A2303 /* DarenTableViewController.h */,
+				15A721F51B77137B005A2303 /* DarenTableViewController.m */,
+			);
+			path = Daren;
+			sourceTree = "<group>";
+		};
+		15A721F71B771393005A2303 /* PayOrder */ = {
+			isa = PBXGroup;
+			children = (
+				15A721F81B771393005A2303 /* PayOrder.h */,
+				15A721F91B771393005A2303 /* PayOrder.m */,
+			);
+			path = PayOrder;
+			sourceTree = "<group>";
+		};
+		15A721FB1B7713A1005A2303 /* MyOrders */ = {
+			isa = PBXGroup;
+			children = (
+				15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */,
+				15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */,
+			);
+			path = MyOrders;
 			sourceTree = "<group>";
 		};
 		B392A3601B72388300B7CA6D /* cell */ = {
@@ -988,17 +1029,20 @@
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
 				137263DB1B744E3D0006661C /* JSONModel.m in Sources */,
 				137776241B735273005C2C53 /* RewardLimitationModel.m in Sources */,
+				15A721FA1B771393005A2303 /* PayOrder.m in Sources */,
 				D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */,
 				13983AD71B6B478000D44BF0 /* MJRefreshHeader.m in Sources */,
 				137263DF1B744E3D0006661C /* NSArray+JSONModel.m in Sources */,
 				13983AD21B6B478000D44BF0 /* MJRefreshComponent.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
+				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				13983ADB1B6B478000D44BF0 /* UIScrollView+MJRefresh.m in Sources */,
 				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
+				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
 				13983ADC1B6B478000D44BF0 /* UIView+MJExtension.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
 				D24C37181B74A84400228886 /* NickNameViewController.m in Sources */,
