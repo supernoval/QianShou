@@ -307,9 +307,9 @@ static CGFloat imagesCellHeight = 70.0;
                 if (bmobFileArray.count > 0) {
                     
                     
+                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+                    NSMutableArray *files = [[NSMutableArray alloc]init];
                     
-                    
-                    NSMutableString *muURLStr = [[NSMutableString alloc]init];
                     
                     for (int i = 0 ; i < bmobFileArray.count; i ++) {
                         
@@ -318,48 +318,32 @@ static CGFloat imagesCellHeight = 70.0;
                         NSString *url = onefile.url;
                         
                         
-                        if (i > 0) {
-                            
-                            [muURLStr appendString:[NSString stringWithFormat:@",%@",url]];
-                            
-                        }
-                        else
-                        {
-                            [muURLStr appendString:[NSString stringWithFormat:@"%@",url]];
-                            
-                        }
+                   
+                        BmobObject *attachObject = [[BmobObject alloc]initWithClassName:kAttachItem];
                         
+                        [attachObject setObject:url forKey:@"attach_name"];
+                        [attachObject setObject:url forKey:@"attach_url"];
+                        
+                        [files addObject:attachObject];
+                        
+                      
+                        [batch saveBmobObjectWithClassName:kAttachItem parameters:@{@"attach_name":url,@"attach_url":url}];
                         
                         
                         
                         
                     }
                     
-                    BmobObject *attachObject = [[BmobObject alloc]initWithClassName:kAttachItem];
                     
-                    [attachObject setObject:muURLStr forKey:@"attach_name"];
-                    [attachObject setObject:muURLStr forKey:@"attach_url"];
-                    
-                    [attachObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                         
                         if (isSuccessful) {
                             
-                            
-                            [self summitWithAttachObject:attachObject];
-                            
-                            
-                            
+                            [self summitWithAttachObject:files];
                             
                         }
-                        
-                        else
-                        {
-                            NSLog(@"attach fail:%@",error);
-                            
-                        }
-                        
                     }];
-                    
+            
                     
                     
                     
@@ -400,7 +384,7 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
--(void)summitWithAttachObject:(BmobObject*)attachObject
+-(void)summitWithAttachObject:(NSMutableArray*)attachObjects
 {
     
     NSString *desc = _needTF.text;
@@ -468,16 +452,23 @@ static CGFloat imagesCellHeight = 70.0;
     [orderObject setObject:@(3) forKey:@"order_state"];
     
     
-    if (attachObject) {
+    if (attachObjects.count > 0) {
         
         
         BmobRelation *imageRelation = [[BmobRelation alloc]init];
-        [imageRelation addObject:attachObject];
         
+        for (int i = 0; i < attachObjects.count; i ++) {
+            BmobObject *oneAttach = attachObjects[i];
+            
+            [imageRelation addObject:oneAttach];
+            
+        }
+      
         [orderObject addRelation:imageRelation forKey:@"attachItem"];
         
-        
     }
+    
+    
     
     [MyProgressHUD showProgress];
     

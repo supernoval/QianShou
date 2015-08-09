@@ -14,5 +14,6 @@
 - (IBAction)loginAction:(id)sender;
 - (IBAction)registAction:(id)sender;
 - (IBAction)forgetCodeAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 
 @end

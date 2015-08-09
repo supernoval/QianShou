@@ -73,10 +73,6 @@
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
 		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
-<<<<<<< .mine
-		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
-		B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069721B771A940045CF10 /* NearPeopleCell.m */; };
-=======
 		15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15A722001B771653005A2303 /* AlipaySDK.bundle */; };
 		15A722031B771659005A2303 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A722021B771659005A2303 /* AlipaySDK.framework */; };
 		15A722051B771660005A2303 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A722041B771660005A2303 /* libcrypto.a */; };
@@ -91,7 +87,9 @@
 		15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722661B771686005A2303 /* RSADataSigner.m */; };
 		15A722701B771686005A2303 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722681B771686005A2303 /* RSADataVerifier.m */; };
 		15A722721B7716F2005A2303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A722711B7716F2005A2303 /* Main.storyboard */; };
->>>>>>> .r36
+		15A7227D1B772E81005A2303 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A7227C1B772E81005A2303 /* LocationManager.m */; };
+		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
+		B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069721B771A940045CF10 /* NearPeopleCell.m */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
@@ -248,11 +246,6 @@
 		15A721F91B771393005A2303 /* PayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrder.m; sourceTree = "<group>"; };
 		15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersTableViewController.h; sourceTree = "<group>"; };
 		15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersTableViewController.m; sourceTree = "<group>"; };
-<<<<<<< .mine
-		B350696F1B771A730045CF10 /* NearPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPeopleCell.xib; sourceTree = SOURCE_ROOT; };
-		B35069711B771A940045CF10 /* NearPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleCell.h; sourceTree = SOURCE_ROOT; };
-		B35069721B771A940045CF10 /* NearPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleCell.m; sourceTree = SOURCE_ROOT; };
-=======
 		15A722001B771653005A2303 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		15A722021B771659005A2303 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		15A722041B771660005A2303 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -352,7 +345,11 @@
 		15A722671B771686005A2303 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		15A722681B771686005A2303 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		15A722711B7716F2005A2303 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
->>>>>>> .r36
+		15A7227B1B772E81005A2303 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		15A7227C1B772E81005A2303 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		B350696F1B771A730045CF10 /* NearPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPeopleCell.xib; sourceTree = SOURCE_ROOT; };
+		B35069711B771A940045CF10 /* NearPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleCell.h; sourceTree = SOURCE_ROOT; };
+		B35069721B771A940045CF10 /* NearPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleCell.m; sourceTree = SOURCE_ROOT; };
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
@@ -405,6 +402,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */,
 				137263EF1B744FF90006661C /* SMS_SDK.framework in Frameworks */,
 				15A722031B771659005A2303 /* AlipaySDK.framework in Frameworks */,
 				15A722071B771666005A2303 /* libssl.a in Frameworks */,
@@ -425,7 +423,6 @@
 				13983B1A1B6B600000D44BF0 /* CoreGraphics.framework in Frameworks */,
 				137263E81B744FAB0006661C /* BmobIM.framework in Frameworks */,
 				13983B181B6B5FF800D44BF0 /* Security.framework in Frameworks */,
-				13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */,
 				15A722051B771660005A2303 /* libcrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -646,6 +643,7 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				15A7227A1B772E81005A2303 /* LocationManager */,
 				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 				13838B7F1B71E331007CA809 /* MyProgressHUD */,
 				13838B6B1B71B722007CA809 /* Model */,
@@ -989,6 +987,15 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		15A7227A1B772E81005A2303 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				15A7227B1B772E81005A2303 /* LocationManager.h */,
+				15A7227C1B772E81005A2303 /* LocationManager.m */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		B392A3601B72388300B7CA6D /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1282,6 +1289,7 @@
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				13983AD51B6B478000D44BF0 /* MJRefreshGifFooter.m in Sources */,
+				15A7227D1B772E81005A2303 /* LocationManager.m in Sources */,
 				15A722701B771686005A2303 /* RSADataVerifier.m in Sources */,
 				15A722691B771686005A2303 /* base64.m in Sources */,
 				13983ADA1B6B478000D44BF0 /* UIScrollView+MJExtension.m in Sources */,
@@ -1461,6 +1469,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "cc0715d9-4809-4e60-916a-24593ec459c9";
 			};
 			name = Debug;
 		};
@@ -1488,6 +1497,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e8691b1e-efee-45a6-92ee-baec052b10c3";
 			};
 			name = Release;
 		};

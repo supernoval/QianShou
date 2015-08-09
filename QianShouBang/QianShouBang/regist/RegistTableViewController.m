@@ -34,6 +34,9 @@
     
     self.title = @"注册";
     
+    _registButton.clipsToBounds = YES;
+    _registButton.layer.cornerRadius = 20.0;
+    
     dviceToken = [[NSUserDefaults standardUserDefaults ] objectForKey:kDeviceTokenKey];
     
     if (dviceToken.length == 0) {
@@ -50,6 +53,7 @@
         [self checkMobileHadRegist];
         
     }
+    
     
 }
 

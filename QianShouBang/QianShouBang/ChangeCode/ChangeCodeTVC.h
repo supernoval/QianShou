@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *newpwdTF;
 @property (weak, nonatomic) IBOutlet UITextField *againpwdTF;
 - (IBAction)changeCodeAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *changeCodeButton;
 
 @end
