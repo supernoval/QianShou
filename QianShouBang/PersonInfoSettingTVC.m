@@ -15,6 +15,7 @@
 
 @interface PersonInfoSettingTVC ()
 @property (nonatomic, strong)UIActionSheet *sexAC;
+@property (nonatomic, strong)UIActionSheet *pickPhotoActionSheet;
 @end
 
 @implementation PersonInfoSettingTVC
@@ -28,6 +29,10 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -205,7 +210,16 @@
                 //头像
             case 0:
             {
-                self.view.backgroundColor = [UIColor redColor];
+                _pickPhotoActionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
+                
+                [_pickPhotoActionSheet addButtonWithTitle:@"相册图片描述"];
+                [_pickPhotoActionSheet addButtonWithTitle:@"手机拍照描述"];
+                
+                [_pickPhotoActionSheet addButtonWithTitle:@"取消"];
+                
+                _pickPhotoActionSheet.cancelButtonIndex = 2;
+                [_pickPhotoActionSheet showInView:self.view];
+                
             }
                 break;
                 
@@ -277,6 +291,133 @@
         if (buttonIndex == 0) {//男性
                     }else if(buttonIndex == 1){//女性
         }
+    }else if (actionSheet == _pickPhotoActionSheet){
+        
+        NSUInteger sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        // 判断是否支持相机
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            switch (buttonIndex) {
+                case 2:
+                    return;
+                case 1: //相机
+                    sourceType = UIImagePickerControllerSourceTypeCamera;
+                    break;
+                case 0: //相册
+                    sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                    break;
+            }
+        }
+        else {
+            if (buttonIndex == 1) {
+                return;
+            } else {
+                sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            }
+        }
+        
+        // 跳转到相机或相册页面
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.sourceType = sourceType;
+        
+        [self presentViewController:imagePickerController animated:YES completion:^{}];
     }
 }
+
+
+
+
+#pragma mark - UIImagePickerControllerDelegate
+/*
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    
+    UIImage *image  = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    if (image != nil)
+    {
+        
+        
+        
+        [_PhotosArray addObject:image];
+        
+        [self setPhotos];
+        
+        [self.tableView reloadData];
+        
+        
+        
+    }
+    
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)setPhotos
+{
+    
+    for (UIView *view in imagesView.subviews) {
+        
+        [view removeFromSuperview];
+        
+    }
+    
+    CGFloat offSet = 8.0;
+    
+    CGFloat imageViewWith = imagesCellHeight - offSet*2;
+    CGFloat deleteButtonWith = 15.0;
+    
+    
+    for (int i = 0; i < _PhotosArray.count; i++) {
+        
+        UIImage *oneImage = [_PhotosArray objectAtIndex:i];
+        
+        UIImageView *oneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(offSet +(imageViewWith+offSet)*i , offSet, imageViewWith, imageViewWith)];
+        oneImageView.image = oneImage;
+        
+        [imagesView addSubview:oneImageView];
+        
+        
+        //add delete button
+        
+        UIButton *deleteButton = [[UIButton alloc]initWithFrame:CGRectMake(oneImageView.frame.origin.x - 6.0, 0, deleteButtonWith, deleteButtonWith)];
+        
+        [deleteButton setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
+        deleteButton.tag = i;
+        
+        [deleteButton addTarget:self action:@selector(deleteOneImage:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [imagesView addSubview:deleteButton];
+        
+        
+        
+        
+    }
+    
+    if (_PhotosArray.count < 4)
+    {
+        
+        UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(offSet + (imageViewWith+offSet)*_PhotosArray.count, offSet, imageViewWith, imageViewWith)];
+        
+        [addButton setImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
+        
+        [addButton addTarget:self action:@selector(pickPhoto:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [imagesView addSubview:addButton];
+        
+        
+    }
+    
+    
+    
+    
+}*/
 @end

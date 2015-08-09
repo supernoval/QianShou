@@ -23,6 +23,10 @@
     self.confirmBtn.layer.borderWidth = 1.0;
     self.confirmBtn.layer.borderColor = kYellowColor.CGColor;
     self.introTextView.delegate = self;
+    
+    self.modalPresentationCapturesStatusBarAppearance = NO;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.extendedLayoutIncludesOpaqueBars = NO;
 }
 
 - (void)didReceiveMemoryWarning {
