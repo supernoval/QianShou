@@ -30,4 +30,27 @@ static  LocationManager *manager = nil;
 }
 
 
+-(void)initLocationManager
+{
+    _locaitonManager = [[CLLocationManager alloc]init];
+    _locaitonManager.delegate = self;
+    
+    [_locaitonManager startUpdatingLocation];
+    
+    
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    
+}
+
+
+
 @end

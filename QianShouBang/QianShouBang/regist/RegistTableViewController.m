@@ -71,6 +71,9 @@
     {
         
   
+        
+        _sendCodeButton.enabled = NO;
+
         [self checkPhonehadRegist];
         
         
@@ -265,7 +268,7 @@
                 NSLog(@"____%@",strTime);
                 
                 [_sendCodeButton setTitle:[NSString stringWithFormat:@"%@s",strTime] forState:UIControlStateNormal] ;
-                _sendCodeButton.enabled = YES;
+                
                 
                 
                 
@@ -294,7 +297,8 @@
             [CommonMethods showDefaultErrorString:@"该手机号码已经注册,不能重复注册"];
             
         
-            
+            _sendCodeButton.enabled = YES;
+
             
             
             
@@ -305,7 +309,6 @@
             NSLog(@"phone num None Regist!");
           
             
-            _sendCodeButton.enabled = NO;
             [MyProgressHUD showProgress];
             [SMS_SDK getVerificationCodeBySMSWithPhone:_phoneTF.text zone:@"86" result:^(SMS_SDKError *error) {
                 
@@ -319,7 +322,7 @@
                 }
                 else
                 {
-                    _sendCodeButton.userInteractionEnabled = YES;
+                    _sendCodeButton.enabled = YES;
                     [MyProgressHUD showError:error.errorDescription];
                     
                 }

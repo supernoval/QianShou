@@ -21,6 +21,11 @@
 
 
     
+    
+//    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"leftArrow"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewController)];
+//    
+//    self.navigationItem.leftBarButtonItem = leftButton;
+    
      _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
     
     
@@ -52,7 +57,11 @@
     
 }
 
-
+-(void)popViewController
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
 #pragma mark - 设置title  颜色
 -(void)setNavigationTitleColor

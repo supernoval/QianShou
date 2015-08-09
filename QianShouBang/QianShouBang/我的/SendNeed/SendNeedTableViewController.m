@@ -417,11 +417,11 @@ static CGFloat imagesCellHeight = 70.0;
     
     CGFloat benjin = [_benjinTF.text floatValue];
     
-    CGFloat order_commission = 0;
+    CGFloat jiangli = 0;
     
     if (rewardModel.b_SenderAward) {
         
-        order_commission = xiaofei * rewardModel.d_SenderAwardRatio;
+        jiangli = xiaofei * rewardModel.d_SenderAwardRatio;
     }
     
     
@@ -443,11 +443,11 @@ static CGFloat imagesCellHeight = 70.0;
     
     [orderObject setObject:@(benjin) forKey:@"order_benjin"];
     
-    [orderObject setObject:@(xiaofei) forKey:@"jiangli_money"];
+    [orderObject setObject:@(jiangli) forKey:@"jiangli_money"];
     
     [orderObject setObject:user.username forKey:@"order_phone"];
     
-    [orderObject setObject:@(order_commission) forKey:@"order_commmission"];
+    [orderObject setObject:@(xiaofei) forKey:@"order_commmission"]; //小费
     
     [orderObject setObject:@(3) forKey:@"order_state"];
     
@@ -465,6 +465,8 @@ static CGFloat imagesCellHeight = 70.0;
         }
       
         [orderObject addRelation:imageRelation forKey:@"attachItem"];
+        
+        [orderObject setObject:@YES forKey:@"is_photo_description"];
         
     }
     
@@ -494,6 +496,8 @@ static CGFloat imagesCellHeight = 70.0;
         
     }];
 }
+
+#pragma mark - 保存订单
 
 #pragma mark - 保存明细
 -(void)saveDetailAccount:(BmobObject*)orderObject
@@ -688,6 +692,74 @@ static CGFloat imagesCellHeight = 70.0;
         }
         
     }];
+    
+    
+}
+
+-(void)setjiangliMoney
+{
+    BmobQuery *query = [[BmobQuery alloc]initWithClassName:kOrder];
+    
+    [query whereKey:@"order_state" notContainedIn:@[@(3),@(6),@(10)]];
+    
+    [query setLimit:3];
+    
+    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser].objectId];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+       
+        
+        if (array.count < 3)
+        {
+            
+            
+        }
+        else
+        {
+            
+                NSString *serviceTime =  [Bmob getServerTimestamp];
+            
+               NSDate * serviceDate = [CommonMethods  getYYYMMddFromString:serviceTime];
+            
+            
+            BOOL moreThanThree = YES;
+            
+            for (int i = 0; i < array.count; i ++)
+            {
+                
+                BmobObject *orderOB = array[i];
+                
+                NSString *creatTime = [CommonMethods getYYYYMMddFromDefaultDateStr:orderOB.createdAt];
+                
+                NSDate *createDate = [CommonMethods getYYYMMddFromString:creatTime];
+                
+                
+                //三个当中只要有一个不相等，就表示没超过
+                if (![serviceDate isEqualToDate:createDate])
+                {
+                    
+                    moreThanThree = NO;
+                }
+            }
+            
+            
+            if (moreThanThree)
+            {
+                
+                
+            }
+            
+            
+        }
+        
+    }];
+    
+    
+    
+    
+
+    
+    
     
     
 }

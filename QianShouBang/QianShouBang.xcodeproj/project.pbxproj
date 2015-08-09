@@ -682,7 +682,7 @@
 				13838B7E1B71E269007CA809 /* Account */,
 				13983AE91B6B5A0A00D44BF0 /* NetWorkClass */,
 				13983AE51B6B51AB00D44BF0 /* 常量 */,
-				13983AE11B6B510E00D44BF0 /* mine */,
+				13983AE11B6B510E00D44BF0 /* Orders */,
 				13983AE01B6B510900D44BF0 /* contacts */,
 				13983ADF1B6B510300D44BF0 /* yell */,
 				13983ADD1B6B50B300D44BF0 /* catchorder */,
@@ -836,7 +836,7 @@
 			path = "通讯录";
 			sourceTree = "<group>";
 		};
-		13983AE11B6B510E00D44BF0 /* mine */ = {
+		13983AE11B6B510E00D44BF0 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
 				15A721FB1B7713A1005A2303 /* MyOrders */,
@@ -846,7 +846,7 @@
 				137775F61B72F430005C2C53 /* MineTableViewController.h */,
 				137775F71B72F430005C2C53 /* MineTableViewController.m */,
 			);
-			name = mine;
+			name = Orders;
 			path = "我的";
 			sourceTree = "<group>";
 		};
