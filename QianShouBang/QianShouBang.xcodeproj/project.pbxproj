@@ -19,6 +19,7 @@
 		132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEC1B7891DC00B342D7 /* UIScrollView+MJExtension.m */; };
 		132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */; };
 		132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */; };
+		132EA0061B78959B00B342D7 /* YellTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132EA0051B78959B00B342D7 /* YellTableViewController.m */; };
 		137263DB1B744E3D0006661C /* JSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137263C41B744E3D0006661C /* JSONModel.m */; };
 		137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 137263C61B744E3D0006661C /* JSONModelArray.m */; };
 		137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 137263C81B744E3D0006661C /* JSONModelClassProperty.m */; };
@@ -166,6 +167,8 @@
 		132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		132E9FEF1B7891DC00B342D7 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		132EA0041B78959B00B342D7 /* YellTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YellTableViewController.h; path = Yell/YellTableViewController.h; sourceTree = "<group>"; };
+		132EA0051B78959B00B342D7 /* YellTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YellTableViewController.m; path = Yell/YellTableViewController.m; sourceTree = "<group>"; };
 		137263C31B744E3D0006661C /* JSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModel.h; sourceTree = "<group>"; };
 		137263C41B744E3D0006661C /* JSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONModel.m; sourceTree = "<group>"; };
 		137263C51B744E3D0006661C /* JSONModelArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONModelArray.h; sourceTree = "<group>"; };
@@ -501,6 +504,15 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		132EA0031B78957B00B342D7 /* yell */ = {
+			isa = PBXGroup;
+			children = (
+				132EA0041B78959B00B342D7 /* YellTableViewController.h */,
+				132EA0051B78959B00B342D7 /* YellTableViewController.m */,
+			);
+			name = yell;
+			sourceTree = "<group>";
+		};
 		136A920A1B6F3BD40064B541 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +720,7 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				132EA0031B78957B00B342D7 /* yell */,
 				15A7227A1B772E81005A2303 /* LocationManager */,
 				13983ADE1B6B50FE00D44BF0 /* personcenter */,
 				13838B7F1B71E331007CA809 /* MyProgressHUD */,
@@ -717,7 +730,6 @@
 				13983AE51B6B51AB00D44BF0 /* 常量 */,
 				13983AE11B6B510E00D44BF0 /* Orders */,
 				13983AE01B6B510900D44BF0 /* contacts */,
-				13983ADF1B6B510300D44BF0 /* yell */,
 				13983ADD1B6B50B300D44BF0 /* catchorder */,
 				13983A571B6B3A9800D44BF0 /* BaseViewControllers */,
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
@@ -817,14 +829,6 @@
 			);
 			name = personcenter;
 			path = "个人中心";
-			sourceTree = "<group>";
-		};
-		13983ADF1B6B510300D44BF0 /* yell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = yell;
-			path = "呐喊";
 			sourceTree = "<group>";
 		};
 		13983AE01B6B510900D44BF0 /* contacts */ = {
@@ -1435,6 +1439,7 @@
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
 				D24C37061B74794200228886 /* MallCell.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
+				132EA0061B78959B00B342D7 /* YellTableViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
