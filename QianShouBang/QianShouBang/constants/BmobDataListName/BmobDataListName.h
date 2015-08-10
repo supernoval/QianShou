@@ -22,3 +22,6 @@
 //明细
 #define kDetailAccount    @"DetailAccount"
 
+//呐喊
+#define kWeiboListItem      @"WeiboListItem"
+

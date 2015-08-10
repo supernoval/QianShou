@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseTableViewController.h"
 
-@interface YellTableViewController : UITableViewController
+@interface YellTableViewController : BaseTableViewController
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *publishAction;
 @end

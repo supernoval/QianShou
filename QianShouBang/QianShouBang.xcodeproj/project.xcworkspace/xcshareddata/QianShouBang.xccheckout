@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>508F3EC2-1347-49AC-9159-4366257BC255</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>QianShouBang</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>fef52269-97d4-bd67-724f-ce57b7db7bff</key>
 		<string>https://github.com/supernoval/QianShou.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>trunk/QianShouBang/QianShouBang.xcodeproj/project.xcworkspace</string>
+	<string>trunk/QianShouBang/QianShouBang.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>fef52269-97d4-bd67-724f-ce57b7db7bff</key>
