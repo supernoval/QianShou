@@ -15,13 +15,17 @@
 #import "PersonInfoSettingTVC.h"
 #import "MallTableViewController.h"
 #import "MessageTableViewController.h"
+#import "QSUser.h"
 
 
 @interface PersonCenterTableViewController ()
+@property (nonatomic, strong)QSUser *userInfo;
+@property (nonatomic, strong)BmobUser *currentUser;
 
 @end
 
 @implementation PersonCenterTableViewController
+@synthesize userInfo;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,10 +34,32 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    userInfo = [[QSUser alloc]init];
+    self.currentUser = [BmobUser getCurrentUser];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getCurrentUserInfo];
+}
+#pragma -mark获取当前用户信息
+- (void)getCurrentUserInfo{
+    
+    userInfo.username = [self.currentUser objectForKey:kusername];
+    userInfo.user_sex = [[self.currentUser objectForKey:kuser_sex]integerValue];
+    userInfo.nick = [self.currentUser objectForKey:knick];
+    userInfo.user_phone = [self.currentUser objectForKey:kuser_phone];
+    userInfo.avatar = [self.currentUser objectForKey:kavatar];
+    userInfo.user_individuality_signature = [self.currentUser objectForKey:kuser_individuality_signature];
+
+    NSLog(@"8%@ 9%@ 10%@",userInfo.username,userInfo.user_phone,userInfo.nick);
+    [self.tableView reloadData];
+    
     
 }
 
@@ -100,13 +126,22 @@
                     infoCell.backgroundColor = kContentColor;
                     infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
                     //头像
-                    infoCell.image.image = [UIImage imageNamed:@"setting"];
+                    if (userInfo.avatar.length != 0) {
+                        [CommonMethods setImageViewWithImageURL:userInfo.avatar imageView:infoCell.image];
+                    }else{//未设置头像时的处理
+                        infoCell.image.image = [UIImage imageNamed:@"head_default"];
+                    }
                     //姓名
-                    infoCell.name.text = @"我的姓名";
+                    infoCell.name.text = userInfo.nick;
                     //电话
-                    infoCell.phone.text = @"1522222222";
+                    infoCell.phone.text = userInfo.username;
                     //性别
-                    infoCell.sex_image.image = [UIImage imageNamed:@"male"];
+                    if (userInfo.user_sex == 1) {
+                        infoCell.sex_image.image = [UIImage imageNamed:@"male"];
+                    }else{
+                        infoCell.sex_image.image = [UIImage imageNamed:@"female"];
+                    }
+                    
                     return infoCell;
                     
                 }
@@ -221,6 +256,7 @@
                 case 0:
                 {
                     PersonInfoSettingTVC *personSettingTVC = [sb instantiateViewControllerWithIdentifier:@"PersonInfoSettingTVC"];
+
                     [self.navigationController pushViewController:personSettingTVC animated:YES];
                     
                 }

@@ -22,7 +22,10 @@
     self.commitBtn.layer.cornerRadius = 4.0;
     self.commitBtn.layer.borderWidth = 1.0;
     self.commitBtn.layer.borderColor = kYellowColor.CGColor;
-    // Do any additional setup after loading the view.
+    
+    BmobUser *user = [BmobUser getCurrentUser];
+    NSString *phone = [user objectForKey:kuser_phone];
+    self.phoneTextField.text = CheckNil(phone);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,5 +35,27 @@
 
 
 - (IBAction)commitAction:(UIButton *)sender {
+    BOOL correct;
+   correct =  [CommonMethods checkTel:self.phoneTextField.text];
+    if (!correct) {
+        [CommonMethods showAlertString:@"手机号码格式不正确。" delegate:self tag:10];
+    }else{
+        BmobUser *user = [BmobUser getCurrentUser];
+        [user setObject:self.phoneTextField.text forKey:kuser_phone];
+        [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+            if (isSuccessful) {
+                [CommonMethods showAlertString:@"绑定手机号成功！" delegate:self tag:11];
+            }else if(error){
+                [CommonMethods showAlertString:@"绑定手机号失败！" delegate:self tag:12];
+            }
+        }];
+    }
+}
+
+#pragma -mark AlertviewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 11) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 @end

@@ -88,6 +88,24 @@
 
 //浅灰色气体
 #define kLightTintColor  RGB(154, 154, 154, 1)
+
+#define kDarkTintColor  RGB(49, 46, 46, 1)
+
+#define CheckNil(a) (a)==nil?@"":(a)
+
+/*User表对应Key*/
+#define kobjectId @"objectId"
+#define kusername @"username"
+#define kmobilePhoneNumber @"mobilePhoneNumber"
+#define kuser_sex @"user_sex"
+#define kuser_individuality_signature @"user_individuality_signature"
+#define kuser_phone @"user_phone"
+#define knick @"nick"
+#define kavatar @"avatar"
+#define klocation @"location"
+#define kauthData @"authData"
+
+
 #define kDarkTintColor   RGB(49, 46, 46, 1)
 
 

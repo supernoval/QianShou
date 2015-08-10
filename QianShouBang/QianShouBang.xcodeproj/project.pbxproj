@@ -130,6 +130,7 @@
 		D28FEAB91B7352560026D674 /* PersonInfoSettingTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEAB81B7352560026D674 /* PersonInfoSettingTVC.m */; };
 		D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEABA1B7353380026D674 /* PortraitCell.xib */; };
 		D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEABD1B73535D0026D674 /* PortraitCell.m */; };
+		D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = D2B4D9771B78430400A5AE14 /* PickDateView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -430,6 +431,8 @@
 		D28FEABA1B7353380026D674 /* PortraitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEABC1B73535D0026D674 /* PortraitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitCell.h; sourceTree = SOURCE_ROOT; };
 		D28FEABD1B73535D0026D674 /* PortraitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitCell.m; sourceTree = SOURCE_ROOT; };
+		D2B4D9761B78430400A5AE14 /* PickDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickDateView.h; sourceTree = "<group>"; };
+		D2B4D9771B78430400A5AE14 /* PickDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickDateView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -859,6 +862,7 @@
 		13983AE51B6B51AB00D44BF0 /* 常量 */ = {
 			isa = PBXGroup;
 			children = (
+				D2B4D9721B7841B300A5AE14 /* DatePick */,
 				13838B701B71D4F1007CA809 /* CommonMethods.h */,
 				13838B711B71D4F5007CA809 /* CommonMethods.m */,
 				13983AE61B6B51BD00D44BF0 /* Constants.h */,
@@ -1242,6 +1246,15 @@
 			name = "个人信息设置";
 			sourceTree = "<group>";
 		};
+		D2B4D9721B7841B300A5AE14 /* DatePick */ = {
+			isa = PBXGroup;
+			children = (
+				D2B4D9761B78430400A5AE14 /* PickDateView.h */,
+				D2B4D9771B78430400A5AE14 /* PickDateView.m */,
+			);
+			name = DatePick;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1377,6 +1390,7 @@
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
+				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
 				D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */,
 				D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */,
 				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,

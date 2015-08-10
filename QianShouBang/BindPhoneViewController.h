@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface BindPhoneViewController : BaseViewController
+@interface BindPhoneViewController : BaseViewController<UITextFieldDelegate,UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *phoneTextField;
 
 @property (strong, nonatomic) IBOutlet UIButton *commitBtn;

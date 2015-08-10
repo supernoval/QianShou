@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface IntroduceYourselfViewController : BaseViewController<UITextViewDelegate>
+@interface IntroduceYourselfViewController : BaseViewController<UITextViewDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *introTextView;
 @property (strong, nonatomic) IBOutlet UILabel *numLabel;

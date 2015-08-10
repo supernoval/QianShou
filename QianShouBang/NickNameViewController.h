@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface NickNameViewController : BaseViewController<UITextViewDelegate>
+@interface NickNameViewController : BaseViewController<UITextViewDelegate,UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *introTextView;
 @property (strong, nonatomic) IBOutlet UILabel *numLabel;

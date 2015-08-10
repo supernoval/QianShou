@@ -32,7 +32,7 @@
 @property (nonatomic) BOOL emailVerified;
 
 @property (nonatomic) NSData *authData;
-
+@property (nonatomic) BmobGeoPoint *location;
 
 
 

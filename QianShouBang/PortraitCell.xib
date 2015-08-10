@@ -30,7 +30,7 @@
                             <constraint firstAttribute="width" constant="16" id="Wz8-OW-eup"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="wSg-gy-c1t">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wSg-gy-c1t">
                         <rect key="frame" x="244" y="8" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="GVo-ZK-c19"/>
@@ -66,6 +66,5 @@
     </objects>
     <resources>
         <image name="arrow_right" width="16" height="16"/>
-        <image name="setting" width="25" height="25"/>
     </resources>
 </document>

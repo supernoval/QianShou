@@ -12,13 +12,17 @@
 #import "IntroduceYourselfViewController.h"
 #import "NickNameViewController.h"
 #import "BindPhoneViewController.h"
+#import "PickDateView.h"
+
 
 @interface PersonInfoSettingTVC ()
 @property (nonatomic, strong)UIActionSheet *sexAC;
 @property (nonatomic, strong)UIActionSheet *pickPhotoActionSheet;
+@property (nonatomic, strong)PickDateView *pickDateView ;
 @end
 
 @implementation PersonInfoSettingTVC
+@synthesize currentUser;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,11 +31,28 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    currentUser = [[QSUser alloc]init];
 }
+
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self getCurrentUserInfo];
+}
+#pragma -mark获取当前用户信息
+- (void)getCurrentUserInfo{
+    BmobUser *user = [BmobUser getCurrentUser];
+    currentUser.username = [user objectForKey:kusername];
+    currentUser.user_sex = [[user objectForKey:kuser_sex]integerValue];
+    currentUser.nick = [user objectForKey:knick];
+    currentUser.user_phone = [user objectForKey:kuser_phone];
+    currentUser.avatar = [user objectForKey:kavatar];
+    currentUser.user_individuality_signature = [user objectForKey:kuser_individuality_signature];
+    
+    NSLog(@"8%@ 9%@ 10%@",currentUser.username,currentUser.user_phone,currentUser.nick);
     [self.tableView reloadData];
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -89,6 +110,7 @@
     if (cell == nil) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"RowTextCell" owner:self options:nil][0];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.extraText.hidden = YES;
     cell.arrow.hidden = YES;
     cell.extraText.textColor = kBlueColor;
@@ -100,7 +122,13 @@
                 case 0:
                 {
                     //头像
-                    portraitCell.image.image = [UIImage imageNamed:@"setting"];
+                    if (currentUser.avatar.length != 0) {
+                        [CommonMethods setImageViewWithImageURL:currentUser.avatar imageView:portraitCell.image];
+                    }else{//未设置头像时的处理
+                        portraitCell.image.image = [UIImage imageNamed:@"head_default"];
+                    }
+                    
+                
                     return portraitCell;
                 }
                     break;
@@ -110,7 +138,7 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"自我描述";
-                    cell.extraText.text = @"主人很懒，什么都没留下";
+                    cell.extraText.text = currentUser.user_individuality_signature;
                     return cell;
                     
                 }
@@ -121,7 +149,7 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = YES;
                     cell.text.text = @"账号";
-                    cell.extraText.text = @"15222222222";
+                    cell.extraText.text = currentUser.username;
                     return cell;
                    
                 }
@@ -132,7 +160,7 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"昵称";
-                    cell.extraText.text = @"牛逼邦果";
+                    cell.extraText.text = currentUser.nick;
                     return cell;
                     
                 }
@@ -152,7 +180,7 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"手机号";
-                    cell.extraText.text = @"15222222222";
+                    cell.extraText.text = currentUser.user_phone;
                     return cell;
 
                 }
@@ -160,9 +188,11 @@
                     
                 case 1:
                 {
-                    cell.extraText.hidden = YES;
+                    cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"生日";
+                    cell.extraText.text = @"2015-10-10";
+//                    cell.extraText.text = CheckNil(currentUser.authData);
                     return cell;
                     
                 }
@@ -170,9 +200,11 @@
                     
                 case 2:
                 {
-                    cell.extraText.hidden = YES;
+                    cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"地区";
+                    cell.extraText.text = @"所在地区";
+//                    cell.extraText.text = CheckNil(currentUser.location);
                     return cell;
                     
                 }
@@ -183,7 +215,15 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"性别";
-                    cell.extraText.text = @"性别是啥";
+                    if (currentUser.user_sex == 1) {
+                        cell.extraText.text = @"男性";
+                    }else if(currentUser.user_sex == 0){
+                        cell.extraText.text = @"女性";
+                        
+                    }else{
+                        cell.extraText.text = @" ";
+                    }
+                    
                     return cell;
                     
                 }
@@ -226,7 +266,9 @@
                 //自我描述
             case 1:
             {
+                
                 IntroduceYourselfViewController *introVC = [sb instantiateViewControllerWithIdentifier:@"IntroduceYourselfViewController"];
+                
                 [self.navigationController pushViewController:introVC animated:YES];
             }
                 break;
@@ -260,7 +302,7 @@
                 
                 //生日
             case 1:
-                self.view.backgroundColor = [UIColor redColor];
+                [self showDatePickerView];
                 break;
                 
                 //地区
@@ -271,8 +313,7 @@
                 //性别
             case 3:
             {
-                self.sexAC = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"男性",@"女性", nil];
-                [self.sexAC addButtonWithTitle:@"取消"];
+                self.sexAC = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男性",@"女性", nil];
                 self.sexAC.cancelButtonIndex = 2;
                 [self.sexAC showInView:self.view];
             }
@@ -284,12 +325,39 @@
     }
 }
 
+#pragma -mark AlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag == 80) {
+        [self getCurrentUserInfo];
+        [self.tableView reloadData];
+    }
+}
 
+#pragma -mark ActionSheetDelegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    BmobUser *user = [BmobUser getCurrentUser];
     
     if (actionSheet == self.sexAC) {
         if (buttonIndex == 0) {//男性
-                    }else if(buttonIndex == 1){//女性
+            [user setObject:@(1) forKey:kuser_sex];
+            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                if (isSuccessful) {
+                    [self getCurrentUserInfo];
+                }else if(error){
+                    [CommonMethods showAlertString:@"修改性别失败！" delegate:self tag:12];
+                }
+            }];
+            
+        }else if(buttonIndex == 1){//女性
+            [user setObject:@(0) forKey:kuser_sex];
+            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                if (isSuccessful) {
+                    [self getCurrentUserInfo];
+                }else if(error){
+                    [CommonMethods showAlertString:@"修改性别失败！" delegate:self tag:12];
+                }
+            }];
         }
     }else if (actionSheet == _pickPhotoActionSheet){
         
@@ -325,11 +393,32 @@
     }
 }
 
+#pragma  mark － 显示日期选择view
+-(void)showDatePickerView
+{
+        _pickDateView = [[PickDateView alloc]init];
+        [_pickDateView setDateBlock:^(NSString *dateStr) {
+            
+            if (dateStr != nil) {
+//                self.view.backgroundColor = [UIColor redColor];
+                
+                
+            }
+            
+        }];
+        
+        [self.navigationController.view addSubview:_pickDateView];
+        
+        [_pickDateView show];
+        
+    
+    
+}
 
 
 
 #pragma mark - UIImagePickerControllerDelegate
-/*
+
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
@@ -340,9 +429,7 @@
         
         
         
-        [_PhotosArray addObject:image];
         
-        [self setPhotos];
         
         [self.tableView reloadData];
         
@@ -360,7 +447,7 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+/*
 -(void)setPhotos
 {
     

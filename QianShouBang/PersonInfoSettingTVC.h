@@ -7,7 +7,9 @@
 //
 
 #import "BaseTableViewController.h"
+#import "QSUser.h"
 
-@interface PersonInfoSettingTVC : BaseTableViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>
+@interface PersonInfoSettingTVC : BaseTableViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
+@property (nonatomic, strong)QSUser *currentUser;
 
 @end

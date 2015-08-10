@@ -197,7 +197,7 @@
     
     user.geoPoint = point;
     user.nick = @"邦果";
-    [user setObject:@"帮果" forKey:@"nick"];
+    [user setObject:@"邦果" forKey:@"nick"];
     
     
     user.balance = 0;

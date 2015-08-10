@@ -13,7 +13,7 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yia-je-k3v" id="CGs-nb-2K1">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-q4-D9L">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-q4-D9L">
                         <rect key="frame" x="8" y="10" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="38b-gw-zN5"/>
@@ -83,6 +83,5 @@
     <resources>
         <image name="blod_backArrow" width="25" height="25"/>
         <image name="male" width="13" height="13"/>
-        <image name="setting" width="25" height="25"/>
     </resources>
 </document>

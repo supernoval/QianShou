@@ -72,7 +72,6 @@
 +(void)showAlertString:(NSString*)alert delegate:(id)delegate tag:(NSInteger)tag;
 
 
-
 @end
 
 

@@ -11,6 +11,10 @@
 @implementation InfoCell
 
 - (void)awakeFromNib {
+    CGFloat width = self.image.frame.size.width;
+    self.image.layer.masksToBounds = YES;
+    self.image.layer.cornerRadius = width/2;
+    
     // Initialization code
 }
 
