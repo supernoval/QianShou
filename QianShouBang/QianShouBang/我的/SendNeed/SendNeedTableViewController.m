@@ -12,6 +12,7 @@
 #import "Order.h"
 #import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "LocateCityManager.h"
 
 
 static NSString *needCell = @"needCell";
@@ -23,7 +24,7 @@ static CGFloat imagesCellHeight = 70.0;
 
 
 
-@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
+@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,LocateCityManagerDelegate>
 {
     RewardLimitationModel *rewardModel;
     
@@ -35,6 +36,12 @@ static CGFloat imagesCellHeight = 70.0;
     UIView *imagesView; //用于放图片
     
     Order *_order; //支付model
+    
+    NSString *_address;
+    
+    double _latitude;
+    double _longitude;
+    
     
     
 }
@@ -67,6 +74,15 @@ static CGFloat imagesCellHeight = 70.0;
     
     
     [self initImagesView];
+    
+    _address = [[NSUserDefaults standardUserDefaults] objectForKey:kUserAddress];
+    _longitude = [[NSUserDefaults standardUserDefaults ] floatForKey:kGPSLoactionLongitude];
+    _latitude = [[NSUserDefaults standardUserDefaults ] floatForKey:kGPSLocationLatitude];
+    
+    
+  
+
+    
     
     
     
@@ -228,7 +244,9 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
+#pragma mark - 提交订单第一步 保存图片  
 - (IBAction)publishAction:(id)sender {
+    
     
     NSString *desc = _needTF.text;
     
@@ -250,9 +268,17 @@ static CGFloat imagesCellHeight = 70.0;
     
     CGFloat xiaofei = [_xiaofeiTF.text floatValue];
     
-    if (xiaofei == 0) {
+    if (xiaofei < 1) {
         
-        [MyProgressHUD showError:@"小费金额不能为0"];
+        [MyProgressHUD showError:@"小费金额必须大于1"];
+        
+        return;
+        
+    }
+    
+    if (_address.length == 0) {
+        
+        [CommonMethods showDefaultErrorString:@"定位失败，请在 设置－隐私－定位服务 里开启对《牵手邦》的定位允许"];
         
         return;
         
@@ -267,7 +293,7 @@ static CGFloat imagesCellHeight = 70.0;
         
         NSMutableArray *photosDataArray = [[NSMutableArray alloc]init];
         
-        for (NSInteger i ; i  < _PhotosArray.count ; i ++) {
+        for (NSInteger i = 0 ; i  < _PhotosArray.count ; i ++) {
             
             UIImage *oneImage = [_PhotosArray objectAtIndex:i];
             NSData *imageData = UIImageJPEGRepresentation(oneImage, 1);
@@ -288,7 +314,7 @@ static CGFloat imagesCellHeight = 70.0;
         
         [BmobProFile uploadFilesWithDatas:photosDataArray resultBlock:^(NSArray *filenameArray, NSArray *urlArray, NSArray *bmobFileArray, NSError *error) {
             
-            [MyProgressHUD dismiss];
+            
             
             if (error) {
                 
@@ -334,15 +360,17 @@ static CGFloat imagesCellHeight = 70.0;
                         
                     }
                     
+                    [self setjiangliMoney:files];
                     
-                    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-                        
-                        if (isSuccessful) {
-                            
-                            [self summitWithAttachObject:files];
-                            
-                        }
-                    }];
+//                    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+//                        
+//                        if (isSuccessful) {
+//                            
+//                            
+//                            
+//                            
+//                        }
+//                    }];
             
                     
                     
@@ -363,8 +391,7 @@ static CGFloat imagesCellHeight = 70.0;
     }
     else //没有图片直接上传
     {
-        [self summitWithAttachObject:nil];
-        
+        [self setjiangliMoney:nil];
     }
     
 }
@@ -384,7 +411,123 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
--(void)summitWithAttachObject:(NSMutableArray*)attachObjects
+
+
+#pragma mark - 先设置奖励
+
+-(void)setjiangliMoney:(NSMutableArray*)picFilesObjects
+{
+    
+  
+     CGFloat xiaofei = [_xiaofeiTF.text floatValue];
+    
+    if (rewardModel.b_SenderAward) {
+        
+      
+        
+        
+        BmobQuery *query = [[BmobQuery alloc]initWithClassName:kOrder];
+        
+        [query whereKey:@"order_state" notContainedIn:@[@(3),@(6),@(10)]];
+        
+//        [query whereKey:@"order_state" notContainedIn:@[@(3),@(6),@(10)]];
+        
+        [query setLimit:3];
+        
+        [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            
+              CGFloat jiangli = 0;
+            
+            NSLog(@"queryOrderCount:%ld",(long)array.count);
+            
+            if (array.count < 3)
+            {
+                  jiangli = xiaofei * rewardModel.d_SenderAwardRatio;
+                
+            }
+            else
+            {
+                
+               
+                NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+                //设置时区
+                [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"Asia/Shanghai"]];
+                //时间格式
+                [dateFormatter setDateFormat:@"yyyy/MM/dd hh:mm:ss"];
+                //调用获取服务器时间接口，返回的是时间戳
+                NSString  *timeString = [Bmob getServerTimestamp];
+                //时间戳转化成时间
+                NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeString intValue]];
+                
+                NSString *dateStr = [CommonMethods getYYYYMMddFromDefaultDateStr:date];
+                
+                NSDate * serviceDate = [CommonMethods  getYYYMMddFromString:dateStr];
+                
+                
+                BOOL moreThanThree = YES;
+                
+                for (int i = 0; i < array.count; i ++)
+                {
+                    
+                    BmobObject *orderOB = array[i];
+                    
+                    NSString *creatTime = [CommonMethods getYYYYMMddFromDefaultDateStr:orderOB.createdAt];
+                    
+                    NSDate *createDate = [CommonMethods getYYYMMddFromString:creatTime];
+                    
+                    
+                    //三个当中只要有一个不相等，就表示没超过
+                    if (![serviceDate isEqualToDate:createDate])
+                    {
+                        
+                        moreThanThree = NO;
+                    }
+                }
+                
+                
+                if (moreThanThree)
+                {
+                    
+                       jiangli = xiaofei * 0.1;
+                }
+                else
+                {
+                       jiangli = xiaofei * rewardModel.d_SenderAwardRatio;
+                }
+                
+              
+            }
+            
+            
+            [self summitWithAttachObject:picFilesObjects jiangli:jiangli];
+            
+        }];
+        
+        
+     }
+    else
+    {
+        [self summitWithAttachObject:picFilesObjects jiangli:0];
+        
+        
+        
+    }
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
+
+-(void)summitWithAttachObject:(NSMutableArray*)attachObjects jiangli:(CGFloat)jiangli
 {
     
     NSString *desc = _needTF.text;
@@ -415,14 +558,17 @@ static CGFloat imagesCellHeight = 70.0;
         
     }
     
+    if (_address.length == 0) {
+        
+        [CommonMethods showDefaultErrorString:@"定位失败，请在 设置－隐私－定位服务 里开启对《牵手邦》的定位允许"];
+        
+        return;
+        
+    }
+    
     CGFloat benjin = [_benjinTF.text floatValue];
     
-    CGFloat jiangli = 0;
-    
-    if (rewardModel.b_SenderAward) {
-        
-        jiangli = xiaofei * rewardModel.d_SenderAwardRatio;
-    }
+   
     
     
     BmobObject *orderObject = [BmobObject objectWithClassName:kOrder];
@@ -437,9 +583,11 @@ static CGFloat imagesCellHeight = 70.0;
     
     [orderObject setObject:user forKey:@"user"];
     
-    BmobGeoPoint *location = [[BmobGeoPoint alloc]initWithLongitude:0 WithLatitude:0];
+    BmobGeoPoint *location = [[BmobGeoPoint alloc]initWithLongitude:_longitude WithLatitude:_latitude];
     
     [orderObject setObject:location forKey:@"location"];
+    
+    [orderObject setObject:_address forKey:@"order_address"];
     
     [orderObject setObject:@(benjin) forKey:@"order_benjin"];
     
@@ -447,7 +595,7 @@ static CGFloat imagesCellHeight = 70.0;
     
     [orderObject setObject:user.username forKey:@"order_phone"];
     
-    [orderObject setObject:@(xiaofei) forKey:@"order_commmission"]; //小费
+    [orderObject setObject:@(xiaofei) forKey:@"order_commission"]; //小费
     
     [orderObject setObject:@(3) forKey:@"order_state"];
     
@@ -472,11 +620,11 @@ static CGFloat imagesCellHeight = 70.0;
     
     
     
-    [MyProgressHUD showProgress];
     
+       [MyProgressHUD showProgress];
     [orderObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
-        [MyProgressHUD dismiss];
+       
         if (isSuccessful) {
             
             [self saveDetailAccount:orderObject];
@@ -485,8 +633,9 @@ static CGFloat imagesCellHeight = 70.0;
             
         }
         else
-            
         {
+            
+            [MyProgressHUD dismiss];
             
             [CommonMethods showDefaultErrorString:@"订单提交失败"];
             NSLog(@"订单提交失败:%@",error);
@@ -556,6 +705,7 @@ static CGFloat imagesCellHeight = 70.0;
         else
         {
             
+            [MyProgressHUD dismiss];
             
             
             NSLog(@"%s,error:%@",__func__,error);
@@ -621,6 +771,8 @@ static CGFloat imagesCellHeight = 70.0;
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             NSLog(@"%s,reslut = %@",__func__,resultDic);
+            
+            [MyProgressHUD dismiss];
             
             NSInteger resultStatus = [[resultDic objectForKey:@"resultStatus"]integerValue];
             if (resultStatus == 9000) {
@@ -696,73 +848,6 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
--(void)setjiangliMoney
-{
-    BmobQuery *query = [[BmobQuery alloc]initWithClassName:kOrder];
-    
-    [query whereKey:@"order_state" notContainedIn:@[@(3),@(6),@(10)]];
-    
-    [query setLimit:3];
-    
-    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser].objectId];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-       
-        
-        if (array.count < 3)
-        {
-            
-            
-        }
-        else
-        {
-            
-                NSString *serviceTime =  [Bmob getServerTimestamp];
-            
-               NSDate * serviceDate = [CommonMethods  getYYYMMddFromString:serviceTime];
-            
-            
-            BOOL moreThanThree = YES;
-            
-            for (int i = 0; i < array.count; i ++)
-            {
-                
-                BmobObject *orderOB = array[i];
-                
-                NSString *creatTime = [CommonMethods getYYYYMMddFromDefaultDateStr:orderOB.createdAt];
-                
-                NSDate *createDate = [CommonMethods getYYYMMddFromString:creatTime];
-                
-                
-                //三个当中只要有一个不相等，就表示没超过
-                if (![serviceDate isEqualToDate:createDate])
-                {
-                    
-                    moreThanThree = NO;
-                }
-            }
-            
-            
-            if (moreThanThree)
-            {
-                
-                
-            }
-            
-            
-        }
-        
-    }];
-    
-    
-    
-    
-
-    
-    
-    
-    
-}
 
 
 - (IBAction)pickPhoto:(id)sender {
@@ -923,6 +1008,8 @@ static CGFloat imagesCellHeight = 70.0;
     
     
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

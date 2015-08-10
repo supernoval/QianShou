@@ -89,3 +89,9 @@
 //浅灰色气体
 #define kLightTintColor  RGB(154, 154, 154, 1)
 #define kDarkTintColor   RGB(49, 46, 46, 1)
+
+
+//定位位置
+#define kUserAddress    @"UserAddress"
+#define kGPSLocationLatitude    @"GPSLocationLatitude"
+#define kGPSLoactionLongitude    @"GPSLocationLongitude"

@@ -8,6 +8,7 @@
 
 #import "DarenTableViewController.h"
 #import "Constants.h"
+#import <BmobSDK/BmobProFile.h>
 
 static CGFloat imagesCellHeight = 70.0;
 
@@ -223,16 +224,112 @@ static CGFloat imagesCellHeight = 70.0;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)publishDarenAtion:(id)sender {
+    
+    [self updatePhotos];
+    
 }
+
+#pragma mark - 先保存照片
+- (void)updatePhotos
+{
+    if (_PhotosArray.count > 0)
+    {
+      
+        NSMutableArray *photosDataArray = [[NSMutableArray alloc]init];
+        
+        for (NSInteger i = 0 ; i  < _PhotosArray.count ; i ++) {
+            
+            UIImage *oneImage = [_PhotosArray objectAtIndex:i];
+            NSData *imageData = UIImageJPEGRepresentation(oneImage, 1);
+            
+            
+            
+            NSDictionary *imagedataDic = @{@"data":imageData,@"filename":@"image.jpg"};
+            
+            [photosDataArray addObject:imagedataDic];
+            
+            
+        }
+        
+        
+        
+        [MyProgressHUD showProgress];
+        
+        
+        [BmobProFile uploadFilesWithDatas:photosDataArray resultBlock:^(NSArray *filenameArray, NSArray *urlArray, NSArray *bmobFileArray, NSError *error) {
+            
+            
+            
+            if (error) {
+                
+                NSLog(@"%s,error:%@",__func__,error);
+                
+                NSLog(@"图片上传失败");
+                
+                [CommonMethods showDefaultErrorString:@"图片上传失败，请重新上传"];
+                
+            }
+            else
+            {
+                
+                NSLog(@"filename:%@  urlArray:%@",filenameArray,urlArray);
+                
+                
+                if (bmobFileArray.count > 0)
+                {
+                    
+                    
+                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+                    NSMutableArray *files = [[NSMutableArray alloc]init];
+                    
+                    
+                    for (int i = 0 ; i < bmobFileArray.count; i ++) {
+                        
+                        BmobFile *onefile = [bmobFileArray objectAtIndex:i];
+                        
+                        NSString *url = onefile.url;
+                        
+                        
+                        BmobObject *attachObject = [[BmobObject alloc]initWithClassName:kAttachItem];
+                        
+                        [attachObject setObject:url forKey:@"attach_name"];
+                        [attachObject setObject:url forKey:@"attach_url"];
+                        
+                        [files addObject:attachObject];
+                        
+                        
+                        [batch saveBmobObjectWithClassName:kAttachItem parameters:@{@"attach_name":url,@"attach_url":url}];
+                        
+                        
+                        
+                        
+                    }
+                    
+             
+                    
+                    
+                    
+                }
+            }
+            
+            
+        } progress:^(NSUInteger index, CGFloat progress) {
+            
+            
+        }];
+        
+        
+    }
+    else
+    {
+        
+    }
+}
+
+
+
+
+
 @end
