@@ -195,9 +195,12 @@ static NSInteger pageSize = 10;
                 
             BmobUser *user = [[_weiboListArray objectAtIndex:indexPath.section] objectForKey:@"user"];
             
+            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]]];
+            
+            
             headTitle.text = [user objectForKey:@"nick"];
                 
-                contentLabel.text = [weiboObject objectForKey:@"content"];
+            contentLabel.text = [weiboObject objectForKey:@"content"];
                 
                 
           

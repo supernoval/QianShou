@@ -13,6 +13,8 @@
 #import "MyProgressHUD.h"
 #import "QSUser.h"
 #import "BmobDataListName.h"
+#import "UIImageView+WebCache.h"
+
 @interface BaseViewController : UIViewController
 
 @end

@@ -14,6 +14,8 @@
 #import "MyProgressHUD.h"
 #import "QSUser.h"
 #import "BmobDataListName.h"
+#import "UIImageView+WebCache.h"
+
 
 @interface BaseTableViewController : UITableViewController
 {
