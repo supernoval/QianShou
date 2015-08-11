@@ -10,4 +10,7 @@
 
 @interface MallTableViewController : BaseTableViewController<UITableViewDataSource,UITabBarDelegate>
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *leftItem;
+- (IBAction)theExchangesGoods:(UIBarButtonItem *)sender;
+
 @end

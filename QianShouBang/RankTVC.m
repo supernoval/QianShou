@@ -9,7 +9,13 @@
 #import "RankTVC.h"
 #import "RankCell.h"
 
-@interface RankTVC ()
+static NSUInteger pageSize = 10;
+
+@interface RankTVC (){
+    NSMutableArray *_dataArray;
+    
+    NSInteger pageIndex;
+}
 
 @end
 
@@ -20,6 +26,25 @@
     self.title = @"财富榜";
     self.view.backgroundColor = kBackgroundColor;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    
+    [self addHeaderRefresh];
+    self.tableView.header.stateHidden = YES;
+    self.tableView.header.updatedTimeHidden = YES;
+    [self addFooterRefresh];
+    self.tableView.footer.stateHidden = YES;
+    
+    _dataArray = [[NSMutableArray alloc]init];
+    pageIndex = 0;
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,6 +52,43 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)headerRefresh{
+    pageIndex = 0;
+    [self getData];
+}
+- (void)footerRefresh{
+    pageIndex ++;
+    [self getData];
+}
+
+- (void)getData{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kWeiboListItem];
+    
+    query.limit = pageSize;
+    query.skip = pageSize*pageIndex;
+    [query includeKey:@"user"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+        if (pageIndex == 0) {
+            
+            [_dataArray removeAllObjects];
+            
+        }
+        
+        [_dataArray addObjectsFromArray:array];
+        
+        
+        [self.tableView reloadData];
+        
+        
+    }];
+
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

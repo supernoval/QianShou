@@ -127,7 +127,7 @@
                     infoCell.selectionStyle = UITableViewCellSelectionStyleNone;
                     //头像
                     if (userInfo.avatar.length != 0) {
-                        [CommonMethods setImageViewWithImageURL:userInfo.avatar imageView:infoCell.image];
+                        [infoCell.image sd_setImageWithURL:[NSURL URLWithString:userInfo.avatar]];
                     }else{//未设置头像时的处理
                         infoCell.image.image = [UIImage imageNamed:@"head_default"];
                     }

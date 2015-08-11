@@ -74,6 +74,7 @@
 #pragma mark- 添加横线
 +(void)addLine:(float)x startY:(float)y color:(UIColor *)color toView:(UIView *)parentView;
 
+
 @end
 
 

@@ -25,3 +25,5 @@
 //呐喊
 #define kWeiboListItem      @"WeiboListItem"
 
+//系统消息
+#define kSystemMsg          @"SystemMsg"

@@ -105,6 +105,9 @@
 #define klocation @"location"
 #define kauthData @"authData"
 
+/*系统消息表对应Key*/
+#define ksystem_msg_content @"system_msg_content"
+#define ksystem_msg_title @"system_msg_title"
 
 #define kDarkTintColor   RGB(49, 46, 46, 1)
 

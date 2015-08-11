@@ -123,7 +123,7 @@
                 {
                     //头像
                     if (currentUser.avatar.length != 0) {
-                        [CommonMethods setImageViewWithImageURL:currentUser.avatar imageView:portraitCell.image];
+                        [portraitCell.image sd_setImageWithURL:[NSURL URLWithString:currentUser.avatar]];
                     }else{//未设置头像时的处理
                         portraitCell.image.image = [UIImage imageNamed:@"head_default"];
                     }

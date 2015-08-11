@@ -129,6 +129,7 @@
 		D24C370F1B74934F00228886 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C370E1B74934F00228886 /* MessageCell.m */; };
 		D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */; };
 		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
+		D24C594F1B79E54A006F88D3 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -453,6 +454,8 @@
 		D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceYourselfViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C37161B74A84400228886 /* NickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = SOURCE_ROOT; };
 		D24C37171B74A84400228886 /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C594D1B79E54A006F88D3 /* MessageDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailTVC.h; sourceTree = SOURCE_ROOT; };
+		D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTVC.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1242,6 +1245,7 @@
 		D24C37071B7492E300228886 /* 消息中心 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C594C1B79E510006F88D3 /* 消息详情 */,
 				D24C37081B74931600228886 /* MessageTableViewController.h */,
 				D24C37091B74931600228886 /* MessageTableViewController.m */,
 			);
@@ -1275,7 +1279,20 @@
 			name = "手机号";
 			sourceTree = "<group>";
 		};
+<<<<<<< .mine
+		D24C594C1B79E510006F88D3 /* 消息详情 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C594D1B79E54A006F88D3 /* MessageDetailTVC.h */,
+				D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */,
+			);
+			name = "消息详情";
+			sourceTree = "<group>";
+		};
+		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
+=======
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
+>>>>>>> .r57
 			isa = PBXGroup;
 			children = (
 				D28FEA951B72FF560026D674 /* ContactTVC.h */,
@@ -1476,6 +1493,7 @@
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
+				D24C594F1B79E54A006F88D3 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */,
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,

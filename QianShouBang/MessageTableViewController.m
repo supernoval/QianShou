@@ -9,7 +9,14 @@
 #import "MessageTableViewController.h"
 #import "MessageCell.h"
 
-@interface MessageTableViewController ()
+static NSUInteger pageSize = 10;
+
+@interface MessageTableViewController (){
+    
+    NSMutableArray *_dataArray;
+    
+    NSInteger pageIndex;
+}
 
 @end
 
@@ -23,18 +30,76 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    [self addHeaderRefresh];
+    self.tableView.header.stateHidden = YES;
+    self.tableView.header.updatedTimeHidden = YES;
+    [self addFooterRefresh];
+    self.tableView.footer.stateHidden = YES;
+    
+    _dataArray = [[NSMutableArray alloc]init];
+    pageIndex = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self getData];
+}
+
+- (void)headerRefresh{
+    pageIndex = 0;
+    [self getData];
+}
+- (void)footerRefresh{
+    pageIndex ++;
+    [self getData];
+}
+
+- (void)getData{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kSystemMsg];
+    
+    query.limit = pageSize;
+    query.skip = pageSize*pageIndex;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+        if (pageIndex == 0) {
+            
+            [_dataArray removeAllObjects];
+            
+        }
+        
+        [_dataArray addObjectsFromArray:array];
+        
+        BmobObject *obj = [_dataArray objectAtIndex:0];
+        NSString *str = [obj objectForKey:ksystem_msg_title];
+        
+        NSLog(@"///:%@****:%@----:%@",str,obj.createdAt,obj.updatedAt);
+        [self.tableView reloadData];
+        
+        
+    }];
+    
 }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return _dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -57,6 +122,17 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    BmobObject *obj = [_dataArray objectAtIndex:indexPath.section];
+    
+    NSDate *date = obj.updatedAt;
+     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    
+    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit;
+    comps = [calendar components:unitFlags fromDate:date];
+    long day=[comps day];//获取日期对应的日
+    long month=[comps month];//获取月对应的月
+    
     static NSString *cellId = @"MessageCell";
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
@@ -64,8 +140,8 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = kContentColor;
-    cell.titleText.text = @"系统消息标题系统消息标题";
-    cell.timeText.text = @"08/25";
+    cell.titleText.text = [obj objectForKey:ksystem_msg_title];
+    cell.timeText.text = [NSString stringWithFormat:@"%ld/%ld",month,day];
     
     return cell;
 }

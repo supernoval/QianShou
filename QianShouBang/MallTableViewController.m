@@ -10,7 +10,14 @@
 #import "MallCell.h"
 #import "GoodsDetailTVC.h"
 
-@interface MallTableViewController ()
+
+
+
+@interface MallTableViewController (){
+    NSMutableArray *_dataArray;
+    
+    NSInteger pageIndex;
+}
 
 @end
 
@@ -19,12 +26,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"个人账户";
+    self.title = @"牵手币商城";
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,6 +123,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 115;
 }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellId = @"RowTextCell";
@@ -146,4 +156,6 @@
 - (void)exchangeGoods:(UIButton *)button{
 }
 
+- (IBAction)theExchangesGoods:(UIBarButtonItem *)sender {
+}
 @end
