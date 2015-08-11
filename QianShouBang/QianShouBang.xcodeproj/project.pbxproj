@@ -1288,7 +1288,7 @@
 			name = "消息详情";
 			sourceTree = "<group>";
 		};
-		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
+		
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
