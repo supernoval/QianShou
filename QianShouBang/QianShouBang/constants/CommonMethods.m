@@ -7,6 +7,7 @@
 //
 
 #import "CommonMethods.h"
+#import "Constants.h"
 
 
 
@@ -465,5 +466,13 @@
     [alertview show];
     
 }
+
++(void)addLine:(float)x startY:(float)y color:(UIColor *)color toView:(UIView *)parentView{
+    CALayer *line = [[CALayer alloc] init];
+    line.frame = CGRectMake(x, y, parentView.frame.size.width-x, 1);
+    line.backgroundColor = color.CGColor;
+    [parentView.layer addSublayer:line];
+}
+
 
 @end

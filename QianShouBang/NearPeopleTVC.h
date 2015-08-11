@@ -9,5 +9,6 @@
 #import "BaseTableViewController.h"
 
 @interface NearPeopleTVC : BaseTableViewController<UITableViewDataSource,UITableViewDelegate>
+- (IBAction)catagotyAction:(UIBarButtonItem *)sender;
 
 @end

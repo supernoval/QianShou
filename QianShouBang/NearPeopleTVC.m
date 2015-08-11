@@ -10,6 +10,8 @@
 #import "NearPeopleCell.h"
 
 @interface NearPeopleTVC ()
+@property (nonatomic, strong)UIView *checkView;
+@property (nonatomic)BOOL showCheckView;
 
 @end
 
@@ -23,7 +25,11 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    // Do any additional setup after loading the view.
+    
+    self.checkView = [self nearCatagoryVeiw];
+    [self.view addSubview:self.checkView];
+    self.checkView.hidden = YES;
+    self.showCheckView = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,27 +41,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return 10;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
-    headView.backgroundColor = [UIColor clearColor];
-    
-    return headView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 5;
-}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 60;
+    return 80;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -66,27 +62,79 @@
     }
     cell.backgroundColor = kContentColor;
     
-//    CGRect titleF = cell.nameBtn.titleLabel.frame;
-//    CGRect imageF = cell.nameBtn.imageView.frame;
-//    
-//    titleF.origin.x = imageF.origin.x;
-//    cell.nameBtn.titleLabel.frame = titleF;
-//    imageF.origin.x = CGRectGetMaxX(titleF);
-//    cell.nameBtn.imageView.frame = imageF;
-    
-    cell.image.image = [UIImage imageNamed:@"setting"];
-    [cell.nameBtn setTitle:@"超人不会飞" forState:UIControlStateNormal];
-    [cell.nameBtn setImage:[UIImage imageNamed:@"male"] forState:UIControlStateNormal];
-    cell.distance.text = @"距离800Km";
-    cell.portrait.text = @"谁说超人不会飞，我就飞你麻痹";
+    cell.name.text = @"呵呵大大";
+    cell.distance.text = @"距离800KM";
+    cell.intro.text = @"谁说超人不会飞，我就飞你麻痹";
     
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //section
+    
     
 }
 
+#pragma mark- 附近人种类View
+- (UIView *)nearCatagoryVeiw{
+    CGFloat width = 140;
+    CGFloat height = 120;
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
+    view.backgroundColor = kBlueColor;
+    
+    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
+    
+    
+    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
+    femaleBtn.backgroundColor = [UIColor clearColor];
+    [femaleBtn setTitle:@"只看女生" forState:UIControlStateNormal];
+    [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    femaleBtn.titleLabel.font = FONT_16;
+    [femaleBtn addTarget:self action:@selector(checkFemalealeAction) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:femaleBtn];
+    
+    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
+    maleBtn.backgroundColor = [UIColor clearColor];
+    [maleBtn setTitle:@"只看男生" forState:UIControlStateNormal];
+    [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    maleBtn.titleLabel.font = FONT_16;
+    [maleBtn addTarget:self action:@selector(checkMaleAction) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:maleBtn];
+    
+    
+    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
+    greetBtn.backgroundColor = [UIColor clearColor];
+    [greetBtn setTitle:@"查看打招呼的人" forState:UIControlStateNormal];
+    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    greetBtn.titleLabel.font = FONT_16;
+    [greetBtn addTarget:self action:@selector(checkGreetAction) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:greetBtn];
+    
+    return view;
+}
+
+- (void)checkFemalealeAction{
+    self.showCheckView = NO;
+    self.checkView.hidden = YES;
+}
+-(void)checkMaleAction{
+    self.showCheckView = NO;
+    self.checkView.hidden = YES;
+}
+- (void)checkGreetAction{
+    self.showCheckView = NO;
+    self.checkView.hidden = YES;
+}
+#pragma mark- 查看不同种类的附近人
+- (IBAction)catagotyAction:(UIBarButtonItem *)sender {
+    self.showCheckView = !self.showCheckView;
+    if (self.showCheckView) {
+        self.checkView.hidden = NO;
+    }else{
+        self.checkView.hidden = YES;
+    }
+    
+    
+}
 @end

@@ -71,6 +71,8 @@
 +(void)showDefaultErrorString:(NSString*)errorStr;
 +(void)showAlertString:(NSString*)alert delegate:(id)delegate tag:(NSInteger)tag;
 
+#pragma mark- 添加横线
++(void)addLine:(float)x startY:(float)y color:(UIColor *)color toView:(UIView *)parentView;
 
 @end
 
