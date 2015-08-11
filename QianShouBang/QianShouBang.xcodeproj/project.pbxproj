@@ -1279,7 +1279,6 @@
 			name = "手机号";
 			sourceTree = "<group>";
 		};
-<<<<<<< .mine
 		D24C594C1B79E510006F88D3 /* 消息详情 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,9 +1289,7 @@
 			sourceTree = "<group>";
 		};
 		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
-=======
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
->>>>>>> .r57
 			isa = PBXGroup;
 			children = (
 				D28FEA951B72FF560026D674 /* ContactTVC.h */,
