@@ -79,6 +79,7 @@ static NSInteger pageSize = 10;
     query.skip = pageSize*pageIndex;
     [query includeKey:@"user"];
     
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
        
         [self endHeaderRefresh];
@@ -203,7 +204,8 @@ static NSInteger pageSize = 10;
             contentLabel.text = [weiboObject objectForKey:@"content"];
                 
                 
-          
+            [self setImageViewWithObject:weiboObject withView:imageView];
+            
             
             
             
@@ -251,7 +253,44 @@ static NSInteger pageSize = 10;
 }
 
 
+-(void)setImageViewWithObject:(BmobObject *)object withView:(UIView*)view
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
+    
+//    [query whereObjectKey:@"items" relatedTo:object];
+    
 
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (error) {
+            
+        }
+        else
+        {
+            if (array.count > 0)
+            {
+                for (int i = 0; i < array.count; i++) {
+                    
+                    if (i < 4)
+                    {
+                      BmobObject *attachObject = array[i];
+                      UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
+                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
+                        
+                        
+                        
+                    }
+                   
+                    
+                    
+                }
+                
+            }
+        }
+        
+    }];
+    
+}
 
 
 
