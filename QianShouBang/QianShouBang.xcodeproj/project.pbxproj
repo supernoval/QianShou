@@ -928,7 +928,7 @@
 			isa = PBXGroup;
 			children = (
 				B35069741B7728950045CF10 /* 附近人 */,
-				D28FEA931B72FEDA0026D674 /* 通讯录 */,
+				D28FEA931B72FEDA0026D674 /* contactlist */,
 				D28FEA941B72FEE60026D674 /* Cell */,
 			);
 			name = contacts;
@@ -1275,13 +1275,13 @@
 			name = "手机号";
 			sourceTree = "<group>";
 		};
-		D28FEA931B72FEDA0026D674 /* 通讯录 */ = {
+		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
 				D28FEA951B72FF560026D674 /* ContactTVC.h */,
 				D28FEA961B72FF560026D674 /* ContactTVC.m */,
 			);
-			name = "通讯录";
+			name = contactlist;
 			sourceTree = "<group>";
 		};
 		D28FEA941B72FEE60026D674 /* Cell */ = {

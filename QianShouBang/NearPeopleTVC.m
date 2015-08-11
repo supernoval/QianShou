@@ -82,8 +82,8 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
     view.backgroundColor = kBlueColor;
     
-    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
-    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
+//    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
+//    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
     
     
     UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
