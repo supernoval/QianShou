@@ -2748,8 +2748,12 @@
                                         <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iki-MP-C2P">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="63" id="hZv-IY-vP8"/>
-                                                <constraint firstAttribute="height" constant="54" id="yku-5L-0ki"/>
+                                                <constraint firstAttribute="width" constant="63" id="hZv-IY-vP8">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                                </constraint>
+                                                <constraint firstAttribute="height" constant="54" id="yku-5L-0ki">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                                </constraint>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -2916,7 +2920,9 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="235265" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6A5-oQ-yK9">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="79" id="5Th-A6-LII"/>
+                                                <constraint firstAttribute="width" constant="79" id="5Th-A6-LII">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="130"/>
+                                                </constraint>
                                                 <constraint firstAttribute="height" constant="21" id="tsx-VH-abP"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -3115,12 +3121,13 @@
                             <outlet property="delegate" destination="Mzm-t0-iQX" id="Bo9-kp-GAR"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="uCI-Gl-ihR"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="呐喊" id="P6U-XL-xJj">
                         <barButtonItem key="rightBarButtonItem" image="publishyell" id="P2V-fm-Sfe">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="publish:" destination="Mzm-t0-iQX" id="bN2-B9-iTr"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -3131,6 +3138,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmp-hY-vak" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="524.25" y="1669.125"/>
+        </scene>
+        <!--发布呐喊-->
+        <scene sceneID="PC0-ZB-PTt">
+            <objects>
+                <viewController storyboardIdentifier="PublishYellViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dck-c0-4Ec" customClass="PublishYellViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oSX-pi-I3c"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nni-Ux-HFT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Pj-I3-qy4">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNd-TJ-kxQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="222" width="375" height="100"/>
+                                </variation>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zXW-XE-ScB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                                </variation>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分享新鲜事" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG0-il-CqN">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="100" height="30"/>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="oNd-TJ-kxQ"/>
+                                <exclude reference="zXW-XE-ScB"/>
+                                <exclude reference="EG0-il-CqN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="oNd-TJ-kxQ"/>
+                                <include reference="zXW-XE-ScB"/>
+                                <include reference="EG0-il-CqN"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="发布呐喊" id="eT7-oO-IGV">
+                        <barButtonItem key="rightBarButtonItem" title="发布" id="rZW-dI-msP"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imagesView" destination="oNd-TJ-kxQ" id="o1v-qJ-a2h"/>
+                        <outlet property="placeholderLabel" destination="EG0-il-CqN" id="hYn-Nk-CwD"/>
+                        <outlet property="yellTextView" destination="zXW-XE-ScB" id="lP8-ff-oqA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Sa-CF-Jah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175.25" y="1669.125"/>
         </scene>
         <!--呐喊-->
         <scene sceneID="bRb-La-JMV">

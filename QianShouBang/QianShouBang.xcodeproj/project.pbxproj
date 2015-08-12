@@ -19,6 +19,9 @@
 		132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEC1B7891DC00B342D7 /* UIScrollView+MJExtension.m */; };
 		132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */; };
 		132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */; };
+		1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */; };
+		1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6841B7B124A00094224 /* PublishYellViewController.m */; };
+		1363D6891B7B274C00094224 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6881B7B274C00094224 /* PhotoListView.m */; };
 		13688F3C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F1C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m */; };
 		13688F3D1B79A4F800251AC4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F1E1B79A4F800251AC4 /* NSData+ImageContentType.m */; };
 		13688F3E1B79A4F800251AC4 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F201B79A4F800251AC4 /* SDImageCache.m */; };
@@ -129,7 +132,6 @@
 		D24C370F1B74934F00228886 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C370E1B74934F00228886 /* MessageCell.m */; };
 		D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */; };
 		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
-		D24C594F1B79E54A006F88D3 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */; };
 		D24C59531B7ADBB7006F88D3 /* StringHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59521B7ADBB7006F88D3 /* StringHeight.m */; };
 		D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24C59541B7ADC5A006F88D3 /* UIKit.framework */; };
 		D24C59591B7B2B47006F88D3 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59581B7B2B47006F88D3 /* AccountManageTVC.m */; };
@@ -190,6 +192,12 @@
 		132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		132E9FEF1B7891DC00B342D7 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTVC.m; sourceTree = SOURCE_ROOT; };
+		1363D6811B7AEFE200094224 /* MessageDetailTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailTVC.h; sourceTree = SOURCE_ROOT; };
+		1363D6831B7B124A00094224 /* PublishYellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublishYellViewController.h; path = publishYell/PublishYellViewController.h; sourceTree = "<group>"; };
+		1363D6841B7B124A00094224 /* PublishYellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublishYellViewController.m; path = publishYell/PublishYellViewController.m; sourceTree = "<group>"; };
+		1363D6871B7B274C00094224 /* PhotoListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoListView.h; path = PhotoListView/PhotoListView.h; sourceTree = "<group>"; };
+		1363D6881B7B274C00094224 /* PhotoListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoListView.m; path = PhotoListView/PhotoListView.m; sourceTree = "<group>"; };
 		13688F1B1B79A4F800251AC4 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		13688F1C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		13688F1D1B79A4F800251AC4 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -459,8 +467,6 @@
 		D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceYourselfViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C37161B74A84400228886 /* NickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = SOURCE_ROOT; };
 		D24C37171B74A84400228886 /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = SOURCE_ROOT; };
-		D24C594D1B79E54A006F88D3 /* MessageDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailTVC.h; sourceTree = SOURCE_ROOT; };
-		D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTVC.m; sourceTree = SOURCE_ROOT; };
 		D24C59511B7ADBB7006F88D3 /* StringHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHeight.h; sourceTree = "<group>"; };
 		D24C59521B7ADBB7006F88D3 /* StringHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHeight.m; sourceTree = "<group>"; };
 		D24C59541B7ADC5A006F88D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -576,10 +582,30 @@
 		132EA0031B78957B00B342D7 /* yell */ = {
 			isa = PBXGroup;
 			children = (
+				1363D6861B7B271800094224 /* photoView */,
+				1363D6821B7B10BA00094224 /* publishYell */,
 				15FFB2A31B78DB9F00E5750F /* YellTableViewController.h */,
 				15FFB2A41B78DBA400E5750F /* YellTableViewController.m */,
 			);
 			name = yell;
+			sourceTree = "<group>";
+		};
+		1363D6821B7B10BA00094224 /* publishYell */ = {
+			isa = PBXGroup;
+			children = (
+				1363D6831B7B124A00094224 /* PublishYellViewController.h */,
+				1363D6841B7B124A00094224 /* PublishYellViewController.m */,
+			);
+			name = publishYell;
+			sourceTree = "<group>";
+		};
+		1363D6861B7B271800094224 /* photoView */ = {
+			isa = PBXGroup;
+			children = (
+				1363D6871B7B274C00094224 /* PhotoListView.h */,
+				1363D6881B7B274C00094224 /* PhotoListView.m */,
+			);
+			name = photoView;
 			sourceTree = "<group>";
 		};
 		13688F1A1B79A4F800251AC4 /* SDWebImage */ = {
@@ -1298,12 +1324,14 @@
 		D24C594C1B79E510006F88D3 /* 消息详情 */ = {
 			isa = PBXGroup;
 			children = (
-				D24C594D1B79E54A006F88D3 /* MessageDetailTVC.h */,
-				D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */,
+				1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */,
+				1363D6811B7AEFE200094224 /* MessageDetailTVC.h */,
 			);
 			name = "消息详情";
 			sourceTree = "<group>";
 		};
+<<<<<<< .mine
+=======
 		D24C59501B7ADB86006F88D3 /* StringHeight */ = {
 			isa = PBXGroup;
 			children = (
@@ -1332,6 +1360,7 @@
 			name = "隐私";
 			sourceTree = "<group>";
 		};
+>>>>>>> .r62
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1536,7 +1565,7 @@
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
-				D24C594F1B79E54A006F88D3 /* MessageDetailTVC.m in Sources */,
+				1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */,
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
@@ -1575,6 +1604,7 @@
 				137775FC1B730DF7005C2C53 /* SendNeedTableViewController.m in Sources */,
 				15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */,
 				15A7226B1B771686005A2303 /* DataVerifier.m in Sources */,
+				1363D6891B7B274C00094224 /* PhotoListView.m in Sources */,
 				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
@@ -1624,6 +1654,7 @@
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
 				D24C37061B74794200228886 /* MallCell.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
+				1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,

@@ -10,6 +10,7 @@
 #import "BaseTableViewController.h"
 
 @interface YellTableViewController : BaseTableViewController
+- (IBAction)publish:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *publishAction;
 @end

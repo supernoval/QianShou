@@ -7,6 +7,7 @@
 //
 
 #import "YellTableViewController.h"
+#import "PublishYellViewController.h"
 
 static NSString *contentCell = @"contentCell";
 
@@ -192,7 +193,8 @@ static NSInteger pageSize = 10;
             
             UIView *imageView = [cell viewWithTag:106];
             
-              
+            headImageView.clipsToBounds = YES;
+            headImageView.layer.cornerRadius = 30.0;
                 
             BmobUser *user = [[_weiboListArray objectAtIndex:indexPath.section] objectForKey:@"user"];
             
@@ -206,7 +208,25 @@ static NSInteger pageSize = 10;
                 
             [self setImageViewWithObject:weiboObject withView:imageView];
             
+            timeLabel.text = [CommonMethods timeStringFromNow:weiboObject.createdAt];
             
+            
+            //性别
+            NSInteger user_sex = [[user objectForKey:@"user_sex"]integerValue];
+            
+            if (user_sex == 1) {
+                
+                sexImageview.image = [UIImage imageNamed:@"male"];
+                
+            }
+            else
+            {
+                sexImageview.image = [UIImage imageNamed:@"female"];
+                
+            }
+            
+            //Vip
+//            NSInteger agent_user
             
             
         }
@@ -235,6 +255,23 @@ static NSInteger pageSize = 10;
             
             likeNumLabel.text = [NSString stringWithFormat:@"%ld",(long)totalNum];
             
+            BmobGeoPoint *point = [weiboObject objectForKey:@"locatino"];
+            
+            double distance = [CommonMethods distanceFromLocation:point.latitude longitude:point.longitude];
+            
+            
+            if (distance > 1000) {
+                
+                distance = distance/1000.0;
+                
+                distanceLabel.text = [NSString stringWithFormat:@"%.2fkm",distance];
+            }
+            else
+            {
+                distanceLabel.text = [NSString stringWithFormat:@"%.0fm",distance];
+                
+                
+            }
             
             
         }
@@ -296,4 +333,13 @@ static NSInteger pageSize = 10;
 
 
 
+- (IBAction)publish:(id)sender {
+    
+    PublishYellViewController *pushYell = [self.storyboard instantiateViewControllerWithIdentifier:@"PublishYellViewController"];
+    pushYell.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:pushYell animated:YES];
+    
+    
+    
+}
 @end

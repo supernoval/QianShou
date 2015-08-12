@@ -475,4 +475,55 @@
 }
 
 
++(double)distanceFromLocation:(CGFloat)latitude longitude:(CGFloat)longitude
+{
+    CLLocation *fromLocation = [[CLLocation alloc]initWithLatitude:latitude longitude:longitude];
+    CGFloat currentLatitude = [[NSUserDefaults standardUserDefaults]floatForKey:kGPSLocationLatitude];
+    CGFloat currentLongitude = [[NSUserDefaults standardUserDefaults] floatForKey:kGPSLoactionLongitude];
+    
+    CLLocation *currentLocation = [[CLLocation alloc]initWithLatitude:currentLatitude   longitude:currentLongitude];
+    
+    
+    CLLocationDistance meters = [currentLocation distanceFromLocation:fromLocation];
+    
+    
+    return meters;
+    
+    
+    
+    
+}
+
++(NSString*)timeStringFromNow:(NSDate*)Thattime
+{
+    
+    
+    double time = fabs([Thattime timeIntervalSinceNow]);
+    
+    
+    NSInteger day = (NSInteger)time/60/60/24;
+    
+    NSInteger hour = (NSInteger)time/60/60;
+    
+    NSInteger minues = (NSInteger)time/60;
+    
+    
+    
+    if (day > 0) {
+        
+        return [NSString stringWithFormat:@"%ld天前",(long)day];
+    }
+    
+    if (hour > 0) {
+        
+        return [NSString stringWithFormat:@"%ld小时前",(long)hour];
+        
+    }
+    
+   
+    return [NSString stringWithFormat:@"%ld分钟前",(long)minues];
+    
+    
+}
+
 @end

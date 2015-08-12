@@ -10,7 +10,7 @@
 
 #import<UIKit/UIKit.h>
 
-
+#import <CoreLocation/CoreLocation.h>
 
 
 @interface CommonMethods : NSObject
@@ -73,6 +73,14 @@
 
 #pragma mark- 添加横线
 +(void)addLine:(float)x startY:(float)y color:(UIColor *)color toView:(UIView *)parentView;
+
+
+#pragma mark - 计算距离
++(double)distanceFromLocation:(CGFloat)latitude  longitude:(CGFloat)longitude;
+
+
+#pragma mark -  获取几天前
++(NSString*)timeStringFromNow:(NSDate*)Thattime;
 
 
 @end
