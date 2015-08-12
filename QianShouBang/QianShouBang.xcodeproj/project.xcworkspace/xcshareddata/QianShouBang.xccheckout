@@ -14,6 +14,7 @@
 		<string>https://github.com/supernoval/QianShou.git/trunk</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
+	<string>trunk/QianShouBang/QianShouBang.xcodeproj</string>
 	<string>QianShouBang/QianShouBang.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
