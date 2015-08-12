@@ -38,7 +38,7 @@
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GKP-el-FuV">
-                        <rect key="frame" x="8" y="59" width="312" height="1"/>
+                        <rect key="frame" x="8" y="58" width="312" height="1"/>
                         <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="uLo-8Z-tez"/>
@@ -54,7 +54,7 @@
                     <constraint firstItem="GKP-el-FuV" firstAttribute="leading" secondItem="Jrf-ks-8N9" secondAttribute="leading" constant="8" id="hfd-es-YSe"/>
                     <constraint firstAttribute="trailing" secondItem="GKP-el-FuV" secondAttribute="trailing" id="jWg-Q7-9FU"/>
                     <constraint firstItem="yTM-re-d42" firstAttribute="leading" secondItem="wSg-gy-c1t" secondAttribute="trailing" constant="8" id="oR2-fN-tmz"/>
-                    <constraint firstAttribute="bottom" secondItem="GKP-el-FuV" secondAttribute="bottom" constant="-1" id="uc3-xH-B6j"/>
+                    <constraint firstAttribute="bottom" secondItem="GKP-el-FuV" secondAttribute="bottom" id="uc3-xH-B6j"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

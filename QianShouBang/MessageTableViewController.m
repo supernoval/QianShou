@@ -8,6 +8,7 @@
 
 #import "MessageTableViewController.h"
 #import "MessageCell.h"
+#import "MessageDetailTVC.h"
 
 static NSUInteger pageSize = 10;
 
@@ -146,4 +147,12 @@ static NSUInteger pageSize = 10;
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    BmobObject *obj = [_dataArray objectAtIndex:indexPath.section];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    MessageDetailTVC *messageDetail = [sb instantiateViewControllerWithIdentifier:@"MessageDetailTVC"];
+    messageDetail.messageObj = obj;
+    [self.navigationController pushViewController:messageDetail animated:YES];
+    
+}
 @end

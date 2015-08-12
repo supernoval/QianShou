@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ysh-QR-6gu">
-                        <rect key="frame" x="0.0" y="57" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="58" width="320" height="1"/>
                         <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="6ec-gJ-gIQ"/>
@@ -68,7 +68,7 @@
                     <constraint firstItem="ysh-QR-6gu" firstAttribute="leading" secondItem="Cfd-Vv-YPp" secondAttribute="leading" id="Ozg-ZN-rma"/>
                     <constraint firstItem="1Un-8A-uZ1" firstAttribute="top" secondItem="Cfd-Vv-YPp" secondAttribute="top" constant="29" id="VQM-QK-Whg"/>
                     <constraint firstItem="Wri-AB-L2k" firstAttribute="top" secondItem="Cfd-Vv-YPp" secondAttribute="top" constant="8" id="dMB-SF-Jav"/>
-                    <constraint firstAttribute="bottom" secondItem="ysh-QR-6gu" secondAttribute="bottom" constant="1" id="hjz-D6-iRT"/>
+                    <constraint firstAttribute="bottom" secondItem="ysh-QR-6gu" secondAttribute="bottom" id="hjz-D6-iRT"/>
                     <constraint firstItem="ssV-bY-e3w" firstAttribute="top" secondItem="Wri-AB-L2k" secondAttribute="bottom" constant="6" id="kmJ-5U-Ssb"/>
                     <constraint firstAttribute="trailing" secondItem="1Un-8A-uZ1" secondAttribute="trailing" constant="8" id="qwC-fm-g0E"/>
                     <constraint firstItem="ssV-bY-e3w" firstAttribute="leading" secondItem="2o8-RM-gkA" secondAttribute="trailing" constant="8" id="uXg-y7-h0m"/>

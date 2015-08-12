@@ -36,7 +36,8 @@
 //是否登录
 #define kHadLogin              @"HadLoginKey"
 
-
+//禁止用户添加好友
+#define kNoAddFriends  @"NoAddFriends"
 
 /*故事板*/
 #define kSecondStoryboard @"Second"
@@ -75,7 +76,6 @@
 #define NavigationBarColor  RGB(65,174,158,1.0)
 
 
-//#define NavigationBarColor RGB(20,45,100,1)
 //背景色
 #define kBackgroundColor RGB(239,239,244,1)
 #define kContentColor [UIColor whiteColor]

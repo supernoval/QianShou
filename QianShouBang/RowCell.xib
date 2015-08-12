@@ -31,10 +31,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="whb-tY-Nwi">
-                        <rect key="frame" x="8" y="39" width="312" height="1"/>
+                        <rect key="frame" x="8" y="38" width="312" height="1"/>
                         <color key="backgroundColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="OLa-NP-B5Y"/>
+                            <constraint firstAttribute="height" constant="1" id="uDP-02-UDu"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-2s-Gyc">
@@ -56,21 +56,19 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="whb-tY-Nwi" secondAttribute="trailing" id="0EX-QT-IyF"/>
                     <constraint firstItem="4mO-re-nMw" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="9" id="7XE-as-Pyw"/>
                     <constraint firstItem="IhY-2s-Gyc" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="11" id="Av6-Rq-qc7"/>
-                    <constraint firstAttribute="trailing" secondItem="whb-tY-Nwi" secondAttribute="trailing" id="ExA-3M-T2z"/>
-                    <constraint firstItem="whb-tY-Nwi" firstAttribute="top" secondItem="9jj-dT-ndO" secondAttribute="bottom" constant="9" id="FYZ-PE-kNs"/>
                     <constraint firstItem="4mO-re-nMw" firstAttribute="leading" secondItem="ltX-KZ-l41" secondAttribute="trailing" constant="13" id="Fkc-D3-LlK"/>
                     <constraint firstAttribute="trailing" secondItem="IhY-2s-Gyc" secondAttribute="trailing" constant="8" id="GzA-9h-IZi"/>
-                    <constraint firstItem="whb-tY-Nwi" firstAttribute="leading" secondItem="U1l-vk-ZFc" secondAttribute="leading" constant="8" id="JOs-Bd-U4G"/>
+                    <constraint firstAttribute="bottom" secondItem="whb-tY-Nwi" secondAttribute="bottom" id="TOV-Vs-wS7"/>
+                    <constraint firstItem="whb-tY-Nwi" firstAttribute="leading" secondItem="U1l-vk-ZFc" secondAttribute="leading" constant="8" id="VA6-jd-Zuq"/>
                     <constraint firstItem="ltX-KZ-l41" firstAttribute="leading" secondItem="U1l-vk-ZFc" secondAttribute="leading" constant="8" id="Z2b-wV-ZqW"/>
                     <constraint firstAttribute="bottom" secondItem="4mO-re-nMw" secondAttribute="bottom" constant="9" id="b1e-aG-wZc"/>
                     <constraint firstAttribute="bottom" secondItem="ltX-KZ-l41" secondAttribute="bottom" constant="6" id="b7F-nR-jmC"/>
                     <constraint firstItem="9jj-dT-ndO" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="9" id="eWr-d8-4U3"/>
                     <constraint firstItem="ltX-KZ-l41" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="8" id="f9A-4Q-Iju"/>
                     <constraint firstItem="IhY-2s-Gyc" firstAttribute="leading" secondItem="9jj-dT-ndO" secondAttribute="trailing" constant="4" id="jOu-xs-5FK"/>
-                    <constraint firstItem="whb-tY-Nwi" firstAttribute="top" secondItem="IhY-2s-Gyc" secondAttribute="bottom" constant="10" id="oK0-p2-H2u"/>
-                    <constraint firstAttribute="bottom" secondItem="whb-tY-Nwi" secondAttribute="bottom" constant="-1" id="sSQ-z3-wZ2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

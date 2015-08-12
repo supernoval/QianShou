@@ -130,6 +130,11 @@
 		D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */; };
 		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
 		D24C594F1B79E54A006F88D3 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */; };
+		D24C59531B7ADBB7006F88D3 /* StringHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59521B7ADBB7006F88D3 /* StringHeight.m */; };
+		D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24C59541B7ADC5A006F88D3 /* UIKit.framework */; };
+		D24C59591B7B2B47006F88D3 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59581B7B2B47006F88D3 /* AccountManageTVC.m */; };
+		D24C595D1B7B34C3006F88D3 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */; };
+		D24C595F1B7B3633006F88D3 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C595E1B7B3633006F88D3 /* NoAddCell.xib */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -456,6 +461,14 @@
 		D24C37171B74A84400228886 /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C594D1B79E54A006F88D3 /* MessageDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDetailTVC.h; sourceTree = SOURCE_ROOT; };
 		D24C594E1B79E54A006F88D3 /* MessageDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C59511B7ADBB7006F88D3 /* StringHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHeight.h; sourceTree = "<group>"; };
+		D24C59521B7ADBB7006F88D3 /* StringHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHeight.m; sourceTree = "<group>"; };
+		D24C59541B7ADC5A006F88D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D24C59571B7B2B47006F88D3 /* AccountManageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
+		D24C59581B7B2B47006F88D3 /* AccountManageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManageTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C595B1B7B34C3006F88D3 /* PrivacyTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyTVC.h; sourceTree = SOURCE_ROOT; };
+		D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C595E1B7B3633006F88D3 /* NoAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAddCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -492,6 +505,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */,
 				13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */,
 				137263EF1B744FF90006661C /* SMS_SDK.framework in Frameworks */,
 				15A722031B771659005A2303 /* AlipaySDK.framework in Frameworks */,
@@ -796,6 +810,7 @@
 		13983A1A1B6B261500D44BF0 = {
 			isa = PBXGroup;
 			children = (
+				D24C59541B7ADC5A006F88D3 /* UIKit.framework */,
 				13876D251B78414F000C480D /* MapKit.framework */,
 				13983A251B6B261500D44BF0 /* QianShouBang */,
 				13983A3F1B6B261500D44BF0 /* QianShouBangTests */,
@@ -955,6 +970,7 @@
 		13983AE51B6B51AB00D44BF0 /* 常量 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C59501B7ADB86006F88D3 /* StringHeight */,
 				D2B4D9721B7841B300A5AE14 /* DatePick */,
 				13838B701B71D4F1007CA809 /* CommonMethods.h */,
 				13838B711B71D4F5007CA809 /* CommonMethods.m */,
@@ -1288,7 +1304,34 @@
 			name = "消息详情";
 			sourceTree = "<group>";
 		};
-		
+		D24C59501B7ADB86006F88D3 /* StringHeight */ = {
+			isa = PBXGroup;
+			children = (
+				D24C59511B7ADBB7006F88D3 /* StringHeight.h */,
+				D24C59521B7ADBB7006F88D3 /* StringHeight.m */,
+			);
+			name = StringHeight;
+			sourceTree = "<group>";
+		};
+		D24C59561B7B2AF9006F88D3 /* 账户管理 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C59571B7B2B47006F88D3 /* AccountManageTVC.h */,
+				D24C59581B7B2B47006F88D3 /* AccountManageTVC.m */,
+			);
+			name = "账户管理";
+			sourceTree = "<group>";
+		};
+		D24C595A1B7B3492006F88D3 /* 隐私 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C595B1B7B34C3006F88D3 /* PrivacyTVC.h */,
+				D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */,
+				D24C595E1B7B3633006F88D3 /* NoAddCell.xib */,
+			);
+			name = "隐私";
+			sourceTree = "<group>";
+		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1332,6 +1375,8 @@
 		D28FEAB21B7348200026D674 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C595A1B7B3492006F88D3 /* 隐私 */,
+				D24C59561B7B2AF9006F88D3 /* 账户管理 */,
 				D28FEAB31B7348550026D674 /* SettingTVC.h */,
 				D28FEAB41B7348550026D674 /* SettingTVC.m */,
 			);
@@ -1452,6 +1497,7 @@
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
+				D24C595F1B7B3633006F88D3 /* NoAddCell.xib in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
 				D24C37031B74792600228886 /* MallCell.xib in Resources */,
 				15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */,
@@ -1496,6 +1542,7 @@
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
+				D24C59531B7ADBB7006F88D3 /* StringHeight.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
 				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
@@ -1505,6 +1552,7 @@
 				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				132E9FF81B7891DC00B342D7 /* MJRefreshLegendFooter.m in Sources */,
+				D24C59591B7B2B47006F88D3 /* AccountManageTVC.m in Sources */,
 				D28FEAB11B7337060026D674 /* RankCell.m in Sources */,
 				137263E41B744E3D0006661C /* JSONValueTransformer.m in Sources */,
 				D24C370F1B74934F00228886 /* MessageCell.m in Sources */,
@@ -1535,6 +1583,7 @@
 				132E9FF71B7891DC00B342D7 /* MJRefreshHeader.m in Sources */,
 				15A7227D1B772E81005A2303 /* LocationManager.m in Sources */,
 				15A722701B771686005A2303 /* RSADataVerifier.m in Sources */,
+				D24C595D1B7B34C3006F88D3 /* PrivacyTVC.m in Sources */,
 				15A722691B771686005A2303 /* base64.m in Sources */,
 				13688F441B79A4F800251AC4 /* SDWebImagePrefetcher.m in Sources */,
 				137263DB1B744E3D0006661C /* JSONModel.m in Sources */,

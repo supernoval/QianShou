@@ -66,7 +66,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="avJ-IS-p8g">
-                        <rect key="frame" x="36" y="79" width="284" height="1"/>
+                        <rect key="frame" x="36" y="78" width="284" height="1"/>
                         <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="m32-G1-SaJ"/>
@@ -80,7 +80,7 @@
                     <constraint firstItem="5YA-wc-zGD" firstAttribute="top" secondItem="pVh-7H-HEd" secondAttribute="top" constant="8" id="1hM-wT-Suk"/>
                     <constraint firstAttribute="trailing" secondItem="avJ-IS-p8g" secondAttribute="trailing" id="1i6-El-qw7"/>
                     <constraint firstItem="HW9-zB-w6O" firstAttribute="leading" secondItem="5YA-wc-zGD" secondAttribute="trailing" constant="14" id="2iG-th-o9o"/>
-                    <constraint firstAttribute="bottom" secondItem="avJ-IS-p8g" secondAttribute="bottom" constant="-1" id="Ech-0H-4vR"/>
+                    <constraint firstAttribute="bottom" secondItem="avJ-IS-p8g" secondAttribute="bottom" id="Ech-0H-4vR"/>
                     <constraint firstItem="f3u-ug-MWk" firstAttribute="top" secondItem="wfl-LB-SZs" secondAttribute="bottom" constant="9" id="Lw7-ej-N50"/>
                     <constraint firstItem="wfl-LB-SZs" firstAttribute="leading" secondItem="HW9-zB-w6O" secondAttribute="trailing" constant="3" id="Run-n6-LFH"/>
                     <constraint firstItem="f3u-ug-MWk" firstAttribute="leading" secondItem="NER-9F-rui" secondAttribute="trailing" constant="3" id="WWR-MZ-kzd"/>

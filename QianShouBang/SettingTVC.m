@@ -8,6 +8,8 @@
 
 #import "SettingTVC.h"
 #import "RowTextCell.h"
+#import "AccountManageTVC.h"
+#import "PrivacyTVC.h"
 
 @interface SettingTVC ()
 
@@ -87,6 +89,44 @@
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    switch (indexPath.section) {
+        case 0:
+        {
+            if (indexPath.row == 0) {//账户管理
+                AccountManageTVC *accountTVC = [sb instantiateViewControllerWithIdentifier:@"AccountManageTVC"];
+                [self.navigationController pushViewController:accountTVC animated:YES];
+            }
+        }
+            break;
+            
+        case 1:
+        {
+            if (indexPath.row == 0) {//隐私
+                PrivacyTVC *privacyTVC = [sb instantiateViewControllerWithIdentifier:@"PrivacyTVC"];
+                [self.navigationController pushViewController:privacyTVC animated:YES];
+            }else if (indexPath.row == 1){//新消息通知
+            }else if (indexPath.row == 2){//通用
+            }
+        }
+            break;
+            
+        case 2:
+        {
+        }
+            break;
+            
+        case 3:
+        {
+        }
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma 退出登录

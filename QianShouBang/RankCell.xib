@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sNJ-JA-0Hh">
-                        <rect key="frame" x="0.0" y="59" width="320" height="1"/>
+                        <rect key="frame" x="0.0" y="58" width="320" height="1"/>
                         <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="EuF-I2-AAf"/>
@@ -71,7 +71,7 @@
                     <constraint firstItem="71x-rm-vmX" firstAttribute="leading" secondItem="8jD-h3-adv" secondAttribute="trailing" constant="8" id="J1D-V6-LSk"/>
                     <constraint firstItem="l0u-Oe-zub" firstAttribute="leading" secondItem="8jD-h3-adv" secondAttribute="trailing" constant="80" id="OLq-54-Z8W"/>
                     <constraint firstItem="sNJ-JA-0Hh" firstAttribute="leading" secondItem="rlJ-Ao-Bav" secondAttribute="leading" id="PNs-wy-gmR"/>
-                    <constraint firstAttribute="bottom" secondItem="sNJ-JA-0Hh" secondAttribute="bottom" constant="-1" id="SeL-nS-dbK"/>
+                    <constraint firstAttribute="bottom" secondItem="sNJ-JA-0Hh" secondAttribute="bottom" id="SeL-nS-dbK"/>
                     <constraint firstAttribute="trailing" secondItem="sNJ-JA-0Hh" secondAttribute="trailing" id="Yno-JX-2hB"/>
                     <constraint firstItem="8jD-h3-adv" firstAttribute="leading" secondItem="rlJ-Ao-Bav" secondAttribute="leading" constant="8" id="ZEG-7b-Arr"/>
                     <constraint firstItem="71x-rm-vmX" firstAttribute="top" secondItem="rlJ-Ao-Bav" secondAttribute="top" constant="8" id="aWo-VK-aS6"/>

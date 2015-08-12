@@ -13,6 +13,7 @@
 #import "NickNameViewController.h"
 #import "BindPhoneViewController.h"
 #import "PickDateView.h"
+#import <BmobSDK/BmobProFile.h>
 
 
 @interface PersonInfoSettingTVC ()
@@ -378,8 +379,10 @@
         else {
             if (buttonIndex == 1) {
                 return;
-            } else {
+            } else if(buttonIndex == 0){
                 sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+            }else if (buttonIndex == 2){
+                return;
             }
         }
         
@@ -426,13 +429,37 @@
     
     if (image != nil)
     {
+        NSData *imageData = UIImageJPEGRepresentation(image, 1);
         
+        [MyProgressHUD showProgress];
         
-        
-        
-        
-        [self.tableView reloadData];
-        
+        [BmobProFile uploadFileWithFilename:@"avatar.jpg" fileData:imageData block:^(BOOL isSuccessful, NSError *error, NSString *filename, NSString *url, BmobFile *file){
+            if (error) {
+                NSLog(@"图片上传失败");
+                
+                [CommonMethods showDefaultErrorString:@"图片上传失败，请重新上传"];
+            }else{
+                if (file) {
+                    
+                        BmobUser *user = [BmobUser getCurrentUser];
+                        [user setObject:file.url forKey:kavatar];
+                        [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                            if (isSuccessful) {
+                                [self getCurrentUserInfo];
+                                [MyProgressHUD dismiss];
+                                
+                                [CommonMethods showAlertString:@"修改头像成功!" delegate:self tag:11];
+                            }else if(error){
+                                [CommonMethods showAlertString:@"修改头像失败!" delegate:self tag:12];
+                            }
+                        }];
+                    
+                    
+                }
+            }
+            
+        } progress:^(CGFloat progress){
+        }];
         
         
     }
