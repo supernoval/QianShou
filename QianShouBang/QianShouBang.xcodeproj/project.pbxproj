@@ -1330,8 +1330,6 @@
 			name = "消息详情";
 			sourceTree = "<group>";
 		};
-<<<<<<< .mine
-=======
 		D24C59501B7ADB86006F88D3 /* StringHeight */ = {
 			isa = PBXGroup;
 			children = (
@@ -1360,7 +1358,6 @@
 			name = "隐私";
 			sourceTree = "<group>";
 		};
->>>>>>> .r62
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
