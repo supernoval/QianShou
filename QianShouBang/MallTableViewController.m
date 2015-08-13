@@ -10,8 +10,7 @@
 #import "MallCell.h"
 #import "GoodsDetailTVC.h"
 
-
-
+static NSUInteger pageSize = 10;
 
 @interface MallTableViewController (){
     NSMutableArray *_dataArray;
@@ -32,12 +31,74 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
+    [self addHeaderRefresh];
+    self.tableView.header.stateHidden = YES;
+    self.tableView.header.updatedTimeHidden = YES;
+    [self addFooterRefresh];
+    self.tableView.footer.stateHidden = YES;
+    
+    _dataArray = [[NSMutableArray alloc]init];
+    pageIndex = 0;
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self getData];
+}
+
+
+
+- (void)headerRefresh{
+    pageIndex = 0;
+    [self getData];
+}
+- (void)footerRefresh{
+    pageIndex ++;
+    [self getData];
+}
+
+- (void)getData{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kIntergralBean];
+    
+    query.limit = pageSize;
+    query.skip = pageSize*pageIndex;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+        if (pageIndex == 0) {
+            
+            [_dataArray removeAllObjects];
+            
+        }
+        
+        [_dataArray addObjectsFromArray:array];
+        
+        BmobObject *obj = [_dataArray objectAtIndex:0];
+        NSString *str = [obj objectForKey:kintergralGoodsIcon_url];
+        
+        NSLog(@"///:%@****:%@----:%@",str,obj.createdAt,obj.updatedAt);
+        [self.tableView reloadData];
+        
+        
+    }];
+    
+}
+
 
 #pragma mark - Table view data source
 
@@ -47,7 +108,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return _dataArray.count;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{

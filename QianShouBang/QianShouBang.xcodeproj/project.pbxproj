@@ -137,6 +137,7 @@
 		D24C595D1B7B34C3006F88D3 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */; };
 		D24C595F1B7B3633006F88D3 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C595E1B7B3633006F88D3 /* NoAddCell.xib */; };
 		D24C59651B7C2498006F88D3 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59641B7C2498006F88D3 /* AccountManageTVC.m */; };
+		D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -475,6 +476,8 @@
 		D24C595E1B7B3633006F88D3 /* NoAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAddCell.xib; sourceTree = SOURCE_ROOT; };
 		D24C59631B7C2498006F88D3 /* AccountManageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
 		D24C59641B7C2498006F88D3 /* AccountManageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManageTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C59671B7C2FE7006F88D3 /* GeneralTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTVC.h; sourceTree = SOURCE_ROOT; };
+		D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTVC.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1358,6 +1361,15 @@
 			name = "隐私";
 			sourceTree = "<group>";
 		};
+		D24C59661B7C2F92006F88D3 /* 通用 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C59671B7C2FE7006F88D3 /* GeneralTVC.h */,
+				D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */,
+			);
+			name = "通用";
+			sourceTree = "<group>";
+		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1401,6 +1413,7 @@
 		D28FEAB21B7348200026D674 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C59661B7C2F92006F88D3 /* 通用 */,
 				D24C595A1B7B3492006F88D3 /* 隐私 */,
 				D24C59561B7B2AF9006F88D3 /* 账户管理 */,
 				D28FEAB31B7348550026D674 /* SettingTVC.h */,
@@ -1656,6 +1669,7 @@
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
 				B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */,
+				D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */,
 				132E9FF41B7891DC00B342D7 /* MJRefreshFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

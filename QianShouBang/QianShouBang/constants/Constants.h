@@ -104,6 +104,17 @@
 #define kavatar @"avatar"
 #define klocation @"location"
 #define kauthData @"authData"
+#define kwheather_allow_add @"wheather_allow_add"
+
+/*牵手币商城表*/
+#define kIntergralBean @"IntergralBean"
+#define kintergralGoodsDescription @"intergralGoodsDescription"
+#define kintergralGoodsIcon_url @"intergralGoodsIcon_url"
+#define kintergralGoodsSurplusNumber @"intergralGoodsSurplusNumber"
+#define kintergralGoodsTitle @"intergralGoodsTitle"
+#define kintergralGoodsValue @"intergralGoodsValue"
+
+
 
 /*系统消息表对应Key*/
 #define ksystem_msg_content @"system_msg_content"

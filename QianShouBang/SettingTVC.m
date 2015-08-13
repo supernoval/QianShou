@@ -10,6 +10,7 @@
 #import "RowTextCell.h"
 #import "AccountManageTVC.h"
 #import "PrivacyTVC.h"
+#import "GeneralTVC.h"
 
 @interface SettingTVC ()
 
@@ -41,7 +42,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if (section == 1) {
-        return 3;
+        return 2;
     }else{
         return 1;
     }
@@ -78,8 +79,6 @@
         if (indexPath.row == 0) {
             cell.text.text = @"隐私";
         }else if(indexPath.row == 1){
-            cell.text.text = @"新消息通知";
-        }else if(indexPath.row == 2){
             cell.text.text = @"通用";
         }
     }else if(indexPath.section == 2){
@@ -108,8 +107,11 @@
             if (indexPath.row == 0) {//隐私
                 PrivacyTVC *privacyTVC = [sb instantiateViewControllerWithIdentifier:@"PrivacyTVC"];
                 [self.navigationController pushViewController:privacyTVC animated:YES];
-            }else if (indexPath.row == 1){//新消息通知
-            }else if (indexPath.row == 2){//通用
+            }else if (indexPath.row == 1){//通用
+                GeneralTVC *generalTVC = [sb instantiateViewControllerWithIdentifier:@"GeneralTVC"];
+                [self.navigationController pushViewController:generalTVC animated:YES];
+                
+                
             }
         }
             break;

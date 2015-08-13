@@ -85,10 +85,6 @@ static NSUInteger pageSize = 10;
         
         [_dataArray addObjectsFromArray:array];
         
-        BmobObject *obj = [_dataArray objectAtIndex:0];
-        NSString *str = [obj objectForKey:ksystem_msg_title];
-        
-        NSLog(@"///:%@****:%@----:%@",str,obj.createdAt,obj.updatedAt);
         [self.tableView reloadData];
         
         
