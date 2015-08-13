@@ -7,7 +7,7 @@
 //
 
 #import "MessageDetailTVC.h"
-//#import "StringHeight.h"
+#import "StringHeight.h"
 
 @interface MessageDetailTVC ()
 @property (strong, nonatomic) IBOutlet UILabel *messageTitle;
@@ -50,11 +50,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (indexPath.row == 0) {
-//        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_title] font:FONT_16 constrainedToWidth:ScreenWidth-16]+10;
-//    }else if (indexPath.row == 1) {
-//        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_content] font:FONT_14 constrainedToWidth:ScreenWidth-16]+15;
-//    }
+    if (indexPath.row == 0) {
+        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_title] font:FONT_16 constrainedToWidth:ScreenWidth-16]+10;
+    }else if (indexPath.row == 1) {
+        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_content] font:FONT_14 constrainedToWidth:ScreenWidth-16]+15;
+    }
     return 40;
 }
 

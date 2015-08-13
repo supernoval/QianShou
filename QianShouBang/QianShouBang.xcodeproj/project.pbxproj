@@ -1324,8 +1324,8 @@
 		D24C594C1B79E510006F88D3 /* 消息详情 */ = {
 			isa = PBXGroup;
 			children = (
-				1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */,
 				1363D6811B7AEFE200094224 /* MessageDetailTVC.h */,
+				1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */,
 			);
 			name = "消息详情";
 			sourceTree = "<group>";
