@@ -7,6 +7,7 @@
 //
 
 #import "PhotoListView.h"
+#import "Constants.h"
 
 @implementation PhotoListView
 
@@ -14,6 +15,9 @@
 {
     if (self == [super initWithFrame:frame])
     {
+        
+        self.backgroundColor = kBackgroundColor;
+        
         
         
         

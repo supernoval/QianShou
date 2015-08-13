@@ -79,6 +79,8 @@ static NSInteger pageSize = 10;
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
     [query includeKey:@"user"];
+    [query orderByDescending:@"creatdAt"];
+    [query includeKey:@"attachItem"];
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -255,7 +257,7 @@ static NSInteger pageSize = 10;
             
             likeNumLabel.text = [NSString stringWithFormat:@"%ld",(long)totalNum];
             
-            BmobGeoPoint *point = [weiboObject objectForKey:@"locatino"];
+            BmobGeoPoint *point = [weiboObject objectForKey:@"location"];
             
             double distance = [CommonMethods distanceFromLocation:point.latitude longitude:point.longitude];
             
@@ -292,40 +294,73 @@ static NSInteger pageSize = 10;
 
 -(void)setImageViewWithObject:(BmobObject *)object withView:(UIView*)view
 {
-    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
+    
+    
+    NSArray *items = [object objectForKey:@"attachItem"];
+    
+//    if (items)
+//    {
+//        
+//        NSLog(@"items:%ld",(long)items.count);
+//        
+//        if (items.count > 0)
+//        {
+//            for (int i = 0; i < items.count; i++)
+//            {
+//                
+//                if (i < 4)
+//                {
+//                    
+//                    BmobObject *attachObject = items[i];
+//                    UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
+//                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
+//                    
+//                    
+//                    
+//                }
+//                
+//                
+//                
+//            }
+//            
+//        }
+//        
+//    }
+//    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
     
 //    [query whereObjectKey:@"items" relatedTo:object];
     
-
-    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        
-        if (error) {
-            
-        }
-        else
-        {
-            if (array.count > 0)
-            {
-                for (int i = 0; i < array.count; i++) {
-                    
-                    if (i < 4)
-                    {
-                      BmobObject *attachObject = array[i];
-                      UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
-                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
-                        
-                        
-                        
-                    }
-                   
-                    
-                    
-                }
-                
-            }
-        }
-        
-    }];
+//
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+//        
+//        if (error) {
+//            
+//        }
+//        else
+//        {
+//            if (array.count > 0)
+//            {
+//                for (int i = 0; i < array.count; i++) {
+//                    
+//                    if (i < 4)
+//                    {
+//                        
+//                      BmobObject *attachObject = array[i];
+//                      UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
+//                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
+//                        
+//                        
+//                        
+//                    }
+//                   
+//                    
+//                    
+//                }
+//                
+//            }
+//        }
+//        
+//    }];
     
 }
 

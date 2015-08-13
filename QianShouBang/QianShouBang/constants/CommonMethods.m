@@ -8,7 +8,9 @@
 
 #import "CommonMethods.h"
 #import "Constants.h"
-
+#import "MyProgressHUD.h"
+#import <BmobSDK/BmobProFile.h>
+#import "BmobDataListName.h"
 
 
 @implementation CommonMethods
@@ -525,5 +527,169 @@
     
     
 }
+
++(void)upLoadPhotos:(NSArray *)photos resultBlock:(upLoadPhotoBlock)block
+{
+    if (photos.count > 0) {
+        
+        NSMutableArray *photosDataArray = [[NSMutableArray alloc]init];
+        
+        for (NSInteger i = 0 ; i  < photos.count ; i ++) {
+            
+            UIImage *oneImage = [photos objectAtIndex:i];
+            NSData *imageData = UIImageJPEGRepresentation(oneImage, 1);
+            
+            
+            
+            NSDictionary *imagedataDic = @{@"data":imageData,@"filename":@"image.jpg"};
+            
+            [photosDataArray addObject:imagedataDic];
+            
+            
+        }
+        
+        
+        
+        [MyProgressHUD showProgress];
+        
+        
+        [BmobProFile uploadFilesWithDatas:photosDataArray resultBlock:^(NSArray *filenameArray, NSArray *urlArray, NSArray *bmobFileArray, NSError *error) {
+            
+            
+            
+            if (error) {
+                
+                NSLog(@"%s,error:%@",__func__,error);
+                
+                NSLog(@"图片上传失败");
+                
+                [CommonMethods showDefaultErrorString:@"图片上传失败，请重新上传"];
+                
+                block(NO,nil);
+                
+                
+            }else
+            {
+                
+                NSLog(@"filename:%@  urlArray:%@",filenameArray,urlArray);
+                
+              dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                  
+             
+                
+                if (bmobFileArray.count > 0) {
+                    
+                    
+                 
+                    NSMutableArray *files = [[NSMutableArray alloc]init];
+                    
+                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+                    
+                  __block  NSInteger num = 0;
+                    
+                    for (int i = 0 ; i < bmobFileArray.count; i ++) {
+                        
+                        BmobFile *onefile = [bmobFileArray objectAtIndex:i];
+                        
+                        NSString *url = onefile.url;
+                        
+                        
+                        
+                        BmobObject *attachObject = [[BmobObject alloc]initWithClassName:kAttachItem];
+                        
+                        [attachObject setObject:url forKey:@"attach_name"];
+                        [attachObject setObject:url forKey:@"attach_url"];
+                        
+                       
+                       
+                        [attachObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                            
+                            num ++;
+                            
+                            [files addObject:attachObject];
+                            
+                            if (num == bmobFileArray.count) {
+                                
+                                
+                                //回调
+                                block(YES,files);
+                            }
+                          
+                            
+                        }];
+                        
+                     
+                        
+                        
+                        
+                        
+                    }
+                    
+                
+                    
+                    
+                   
+                   
+                    
+                    
+                    
+                    
+                    
+                }
+                  
+                    });
+                
+                
+            }
+            
+            
+        } progress:^(NSUInteger index, CGFloat progress) {
+            
+            
+        }];
+        
+        
+        
+        
+        
+    }
+}
+
+
++(NSString*)getCurrentDeviceName
+{
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
+    
+    if (screenSize.width == 320) {
+        
+        if (screenSize.height == 480) {
+            
+            return @"来自:iPhone 4s";
+        }
+        
+        if (screenSize.height == 568) {
+            
+            return @"来自:iPhone 5s";
+        }
+        
+      
+    }
+    
+    if (screenSize.width == 375) {
+        
+        return @"来自:iPhone 6";
+    }
+    
+    if (screenSize.width == 414) {
+        
+        return @"来自:iPhone 6plus";
+        
+    }
+    
+    return @"来自:未知型号";
+    
+}
+
+
 
 @end

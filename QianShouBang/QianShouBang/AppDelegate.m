@@ -231,15 +231,15 @@
   CLGeocoder *_myGeocoder = [[CLGeocoder alloc] init];
 
     //NSLog(@"lat:%f, log:%f", self.location.coordinate.latitude, self.location.coordinate.longitude);
-    __block NSString *provinceName = nil;
-    __block NSString *cityName = nil;
-    __block NSString *townName = nil;
+//    __block NSString *provinceName = nil;
+//    __block NSString *cityName = nil;
+//    __block NSString *townName = nil;
     [_myGeocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error == nil && [placemarks count] > 0) {
             //这时的placemarks数组里面只有一个元素
             CLPlacemark * placemark = [placemarks firstObject];
           
-            NSLog(@"===========province:%@, city:%@, town:%@,  addressDictionary:%@", provinceName, cityName, townName,placemark.addressDictionary);
+//            NSLog(@"===========province:%@, city:%@, town:%@,  addressDictionary:%@", provinceName, cityName, townName,placemark.addressDictionary);
         
             NSString *name = [placemark.addressDictionary objectForKey:@"Name"];
             [[NSUserDefaults standardUserDefaults ] setObject:name forKey:kUserAddress];

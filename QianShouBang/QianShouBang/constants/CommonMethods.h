@@ -11,10 +11,14 @@
 #import<UIKit/UIKit.h>
 
 #import <CoreLocation/CoreLocation.h>
+#import <BmobSDK/Bmob.h>
+
+typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 
 @interface CommonMethods : NSObject
 
+ 
 +(NSString*)getYYYYMMddhhmmDateStr:(NSDate*)date;
 
 +(NSString*)getYYYYMMddFromDefaultDateStr:(NSDate*)date;
@@ -28,6 +32,9 @@
 +(BOOL)isBetweenTheTime:(NSString*)startTime endTime:(NSString*)endTime;
 
 
+
+#pragma mark - 获取当前机型
++(NSString*)getCurrentDeviceName;
 
 
 
@@ -81,6 +88,11 @@
 
 #pragma mark -  获取几天前
 +(NSString*)timeStringFromNow:(NSDate*)Thattime;
+
+
+#pragma mark - Bmob上传图片 
++(void)upLoadPhotos:(NSArray*)photos resultBlock:(upLoadPhotoBlock)block;
+
 
 
 @end
