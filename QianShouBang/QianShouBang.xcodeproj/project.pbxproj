@@ -91,6 +91,10 @@
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
+		13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6761B7C415600850683 /* AccountManageTVC.m */; };
+		13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6791B7C419A00850683 /* PrivacyTVC.m */; };
+		13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F5B67B1B7C419E00850683 /* NoAddCell.xib */; };
+		13F5B67F1B7C41CE00850683 /* StringHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B67E1B7C41CE00850683 /* StringHeight.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
 		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
@@ -132,11 +136,7 @@
 		D24C370F1B74934F00228886 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C370E1B74934F00228886 /* MessageCell.m */; };
 		D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */; };
 		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
-		D24C59531B7ADBB7006F88D3 /* StringHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59521B7ADBB7006F88D3 /* StringHeight.m */; };
 		D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24C59541B7ADC5A006F88D3 /* UIKit.framework */; };
-		D24C595D1B7B34C3006F88D3 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */; };
-		D24C595F1B7B3633006F88D3 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C595E1B7B3633006F88D3 /* NoAddCell.xib */; };
-		D24C59651B7C2498006F88D3 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59641B7C2498006F88D3 /* AccountManageTVC.m */; };
 		D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
@@ -320,6 +320,13 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		13F5B6751B7C415300850683 /* AccountManageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
+		13F5B6761B7C415600850683 /* AccountManageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManageTVC.m; sourceTree = SOURCE_ROOT; };
+		13F5B6781B7C419600850683 /* PrivacyTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyTVC.h; sourceTree = SOURCE_ROOT; };
+		13F5B6791B7C419A00850683 /* PrivacyTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyTVC.m; sourceTree = SOURCE_ROOT; };
+		13F5B67B1B7C419E00850683 /* NoAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAddCell.xib; sourceTree = SOURCE_ROOT; };
+		13F5B67D1B7C41CA00850683 /* StringHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHeight.h; sourceTree = "<group>"; };
+		13F5B67E1B7C41CE00850683 /* StringHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHeight.m; sourceTree = "<group>"; };
 		15A721E61B7712AD005A2303 /* NotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKey.h; sourceTree = "<group>"; };
 		15A721F41B77137B005A2303 /* DarenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenTableViewController.h; sourceTree = "<group>"; };
 		15A721F51B77137B005A2303 /* DarenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenTableViewController.m; sourceTree = "<group>"; };
@@ -468,14 +475,7 @@
 		D24C37141B749E3900228886 /* IntroduceYourselfViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceYourselfViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C37161B74A84400228886 /* NickNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NickNameViewController.h; sourceTree = SOURCE_ROOT; };
 		D24C37171B74A84400228886 /* NickNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NickNameViewController.m; sourceTree = SOURCE_ROOT; };
-		D24C59511B7ADBB7006F88D3 /* StringHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHeight.h; sourceTree = "<group>"; };
-		D24C59521B7ADBB7006F88D3 /* StringHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHeight.m; sourceTree = "<group>"; };
 		D24C59541B7ADC5A006F88D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		D24C595B1B7B34C3006F88D3 /* PrivacyTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrivacyTVC.h; sourceTree = SOURCE_ROOT; };
-		D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrivacyTVC.m; sourceTree = SOURCE_ROOT; };
-		D24C595E1B7B3633006F88D3 /* NoAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAddCell.xib; sourceTree = SOURCE_ROOT; };
-		D24C59631B7C2498006F88D3 /* AccountManageTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
-		D24C59641B7C2498006F88D3 /* AccountManageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManageTVC.m; sourceTree = SOURCE_ROOT; };
 		D24C59671B7C2FE7006F88D3 /* GeneralTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTVC.h; sourceTree = SOURCE_ROOT; };
 		D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTVC.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
@@ -1336,8 +1336,8 @@
 		D24C59501B7ADB86006F88D3 /* StringHeight */ = {
 			isa = PBXGroup;
 			children = (
-				D24C59511B7ADBB7006F88D3 /* StringHeight.h */,
-				D24C59521B7ADBB7006F88D3 /* StringHeight.m */,
+				13F5B67D1B7C41CA00850683 /* StringHeight.h */,
+				13F5B67E1B7C41CE00850683 /* StringHeight.m */,
 			);
 			name = StringHeight;
 			sourceTree = "<group>";
@@ -1345,8 +1345,8 @@
 		D24C59561B7B2AF9006F88D3 /* 账户管理 */ = {
 			isa = PBXGroup;
 			children = (
-				D24C59631B7C2498006F88D3 /* AccountManageTVC.h */,
-				D24C59641B7C2498006F88D3 /* AccountManageTVC.m */,
+				13F5B6751B7C415300850683 /* AccountManageTVC.h */,
+				13F5B6761B7C415600850683 /* AccountManageTVC.m */,
 			);
 			name = "账户管理";
 			sourceTree = "<group>";
@@ -1354,9 +1354,9 @@
 		D24C595A1B7B3492006F88D3 /* 隐私 */ = {
 			isa = PBXGroup;
 			children = (
-				D24C595B1B7B34C3006F88D3 /* PrivacyTVC.h */,
-				D24C595C1B7B34C3006F88D3 /* PrivacyTVC.m */,
-				D24C595E1B7B3633006F88D3 /* NoAddCell.xib */,
+				13F5B6781B7C419600850683 /* PrivacyTVC.h */,
+				13F5B6791B7C419A00850683 /* PrivacyTVC.m */,
+				13F5B67B1B7C419E00850683 /* NoAddCell.xib */,
 			);
 			name = "隐私";
 			sourceTree = "<group>";
@@ -1536,7 +1536,7 @@
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
-				D24C595F1B7B3633006F88D3 /* NoAddCell.xib in Resources */,
+				13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
 				D24C37031B74792600228886 /* MallCell.xib in Resources */,
 				15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */,
@@ -1581,7 +1581,6 @@
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
-				D24C59531B7ADBB7006F88D3 /* StringHeight.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
 				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
@@ -1598,6 +1597,7 @@
 				15A7226C1B771686005A2303 /* MD5DataSigner.m in Sources */,
 				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
 				13688F461B79A4F800251AC4 /* UIImage+GIF.m in Sources */,
+				13F5B67F1B7C41CE00850683 /* StringHeight.m in Sources */,
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */,
@@ -1616,13 +1616,13 @@
 				1363D6891B7B274C00094224 /* PhotoListView.m in Sources */,
 				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
+				13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */,
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				B350697A1B773A500045CF10 /* BindPhoneViewController.m in Sources */,
 				132E9FF71B7891DC00B342D7 /* MJRefreshHeader.m in Sources */,
 				15A7227D1B772E81005A2303 /* LocationManager.m in Sources */,
 				15A722701B771686005A2303 /* RSADataVerifier.m in Sources */,
-				D24C595D1B7B34C3006F88D3 /* PrivacyTVC.m in Sources */,
 				15A722691B771686005A2303 /* base64.m in Sources */,
 				13688F441B79A4F800251AC4 /* SDWebImagePrefetcher.m in Sources */,
 				137263DB1B744E3D0006661C /* JSONModel.m in Sources */,
@@ -1630,7 +1630,7 @@
 				13688F3D1B79A4F800251AC4 /* NSData+ImageContentType.m in Sources */,
 				15A721FA1B771393005A2303 /* PayOrder.m in Sources */,
 				D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */,
-				D24C59651B7C2498006F88D3 /* AccountManageTVC.m in Sources */,
+				13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */,
 				B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */,
 				B35069801B7749740045CF10 /* WithDrawCashViewController.m in Sources */,
 				137263DF1B744E3D0006661C /* NSArray+JSONModel.m in Sources */,
