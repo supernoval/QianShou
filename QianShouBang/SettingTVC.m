@@ -11,6 +11,8 @@
 #import "AccountManageTVC.h"
 #import "PrivacyTVC.h"
 #import "GeneralTVC.h"
+#import "AboutQianShouBangTVC.h"
+#import "LoginViewController.h"
 
 @interface SettingTVC ()
 
@@ -123,6 +125,8 @@
             
         case 3:
         {
+            AboutQianShouBangTVC *aboutTVC = [sb instantiateViewControllerWithIdentifier:@"AboutQianShouBangTVC"];
+            [self.navigationController pushViewController:aboutTVC animated:YES];
         }
             break;
             
@@ -147,6 +151,10 @@
 }
 
 - (void)logout:(UIButton *)button{
-    self.view.backgroundColor = [UIColor redColor];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+     [BmobUser logout];
+    
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    [self.navigationController presentViewController:loginVC animated:YES completion:nil];
 }
 @end

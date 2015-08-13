@@ -189,19 +189,23 @@ static NSUInteger pageSize = 10;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    BmobObject *obj = [_dataArray objectAtIndex:indexPath.row];
+    
     static NSString *cellId = @"RowTextCell";
     MallCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"MallCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
-    cell.image.image = [UIImage imageNamed:@"money"];
-    cell.titleText.text = @"韩国水库面膜";
-    cell.introText.text = @"148.0牵手币";
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    [cell.image sd_setImageWithURL:[obj objectForKey:kintergralGoodsIcon_url]];
+
+    cell.titleText.text = [obj objectForKey:kintergralGoodsTitle];
+    cell.introText.text = [obj objectForKey:kintergralGoodsDescription];
     
-    cell.exchangeBtn.tag = indexPath.row;
-    [cell.exchangeBtn addTarget:self action:@selector(exchangeGoods:) forControlEvents:UIControlEventTouchUpInside];
+//    cell.exchangeBtn.tag = indexPath.row;
+//    [cell.exchangeBtn addTarget:self action:@selector(exchangeGoods:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -210,6 +214,7 @@ static NSUInteger pageSize = 10;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     GoodsDetailTVC *goodsTVC = [sb instantiateViewControllerWithIdentifier:@"GoodsDetailTVC"];
+    goodsTVC.obj = [_dataArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:goodsTVC animated:YES];
 }
 

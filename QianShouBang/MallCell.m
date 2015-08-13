@@ -15,6 +15,7 @@
     self.exchangeBtn.layer.cornerRadius = 4.0;
     self.exchangeBtn.layer.borderWidth = 1.0;
     self.exchangeBtn.layer.borderColor =  [UIColor colorWithRed:253 green:159 blue:8 alpha:1.0].CGColor;
+    self.exchangeBtn.userInteractionEnabled = NO;
     // Initialization code
 }
 

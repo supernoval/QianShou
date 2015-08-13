@@ -9,5 +9,6 @@
 #import "BaseTableViewController.h"
 
 @interface GoodsDetailTVC : BaseTableViewController<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong)BmobObject *obj;
 
 @end

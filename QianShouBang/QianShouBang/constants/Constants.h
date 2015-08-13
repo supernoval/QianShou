@@ -114,7 +114,8 @@
 #define kintergralGoodsTitle @"intergralGoodsTitle"
 #define kintergralGoodsValue @"intergralGoodsValue"
 
-
+/*账户明细表*/
+#define kDetailAccount @"DetailAccount"
 
 /*系统消息表对应Key*/
 #define ksystem_msg_content @"system_msg_content"

@@ -138,6 +138,8 @@
 		D24C37181B74A84400228886 /* NickNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37171B74A84400228886 /* NickNameViewController.m */; };
 		D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D24C59541B7ADC5A006F88D3 /* UIKit.framework */; };
 		D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */; };
+		D24C596D1B7C6182006F88D3 /* AboutQianShouBangTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */; };
+		D24C59711B7C6ED2006F88D3 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -478,6 +480,10 @@
 		D24C59541B7ADC5A006F88D3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D24C59671B7C2FE7006F88D3 /* GeneralTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralTVC.h; sourceTree = SOURCE_ROOT; };
 		D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C596B1B7C6182006F88D3 /* AboutQianShouBangTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutQianShouBangTVC.h; sourceTree = SOURCE_ROOT; };
+		D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutQianShouBangTVC.m; sourceTree = SOURCE_ROOT; };
+		D24C596F1B7C6ED2006F88D3 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1370,6 +1376,25 @@
 			name = "通用";
 			sourceTree = "<group>";
 		};
+		D24C596A1B7C614E006F88D3 /* 关于牵手邦 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C596E1B7C6EAB006F88D3 /* 反馈 */,
+				D24C596B1B7C6182006F88D3 /* AboutQianShouBangTVC.h */,
+				D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */,
+			);
+			name = "关于牵手邦";
+			sourceTree = "<group>";
+		};
+		D24C596E1B7C6EAB006F88D3 /* 反馈 */ = {
+			isa = PBXGroup;
+			children = (
+				D24C596F1B7C6ED2006F88D3 /* FeedBackViewController.h */,
+				D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */,
+			);
+			name = "反馈";
+			sourceTree = "<group>";
+		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1413,6 +1438,7 @@
 		D28FEAB21B7348200026D674 /* 设置 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C596A1B7C614E006F88D3 /* 关于牵手邦 */,
 				D24C59661B7C2F92006F88D3 /* 通用 */,
 				D24C595A1B7B3492006F88D3 /* 隐私 */,
 				D24C59561B7B2AF9006F88D3 /* 账户管理 */,
@@ -1584,9 +1610,11 @@
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
 				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
+				D24C596D1B7C6182006F88D3 /* AboutQianShouBangTVC.m in Sources */,
 				D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */,
 				13688F491B79A4F800251AC4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */,
+				D24C59711B7C6ED2006F88D3 /* FeedBackViewController.m in Sources */,
 				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				132E9FF81B7891DC00B342D7 /* MJRefreshLegendFooter.m in Sources */,
