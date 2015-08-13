@@ -9,16 +9,29 @@
 #import "NearPeopleTVC.h"
 #import "NearPeopleCell.h"
 
+static NSUInteger pageSize = 10;
+
 @interface NearPeopleTVC ()
 @property (nonatomic, strong)UIView *checkView;
 @property (nonatomic)BOOL showCheckView;
+@property (nonatomic, strong)BmobUser *user;
+@property (nonatomic, strong)BmobGeoPoint *currentPoint;
 
 @end
 
-@implementation NearPeopleTVC
+@implementation NearPeopleTVC{
+    NSMutableArray *_dataArray;
+    
+    NSInteger pageIndex;
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _user = [BmobUser getCurrentUser];
+    self.currentPoint = [[BmobGeoPoint alloc]init];
+
     
     self.title = @"附近人";
     self.view.backgroundColor = kBackgroundColor;
@@ -30,7 +43,75 @@
     [self.view addSubview:self.checkView];
     self.checkView.hidden = YES;
     self.showCheckView = NO;
+    
+    
+    
+    [self addHeaderRefresh];
+    self.tableView.header.stateHidden = YES;
+    self.tableView.header.updatedTimeHidden = YES;
+    [self addFooterRefresh];
+    self.tableView.footer.stateHidden = YES;
+    
+    _dataArray = [[NSMutableArray alloc]init];
+    pageIndex = 0;
+    
+    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    self.currentPoint = [_user objectForKey:@"geoPoint"];
+    NSLog(@"&&&&:%f==%f",self.currentPoint.latitude,self.currentPoint.longitude);
+    
+    [self.tableView.header beginRefreshing];
+    
+//    [self getData];
+}
+
+
+- (void)headerRefresh{
+    pageIndex = 0;
+    [self getData];
+}
+- (void)footerRefresh{
+    pageIndex ++;
+    [self getData];
+}
+
+- (void)getData{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kUser];
+    
+    query.limit = pageSize;
+    query.skip = pageSize*pageIndex;
+    
+    [query whereKey:@"geoPoint" nearGeoPoint:self.currentPoint];
+    
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+        if (pageIndex == 0) {
+            
+            [_dataArray removeAllObjects];
+            
+        }
+        
+        [_dataArray addObjectsFromArray:array];
+        
+        NSLog(@"*******______----:%lu",(unsigned long)_dataArray.count);
+        [self.tableView reloadData];
+        
+        
+    }];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,8 +163,8 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
     view.backgroundColor = kBlueColor;
     
-//    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
-//    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
     
     
     UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];

@@ -44,7 +44,6 @@ static NSUInteger pageSize = 10;
     
     [self.tableView.header beginRefreshing];
     
-    [self getData];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -94,6 +94,7 @@
 #define CheckNil(a) (a)==nil?@"":(a)
 
 /*User表对应Key*/
+#define kUser @"_User"
 #define kobjectId @"objectId"
 #define kusername @"username"
 #define kmobilePhoneNumber @"mobilePhoneNumber"
