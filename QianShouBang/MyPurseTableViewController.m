@@ -9,6 +9,7 @@
 #import "MyPurseTableViewController.h"
 #import "RowTextCell.h"
 #import "WithDrawCashViewController.h"
+#import "AccountDetailViewController.h"
 
 @interface MyPurseTableViewController ()
 
@@ -90,11 +91,17 @@
     switch (indexPath.row) {
         case 0://钱包余额
         {
+            AccountDetailViewController *accountVC = [sb instantiateViewControllerWithIdentifier:@"AccountDetailViewController"];
+            accountVC.from = 1;
+            [self.navigationController pushViewController:accountVC animated:YES];
         }
             break;
             
         case 1://牵手币
         {
+            AccountDetailViewController *accountVC = [sb instantiateViewControllerWithIdentifier:@"AccountDetailViewController"];
+            accountVC.from = 2;
+            [self.navigationController pushViewController:accountVC animated:YES];
         }
             break;
             

@@ -528,6 +528,19 @@
     
 }
 
+<<<<<<< .mine
++ (NSString *)getMounthAndDay:(NSDate *)dateTime{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    
+    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit;
+    comps = [calendar components:unitFlags fromDate:dateTime];
+    long day=[comps day];//获取日期对应的日
+    long month=[comps month];//获取月对应的月
+    return [NSString stringWithFormat:@"%ld/%ld",month,day];
+}
+
+=======
 +(void)upLoadPhotos:(NSArray *)photos resultBlock:(upLoadPhotoBlock)block
 {
     if (photos.count > 0) {
@@ -692,4 +705,5 @@
 
 
 
+>>>>>>> .r77
 @end

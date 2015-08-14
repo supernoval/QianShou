@@ -120,15 +120,6 @@ static NSUInteger pageSize = 10;
     
     BmobObject *obj = [_dataArray objectAtIndex:indexPath.section];
     
-    NSDate *date = obj.updatedAt;
-     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    
-    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit;
-    comps = [calendar components:unitFlags fromDate:date];
-    long day=[comps day];//获取日期对应的日
-    long month=[comps month];//获取月对应的月
-    
     static NSString *cellId = @"MessageCell";
     MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
@@ -137,8 +128,7 @@ static NSUInteger pageSize = 10;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = kContentColor;
     cell.titleText.text = [obj objectForKey:ksystem_msg_title];
-    cell.timeText.text = [NSString stringWithFormat:@"%ld/%ld",month,day];
-    
+    cell.timeText.text = [CommonMethods getMounthAndDay:obj.updatedAt];
     return cell;
 }
 

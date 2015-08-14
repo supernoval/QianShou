@@ -35,7 +35,7 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     userInfo = [[QSUser alloc]init];
-    self.currentUser = [BmobUser getCurrentUser];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +45,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.currentUser = [BmobUser getCurrentUser];
     [self getCurrentUserInfo];
 }
 #pragma -mark获取当前用户信息
@@ -132,14 +133,14 @@
                         infoCell.image.image = [UIImage imageNamed:@"head_default"];
                     }
                     //姓名
-                    infoCell.name.text = userInfo.nick;
+//                    infoCell.name.text = userInfo.nick;
                     //电话
                     infoCell.phone.text = userInfo.username;
                     //性别
                     if (userInfo.user_sex == 1) {
-                        infoCell.sex_image.image = [UIImage imageNamed:@"male"];
+                        infoCell.name.text = [NSString stringWithFormat:@"%@ (男)",userInfo.nick];
                     }else{
-                        infoCell.sex_image.image = [UIImage imageNamed:@"female"];
+                        infoCell.name.text = [NSString stringWithFormat:@"%@ (女)",userInfo.nick];
                     }
                     
                     return infoCell;
@@ -272,7 +273,6 @@
             switch (indexPath.row) {
                 case 0://兑换牵手币
                 {
-                    self.view.backgroundColor = [UIColor redColor];
                     
                 }
                     break;

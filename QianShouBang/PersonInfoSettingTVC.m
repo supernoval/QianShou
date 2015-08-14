@@ -276,7 +276,7 @@
                 
                 //账号
             case 2:
-                self.view.backgroundColor = [UIColor redColor];
+            
                 break;
                 
                 //昵称

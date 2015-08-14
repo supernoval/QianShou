@@ -89,7 +89,8 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma mark -  获取几天前
 +(NSString*)timeStringFromNow:(NSDate*)Thattime;
 
-
+#pragma mark - 获取date中的月日
++ (NSString *)getMounthAndDay:(NSDate *)dateTime;
 #pragma mark - Bmob上传图片 
 +(void)upLoadPhotos:(NSArray*)photos resultBlock:(upLoadPhotoBlock)block;
 

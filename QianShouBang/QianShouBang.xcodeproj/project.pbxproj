@@ -140,6 +140,8 @@
 		D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59681B7C2FE7006F88D3 /* GeneralTVC.m */; };
 		D24C596D1B7C6182006F88D3 /* AboutQianShouBangTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */; };
 		D24C59711B7C6ED2006F88D3 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */; };
+		D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59731B7D92EF006F88D3 /* AccountDetailViewController.m */; };
+		D24C597C1B7DC5A6006F88D3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C597B1B7DC5A6006F88D3 /* AccountCell.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -484,6 +486,10 @@
 		D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutQianShouBangTVC.m; sourceTree = SOURCE_ROOT; };
 		D24C596F1B7C6ED2006F88D3 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = SOURCE_ROOT; };
 		D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C59721B7D92EF006F88D3 /* AccountDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		D24C59731B7D92EF006F88D3 /* AccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		D24C597A1B7DC5A6006F88D3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = SOURCE_ROOT; };
+		D24C597B1B7DC5A6006F88D3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1194,18 +1200,15 @@
 			name = "附近人";
 			sourceTree = "<group>";
 		};
-		B350697B1B7747890045CF10 /* 钱包余额 */ = {
+		B350697C1B7747960045CF10 /* 账户明细 */ = {
 			isa = PBXGroup;
 			children = (
+				D24C59721B7D92EF006F88D3 /* AccountDetailViewController.h */,
+				D24C59731B7D92EF006F88D3 /* AccountDetailViewController.m */,
+				D24C597A1B7DC5A6006F88D3 /* AccountCell.h */,
+				D24C597B1B7DC5A6006F88D3 /* AccountCell.m */,
 			);
-			name = "钱包余额";
-			sourceTree = "<group>";
-		};
-		B350697C1B7747960045CF10 /* 牵手币 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "牵手币";
+			name = "账户明细";
 			sourceTree = "<group>";
 		};
 		B350697D1B7747A10045CF10 /* 余额提现 */ = {
@@ -1418,8 +1421,7 @@
 			isa = PBXGroup;
 			children = (
 				B350697D1B7747A10045CF10 /* 余额提现 */,
-				B350697C1B7747960045CF10 /* 牵手币 */,
-				B350697B1B7747890045CF10 /* 钱包余额 */,
+				B350697C1B7747960045CF10 /* 账户明细 */,
 				D28FEAA01B7323D80026D674 /* MyPurseTableViewController.h */,
 				D28FEAA11B7323D80026D674 /* MyPurseTableViewController.m */,
 			);
@@ -1656,6 +1658,7 @@
 				137263DB1B744E3D0006661C /* JSONModel.m in Sources */,
 				137776241B735273005C2C53 /* RewardLimitationModel.m in Sources */,
 				13688F3D1B79A4F800251AC4 /* NSData+ImageContentType.m in Sources */,
+				D24C597C1B7DC5A6006F88D3 /* AccountCell.m in Sources */,
 				15A721FA1B771393005A2303 /* PayOrder.m in Sources */,
 				D28FEAA71B73246B0026D674 /* RowTextCell.m in Sources */,
 				13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */,
@@ -1697,6 +1700,7 @@
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
 				B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */,
+				D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */,
 				D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */,
 				132E9FF41B7891DC00B342D7 /* MJRefreshFooter.m in Sources */,
 			);
