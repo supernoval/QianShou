@@ -528,7 +528,6 @@
     
 }
 
-<<<<<<< .mine
 + (NSString *)getMounthAndDay:(NSDate *)dateTime{
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -540,7 +539,7 @@
     return [NSString stringWithFormat:@"%ld/%ld",month,day];
 }
 
-=======
+
 +(void)upLoadPhotos:(NSArray *)photos resultBlock:(upLoadPhotoBlock)block
 {
     if (photos.count > 0) {
@@ -705,5 +704,4 @@
 
 
 
->>>>>>> .r77
 @end
