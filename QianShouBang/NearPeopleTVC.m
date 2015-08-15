@@ -157,16 +157,16 @@ static NSUInteger pageSize = 10;
 
 #pragma mark- 附近人种类View
 - (UIView *)nearCatagoryVeiw{
-    CGFloat width = 140;
-    CGFloat height = 120;
+    CGFloat width = 100;
+    CGFloat height = 80;
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
     view.backgroundColor = kBlueColor;
     
     [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
-    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
+//    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
     
     
-    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
+    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/2)];
     femaleBtn.backgroundColor = [UIColor clearColor];
     [femaleBtn setTitle:@"只看女生" forState:UIControlStateNormal];
     [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -174,7 +174,7 @@ static NSUInteger pageSize = 10;
     [femaleBtn addTarget:self action:@selector(checkFemalealeAction) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:femaleBtn];
     
-    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
+    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/2, width, height/2)];
     maleBtn.backgroundColor = [UIColor clearColor];
     [maleBtn setTitle:@"只看男生" forState:UIControlStateNormal];
     [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -183,13 +183,13 @@ static NSUInteger pageSize = 10;
     [view addSubview:maleBtn];
     
     
-    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
-    greetBtn.backgroundColor = [UIColor clearColor];
-    [greetBtn setTitle:@"查看打招呼的人" forState:UIControlStateNormal];
-    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    greetBtn.titleLabel.font = FONT_16;
-    [greetBtn addTarget:self action:@selector(checkGreetAction) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:greetBtn];
+//    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
+//    greetBtn.backgroundColor = [UIColor clearColor];
+//    [greetBtn setTitle:@"查看打招呼的人" forState:UIControlStateNormal];
+//    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    greetBtn.titleLabel.font = FONT_16;
+//    [greetBtn addTarget:self action:@selector(checkGreetAction) forControlEvents:UIControlEventTouchUpInside];
+//    [view addSubview:greetBtn];
     
     return view;
 }
