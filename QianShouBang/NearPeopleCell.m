@@ -17,12 +17,6 @@
     self.image.layer.borderWidth = 1.0;
     self.image.layer.borderColor = [UIColor whiteColor].CGColor;
     
-    self.intro.layer.masksToBounds = YES;
-    self.intro.layer.cornerRadius = 4.0;
-    self.intro.layer.borderWidth = 1.0;
-    self.intro.layer.borderColor = [UIColor whiteColor].CGColor;
-   
-    
     
 }
 

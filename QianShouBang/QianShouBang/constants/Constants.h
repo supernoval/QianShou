@@ -106,6 +106,7 @@
 #define klocation @"location"
 #define kauthData @"authData"
 #define kwheather_allow_add @"wheather_allow_add"
+#define kuser_birthday @"user_birthday"
 
 /*牵手币商城表*/
 #define kIntergralBean @"IntergralBean"

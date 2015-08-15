@@ -143,9 +143,8 @@ static NSUInteger pageSize = 10;
     }
     cell.backgroundColor = kContentColor;
     
-    cell.name.text = @"呵呵大大";
+    cell.name.text = @"呵呵大大（男）";
     cell.distance.text = @"距离800KM";
-    cell.intro.text = @"谁说超人不会飞，我就飞你麻痹";
     
     return cell;
 }

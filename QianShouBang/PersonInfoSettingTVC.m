@@ -49,6 +49,7 @@
     currentUser.user_phone = [user objectForKey:kuser_phone];
     currentUser.avatar = [user objectForKey:kavatar];
     currentUser.user_individuality_signature = [user objectForKey:kuser_individuality_signature];
+    currentUser.user_birthday = [user objectForKey:kuser_birthday];
     
     NSLog(@"8%@ 9%@ 10%@",currentUser.username,currentUser.user_phone,currentUser.nick);
     [self.tableView reloadData];
@@ -192,8 +193,7 @@
                     cell.extraText.hidden = NO;
                     cell.arrow.hidden = NO;
                     cell.text.text = @"生日";
-                    cell.extraText.text = @"2015-10-10";
-//                    cell.extraText.text = CheckNil(currentUser.authData);
+                    cell.extraText.text = CheckNil(currentUser.user_birthday);
                     return cell;
                     
                 }
@@ -403,7 +403,21 @@
         [_pickDateView setDateBlock:^(NSString *dateStr) {
             
             if (dateStr != nil) {
-//                self.view.backgroundColor = [UIColor redColor];
+                BmobUser *user = [BmobUser getCurrentUser];
+                [MyProgressHUD showProgress];
+                [user setObject:dateStr forKey:kuser_birthday];
+                [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                    if (isSuccessful) {
+                        [self getCurrentUserInfo];
+                        [MyProgressHUD dismiss];
+                        
+                        [CommonMethods showAlertString:@"修改生日成功!" delegate:self tag:11];
+                    }else {
+                        [MyProgressHUD dismiss];
+                        [CommonMethods showAlertString:@"修改生日失败!" delegate:self tag:12];
+                    }
+                }];
+                
                 
                 
             }
@@ -449,7 +463,8 @@
                                 [MyProgressHUD dismiss];
                                 
                                 [CommonMethods showAlertString:@"修改头像成功!" delegate:self tag:11];
-                            }else if(error){
+                            }else{
+                                [MyProgressHUD dismiss];
                                 [CommonMethods showAlertString:@"修改头像失败!" delegate:self tag:12];
                             }
                         }];
