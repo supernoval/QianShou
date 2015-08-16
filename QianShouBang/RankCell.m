@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     self.rankNumber.layer.masksToBounds = YES;
-    self.rankNumber.layer.cornerRadius = 2;
+    self.rankNumber.layer.cornerRadius = 4;
     self.rankNumber.layer.borderColor = [UIColor whiteColor].CGColor;
     self.rankNumber.layer.borderWidth = 1.0;
 }

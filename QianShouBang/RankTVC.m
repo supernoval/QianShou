@@ -8,6 +8,7 @@
 
 #import "RankTVC.h"
 #import "RankCell.h"
+#import "StringHeight.h"
 
 static NSUInteger pageSize = 10;
 
@@ -114,21 +115,26 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"RankCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
+    cell.nameWidth.constant = [StringHeight withtWithText:@"超人不会飞" font:FONT_13  constrainedToWidth:200];
     
-    cell.rankNumber.text = [NSString stringWithFormat:@"%li",indexPath.row+1];
+    cell.rankNumber.text = [NSString stringWithFormat:@"%ld",(indexPath.row+1)];
     if (indexPath.row == 0) {
-        cell.rankNumber.backgroundColor = RGB(140, 55, 37, 1.0);
+        cell.rankNumber.backgroundColor = [UIColor redColor];
+        cell.rankNumber.textColor = [UIColor whiteColor];
     }else if(indexPath.row == 1){
-        cell.rankNumber.backgroundColor = RGB(157, 100, 59, 1.0);
+        cell.rankNumber.backgroundColor = RGB(184, 102, 72, 1.0);
+        cell.rankNumber.textColor = [UIColor whiteColor];
     }else if(indexPath.row == 2){
-        cell.rankNumber.backgroundColor = RGB(159, 122, 59, 1.0);
+        cell.rankNumber.backgroundColor = RGB(198, 134, 77, 1.0);
+        cell.rankNumber.textColor = [UIColor whiteColor];
     }else{
         cell.rankNumber.backgroundColor = [UIColor whiteColor];
+        cell.rankNumber.textColor = [UIColor blackColor];
     }
     //头像
     cell.image.image = [UIImage imageNamed:@"setting"];
     //姓名
-    cell.name.text = @"超人飞";
+    cell.name.text = @"超人不会飞";
     
     //简介
     cell.intro_text.text = @"去尼玛的超人不会飞";
