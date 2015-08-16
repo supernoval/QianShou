@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface YellCell : UITableViewCell
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWithConstrain;
+
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHeight;
 

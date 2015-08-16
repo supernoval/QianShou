@@ -2526,28 +2526,6 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1hb-Dk-zj5" id="I2K-3N-hro">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邦果" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag1-gs-bmx">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="34" id="53K-f9-oQN"/>
-                                                <constraint firstAttribute="height" constant="21" id="xpx-H9-79X"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="53K-f9-oQN"/>
-                                                    <exclude reference="xpx-H9-79X"/>
-                                                </mask>
-                                            </variation>
-                                            <variation key="heightClass=regular-widthClass=compact">
-                                                <mask key="constraints">
-                                                    <include reference="53K-f9-oQN"/>
-                                                    <include reference="xpx-H9-79X"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <imageView userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male" translatesAutoresizingMaskIntoConstraints="NO" id="rZg-Gi-Y7q">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <constraints>
@@ -2834,6 +2812,28 @@
                                                 </mask>
                                             </variation>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="邦果" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ag1-gs-bmx">
+                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="34" id="53K-f9-oQN"/>
+                                                <constraint firstAttribute="height" constant="21" id="xpx-H9-79X"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="53K-f9-oQN"/>
+                                                    <exclude reference="xpx-H9-79X"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="53K-f9-oQN"/>
+                                                    <include reference="xpx-H9-79X"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="eQu-IH-9IB" secondAttribute="trailing" constant="8" id="0mL-Ux-Ppy"/>
@@ -2877,7 +2877,6 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
-                                            <exclude reference="ag1-gs-bmx"/>
                                             <exclude reference="rZg-Gi-Y7q"/>
                                             <exclude reference="xlA-im-dUP"/>
                                             <exclude reference="BvR-Ax-DDM"/>
@@ -2892,6 +2891,7 @@
                                             <exclude reference="mZh-CV-A8T"/>
                                             <exclude reference="gRC-5N-yfE"/>
                                             <exclude reference="lst-a4-Gri"/>
+                                            <exclude reference="ag1-gs-bmx"/>
                                         </mask>
                                         <mask key="constraints">
                                             <exclude reference="8Mu-Ij-D0i"/>
@@ -2932,7 +2932,6 @@
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
                                         <mask key="subviews">
-                                            <include reference="ag1-gs-bmx"/>
                                             <include reference="rZg-Gi-Y7q"/>
                                             <include reference="xlA-im-dUP"/>
                                             <include reference="BvR-Ax-DDM"/>
@@ -2947,6 +2946,7 @@
                                             <include reference="mZh-CV-A8T"/>
                                             <include reference="gRC-5N-yfE"/>
                                             <include reference="lst-a4-Gri"/>
+                                            <include reference="ag1-gs-bmx"/>
                                         </mask>
                                         <mask key="constraints">
                                             <include reference="8Mu-Ij-D0i"/>
@@ -2988,6 +2988,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contentTextHeight" destination="qVZ-Kp-KNz" id="fUt-Cq-a8n"/>
+                                    <outlet property="nameLabelWithConstrain" destination="53K-f9-oQN" id="Grw-oo-ktl"/>
                                     <outlet property="photoViewHeight" destination="5nR-J3-hQu" id="7ev-D8-ERy"/>
                                 </connections>
                             </tableViewCell>

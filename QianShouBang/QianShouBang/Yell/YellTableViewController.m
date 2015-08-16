@@ -267,6 +267,8 @@ static NSInteger pageSize = 10;
             
             headTitle.text = [user objectForKey:@"nick"];
             
+            cell.nameLabelWithConstrain.constant = [StringHeight withtWithText:headTitle.text font:FONT_15 constrainedToWidth:ScreenWidth];
+                
             
            // 文字内容
             contentLabel.text = [weiboModel.yellObject objectForKey:@"content"];

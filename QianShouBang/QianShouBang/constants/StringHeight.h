@@ -11,5 +11,5 @@
 @interface StringHeight : NSObject
 
 + (CGFloat)heightWithText:(NSString *)text font:(UIFont *)font constrainedToWidth:(CGFloat)width;
-
++ (CGFloat)withtWithText:(NSString *)text font:(UIFont *)font constrainedToWidth:(CGFloat)width;
 @end
