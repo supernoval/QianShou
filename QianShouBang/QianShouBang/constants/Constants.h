@@ -79,7 +79,7 @@
 //背景色
 #define kBackgroundColor RGB(239,239,244,1)
 #define kContentColor [UIColor whiteColor]
-#define kLineColor RGB(220,220,220,1)
+#define kLineColor RGB(226,226,226,1)
 //蓝绿字体
 #define kBlueColor RGB(65,174,158,1)
 

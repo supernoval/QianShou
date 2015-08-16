@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title = @"关于牵手邦";
     self.view.backgroundColor = kBackgroundColor;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     // 版本

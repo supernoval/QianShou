@@ -29,7 +29,7 @@ static NSUInteger pageSize = 10;
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     [self addHeaderRefresh];
     self.tableView.header.stateHidden = YES;

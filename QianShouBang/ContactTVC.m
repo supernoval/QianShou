@@ -82,24 +82,15 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    CGFloat height;
-    if (section == 0) {
-        height = 5;
-    }else{
-        height = 10;
-    }
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, height)];
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
     headView.backgroundColor = [UIColor clearColor];
     return headView;
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if (section == 0) {
-        return 5;
-    }else{
-        return 10;
-    }
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -31,7 +31,7 @@
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     currentUser = [[QSUser alloc]init];
 }
 
@@ -74,7 +74,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 15)];
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
     headView.backgroundColor = [UIColor clearColor];
     
     return headView;
@@ -83,7 +83,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
-    return 15;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -114,7 +114,6 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.extraText.hidden = YES;
-    cell.arrow.hidden = YES;
     cell.extraText.textColor = kBlueColor;
     
     switch (indexPath.section) {
@@ -138,7 +137,6 @@
                 case 1:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
                     cell.text.text = @"自我描述";
                     cell.extraText.text = currentUser.user_individuality_signature;
                     return cell;
@@ -149,9 +147,10 @@
                 case 2:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = YES;
+                   
                     cell.text.text = @"账号";
                     cell.extraText.text = currentUser.username;
+                    cell.accessoryType = UITableViewCellAccessoryNone;
                     return cell;
                    
                 }
@@ -160,7 +159,7 @@
                 case 3:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
+                    
                     cell.text.text = @"昵称";
                     cell.extraText.text = currentUser.nick;
                     return cell;
@@ -180,7 +179,7 @@
                 case 0:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
+                    
                     cell.text.text = @"手机号";
                     cell.extraText.text = currentUser.user_phone;
                     return cell;
@@ -191,7 +190,7 @@
                 case 1:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
+                    
                     cell.text.text = @"生日";
                     cell.extraText.text = CheckNil(currentUser.user_birthday);
                     return cell;
@@ -202,7 +201,7 @@
                 case 2:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
+                    
                     cell.text.text = @"地区";
                     cell.extraText.text = @"所在地区";
 //                    cell.extraText.text = CheckNil(currentUser.location);
@@ -214,7 +213,7 @@
                 case 3:
                 {
                     cell.extraText.hidden = NO;
-                    cell.arrow.hidden = NO;
+                   
                     cell.text.text = @"性别";
                     if (currentUser.user_sex == 1) {
                         cell.extraText.text = @"男性";

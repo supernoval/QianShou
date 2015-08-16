@@ -14,5 +14,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *intro_text;
 @property (strong, nonatomic) IBOutlet UIImageView *vip;
 @property (strong, nonatomic) IBOutlet UILabel *money;
+@property (strong, nonatomic) IBOutlet UILabel *rankNumber;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *nameWidth;
 
 @end

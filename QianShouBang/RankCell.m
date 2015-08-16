@@ -11,7 +11,10 @@
 @implementation RankCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.rankNumber.layer.masksToBounds = YES;
+    self.rankNumber.layer.cornerRadius = 2;
+    self.rankNumber.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.rankNumber.layer.borderWidth = 1.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -25,7 +25,7 @@ static NSUInteger pageSize = 10;
     [super viewDidLoad];
     self.title = @"财富榜";
     self.view.backgroundColor = kBackgroundColor;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     [self addHeaderRefresh];
     self.tableView.header.stateHidden = YES;
@@ -102,6 +102,10 @@ static NSUInteger pageSize = 10;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 60;
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 5;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *cellId = @"RankCell";
@@ -110,6 +114,17 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"RankCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
+    
+    cell.rankNumber.text = [NSString stringWithFormat:@"%li",indexPath.row+1];
+    if (indexPath.row == 0) {
+        cell.rankNumber.backgroundColor = RGB(140, 55, 37, 1.0);
+    }else if(indexPath.row == 1){
+        cell.rankNumber.backgroundColor = RGB(157, 100, 59, 1.0);
+    }else if(indexPath.row == 2){
+        cell.rankNumber.backgroundColor = RGB(159, 122, 59, 1.0);
+    }else{
+        cell.rankNumber.backgroundColor = [UIColor whiteColor];
+    }
     //头像
     cell.image.image = [UIImage imageNamed:@"setting"];
     //姓名

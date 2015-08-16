@@ -17,7 +17,6 @@
     self.image.layer.borderWidth = 1.0;
     self.image.layer.borderColor = [UIColor whiteColor].CGColor;
     
-    
 }
 
 

@@ -14,4 +14,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *distance;
 
 
+
 @end

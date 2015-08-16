@@ -23,7 +23,7 @@
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     
 }
