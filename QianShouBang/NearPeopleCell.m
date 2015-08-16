@@ -13,9 +13,9 @@
 
 - (void)awakeFromNib {
     self.image.layer.masksToBounds = YES;
-    self.image.layer.cornerRadius = 4.0;
+    self.image.layer.cornerRadius = self.image.frame.size.width/2;
     self.image.layer.borderWidth = 1.0;
-    self.image.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.image.layer.borderColor = [UIColor clearColor].CGColor;
     
 }
 

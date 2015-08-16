@@ -64,7 +64,7 @@ static NSUInteger pageSize = 10;
     
      _user = [BmobUser getCurrentUser];
     
-    self.currentPoint = [_user objectForKey:@"geoPoint"];
+    self.currentPoint = [_user objectForKey:@"location"];
     
     
     [self.tableView.header beginRefreshing];
@@ -86,15 +86,19 @@ static NSUInteger pageSize = 10;
     BmobQuery *query = [BmobQuery queryWithClassName:kUser];
     
     query.limit = pageSize;
-    query.skip = pageSize*pageIndex;
+//    query.skip = pageSize*pageIndex;
+    BmobGeoPoint *poi = [[BmobGeoPoint alloc]initWithLongitude:120.0 WithLatitude:29.0];
     [query whereKey:@"location" nearGeoPoint:self.currentPoint];
-    NSLog(@"&&&&:%f==%f",self.currentPoint.latitude,self.currentPoint.longitude);
+    NSLog(@"&&&&:%f==%f",self.currentPoint.longitude,self.currentPoint.latitude);
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         [self endHeaderRefresh];
         [self endFooterRefresh];
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
         
         if (pageIndex == 0) {
             
@@ -106,9 +110,11 @@ static NSUInteger pageSize = 10;
         
         NSLog(@"*******______----:%lu",(unsigned long)_dataArray.count);
         [self.tableView reloadData];
+        }
         
         
     }];
+    
     
 }
 

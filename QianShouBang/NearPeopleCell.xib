@@ -22,6 +22,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distance" translatesAutoresizingMaskIntoConstraints="NO" id="NER-9F-rui">
                         <rect key="frame" x="82" y="46" width="20" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="gha-yb-UwB"/>
                             <constraint firstAttribute="width" constant="20" id="vng-Dp-UPc"/>
