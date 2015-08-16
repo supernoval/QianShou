@@ -115,7 +115,7 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"RankCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
-    cell.nameWidth.constant = [StringHeight withtWithText:@"超人不会飞" font:FONT_13  constrainedToWidth:200];
+    cell.nameWidth.constant = [StringHeight withtWithText:@"超人不会飞" font:FONT_13  constrainedToWidth:200]+10;
     
     cell.rankNumber.text = [NSString stringWithFormat:@"%ld",(indexPath.row+1)];
     if (indexPath.row == 0) {
