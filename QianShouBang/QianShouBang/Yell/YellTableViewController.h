@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseTableViewController.h"
+#import "YellModel.h"
 
 @interface YellTableViewController : BaseTableViewController
 - (IBAction)publish:(id)sender;

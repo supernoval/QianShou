@@ -8,6 +8,13 @@
 
 #import "YellTableViewController.h"
 #import "PublishYellViewController.h"
+#import "SDPhotoGroup.h"
+#import "SDBrowserImageView.h"
+#import "SDPhotoItem.h"
+#import "YellCell.h"
+#import "StringHeight.h"
+
+
 
 static NSString *contentCell = @"contentCell";
 
@@ -21,6 +28,8 @@ static NSInteger pageSize = 10;
     NSMutableArray *_weiboListArray;
     
     NSInteger pageIndex;
+    
+  
    
     
 }
@@ -33,6 +42,8 @@ static NSInteger pageSize = 10;
     
     
     _weiboListArray = [[NSMutableArray alloc]init];
+  
+    
     
     pageIndex = 0;
     
@@ -76,11 +87,14 @@ static NSInteger pageSize = 10;
 {
     BmobQuery *query = [BmobQuery queryWithClassName:kWeiboListItem];
     
+    query.cachePolicy = kBmobCachePolicyCacheThenNetwork;
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
     [query includeKey:@"user"];
-    [query orderByDescending:@"creatdAt"];
-    [query includeKey:@"attachItem"];
+    
+    
+    [query orderByDescending:@"createdAt"];
+    
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -94,7 +108,17 @@ static NSInteger pageSize = 10;
             
         }
         
-        [_weiboListArray addObjectsFromArray:array];
+        for (int i = 0; i < array.count; i ++) {
+            
+            YellModel *oneModel = [[YellModel alloc]init];
+            
+            oneModel.yellObject = array[i];
+            
+            [_weiboListArray addObject:oneModel];
+            
+            
+        }
+        
         
         
         [self.tableView reloadData];
@@ -132,7 +156,43 @@ static NSInteger pageSize = 10;
     switch (indexPath.row) {
         case 0:
         {
-            return 190;
+              YellModel *weiboModel = [_weiboListArray objectAtIndex:indexPath.section];
+            
+              CGFloat photoViewHeight = 0;
+            
+                
+                NSArray *imgs = weiboModel.photos;
+                
+                long imageCount = imgs.count;
+                int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+                CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+                int totalRowCount = ceil(imageCount / perRowImageCountF);
+                
+                photoViewHeight = 95 * totalRowCount;
+                
+                
+                
+                CGFloat textHeight = 0;
+                
+                
+                NSString *text = [weiboModel.yellObject objectForKey:@"content"];
+                
+                textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+                
+                if (textHeight < 30)
+                {
+                    
+                    textHeight = 30;
+                
+         
+                   }
+            
+            
+            
+              return 158 + photoViewHeight + textHeight;
+           
+            
+            
             
         }
             break;
@@ -158,19 +218,19 @@ static NSInteger pageSize = 10;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 2;
+    return 1;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    UITableViewCell *cell = nil;
+    YellCell *cell = nil;
     
     if (indexPath.section < _weiboListArray.count)
     {
         
-      BmobObject *weiboObject = [_weiboListArray objectAtIndex:indexPath.section];
+      YellModel *weiboModel = [_weiboListArray objectAtIndex:indexPath.section];
         
         
     switch (indexPath.row) {
@@ -180,7 +240,9 @@ static NSInteger pageSize = 10;
             
             
                 
-            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+           
             UIImageView *headImageView = (UIImageView*)[cell viewWithTag:100];
             
             UILabel *headTitle = (UILabel*)[cell viewWithTag:101];
@@ -193,24 +255,76 @@ static NSInteger pageSize = 10;
             
             UILabel *contentLabel = (UILabel*)[cell viewWithTag:105];
             
-            UIView *imageView = [cell viewWithTag:106];
+          SDPhotoGroup *imageView = (SDPhotoGroup*)[cell viewWithTag:106];
             
             headImageView.clipsToBounds = YES;
             headImageView.layer.cornerRadius = 30.0;
                 
-            BmobUser *user = [[_weiboListArray objectAtIndex:indexPath.section] objectForKey:@"user"];
+            BmobUser *user = [weiboModel.yellObject objectForKey:@"user"];
             
             [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]]];
             
             
             headTitle.text = [user objectForKey:@"nick"];
-                
-            contentLabel.text = [weiboObject objectForKey:@"content"];
-                
-                
-            [self setImageViewWithObject:weiboObject withView:imageView];
             
-            timeLabel.text = [CommonMethods timeStringFromNow:weiboObject.createdAt];
+            
+           // 文字内容
+            contentLabel.text = [weiboModel.yellObject objectForKey:@"content"];
+            
+            NSString *text = [weiboModel.yellObject objectForKey:@"content"];
+            
+            CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+            
+            if (textHeight < 30) {
+                
+                textHeight = 30;
+            }
+            
+            cell.contentTextHeight.constant = textHeight;
+            
+            
+            
+            
+            //图片view  高度
+      
+            
+        
+            cell.contentView.tag = indexPath.section;
+            
+            for (UIView *subview in imageView.subviews) {
+                
+                [subview removeFromSuperview];
+                
+               
+                
+                
+            }
+            [self setImageViewWithObject:weiboModel withView:imageView];
+                
+            
+            CGFloat photoViewHeight = 0;
+            
+         
+            NSArray *imgs =weiboModel.photos;
+                        
+            long imageCount = imgs.count;
+            int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+            CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+            int totalRowCount = ceil(imageCount / perRowImageCountF);
+            photoViewHeight  = 95 * totalRowCount;
+                        
+         
+            
+            
+            cell.photoViewHeight.constant = photoViewHeight;
+            
+            
+            
+            
+        
+            
+            timeLabel.text = [CommonMethods timeStringFromNow:weiboModel.yellObject.createdAt];
+            
             
             
             //性别
@@ -227,37 +341,29 @@ static NSInteger pageSize = 10;
                 
             }
             
-            //Vip
-//            NSInteger agent_user
+      
+            
+            UILabel *fromlabel = (UILabel*)[cell viewWithTag:107];
+            
+            UILabel *distanceLabel = (UILabel*)[cell viewWithTag:108];
+            
+            UIButton *likeButton = (UIButton*)[cell viewWithTag:109];
+            
+            UILabel *likeNumLabel = (UILabel*)[cell viewWithTag:110];
+            
+            UILabel *commentNumlabel = (UILabel*)[cell viewWithTag:111];
             
             
-        }
-            break;
-        case 1:
-        {
-            cell = [tableView dequeueReusableCellWithIdentifier:infoCell];
+            fromlabel.text = [weiboModel.yellObject objectForKey:@"build_model"];
             
-            UILabel *fromlabel = (UILabel*)[cell viewWithTag:100];
-            
-            UILabel *distanceLabel = (UILabel*)[cell viewWithTag:101];
-            
-            UIButton *likeButton = (UIButton*)[cell viewWithTag:102];
-            
-            UILabel *likeNumLabel = (UILabel*)[cell viewWithTag:103];
-            
-            UILabel *commentNumlabel = (UILabel*)[cell viewWithTag:104];
-            
-            
-            fromlabel.text = [weiboObject objectForKey:@"build_model"];
-            
-            NSInteger commentNum = [[weiboObject objectForKey:@"comment_total"]integerValue];
-            NSInteger totalNum = [[weiboObject objectForKey:@"total"]integerValue];
+            NSInteger commentNum = [[weiboModel.yellObject objectForKey:@"comment_total"]integerValue];
+            NSInteger totalNum = [[weiboModel.yellObject objectForKey:@"total"]integerValue];
             
             commentNumlabel.text = [NSString stringWithFormat:@"%ld",(long)commentNum];
             
             likeNumLabel.text = [NSString stringWithFormat:@"%ld",(long)totalNum];
             
-            BmobGeoPoint *point = [weiboObject objectForKey:@"location"];
+            BmobGeoPoint *point = [weiboModel.yellObject objectForKey:@"location"];
             
             double distance = [CommonMethods distanceFromLocation:point.latitude longitude:point.longitude];
             
@@ -275,9 +381,11 @@ static NSInteger pageSize = 10;
                 
             }
             
+             });
             
         }
             break;
+    
             
             
         default:
@@ -292,75 +400,77 @@ static NSInteger pageSize = 10;
 }
 
 
--(void)setImageViewWithObject:(BmobObject *)object withView:(UIView*)view
+#pragma mark - 获取图片
+-(void)setImageViewWithObject:(YellModel *)weiboModel withView:(SDPhotoGroup*)view
 {
+
+    //
     
+    if (weiboModel.photos)
+    {
+        
+        view.photoItemArray = weiboModel.photos;
+        
+       
+        
+       
+        
+        return;
+        
+    }
+ 
     
-    NSArray *items = [object objectForKey:@"attachItem"];
+    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
     
-//    if (items)
-//    {
-//        
-//        NSLog(@"items:%ld",(long)items.count);
-//        
-//        if (items.count > 0)
-//        {
-//            for (int i = 0; i < items.count; i++)
-//            {
-//                
-//                if (i < 4)
-//                {
-//                    
-//                    BmobObject *attachObject = items[i];
-//                    UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
-//                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
-//                    
-//                    
-//                    
-//                }
-//                
-//                
-//                
-//            }
-//            
-//        }
-//        
-//    }
-//    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
+    [query whereKey:@"items" equalTo:weiboModel.yellObject];
     
-//    [query whereObjectKey:@"items" relatedTo:object];
-    
-//
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-//        
-//        if (error) {
-//            
-//        }
-//        else
-//        {
-//            if (array.count > 0)
-//            {
-//                for (int i = 0; i < array.count; i++) {
-//                    
-//                    if (i < 4)
-//                    {
-//                        
-//                      BmobObject *attachObject = array[i];
-//                      UIImageView *imageView = (UIImageView*)[view viewWithTag:i+1];
-//                    [imageView sd_setImageWithURL:[attachObject objectForKey:@"attach_url"]];
-//                        
-//                        
-//                        
-//                    }
-//                   
-//                    
-//                    
-//                }
-//                
-//            }
-//        }
-//        
-//    }];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (error) {
+            
+        }
+        else
+        {
+            if (array.count > 0)
+            {
+                NSMutableArray *imgURLs = [[NSMutableArray alloc ]init];
+                
+                for (int i = 0; i < array.count; i++)
+                {
+                    
+                        
+                      BmobObject *attachObject = array[i];
+
+                    SDPhotoItem *it = [[SDPhotoItem alloc]init];
+                    it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
+                    
+                     [imgURLs addObject:it];
+                        
+                    
+                
+                    
+                 }
+                
+                
+                weiboModel.photos = imgURLs;
+                
+                
+                
+                
+                NSInteger tag = [view superview].tag;
+                
+              
+                NSIndexPath *indexpath = [NSIndexPath indexPathForItem:0  inSection:tag];
+          
+                
+                [self.tableView reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationNone];
+                
+                
+            }
+        }
+        
+    }];
     
 }
 

@@ -152,9 +152,11 @@
 
 - (void)logout:(UIButton *)button{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-     [BmobUser logout];
     
-    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
     [self.navigationController presentViewController:loginVC animated:YES completion:nil];
+    
+     [BmobUser logout];
 }
 @end

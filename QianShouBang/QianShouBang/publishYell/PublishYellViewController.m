@@ -18,6 +18,9 @@
     
     UIActionSheet *_pickPhotoActionSheet;
     
+    BOOL hideInfo;
+    
+    
     
     
 }
@@ -40,9 +43,12 @@
     
     photos = [[NSMutableArray alloc]init];
     
+    
+
+    
     _yellTextView.delegate = self;
     
-    _photoListView = [[PhotoListView alloc]initWithFrame:CGRectMake(0, 214, ScreenWidth, 70)];
+    _photoListView = [[PhotoListView alloc]initWithFrame:CGRectMake(0, 184, ScreenWidth, 70)];
     _photoListView.photoDelegate = self;
     
     [self.view addSubview:_photoListView];
@@ -50,7 +56,7 @@
     NSLog(@"y:%.2f ",_photoListView.frame.origin.y);
     
     _photoListView.photos  = photos;
-    
+    [self setbottomViewFrame];
     
     _pickPhotoActionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:nil, nil];
     
@@ -60,6 +66,11 @@
     [_pickPhotoActionSheet addButtonWithTitle:@"取消"];
     
     _pickPhotoActionSheet.cancelButtonIndex = 2;
+    
+    
+    _locationLabel.text = [[NSUserDefaults standardUserDefaults] objectForKey:kUserAddress];
+    
+    
     
     
 }
@@ -135,6 +146,8 @@
     [photos removeObjectAtIndex:photoIndex];
     
     _photoListView.photos = photos;
+    [self setbottomViewFrame];
+    
     
 }
 
@@ -195,7 +208,8 @@
         
         _photoListView.photos = photos;
         
-     
+        [self setbottomViewFrame];
+        
         
         
         
@@ -305,15 +319,28 @@
     
     [weiboObject setObject:phoneModel forKey:@"build_model"];
     
+    [weiboObject setObject:@(hideInfo) forKey:@"hide_info"];
     
     [weiboObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
-        [MyProgressHUD dismiss];
+      
         
         if (isSuccessful) {
             
            
-            [MyProgressHUD showError:@"发布成功"];
+            if (attachItems.count > 0) {
+                
+                [self addItems:attachItems weiboItem:weiboObject];
+                
+                
+            }
+            else
+            {
+                 [MyProgressHUD showError:@"发布成功"];
+            }
+            
+            
+           
             
             [self.navigationController popViewControllerAnimated:YES];
             
@@ -323,11 +350,59 @@
         else
             
         {
+            
+              [MyProgressHUD dismiss];
+            
+            
             [MyProgressHUD showError:@"发布失败"];
         }
         
     }];
     
+    
+}
+
+#pragma mark - 往AttachItem 添加WeiboItem point 
+-(void)addItems:(NSArray*)attachItems weiboItem:(BmobObject*)weiboItem
+{
+    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+    
+    for (int i = 0 ; i < attachItems.count; i ++) {
+        BmobObject *oneItem = [attachItems objectAtIndex:i];
+        
+        [batch updateBmobObjectWithClassName:kAttachItem objectId:oneItem.objectId parameters:@{@"items":weiboItem}];
+        
+        
+    }
+    
+    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        
+          [MyProgressHUD dismiss];
+        
+        if (isSuccessful) {
+            
+            
+            [MyProgressHUD showError:@"发布成功"];
+        }
+        
+        else
+            
+        {
+            [MyProgressHUD showError:@"发布失败"];
+        }
+        
+        
+    }];
+    
+
+    
+}
+
+-(void)setbottomViewFrame
+{
+    
+    _toTextViewSpace.constant = _photoListView.frame.size.height + 8.0;
     
 }
 
@@ -337,4 +412,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)hideInfoAction:(id)sender {
+    
+    if (hideInfo) {
+        
+        hideInfo = NO;
+    }
+    else
+    {
+        hideInfo = YES;
+        
+    }
+}
 @end

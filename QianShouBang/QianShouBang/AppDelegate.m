@@ -239,9 +239,19 @@
             //这时的placemarks数组里面只有一个元素
             CLPlacemark * placemark = [placemarks firstObject];
           
-//            NSLog(@"===========province:%@, city:%@, town:%@,  addressDictionary:%@", provinceName, cityName, townName,placemark.addressDictionary);
+            NSLog(@"=========== addressDictionary:%@", placemark.addressDictionary);
         
-            NSString *name = [placemark.addressDictionary objectForKey:@"Name"];
+//            NSString *City = [placemark.addressDictionary objectForKey:@"City"];
+//            NSString *SubLocality = [placemark.addressDictionary objectForKey:@"SubLocality"];
+//            NSString *Street = [placemark.addressDictionary objectForKey:@"Street"];
+//            NSString *FormattedAddressLines = [placemark.addressDictionary objectForKey:@"FormattedAddressLines"];
+//            
+//            NSString *address = [NSString stringWithFormat:@"",placemark.name,placemark.subLocality];
+//            
+//            NSLog(@"address:%@ FormattedAddressLines:%@ ",address,FormattedAddressLines);
+            
+            NSString *name =placemark.name;
+            
             [[NSUserDefaults standardUserDefaults ] setObject:name forKey:kUserAddress];
             
             [[NSUserDefaults standardUserDefaults ] setFloat:location.coordinate.latitude forKey:kGPSLocationLatitude];

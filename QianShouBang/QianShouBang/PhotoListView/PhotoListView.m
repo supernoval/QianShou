@@ -9,6 +9,10 @@
 #import "PhotoListView.h"
 #import "Constants.h"
 
+
+CGFloat imageWith;
+CGFloat offSet = 8.0;
+
 @implementation PhotoListView
 
 -(id)initWithFrame:(CGRect)frame
@@ -17,6 +21,10 @@
     {
         
         self.backgroundColor = kBackgroundColor;
+        
+        
+        imageWith = (ScreenWidth - 5*offSet)/4;
+        
         
         
         
@@ -30,31 +38,41 @@
 -(void)setPhotos:(NSArray *)photos
 {
     
+    
+    [self resetFrame:photos];
+    
+    
     for (UIView *view in self.subviews) {
         
         [view removeFromSuperview];
         
     }
     
-    CGFloat offSet = 8.0;
+ 
     
-    CGFloat imageViewWith = self.frame.size.height - offSet*2;
+   
     CGFloat deleteButtonWith = 15.0;
+    
+    NSInteger line = 0;
     
     
     for (int i = 0; i < photos.count; i++) {
         
         UIImage *oneImage = [photos objectAtIndex:i];
         
-        UIImageView *oneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(offSet +(imageViewWith+offSet)*i , offSet, imageViewWith, imageViewWith)];
+
+        
+        UIImageView *oneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(offSet +(imageWith+offSet)*(i%4) ,offSet + line*(imageWith + offSet), imageWith, imageWith)];
+        
         oneImageView.image = oneImage;
         
         [self addSubview:oneImageView];
         
+    
         
         //add delete button
         
-        UIButton *deleteButton = [[UIButton alloc]initWithFrame:CGRectMake(oneImageView.frame.origin.x - 6.0, 0, deleteButtonWith, deleteButtonWith)];
+        UIButton *deleteButton = [[UIButton alloc]initWithFrame:CGRectMake(oneImageView.frame.origin.x - 6.0, oneImageView.frame.origin.y - 6.0, deleteButtonWith, deleteButtonWith)];
         
         [deleteButton setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
         deleteButton.tag = i;
@@ -64,14 +82,19 @@
         [self addSubview:deleteButton];
         
         
-        
+        if (i%4 == 3)
+        {
+            line ++;
+            
+            
+        }
         
     }
     
-    if (photos.count < 4)
+    if (photos.count < 9)
     {
         
-        UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(offSet + (imageViewWith+offSet)*photos.count, offSet, imageViewWith, imageViewWith)];
+        UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(offSet + (imageWith+offSet)*(photos.count%4), line*(imageWith + offSet) + offSet, imageWith, imageWith)];
         
         [addButton setImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
         
@@ -94,6 +117,39 @@
 {
     [self.photoDelegate addNewPhoto];
     
+}
+
+-(void)resetFrame:(NSArray*)photos
+{
+    CGRect originRect = self.frame;
+    
+    NSInteger lineNum = 0;
+    
+    if (photos.count < 4) {
+        
+        lineNum = 1;
+    }
+    else if (photos.count >= 4 && photos.count < 8)
+    {
+        lineNum = 2;
+    }
+    else
+    {
+        lineNum = 3;
+        
+    }
+    
+    
+    originRect.size.height = lineNum * (imageWith + offSet)  + offSet;
+    
+    
+    self.frame = originRect;
+    
+    
+    
+    
+
+
 }
 
 /*

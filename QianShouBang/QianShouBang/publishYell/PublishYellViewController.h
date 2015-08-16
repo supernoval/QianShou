@@ -9,5 +9,14 @@
 #import "BaseViewController.h"
 
 @interface PublishYellViewController : BaseViewController
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toTextViewSpace;
+
+@property (weak, nonatomic) IBOutlet UIView *hidePersonView;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *hideInfoButton;
+
+- (IBAction)hideInfoAction:(id)sender;
+
 
 @end
