@@ -29,7 +29,7 @@ static NSUInteger pageSize = 10;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _user = [BmobUser getCurrentUser];
+   
     self.currentPoint = [[BmobGeoPoint alloc]init];
 
     
@@ -37,7 +37,7 @@ static NSUInteger pageSize = 10;
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
     self.checkView = [self nearCatagoryVeiw];
     [self.view addSubview:self.checkView];
@@ -62,6 +62,8 @@ static NSUInteger pageSize = 10;
 {
     [super viewWillAppear:animated];
     
+     _user = [BmobUser getCurrentUser];
+    
     self.currentPoint = [_user objectForKey:@"geoPoint"];
     
     
@@ -85,8 +87,7 @@ static NSUInteger pageSize = 10;
     
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
-    BmobGeoPoint *poi = [[BmobGeoPoint alloc]initWithLongitude:0.5000 WithLatitude:0.0001];
-    [query whereKey:@"location" nearGeoPoint:poi];
+    [query whereKey:@"location" nearGeoPoint:self.currentPoint];
     NSLog(@"&&&&:%f==%f",self.currentPoint.latitude,self.currentPoint.longitude);
     
     
@@ -130,6 +131,10 @@ static NSUInteger pageSize = 10;
     return 10;
 }
 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 5;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;

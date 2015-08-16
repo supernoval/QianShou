@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeT-MF-Uj9">
-                        <rect key="frame" x="107" y="6" width="172" height="21"/>
+                        <rect key="frame" x="107" y="9" width="172" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="KMK-yZ-Qvv"/>
                             <constraint firstAttribute="width" constant="172" id="Mft-KI-otP"/>
@@ -35,7 +35,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="jeT-MF-Uj9" firstAttribute="top" secondItem="CBk-UF-FEb" secondAttribute="top" constant="6" id="0Fh-6m-eVW"/>
+                    <constraint firstItem="jeT-MF-Uj9" firstAttribute="top" secondItem="CBk-UF-FEb" secondAttribute="top" constant="9" id="0Fh-6m-eVW"/>
                     <constraint firstItem="ssx-f1-19Z" firstAttribute="leading" secondItem="CBk-UF-FEb" secondAttribute="leading" constant="8" id="0Wd-kS-YLw"/>
                     <constraint firstAttribute="trailing" secondItem="jeT-MF-Uj9" secondAttribute="trailing" constant="8" id="ERy-d6-iZM"/>
                     <constraint firstItem="ssx-f1-19Z" firstAttribute="top" secondItem="CBk-UF-FEb" secondAttribute="top" constant="9" id="vwN-rw-LcL"/>
