@@ -11,14 +11,15 @@
 #import "Constants.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import <BmobSDK/Bmob.h>
+#import <BmobIM/BmobIM.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "NotificationKey.h"
-#import "LocateCityManager.h"
+
 #import "Constants.h"
+#import <CoreLocation/CoreLocation.h>
 
 
-
-@interface AppDelegate ()<LocateCityManagerDelegate,CLLocationManagerDelegate>
+@interface AppDelegate ()<CLLocationManagerDelegate>
 {
     CLLocationManager *_locationManager;
     
@@ -48,6 +49,15 @@
     
     //bmob
     [Bmob registerWithAppKey:kBmobApplicationID];
+    
+    //用户存在就创建数据库
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user) {
+        BmobDB *db = [BmobDB currentDatabase];
+        [db createDataBase];
+    }else{
+        
+    }
     
     //sharesdk sms 注册
     [SMS_SDK registerApp:kShareSDKSMSAppKey withSecret:kShareSDKSMSAppSecret];
@@ -191,12 +201,7 @@
 }
 
 
-#pragma mark - LocateCityManagerDelegate 
--(void)getCurrentCityNameFromLocateCityManager:(NSString *)province city:(NSString *)city town:(NSString *)town
-{
-    
-    
-}
+
 
 #pragma mark - CLLocationManagerDelegate
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -230,10 +235,7 @@
     
   CLGeocoder *_myGeocoder = [[CLGeocoder alloc] init];
 
-    //NSLog(@"lat:%f, log:%f", self.location.coordinate.latitude, self.location.coordinate.longitude);
-//    __block NSString *provinceName = nil;
-//    __block NSString *cityName = nil;
-//    __block NSString *townName = nil;
+ 
     [_myGeocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         if (error == nil && [placemarks count] > 0) {
             //这时的placemarks数组里面只有一个元素
@@ -241,14 +243,7 @@
           
             NSLog(@"=========== addressDictionary:%@", placemark.addressDictionary);
         
-//            NSString *City = [placemark.addressDictionary objectForKey:@"City"];
-//            NSString *SubLocality = [placemark.addressDictionary objectForKey:@"SubLocality"];
-//            NSString *Street = [placemark.addressDictionary objectForKey:@"Street"];
-//            NSString *FormattedAddressLines = [placemark.addressDictionary objectForKey:@"FormattedAddressLines"];
-//            
-//            NSString *address = [NSString stringWithFormat:@"",placemark.name,placemark.subLocality];
-//            
-//            NSLog(@"address:%@ FormattedAddressLines:%@ ",address,FormattedAddressLines);
+
             
             NSString *name =placemark.name;
             
@@ -260,6 +255,22 @@
             
             
             [_locationManager stopUpdatingLocation];
+            
+            
+            //更新用户地理位置
+            BmobUser *user = [BmobUser getCurrentUser];
+            
+            if (user)
+            {
+                
+                BmobGeoPoint *mylocation = [[BmobGeoPoint alloc]initWithLongitude:location.coordinate.longitude WithLatitude:location.coordinate.latitude];
+                
+                [user setObject:mylocation forKey:@"location"];
+                
+                [user updateInBackground];
+                
+                
+            }
         }
     }];
     
@@ -304,6 +315,117 @@
     
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    
+    NSLog(@"userInfo is :%@",[userInfo description]);
+    
+    if ([userInfo objectForKey:@"tag"]) {
+        if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"add"]) {
+            [self saveInviteMessageWithAddTag:userInfo];
+            [BmobPush handlePush:userInfo];
+        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"agree"]) {
+            [self saveInviteMessageWithAgreeTag:userInfo];
+        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@""]) {
+            [self saveMessageWith:userInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
+        }
+    }
+    
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    
+    NSLog(@"%s,userInfo is :%@",__func__,[userInfo description]);
+    
+    if ([userInfo objectForKey:@"tag"]) {
+        if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"add"]) {
+            [self saveInviteMessageWithAddTag:userInfo];
+            [BmobPush handlePush:userInfo];
+        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"agree"]) {
+            [self saveInviteMessageWithAgreeTag:userInfo];
+        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@""]) {
+            [self saveMessageWith:userInfo];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
+        }
+    }
+}
+
+
+#pragma mark save
+-(void)saveInviteMessageWithAddTag:(NSDictionary *)userInfo{
+    BmobInvitation *invitation = [[BmobInvitation alloc] init];
+    invitation.avatar          = [[userInfo objectForKey:PUSH_ADD_FROM_AVATAR] description];
+    invitation.fromId          = [[userInfo objectForKey:PUSH_ADD_FROM_ID] description];
+    invitation.fromname        = [[userInfo objectForKey:PUSH_ADD_FROM_NAME] description];
+    invitation.nick            = [[userInfo objectForKey:PUSH_ADD_FROM_NICK] description];
+    invitation.time            = [[userInfo objectForKey:PUSH_ADD_FROM_TIME] integerValue];
+    invitation.statue          = STATUS_ADD_NO_VALIDATION;
+    [[BmobDB currentDatabase] saveInviteMessage:invitation];
+}
+
+-(void)saveInviteMessageWithAgreeTag:(NSDictionary *)userInfo{
+    BmobInvitation *invitation = [[BmobInvitation alloc] init];
+    invitation.avatar          = [[userInfo objectForKey:PUSH_ADD_FROM_AVATAR] description];
+    invitation.fromId          = [[userInfo objectForKey:PUSH_ADD_FROM_ID] description];
+    invitation.fromname        = [[userInfo objectForKey:PUSH_ADD_FROM_NAME] description];
+    invitation.nick            = [[userInfo objectForKey:PUSH_ADD_FROM_NICK] description];
+    invitation.time            = [[userInfo objectForKey:PUSH_ADD_FROM_TIME] integerValue];
+    invitation.statue          = STATUS_ADD_AGREE;
+    
+    [[BmobDB currentDatabase] saveInviteMessage:invitation];
+    [[BmobDB currentDatabase] saveContactWithMessage: invitation];
+    
+    //添加到用户的好友关系中
+    BmobUser *user = [BmobUser getCurrentUser];
+    if (user) {
+        BmobUser *friendUser   = [BmobUser objectWithoutDatatWithClassName:@"User" objectId:invitation.fromId];
+        BmobRelation *relation = [BmobRelation relation];
+        [relation addObject:friendUser];
+        [user addRelation:relation forKey:@"contacts"];
+        [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if (error) {
+                NSLog(@"\n error is :%@",[error description]);
+            }
+        }];
+    }
+    
+}
+
+
+
+
+-(void)saveMessageWith:(NSDictionary *)userInfo{
+    
+    BmobChatUser *user = [[BmobDB currentDatabase] queryUserWithUid:[[userInfo objectForKey:PUSH_KEY_TARGETID] description]];
+    
+    NSString *content = [userInfo objectForKey:PUSH_KEY_CONTENT];
+    NSString *toid    = [[userInfo objectForKey:PUSH_KEY_TOID] description];
+    int type          = MessageTypeText;
+    if ([userInfo objectForKey:PUSH_KEY_MSGTYPE]) {
+        type = [[userInfo objectForKey:PUSH_KEY_MSGTYPE] intValue];
+    }
+    
+    
+    BmobMsg *msg      = [BmobMsg createReceiveWithUser:user
+                                               content:content
+                                                  toId:toid
+                                                  time:[[userInfo objectForKey:PUSH_KEY_MSGTIME] description]
+                                                  type:type status:STATUS_RECEIVER_SUCCESS];
+    
+    [[BmobDB currentDatabase] saveMessage:msg];
+    
+    //更新最新的消息
+    BmobRecent *recent = [BmobRecent recentObejectWithAvatarString:user.avatar
+                                                           message:msg.content
+                                                              nick:user.nick
+                                                          targetId:msg.belongId
+                                                              time:[msg.msgTime integerValue]
+                                                              type:msg.msgType
+                                                        targetName:user.username];
+    
+    [[BmobDB currentDatabase] performSelector:@selector(saveRecent:) withObject:recent afterDelay:0.3f];
+}
 
 
 

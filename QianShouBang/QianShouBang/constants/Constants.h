@@ -32,6 +32,9 @@
 //DeviceToken  ANDROID_ID
 #define kDeviceTokenKey        @"DeviceTokenKey"
 
+//DeviceToken installId data
+#define kDeviceTokenData        @"DeviceTokenData"
+
 
 //是否登录
 #define kHadLogin              @"HadLoginKey"

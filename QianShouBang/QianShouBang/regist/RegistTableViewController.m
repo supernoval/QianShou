@@ -173,6 +173,8 @@
     user.password = _codeTF.text;
     user.ANDROID_ID = dviceToken;
     [user setObject:dviceToken forKey:@"ANDROID_ID"];
+    [user setObject:dviceToken forKey:@"installId"];
+    
     
     user.mobilePhoneNumber = _phoneTF.text;
     
@@ -226,6 +228,13 @@
             NSLog(@"注册成功");
             
             [MyProgressHUD showError:@"注册成功"];
+            
+            
+            
+            //绑定聊天deviceToken
+            [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
+            
+            
             
             [self login:_phoneTF.text code:_codeTF.text];
             

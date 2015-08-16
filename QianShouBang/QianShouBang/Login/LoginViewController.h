@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import <BmobSDK/Bmob.h>
+#import <BmobIM/BmobIM.h>
 
 @interface LoginViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UITextField *phoneTF;

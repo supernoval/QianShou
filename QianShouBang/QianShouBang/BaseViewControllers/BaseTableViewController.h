@@ -15,7 +15,7 @@
 #import "QSUser.h"
 #import "BmobDataListName.h"
 #import "UIImageView+WebCache.h"
-
+#import <BmobIM/BmobIM.h>
 
 @interface BaseTableViewController : UITableViewController
 {

@@ -12,8 +12,8 @@
 #import "RegistTableViewController.h"
 #import "ForgetCodeTVC.h"
 #import "MyProgressHUD.h"
-
-
+#import "Location.h"
+#import "UserService.h"
 
 @interface LoginViewController ()
 
@@ -71,9 +71,31 @@
                 if ([deviceToken isEqualToString:qsuser.ANDROID_ID])
                 {
                     
+                    NSData *deviceData = [[NSUserDefaults standardUserDefaults ] dataForKey:kDeviceTokenData];
+                    
+                    [[BmobUserManager currentUserManager] checkAndBindDeviceToken:deviceData];
+                    
                     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:kHadLogin];
                     [[NSUserDefaults standardUserDefaults ] synchronize];
                     
+                    
+                    CLLocationDegrees longitude     = [[Location shareInstance] currentLocation].longitude;
+                    CLLocationDegrees latitude      = [[Location shareInstance] currentLocation].latitude;
+                    
+                    //结束定位
+                    [[Location shareInstance] stopUpateLoaction];
+                    
+                    //百度坐标
+                  
+                    BmobGeoPoint *location          = [[BmobGeoPoint alloc] initWithLongitude:longitude WithLatitude:latitude];
+                    [user setObject:location forKey:@"location"];
+                    [[BmobUser getCurrentUser] updateInBackground];
+                    
+                    
+                    //登录成功 保存好友列表
+                    [UserService saveFriendsList];
+                    
+                     
                     [self dismissViewControllerAnimated:YES completion:nil];
                     
                     

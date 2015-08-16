@@ -12,7 +12,6 @@
 #import "Order.h"
 #import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
-#import "LocateCityManager.h"
 
 
 static NSString *needCell = @"needCell";
@@ -24,7 +23,7 @@ static CGFloat imagesCellHeight = 70.0;
 
 
 
-@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,LocateCityManagerDelegate>
+@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
 {
     RewardLimitationModel *rewardModel;
     
