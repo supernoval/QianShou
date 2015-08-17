@@ -39,7 +39,7 @@
 }
 
 
-+(CGFloat)withtWithText:(NSString *)text font:(UIFont *)font constrainedToWidth:(CGFloat)width
++(CGFloat)widthtWithText:(NSString *)text font:(UIFont *)font constrainedToHeight:(CGFloat)height
 {
     if (!text) {
         
@@ -57,7 +57,7 @@
     // Calc the size
     CTFramesetterRef framesetter =CTFramesetterCreateWithAttributedString(attrString);
     CFRange fitRange;
-    CGSize frameSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, stringLength), NULL, CGSizeMake(width, CGFLOAT_MAX), &fitRange);
+    CGSize frameSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, stringLength), NULL, CGSizeMake(CGFLOAT_MAX, height), &fitRange);
     CFRelease(ctFont);
     CFRelease(framesetter);
     CFRelease(attrString);

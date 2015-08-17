@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addressButton;
 
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *name_width;
 
 
 @end

@@ -267,7 +267,7 @@ static NSInteger pageSize = 10;
             
             headTitle.text = [user objectForKey:@"nick"];
             
-            cell.nameLabelWithConstrain.constant = [StringHeight withtWithText:headTitle.text font:FONT_15 constrainedToWidth:ScreenWidth];
+            cell.nameLabelWithConstrain.constant = [StringHeight widthtWithText:headTitle.text font:FONT_15 constrainedToHeight:21];
                 
             
            // 文字内容

@@ -149,6 +149,7 @@
             <connections>
                 <outlet property="addressButton" destination="0oA-N1-D5a" id="ZzR-ex-Pev"/>
                 <outlet property="descriptionLabel" destination="4xH-gk-XwG" id="gMe-0v-oqI"/>
+                <outlet property="name_width" destination="rgQ-as-bQh" id="Sbg-l6-jc3"/>
                 <outlet property="people_send" destination="91k-W1-HlW" id="SUE-GX-QdP"/>
                 <outlet property="remainTime" destination="BGa-Zk-TEq" id="WGy-95-GsA"/>
                 <outlet property="time" destination="UB2-JQ-rH1" id="GXY-ec-ahz"/>
