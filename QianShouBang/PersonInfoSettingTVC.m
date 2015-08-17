@@ -50,6 +50,7 @@
     currentUser.avatar = [user objectForKey:kavatar];
     currentUser.user_individuality_signature = [user objectForKey:kuser_individuality_signature];
     currentUser.user_birthday = [user objectForKey:kuser_birthday];
+    currentUser.user_city = [user objectForKey:kuser_city];
     
     NSLog(@"8%@ 9%@ 10%@",currentUser.username,currentUser.user_phone,currentUser.nick);
     [self.tableView reloadData];
@@ -128,8 +129,8 @@
                     }else{//未设置头像时的处理
                         portraitCell.image.image = [UIImage imageNamed:@"head_default"];
                     }
-                    
                 
+
                     return portraitCell;
                 }
                     break;
@@ -138,7 +139,8 @@
                 {
                     cell.extraText.hidden = NO;
                     cell.text.text = @"自我描述";
-                    cell.extraText.text = currentUser.user_individuality_signature;
+                    cell.extraText.text = CheckNil(currentUser.user_individuality_signature);
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
                     
                 }
@@ -149,7 +151,7 @@
                     cell.extraText.hidden = NO;
                    
                     cell.text.text = @"账号";
-                    cell.extraText.text = currentUser.username;
+                    cell.extraText.text = CheckNil(currentUser.username);
                     cell.accessoryType = UITableViewCellAccessoryNone;
                     return cell;
                    
@@ -161,7 +163,8 @@
                     cell.extraText.hidden = NO;
                     
                     cell.text.text = @"昵称";
-                    cell.extraText.text = currentUser.nick;
+                    cell.extraText.text = CheckNil(currentUser.nick);
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
                     
                 }
@@ -181,7 +184,8 @@
                     cell.extraText.hidden = NO;
                     
                     cell.text.text = @"手机号";
-                    cell.extraText.text = currentUser.user_phone;
+                    cell.extraText.text = CheckNil(currentUser.user_phone);
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
 
                 }
@@ -193,6 +197,7 @@
                     
                     cell.text.text = @"生日";
                     cell.extraText.text = CheckNil(currentUser.user_birthday);
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
                     
                 }
@@ -204,7 +209,8 @@
                     
                     cell.text.text = @"地区";
                     cell.extraText.text = @"所在地区";
-//                    cell.extraText.text = CheckNil(currentUser.location);
+                    cell.extraText.text = CheckNil(currentUser.user_city);
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     return cell;
                     
                 }
@@ -223,6 +229,7 @@
                     }else{
                         cell.extraText.text = @" ";
                     }
+                    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                     
                     return cell;
                     

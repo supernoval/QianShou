@@ -122,10 +122,10 @@ static NSUInteger pageSize = 10;
         cell.rankNumber.backgroundColor = [UIColor redColor];
         cell.rankNumber.textColor = [UIColor whiteColor];
     }else if(indexPath.row == 1){
-        cell.rankNumber.backgroundColor = RGB(184, 102, 72, 1.0);
+        cell.rankNumber.backgroundColor = [UIColor purpleColor];
         cell.rankNumber.textColor = [UIColor whiteColor];
     }else if(indexPath.row == 2){
-        cell.rankNumber.backgroundColor = RGB(198, 134, 77, 1.0);
+        cell.rankNumber.backgroundColor = [UIColor orangeColor];
         cell.rankNumber.textColor = [UIColor whiteColor];
     }else{
         cell.rankNumber.backgroundColor = [UIColor whiteColor];

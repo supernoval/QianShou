@@ -136,15 +136,16 @@
                     }else{//未设置头像时的处理
                         infoCell.image.image = [UIImage imageNamed:@"head_default"];
                     }
-                    //姓名
-//                    infoCell.name.text = userInfo.nick;
                     //电话
                     infoCell.phone.text = userInfo.username;
-                    //性别
+                    //姓名 性别
                     if (userInfo.user_sex == 1) {
-                        infoCell.name.text = [NSString stringWithFormat:@"%@ (男)",userInfo.nick];
+                        infoCell.name.text = [NSString stringWithFormat:@"%@ (男)",CheckNil(userInfo.nick)];
+                    }else if(userInfo.user_sex == 0){
+                        infoCell.name.text = [NSString stringWithFormat:@"%@ (女)",CheckNil(userInfo.nick)];
                     }else{
-                        infoCell.name.text = [NSString stringWithFormat:@"%@ (女)",userInfo.nick];
+                        infoCell.name.text = [NSString stringWithFormat:@"%@",CheckNil(userInfo.nick)];
+                        
                     }
                     
                     return infoCell;

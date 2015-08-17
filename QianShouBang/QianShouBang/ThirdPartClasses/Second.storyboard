@@ -591,6 +591,60 @@
             </objects>
             <point key="canvasLocation" x="2113" y="336"/>
         </scene>
+        <!--The Completed OrderTVC-->
+        <scene sceneID="lrA-2N-ilw">
+            <objects>
+                <tableViewController storyboardIdentifier="TheCompletedOrderTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6oO-C5-Qsw" customClass="TheCompletedOrderTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="iBA-bi-xoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Y5H-gZ-hws">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y5H-gZ-hws" id="s0T-oP-zhb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6oO-C5-Qsw" id="Vka-A9-d1P"/>
+                            <outlet property="delegate" destination="6oO-C5-Qsw" id="P0b-3b-qAx"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2r-UK-PHB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2508" y="336"/>
+        </scene>
+        <!--The Accepted OrderTVC-->
+        <scene sceneID="L0l-0H-u6B">
+            <objects>
+                <tableViewController storyboardIdentifier="TheAcceptedOrderTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3cs-Cv-T3M" customClass="TheAcceptedOrderTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="M50-pZ-EKc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Roq-uz-EOx">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Roq-uz-EOx" id="cRS-0Q-I1W">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3cs-Cv-T3M" id="AB7-BF-MeM"/>
+                            <outlet property="delegate" destination="3cs-Cv-T3M" id="0o0-2R-aga"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUt-d7-7d5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2888" y="336"/>
+        </scene>
         <!--Nick Name View Controller-->
         <scene sceneID="pim-GZ-UHg">
             <objects>

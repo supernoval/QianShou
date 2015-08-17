@@ -20,23 +20,14 @@
                             <constraint firstAttribute="height" constant="60" id="gNp-Tu-cmF"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="distance" translatesAutoresizingMaskIntoConstraints="NO" id="NER-9F-rui">
-                        <rect key="frame" x="82" y="46" width="20" height="20"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_location" translatesAutoresizingMaskIntoConstraints="NO" id="NER-9F-rui">
+                        <rect key="frame" x="82" y="49" width="10" height="13"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="gha-yb-UwB"/>
-                            <constraint firstAttribute="width" constant="20" id="vng-Dp-UPc"/>
+                            <constraint firstAttribute="height" constant="13" id="gha-yb-UwB"/>
+                            <constraint firstAttribute="width" constant="10" id="vng-Dp-UPc"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离xxkm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-ug-MWk">
-                        <rect key="frame" x="105" y="47" width="174" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="18" id="3a0-oa-WfD"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小小小鱼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW9-zB-w6O">
                         <rect key="frame" x="82" y="17" width="197" height="21"/>
                         <constraints>
@@ -44,6 +35,15 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.25490196078431371" green="0.68235294117647061" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离xxkm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-ug-MWk">
+                        <rect key="frame" x="100" y="47" width="174" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="3a0-oa-WfD"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -54,10 +54,10 @@
                     <constraint firstItem="NER-9F-rui" firstAttribute="leading" secondItem="5YA-wc-zGD" secondAttribute="trailing" constant="14" id="Mdr-xQ-qK3"/>
                     <constraint firstItem="HW9-zB-w6O" firstAttribute="top" secondItem="pVh-7H-HEd" secondAttribute="top" constant="17" id="Rz1-Hn-vYX"/>
                     <constraint firstAttribute="trailing" secondItem="HW9-zB-w6O" secondAttribute="trailing" constant="8" id="a2V-HH-qBq"/>
-                    <constraint firstAttribute="trailing" secondItem="f3u-ug-MWk" secondAttribute="trailing" constant="8" id="cWG-NE-Yy0"/>
+                    <constraint firstAttribute="trailing" secondItem="f3u-ug-MWk" secondAttribute="trailing" constant="13" id="cWG-NE-Yy0"/>
                     <constraint firstItem="f3u-ug-MWk" firstAttribute="top" secondItem="HW9-zB-w6O" secondAttribute="bottom" constant="9" id="f89-b4-Eob"/>
-                    <constraint firstItem="NER-9F-rui" firstAttribute="top" secondItem="HW9-zB-w6O" secondAttribute="bottom" constant="8" id="oWe-oS-s53"/>
-                    <constraint firstItem="f3u-ug-MWk" firstAttribute="leading" secondItem="NER-9F-rui" secondAttribute="trailing" constant="3" id="zhy-SL-67n"/>
+                    <constraint firstItem="NER-9F-rui" firstAttribute="top" secondItem="HW9-zB-w6O" secondAttribute="bottom" constant="11" id="oWe-oS-s53"/>
+                    <constraint firstItem="f3u-ug-MWk" firstAttribute="leading" secondItem="NER-9F-rui" secondAttribute="trailing" constant="8" id="zhy-SL-67n"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -69,7 +69,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="distance" width="14" height="14"/>
+        <image name="green_location" width="9" height="11"/>
         <image name="head_default" width="125" height="125"/>
     </resources>
 </document>

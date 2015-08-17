@@ -16,6 +16,7 @@ static NSUInteger pageSize = 10;
 @property (nonatomic)BOOL showCheckView;
 @property (nonatomic, strong)BmobUser *user;
 @property (nonatomic, strong)BmobGeoPoint *currentPoint;
+@property (nonatomic) NSInteger catagoryNum;//0-女生 1-男生 2-全部
 
 @end
 
@@ -61,6 +62,7 @@ static NSUInteger pageSize = 10;
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    self.catagoryNum = 2;
     
      _user = [BmobUser getCurrentUser];
     
@@ -83,15 +85,24 @@ static NSUInteger pageSize = 10;
 
 - (void)getData{
     
-    BmobQuery *query = [BmobQuery queryWithClassName:kUser];
+    BmobQuery *query = [BmobUser query];
     
     query.limit = pageSize;
-//    query.skip = pageSize*pageIndex;
-    BmobGeoPoint *poi = [[BmobGeoPoint alloc]initWithLongitude:120.0 WithLatitude:29.0];
-    [query whereKey:@"location" nearGeoPoint:self.currentPoint];
+    query.skip = pageSize*pageIndex;
+    
+    if (self.catagoryNum == 0) {
+        [query whereKey:@"location" nearGeoPoint:self.currentPoint];
+        [query whereKey:kuser_sex equalTo:@(0)];
+    }else if(self.catagoryNum == 1){
+        [query whereKey:@"location" nearGeoPoint:self.currentPoint];
+        [query whereKey:kuser_sex equalTo:@(1)];
+    }else if(self.catagoryNum == 2){
+        [query whereKey:@"location" nearGeoPoint:self.currentPoint];
+    }
+    
+    
     NSLog(@"&&&&:%f==%f",self.currentPoint.longitude,self.currentPoint.latitude);
-    
-    
+    NSLog(@"number:%li",(long)self.catagoryNum);
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         [self endHeaderRefresh];
@@ -122,7 +133,6 @@ static NSUInteger pageSize = 10;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -134,7 +144,7 @@ static NSUInteger pageSize = 10;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return _dataArray.count+10;
 }
 
 
@@ -153,9 +163,16 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"NearPeopleCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
+    if (_dataArray.count > indexPath.row) {
+        
+        BmobUser *oneUser = [_dataArray objectAtIndex:indexPath.row];
+        [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
+        cell.name.text = @"呵呵大大（男）";
+        cell.distance.text = @"距离800KM";
+        
+    }
     
-    cell.name.text = @"呵呵大大（男）";
-    cell.distance.text = @"距离800KM";
+  
     
     return cell;
 }
@@ -169,15 +186,15 @@ static NSUInteger pageSize = 10;
 #pragma mark- 附近人种类View
 - (UIView *)nearCatagoryVeiw{
     CGFloat width = 100;
-    CGFloat height = 80;
+    CGFloat height = 120;
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
     view.backgroundColor = kBlueColor;
     
-    [CommonMethods addLine:15 startY:40 color:[UIColor whiteColor] toView:view];
-//    [CommonMethods addLine:15 startY:80 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:height/3 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:height*2/3 color:[UIColor whiteColor] toView:view];
     
     
-    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/2)];
+    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
     femaleBtn.backgroundColor = [UIColor clearColor];
     [femaleBtn setTitle:@"只看女生" forState:UIControlStateNormal];
     [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -185,7 +202,7 @@ static NSUInteger pageSize = 10;
     [femaleBtn addTarget:self action:@selector(checkFemalealeAction) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:femaleBtn];
     
-    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/2, width, height/2)];
+    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
     maleBtn.backgroundColor = [UIColor clearColor];
     [maleBtn setTitle:@"只看男生" forState:UIControlStateNormal];
     [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -194,13 +211,13 @@ static NSUInteger pageSize = 10;
     [view addSubview:maleBtn];
     
     
-//    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
-//    greetBtn.backgroundColor = [UIColor clearColor];
-//    [greetBtn setTitle:@"查看打招呼的人" forState:UIControlStateNormal];
-//    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    greetBtn.titleLabel.font = FONT_16;
-//    [greetBtn addTarget:self action:@selector(checkGreetAction) forControlEvents:UIControlEventTouchUpInside];
-//    [view addSubview:greetBtn];
+    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
+    greetBtn.backgroundColor = [UIColor clearColor];
+    [greetBtn setTitle:@"查看全部" forState:UIControlStateNormal];
+    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    greetBtn.titleLabel.font = FONT_16;
+    [greetBtn addTarget:self action:@selector(checkAllAction) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:greetBtn];
     
     return view;
 }
@@ -208,14 +225,20 @@ static NSUInteger pageSize = 10;
 - (void)checkFemalealeAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
+    self.catagoryNum = 0;
+    [self getData];
 }
 -(void)checkMaleAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
+    self.catagoryNum = 1;
+    [self getData];
 }
-- (void)checkGreetAction{
+- (void)checkAllAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
+    self.catagoryNum = 2;
+    [self getData];
 }
 #pragma mark- 查看不同种类的附近人
 - (IBAction)catagotyAction:(UIBarButtonItem *)sender {

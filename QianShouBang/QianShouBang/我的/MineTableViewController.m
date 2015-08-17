@@ -10,6 +10,8 @@
 #import "SendNeedTableViewController.h"
 #import "DarenTableViewController.h"
 #import "MyOrdersTableViewController.h"
+#import "TheCompletedOrderTVC.h"
+#import "TheAcceptedOrderTVC.h"
 
 
 @interface MineTableViewController ()
@@ -30,6 +32,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     
     switch (indexPath.section) {
         case 0:
@@ -85,7 +88,35 @@
             break;
         case 2:
         {
-            
+            switch (indexPath.row) {
+                case 0: //已接订单
+                {
+                    TheAcceptedOrderTVC *theAcceptOrder = [sb instantiateViewControllerWithIdentifier:@"TheAcceptedOrderTVC"];
+                    [self.navigationController pushViewController:theAcceptOrder animated:YES];
+                    
+                    
+                    
+                }
+                    break;
+                case 1:  //已完成订单
+                {
+                    TheCompletedOrderTVC *theCompletedOrder = [sb instantiateViewControllerWithIdentifier:@"TheCompletedOrderTVC"];
+                    [self.navigationController pushViewController:theCompletedOrder animated:YES];
+                    
+                }
+                    break;
+                    
+                case 2:  //抢单人列表
+                {
+                    
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
+            }
+
         }
             break;
             
@@ -101,14 +132,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 @end

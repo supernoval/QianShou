@@ -34,6 +34,7 @@
 @property (nonatomic) NSData *authData;
 @property (nonatomic) BmobGeoPoint *location;
 @property (nonatomic) NSString *user_birthday;
+@property (nonatomic) NSString *user_city;
 
 
 
