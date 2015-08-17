@@ -1,24 +1,32 @@
 //
-//  SearchContactTVC.m
+//  NewFriendsTableViewController.m
 //  QianShouBang
 //
-//  Created by ZhuHaikun on 15/8/16.
+//  Created by Haikun Zhu on 15/8/17.
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
-#import "SearchContactTVC.h"
+#import "NewFriendsTableViewController.h"
 
-@interface SearchContactTVC ()
+@interface NewFriendsTableViewController ()
 
 @end
 
-@implementation SearchContactTVC
+@implementation NewFriendsTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newFriendCell"];
+    
+    
+    return cell;
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

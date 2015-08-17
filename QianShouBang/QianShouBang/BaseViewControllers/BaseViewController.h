@@ -14,6 +14,11 @@
 #import "QSUser.h"
 #import "BmobDataListName.h"
 #import "UIImageView+WebCache.h"
+#import <BmobIM/BmobChatManager.h>
+#import <BmobIM/BmobChat.h>
+#import <BmobIM/BmobDB.h>
+#import <BmobIM/BmobIM.h>
+#import <BmobSDK/Bmob.h>
 
 @interface BaseViewController : UIViewController
 

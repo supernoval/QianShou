@@ -7,7 +7,12 @@
 //
 
 #import "BaseTableViewController.h"
+#import "SearchFriendTVC.h"
 
 @interface ContactTVC : BaseTableViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
+
+
+- (IBAction)addNewfriends:(id)sender;
+
 
 @end

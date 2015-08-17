@@ -22,6 +22,8 @@
 		1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */; };
 		1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6841B7B124A00094224 /* PublishYellViewController.m */; };
 		1363D6891B7B274C00094224 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6881B7B274C00094224 /* PhotoListView.m */; };
+		136682D21B81B0CD00C6767D /* SearchFriendTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 136682D11B81B0CD00C6767D /* SearchFriendTVC.m */; };
+		136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 136682D51B81D7A000C6767D /* NewFriendsTableViewController.m */; };
 		13688F3C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F1C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m */; };
 		13688F3D1B79A4F800251AC4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F1E1B79A4F800251AC4 /* NSData+ImageContentType.m */; };
 		13688F3E1B79A4F800251AC4 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 13688F201B79A4F800251AC4 /* SDImageCache.m */; };
@@ -120,7 +122,6 @@
 		15E183631B805BF600E13391 /* YellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E183621B805BF600E13391 /* YellModel.m */; };
 		15E1836F1B80872700E13391 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1836E1B80872700E13391 /* Location.m */; };
 		15E183761B808FF500E13391 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E183751B808FF500E13391 /* CommonUtil.m */; };
-		15E183791B80941600E13391 /* SearchContactTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E183781B80941600E13391 /* SearchContactTVC.m */; };
 		15E1837C1B80E82600E13391 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1837B1B80E82600E13391 /* UserService.m */; };
 		15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FFB2A41B78DBA400E5750F /* YellTableViewController.m */; };
 		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
@@ -219,6 +220,10 @@
 		1363D6841B7B124A00094224 /* PublishYellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PublishYellViewController.m; path = publishYell/PublishYellViewController.m; sourceTree = "<group>"; };
 		1363D6871B7B274C00094224 /* PhotoListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoListView.h; path = PhotoListView/PhotoListView.h; sourceTree = "<group>"; };
 		1363D6881B7B274C00094224 /* PhotoListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoListView.m; path = PhotoListView/PhotoListView.m; sourceTree = "<group>"; };
+		136682D01B81B0CD00C6767D /* SearchFriendTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchFriendTVC.h; path = chat/SearchFriendTVC.h; sourceTree = "<group>"; };
+		136682D11B81B0CD00C6767D /* SearchFriendTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchFriendTVC.m; path = chat/SearchFriendTVC.m; sourceTree = "<group>"; };
+		136682D41B81D7A000C6767D /* NewFriendsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewFriendsTableViewController.h; path = chat/NewFriendsTableViewController.h; sourceTree = "<group>"; };
+		136682D51B81D7A000C6767D /* NewFriendsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewFriendsTableViewController.m; path = chat/NewFriendsTableViewController.m; sourceTree = "<group>"; };
 		13688F1B1B79A4F800251AC4 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		13688F1C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		13688F1D1B79A4F800251AC4 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -470,8 +475,6 @@
 		15E1836E1B80872700E13391 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		15E183741B808FF100E13391 /* CommonUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = "<group>"; };
 		15E183751B808FF500E13391 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
-		15E183771B80941600E13391 /* SearchContactTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchContactTVC.h; path = SearchContact/SearchContactTVC.h; sourceTree = SOURCE_ROOT; };
-		15E183781B80941600E13391 /* SearchContactTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchContactTVC.m; path = SearchContact/SearchContactTVC.m; sourceTree = SOURCE_ROOT; };
 		15E1837A1B80E82100E13391 /* UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		15E1837B1B80E82600E13391 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
 		15FFB2A31B78DB9F00E5750F /* YellTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YellTableViewController.h; path = Yell/YellTableViewController.h; sourceTree = "<group>"; };
@@ -672,6 +675,24 @@
 				1363D6881B7B274C00094224 /* PhotoListView.m */,
 			);
 			name = photoView;
+			sourceTree = "<group>";
+		};
+		136682CF1B81B05D00C6767D /* searchfriends */ = {
+			isa = PBXGroup;
+			children = (
+				136682D01B81B0CD00C6767D /* SearchFriendTVC.h */,
+				136682D11B81B0CD00C6767D /* SearchFriendTVC.m */,
+			);
+			name = searchfriends;
+			sourceTree = "<group>";
+		};
+		136682D31B81D75300C6767D /* newfriendsrequest */ = {
+			isa = PBXGroup;
+			children = (
+				136682D41B81D7A000C6767D /* NewFriendsTableViewController.h */,
+				136682D51B81D7A000C6767D /* NewFriendsTableViewController.m */,
+			);
+			name = newfriendsrequest;
 			sourceTree = "<group>";
 		};
 		13688F1A1B79A4F800251AC4 /* SDWebImage */ = {
@@ -1043,8 +1064,6 @@
 				B35069741B7728950045CF10 /* 附近人 */,
 				D28FEA931B72FEDA0026D674 /* contactlist */,
 				D28FEA941B72FEE60026D674 /* Cell */,
-				15E183771B80941600E13391 /* SearchContactTVC.h */,
-				15E183781B80941600E13391 /* SearchContactTVC.m */,
 			);
 			name = contacts;
 			path = "通讯录";
@@ -1278,6 +1297,8 @@
 		15E183701B80890200E13391 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				136682D31B81D75300C6767D /* newfriendsrequest */,
+				136682CF1B81B05D00C6767D /* searchfriends */,
 				15E1837A1B80E82100E13391 /* UserService.h */,
 				15E1837B1B80E82600E13391 /* UserService.m */,
 			);
@@ -1731,7 +1752,11 @@
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
+
+				136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */,
+
 				D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */,
+
 				1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				D26965751B817450009ACEFD /* PickAddressView.m in Sources */,
@@ -1744,6 +1769,7 @@
 				15E183761B808FF500E13391 /* CommonUtil.m in Sources */,
 				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
 				D24C596D1B7C6182006F88D3 /* AboutQianShouBangTVC.m in Sources */,
+				136682D21B81B0CD00C6767D /* SearchFriendTVC.m in Sources */,
 				D28FEABE1B73535D0026D674 /* PortraitCell.m in Sources */,
 				15E183631B805BF600E13391 /* YellModel.m in Sources */,
 				13688F491B79A4F800251AC4 /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -1841,7 +1867,6 @@
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
 				D269657B1B81AF40009ACEFD /* CompletedOrderCell.m in Sources */,
 				B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */,
-				15E183791B80941600E13391 /* SearchContactTVC.m in Sources */,
 				D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */,
 				D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */,
 				132E9FF41B7891DC00B342D7 /* MJRefreshFooter.m in Sources */,

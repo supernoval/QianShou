@@ -28,7 +28,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.tableView.tableHeaderView = [self tableHeadView];
-    // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -167,4 +167,16 @@
     
 }
 
+- (IBAction)addNewfriends:(id)sender {
+    
+    
+    SearchFriendTVC *searchTVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchFriendTVC"];
+    
+    searchTVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:searchTVC animated:YES];
+    
+    
+    
+}
 @end
