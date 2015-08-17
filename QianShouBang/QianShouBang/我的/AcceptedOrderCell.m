@@ -16,7 +16,7 @@
     self.addressButton.layer.cornerRadius = 4.0;
     self.addressButton.layer.borderWidth = 1.0;
     self.addressButton.layer.borderColor = kLineColor.CGColor;
-
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

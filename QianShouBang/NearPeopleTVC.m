@@ -90,6 +90,7 @@ static NSUInteger pageSize = 10;
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
     
+    
     if (self.catagoryNum == 0) {
         [query whereKey:@"location" nearGeoPoint:self.currentPoint];
         [query whereKey:kuser_sex equalTo:@(0)];
@@ -105,6 +106,7 @@ static NSUInteger pageSize = 10;
     NSLog(@"number:%li",(long)self.catagoryNum);
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
+        [MyProgressHUD dismiss];
         [self endHeaderRefresh];
         [self endFooterRefresh];
         if (error) {
@@ -144,7 +146,7 @@ static NSUInteger pageSize = 10;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return _dataArray.count+10;
+    return _dataArray.count;
 }
 
 
@@ -166,9 +168,33 @@ static NSUInteger pageSize = 10;
     if (_dataArray.count > indexPath.row) {
         
         BmobUser *oneUser = [_dataArray objectAtIndex:indexPath.row];
-        [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
-        cell.name.text = @"呵呵大大（男）";
-        cell.distance.text = @"距离800KM";
+        if ([oneUser objectForKey:kavatar] != nil) {
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
+        }else{
+            cell.image.image = [UIImage imageNamed:@"head_default"];
+        }
+        
+        
+        if ([[oneUser objectForKey:kuser_sex]integerValue] == 0)
+        {
+            cell.name.text = [NSString stringWithFormat:@"%@ (女)",CheckNil([oneUser objectForKey:knick])];
+        }else if ([[oneUser objectForKey:kuser_sex]integerValue] == 1)
+        {
+            cell.name.text = [NSString stringWithFormat:@"%@ (男)",CheckNil([oneUser objectForKey:knick])];
+        }else{
+            cell.name.text = CheckNil([oneUser objectForKey:knick]);
+        }
+            
+        BmobGeoPoint *point = [oneUser objectForKey:klocation];
+        
+        double dis = [CommonMethods distanceFromLocation:point.latitude longitude:point.longitude];
+        if(dis > 1000){
+            cell.distance.text = [NSString stringWithFormat:@"%.2fKM",(dis/1000)];
+            NSLog(@"qianmi:%.2f",dis);
+        }else{
+            cell.distance.text = [NSString stringWithFormat:@"%.2fM",dis];
+        }
+
         
     }
     
@@ -226,18 +252,21 @@ static NSUInteger pageSize = 10;
     self.showCheckView = NO;
     self.checkView.hidden = YES;
     self.catagoryNum = 0;
+    [MyProgressHUD showProgress];
     [self getData];
 }
 -(void)checkMaleAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
     self.catagoryNum = 1;
+    [MyProgressHUD showProgress];
     [self getData];
 }
 - (void)checkAllAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
     self.catagoryNum = 2;
+    [MyProgressHUD showProgress];
     [self getData];
 }
 #pragma mark- 查看不同种类的附近人
