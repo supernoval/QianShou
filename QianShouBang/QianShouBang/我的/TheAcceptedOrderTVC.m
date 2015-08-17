@@ -27,7 +27,7 @@ static NSUInteger pageSize = 10;
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self addHeaderRefresh];
     self.tableView.header.stateHidden = YES;
@@ -100,17 +100,17 @@ static NSUInteger pageSize = 10;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _dataArray.count + 10;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return _dataArray.count + 10;
+    return 1;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 5;
+    return 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
