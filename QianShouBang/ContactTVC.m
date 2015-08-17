@@ -11,8 +11,12 @@
 #import "SettingTVC.h"
 #import "PersonInfoSettingTVC.h"
 #import "NearPeopleTVC.h"
+#import "NewFriendsTableViewController.h"
 
 @interface ContactTVC ()
+{
+    
+}
 @property(strong,nonatomic)UISearchBar *headSearchBar;
 
 @end
@@ -144,6 +148,14 @@
     
             case 1:
             {
+                
+                NewFriendsTableViewController *newFriends = [self.storyboard instantiateViewControllerWithIdentifier:@"NewFriendsTableViewController"];
+                
+                newFriends.hidesBottomBarWhenPushed = YES;
+                
+                [self.navigationController pushViewController:newFriends animated:YES];
+                
+                
             }
                 break;
     
