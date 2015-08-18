@@ -13,6 +13,7 @@
 #import "NearPeopleTVC.h"
 #import "NewFriendsTableViewController.h"
 #import "ChatViewController.h"
+#import "RecentChatListTVC.h"
 
 @interface ContactTVC ()
 {
@@ -31,7 +32,7 @@
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+//    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.tableView.tableHeaderView = [self tableHeadView];
     
@@ -126,6 +127,11 @@
 }
 
 #pragma tableViewDelegate
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 40;
+    
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     if (section < 3) {
@@ -176,7 +182,7 @@
     
     if (section < 3) {
         
-        return 1;
+        return 0;
         
     }
     return 20;
@@ -188,13 +194,7 @@
     return 0;
     
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
- 
-   
-    
-    return 40;
-}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -226,7 +226,7 @@
             BmobChatUser *chatUser = [_friendListArray objectAtIndex:indexPath.row];
             if (chatUser.avatar) {
                 
-                   [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar]]; 
+             [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar]]; 
             }
         
             if (chatUser.nick) {
@@ -256,7 +256,11 @@
                 
             case 0:
             {
-               
+                RecentChatListTVC *recentChat = [[RecentChatListTVC alloc]initWithStyle:UITableViewStyleGrouped];
+                
+                recentChat.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:recentChat animated:YES];
+                
             }
                 break;
     

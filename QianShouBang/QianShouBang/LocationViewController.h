@@ -9,12 +9,14 @@
 #import "BaseViewController.h"
 #import <BmobSDK/Bmob.h>
 #import <MapKit/MapKit.h>
+#import "MyAnnotation.h"
+
 
 @interface LocationViewController : BaseViewController<MKMapViewDelegate>
 
 
 
--(instancetype)initWithLocationArray:(NSArray *)array;
+-(instancetype)initWithLocationCoordinate:(CLLocationCoordinate2D)coord;
 
 
 

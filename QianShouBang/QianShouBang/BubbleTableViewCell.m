@@ -140,32 +140,30 @@
     }
     else if (self.type == MessageTypeLocation)
     {
-        CGSize  contentSize = CGSizeMake(240, 120);
+        CGSize  contentSize = CGSizeMake(180, 80);
         if (self.fromSelf) {
             [self.contentLabel setTextColor:[UIColor whiteColor]];
             
             self.bubbleView.frame =  CGRectMake(ScreenWidth-72-(contentSize.width + 33), 11+17, contentSize.width + 33, contentSize.height + 20);
             
-            self.contentImageView.frame     = CGRectMake(self.bubbleView.frame.origin.x + 5, self.bubbleView.frame.origin.y + 10, 120, 120);
+            self.contentImageView.frame     = CGRectMake(self.bubbleView.frame.origin.x + 5, self.bubbleView.frame.origin.y + 10, 80, 80);
             
-             self.contentLabel.frame     = CGRectMake(self.bubbleView.frame.origin.x + self.contentImageView.frame.origin.x + 100, self.bubbleView .frame.origin.y + 10, self.bubbleView.frame.size.width - 150, self.bubbleView.frame.size.height-15);
+             self.contentLabel.frame     = CGRectMake( self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width, self.bubbleView .frame.origin.y + 10, self.bubbleView.frame.size.width - self.contentImageView.frame.size.width -10, self.bubbleView.frame.size.height-15);
 
-            
-            
-            
             self.headImageView.frame   = CGRectMake(ScreenWidth-60, self.bubbleView.frame.size.height-15, 48.0f, 48.0f);
+            
+            
         }else{
             
             [self.contentLabel setTextColor:[CommonUtil setColorByR:55 G:59 B:60]];
             
             self.bubbleView.frame = CGRectMake(71, 11+17, contentSize.width + 33, contentSize.height + 20);
             
-            self.contentImageView.frame     = CGRectMake(self.bubbleView.frame.origin.x + 15, self.bubbleView.frame.origin.y + 10, 120, 120);
+            self.contentImageView.frame     = CGRectMake(self.bubbleView.frame.origin.x + 15, self.bubbleView.frame.origin.y + 10, 80, 80);
             
-           self.contentLabel.frame     = CGRectMake(self.bubbleView.frame.origin.x + 5 + self.contentImageView.frame.origin.x + 100, self.bubbleView.frame.origin.y + 10, self.bubbleView.frame.size.width - 150, self.bubbleView.frame.size.height-15);
+           self.contentLabel.frame     = CGRectMake( self.contentImageView.frame.origin.x + self.contentImageView.frame.size.width , self.bubbleView.frame.origin.y + 10, self.bubbleView.frame.size.width - self.contentImageView.frame.size.width -15, self.bubbleView.frame.size.height-15);
             
             
-         ;
             
             self.headImageView.frame   = CGRectMake(13, self.bubbleView.frame.size.height -15 , 48.0f, 48.0f);
         }

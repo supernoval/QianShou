@@ -104,6 +104,9 @@
 		13F818141B82F7C0007E23B2 /* ChatFootbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818131B82F7C0007E23B2 /* ChatFootbarView.m */; };
 		13F818171B82F9F8007E23B2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818161B82F9F8007E23B2 /* LocationViewController.m */; };
 		13F8181A1B82FA02007E23B2 /* LocateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818191B82FA02007E23B2 /* LocateViewController.m */; };
+		1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D01B837C36002CEBD0 /* MyAnnotation.m */; };
+		1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */; };
+		1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
 		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
@@ -375,6 +378,12 @@
 		13F818161B82F9F8007E23B2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		13F818181B82F9FE007E23B2 /* LocateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocateViewController.h; sourceTree = "<group>"; };
 		13F818191B82FA02007E23B2 /* LocateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocateViewController.m; sourceTree = "<group>"; };
+		1511F2CF1B837C36002CEBD0 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyAnnotation.h; path = chat/MyAnnotation.h; sourceTree = "<group>"; };
+		1511F2D01B837C36002CEBD0 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyAnnotation.m; path = chat/MyAnnotation.m; sourceTree = "<group>"; };
+		1511F2D41B838A18002CEBD0 /* RecentChatListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecentChatListTVC.h; path = chat/RecentChatListTVC.h; sourceTree = "<group>"; };
+		1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentChatListTVC.m; path = chat/RecentChatListTVC.m; sourceTree = "<group>"; };
+		1511F2D71B838A56002CEBD0 /* RecentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
+		1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
 		15A721E61B7712AD005A2303 /* NotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKey.h; sourceTree = "<group>"; };
 		15A721F41B77137B005A2303 /* DarenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenTableViewController.h; sourceTree = "<group>"; };
 		15A721F51B77137B005A2303 /* DarenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenTableViewController.m; sourceTree = "<group>"; };
@@ -1156,8 +1165,31 @@
 				13F818131B82F7C0007E23B2 /* ChatFootbarView.m */,
 				13F818071B82EC05007E23B2 /* BubbleTableViewCell.h */,
 				13F818081B82EC09007E23B2 /* BubbleTableViewCell.m */,
+				1511F2CF1B837C36002CEBD0 /* MyAnnotation.h */,
+				1511F2D01B837C36002CEBD0 /* MyAnnotation.m */,
 			);
 			name = chatView;
+			sourceTree = "<group>";
+		};
+		1511F2D21B8389DF002CEBD0 /* chatsupportfiles */ = {
+			isa = PBXGroup;
+			children = (
+				13F8180A1B82EC22007E23B2 /* NSDate+TimeAgo.h */,
+				13F8180B1B82EC27007E23B2 /* NSDate+TimeAgo.m */,
+				13F8180D1B82F2E7007E23B2 /* NSDateTimeAgo.bundle */,
+			);
+			name = chatsupportfiles;
+			sourceTree = "<group>";
+		};
+		1511F2D31B8389F6002CEBD0 /* recentChatList */ = {
+			isa = PBXGroup;
+			children = (
+				1511F2D71B838A56002CEBD0 /* RecentTableViewCell.h */,
+				1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */,
+				1511F2D41B838A18002CEBD0 /* RecentChatListTVC.h */,
+				1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */,
+			);
+			name = recentChatList;
 			sourceTree = "<group>";
 		};
 		15A721F31B77137B005A2303 /* Daren */ = {
@@ -1345,9 +1377,8 @@
 		15E183701B80890200E13391 /* chat */ = {
 			isa = PBXGroup;
 			children = (
-				13F8180A1B82EC22007E23B2 /* NSDate+TimeAgo.h */,
-				13F8180B1B82EC27007E23B2 /* NSDate+TimeAgo.m */,
-				13F8180D1B82F2E7007E23B2 /* NSDateTimeAgo.bundle */,
+				1511F2D31B8389F6002CEBD0 /* recentChatList */,
+				1511F2D21B8389DF002CEBD0 /* chatsupportfiles */,
 				13F818031B82EB5F007E23B2 /* chatView */,
 				136682D31B81D75300C6767D /* newfriendsrequest */,
 				136682CF1B81B05D00C6767D /* searchfriends */,
@@ -1894,11 +1925,13 @@
 				137263DF1B744E3D0006661C /* NSArray+JSONModel.m in Sources */,
 				13688F421B79A4F800251AC4 /* SDWebImageDownloaderOperation.m in Sources */,
 				15A7226E1B771686005A2303 /* openssl_wrapper.m in Sources */,
+				1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */,
 				B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
 				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
+				1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */,
 				13688F4A1B79A4F800251AC4 /* UIImageView+WebCache.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				132E9FF31B7891DC00B342D7 /* MJRefreshConst.m in Sources */,
@@ -1908,6 +1941,7 @@
 				13F818091B82EC09007E23B2 /* BubbleTableViewCell.m in Sources */,
 				15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */,
 				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
+				1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */,
 				132E9FF51B7891DC00B342D7 /* MJRefreshGifFooter.m in Sources */,
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
 				132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */,

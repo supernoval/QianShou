@@ -254,11 +254,11 @@
 //    [_bottomView addSubview:voiceButton];
     
 //    表情
-//    _emojiView                            = [[EmojiView alloc] initWithFrame:CGRectMake(0, 44, ScreenWidth, 100)];
-//    _emojiView.backgroundColor            = [UIColor whiteColor];
-//    _emojiView.delegate                   = self;
-//    [_emojiView createEmojiView];
-//    [_bottomView addSubview:_emojiView];
+    _emojiView                            = [[EmojiView alloc] initWithFrame:CGRectMake(0, 44, ScreenWidth, 100)];
+    _emojiView.backgroundColor            = [UIColor whiteColor];
+    _emojiView.delegate                   = self;
+    [_emojiView createEmojiView];
+    [_bottomView addSubview:_emojiView];
 
     //选项
     _footbarView                          = [[ChatFootbarView alloc] initWithFrame:CGRectMake(0, 44, ScreenWidth, 100)];
@@ -554,12 +554,16 @@
     
     if (message.msgType == MessageTypeText) {
         cell.contentImageView.image = nil;
+        NSLog(@"origin:%@",message.content);
          cell.contentLabel.text = [CommonUtil turnStringToEmojiText:message.content];
+        
+        NSLog(@"turn:%@",[CommonUtil turnStringToEmojiText:message.content]);
+        
     }else if(message.msgType == MessageTypeImage){
         cell.contentLabel.text = nil;
         [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:message.content] placeholderImage:[UIImage imageWithContentsOfFile:message.content]];
     }else if (message.msgType == MessageTypeLocation){
-//        [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:message.content] placeholderImage:[UIImage imageNamed:@"location_default"]];
+
         
         if (message.content.length > 0)
         {
@@ -575,7 +579,7 @@
         
         
         
-        NSLog(@"content:%@",message.content);
+
         
         
     }
@@ -613,7 +617,11 @@
     if (message.msgType == MessageTypeLocation) {
         if ([message.content length] > 0) {
             NSArray *array = [message.content componentsSeparatedByString:@"&"];
-            LocationViewController *lvc = [[LocationViewController alloc] initWithLocationArray:array];
+            double latitude = [[array objectAtIndex:1]doubleValue];
+            double longitude = [[array objectAtIndex:2]doubleValue];
+            
+            LocationViewController *lvc = [[LocationViewController alloc] initWithLocationCoordinate:CLLocationCoordinate2DMake(latitude, longitude)];
+            
             [self.navigationController pushViewController:lvc animated:YES];
         }
     }

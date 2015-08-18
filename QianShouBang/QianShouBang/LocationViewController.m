@@ -11,11 +11,16 @@
 #import "CommonUtil.h"
 @interface LocationViewController (){
    
+    
+    MKMapView *_mapView;
+    
 }
 
 
 
-@property (strong, nonatomic) NSArray   *infoArray;
+@property (nonatomic) CLLocationCoordinate2D coord;
+
+
 @end
 
 @implementation LocationViewController
@@ -30,11 +35,14 @@
     return self;
 }
 
--(instancetype)initWithLocationArray:(NSArray *)array{
+-(instancetype)initWithLocationCoordinate:(CLLocationCoordinate2D)coord{
     self = [super init];
     if (self) {
-        self.infoArray = array;
-        self.navigationItem.titleView = [CommonUtil navigationTitleViewWithTitle:@"定位"];
+        
+        self.coord = coord;
+        
+        self.title = @"定位";
+        
     }
     return self;
 }
@@ -45,39 +53,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    _mapView                   = [[BMKMapView alloc] init];
-//    _mapView.frame             = CGRectMake(0, ViewOriginY, 320, ScreenHeight - ViewOriginY);
-//    _mapView.zoomLevel         = 14.0f;
-//    [self.view addSubview:_mapView];
-//     _mapView.delegate = self;
+    _mapView                   = [[MKMapView alloc] initWithFrame:CGRectMake(0, ViewOriginY, 320, ScreenHeight - ViewOriginY)];
+    _mapView.delegate = self;
+    [self.view addSubview:_mapView];
+    
     
     
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [_mapView viewWillAppear];
-//    if (!_mapView.delegate) {
-//         _mapView.delegate = self;
-//    }
-//   
-//    
-//    CLLocationCoordinate2D coor = CLLocationCoordinate2DMake([[self.infoArray objectAtIndex:1] doubleValue], [[self.infoArray objectAtIndex:2] doubleValue]);
-//    _mapView.centerCoordinate   = coor;
-//    [_mapView removeAnnotations:_mapView.annotations];
-//    BMKPointAnnotation* item    = [[BMKPointAnnotation alloc]init];
-//    item.coordinate             = coor;
-//    item.title = self.infoArray[0];
-//    [_mapView addAnnotation:item];
-
+    
+    [_mapView setRegion:MKCoordinateRegionMakeWithDistance(self.coord, 500, 500) animated:YES];
+    
+    MyAnnotation *pinanno = [[MyAnnotation alloc]initWithCoord:self.coord];
+    
+    [_mapView addAnnotations:@[pinanno]];
+    
+    
 }
 
 
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [self.mapView viewWillDisappear];
-//    [self.mapView setDelegate:nil];
+
+}
+
+-(MKAnnotationView*)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MyAnnotation *myanno =  annotation;
+    
+    MKPinAnnotationView *pinkView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"location"];
+    
+    
+    
+    return pinkView;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

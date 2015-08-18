@@ -83,44 +83,24 @@
         [_locationManager startUpdatingLocation];
     }
   
-    //地图
-//    _mapView                   = [[BMKMapView alloc] init];
-//    _mapView.frame             = CGRectMake(0, ViewOriginY, 320, ScreenHeight - ViewOriginY);
-//    _mapView.zoomLevel         = 15.0f;
-//    [self.view addSubview:_mapView];
-//
-//    //定位服务
-//    _locService                = [[BMKLocationService alloc]init];
-//    _locService.delegate       = self;
-//    [_locService startUserLocationService];
-//    _mapView.showsUserLocation = NO;
-//    _mapView.userTrackingMode  = BMKUserTrackingModeFollow;
-//    _mapView.showsUserLocation = YES;
-////    
-//    //geo
-//    _geocodesearch = [[BMKGeoCodeSearch alloc]init];
-//    _currentLocationCoordinate2D = CLLocationCoordinate2DMake(0, 0);
+
 }
 
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-//    [_mapView viewWillAppear];
-//    _mapView.delegate       = self;
-//    _geocodesearch.delegate = self;
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [_mapView viewWillDisappear];
-//    _mapView.delegate       = nil;
-//    _geocodesearch.delegate = nil;
+
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
@@ -197,6 +177,8 @@
             [_mapview setRegion:MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000) animated:YES];
             
             [_locationManager stopUpdatingLocation];
+            
+            _mapview.showsUserLocation = YES;
             
             
             self.navigationItem.rightBarButtonItem.enabled = YES;
