@@ -66,7 +66,7 @@
            
             NSString *deviceToken = [[NSUserDefaults standardUserDefaults ] objectForKey:kDeviceTokenKey];
             
-            if (deviceToken)
+//            if (deviceToken)
             {
 //                if ([deviceToken isEqualToString:qsuser.ANDROID_ID])
                 {
@@ -120,12 +120,12 @@
 //                }
              }
             
-              else
-                {
-                    
-
-                     [CommonMethods showDefaultErrorString:@"无法获取您的设备编号,请在 设置-通知 里面打开对《牵手邦》的通知许可"];
-                }
+//              else
+//                {
+//                    
+//
+//                     [CommonMethods showDefaultErrorString:@"无法获取您的设备编号,请在 设置-通知 里面打开对《牵手邦》的通知许可"];
+//                }
             
             }
             else

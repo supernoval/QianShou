@@ -10,6 +10,7 @@
 #import "MallCell.h"
 #import "GoodsDetailTVC.h"
 #import "HtmlTextIntroduceViewController.h"
+#import "AccountDetailViewController.h"
 
 static NSUInteger pageSize = 10;
 
@@ -177,6 +178,11 @@ static NSUInteger pageSize = 10;
 }
 //牵手币明细
 - (void)qianShouBiIntroduce:(UIButton *)button{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    AccountDetailViewController *accountVC = [sb instantiateViewControllerWithIdentifier:@"AccountDetailViewController"];
+    accountVC.from = 2;
+    [self.navigationController pushViewController:accountVC animated:YES];
+    
 }
 
 - (void)qianShouBiMake:(UIButton *)button{

@@ -94,11 +94,14 @@ static NSUInteger pageSize = 10;
     if (self.catagoryNum == 0) {
         [query whereKey:@"location" nearGeoPoint:self.currentPoint];
         [query whereKey:kuser_sex equalTo:@(0)];
+        [query whereKey:kobjectId notEqualTo:[_user objectForKey:kobjectId]];
     }else if(self.catagoryNum == 1){
         [query whereKey:@"location" nearGeoPoint:self.currentPoint];
         [query whereKey:kuser_sex equalTo:@(1)];
+        [query whereKey:kobjectId notEqualTo:[_user objectForKey:kobjectId]];
     }else if(self.catagoryNum == 2){
         [query whereKey:@"location" nearGeoPoint:self.currentPoint];
+        [query whereKey:kobjectId notEqualTo:[_user objectForKey:kobjectId]];
     }
     
     
@@ -213,11 +216,11 @@ static NSUInteger pageSize = 10;
 - (UIView *)nearCatagoryVeiw{
     CGFloat width = 100;
     CGFloat height = 120;
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
-    view.backgroundColor = kBlueColor;
+    UIView *greenView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
+    greenView.backgroundColor = kBlueColor;
     
-    [CommonMethods addLine:15 startY:height/3 color:[UIColor whiteColor] toView:view];
-    [CommonMethods addLine:15 startY:height*2/3 color:[UIColor whiteColor] toView:view];
+    [CommonMethods addLine:15 startY:height/3 color:[UIColor whiteColor] toView:greenView];
+    [CommonMethods addLine:15 startY:height*2/3 color:[UIColor whiteColor] toView:greenView];
     
     
     UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
@@ -226,7 +229,7 @@ static NSUInteger pageSize = 10;
     [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     femaleBtn.titleLabel.font = FONT_16;
     [femaleBtn addTarget:self action:@selector(checkFemalealeAction) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:femaleBtn];
+    [greenView addSubview:femaleBtn];
     
     UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
     maleBtn.backgroundColor = [UIColor clearColor];
@@ -234,7 +237,8 @@ static NSUInteger pageSize = 10;
     [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     maleBtn.titleLabel.font = FONT_16;
     [maleBtn addTarget:self action:@selector(checkMaleAction) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:maleBtn];
+    [greenView addSubview:maleBtn];
+    
     
     
     UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
@@ -243,9 +247,9 @@ static NSUInteger pageSize = 10;
     [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     greetBtn.titleLabel.font = FONT_16;
     [greetBtn addTarget:self action:@selector(checkAllAction) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:greetBtn];
+    [greenView addSubview:greetBtn];
     
-    return view;
+    return greenView;
 }
 
 - (void)checkFemalealeAction{
