@@ -10,11 +10,21 @@
 #import "AccountCell.h"
 #import "MJRefresh.h"
 
+static NSUInteger pageSize = 10;
+
 @interface AccountDetailViewController ()
 
 @end
 
-@implementation AccountDetailViewController
+@implementation AccountDetailViewController{
+    NSMutableArray *_dataArray;
+    
+    NSInteger pageIndex;
+    
+    BmobUser *_user;
+    
+}
+
 @synthesize from;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,12 +34,69 @@
         self.title = @"牵手币明细";
     }
     
+    _dataArray = [[NSMutableArray alloc]init];
+    pageIndex = 0;
+    
     [self addHeadView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    _user = [BmobUser getCurrentUser];
+    
+    NSLog(@"id：%@",[_user objectForKey:kobjectId]);
+    
+    [self.tableView.header beginRefreshing];
+    
 }
+
+
+- (void)accountHeaderRefresh{
+    pageIndex = 0;
+    [self getData];
+}
+- (void)accountFooterRefresh{
+    pageIndex ++;
+    [self getData];
+}
+
+- (void)getData{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    
+    query.limit = pageSize;
+    query.skip = pageSize*pageIndex;
+    
+    [query whereKey:@"user" equalTo:_user];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            
+            if (pageIndex == 0) {
+                
+                [_dataArray removeAllObjects];
+                
+            }
+            
+            [_dataArray addObjectsFromArray:array];
+            
+            NSLog(@"*******______----:%lu",(unsigned long)_dataArray.count);
+            [self.tableView reloadData];
+        }
+        
+        
+    }];
+    
+    
+}
+
+
 
 - (void)addHeadView{
     UILabel *label_1 = [[UILabel alloc]initWithFrame:CGRectMake(0, 64,ScreenWidth/4 , 21)];
@@ -82,13 +149,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void)accountHeaderRefresh{
-    [self.tableView.header endRefreshing];
-}
 
-- (void)accountFooterRefresh{
-    [self.tableView.footer endRefreshing];
-}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -159,6 +159,8 @@
 		D26965811B81C36F009ACEFD /* AcceptedOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26965801B81C36F009ACEFD /* AcceptedOrderCell.xib */; };
 		D26965841B81C394009ACEFD /* TheAcceptedOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965831B81C394009ACEFD /* TheAcceptedOrderTVC.m */; };
 		D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */; };
+		D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */; };
+		D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */ = {isa = PBXBuildFile; fileRef = D26965931B832B6A009ACEFD /* AboutQsBi.html */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -540,6 +542,9 @@
 		D26965831B81C394009ACEFD /* TheAcceptedOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheAcceptedOrderTVC.m; sourceTree = "<group>"; };
 		D26965851B81C3B9009ACEFD /* AcceptedOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptedOrderCell.h; sourceTree = "<group>"; };
 		D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptedOrderCell.m; sourceTree = "<group>"; };
+		D26965901B832997009ACEFD /* HtmlTextIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlTextIntroduceViewController.h; sourceTree = "<group>"; };
+		D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlTextIntroduceViewController.m; sourceTree = "<group>"; };
+		D26965931B832B6A009ACEFD /* AboutQsBi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutQsBi.html; sourceTree = "<group>"; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -943,6 +948,7 @@
 		13983A251B6B261500D44BF0 /* QianShouBang */ = {
 			isa = PBXGroup;
 			children = (
+				D269658F1B832958009ACEFD /* html */,
 				15E183701B80890200E13391 /* chat */,
 				132EA0031B78957B00B342D7 /* yell */,
 				15A7227A1B772E81005A2303 /* LocationManager */,
@@ -1545,6 +1551,16 @@
 			name = "已接订单";
 			sourceTree = "<group>";
 		};
+		D269658F1B832958009ACEFD /* html */ = {
+			isa = PBXGroup;
+			children = (
+				D26965901B832997009ACEFD /* HtmlTextIntroduceViewController.h */,
+				D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */,
+				D26965931B832B6A009ACEFD /* AboutQsBi.html */,
+			);
+			name = html;
+			sourceTree = "<group>";
+		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1724,7 @@
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
 				D26965811B81C36F009ACEFD /* AcceptedOrderCell.xib in Resources */,
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
+				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
@@ -1752,15 +1769,13 @@
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
-
 				136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */,
-
 				D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */,
-
 				1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				D26965751B817450009ACEFD /* PickAddressView.m in Sources */,
 				B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */,
+				D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */,
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,

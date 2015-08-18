@@ -9,6 +9,7 @@
 #import "MallTableViewController.h"
 #import "MallCell.h"
 #import "GoodsDetailTVC.h"
+#import "HtmlTextIntroduceViewController.h"
 
 static NSUInteger pageSize = 10;
 
@@ -179,6 +180,11 @@ static NSUInteger pageSize = 10;
 }
 
 - (void)qianShouBiMake:(UIButton *)button{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    HtmlTextIntroduceViewController *htmlVC = [sb instantiateViewControllerWithIdentifier:@"HtmlTextIntroduceViewController"];
+    htmlVC.title = @"牵手币相关";
+    htmlVC.htmlName = @"AboutQsBi";
+    [self.navigationController pushViewController:htmlVC animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 115;
