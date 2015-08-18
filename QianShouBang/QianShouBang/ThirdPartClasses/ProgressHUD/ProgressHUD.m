@@ -283,7 +283,7 @@
         
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
         
-        [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
+        [UIView animateWithDuration:0.2 delay:0 options:options animations:^{
             hud.transform = CGAffineTransformScale(hud.transform, 1/1.4, 1/1.4);
             hud.alpha = 1;
         }
@@ -299,7 +299,7 @@
     {
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
         
-        [UIView animateWithDuration:0.15 delay:0 options:options animations:^{
+        [UIView animateWithDuration:1.0 delay:0 options:options animations:^{
             hud.transform = CGAffineTransformScale(hud.transform, 0.7, 0.7);
             hud.alpha = 0;
             

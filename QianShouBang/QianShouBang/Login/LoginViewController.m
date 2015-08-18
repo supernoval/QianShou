@@ -68,7 +68,7 @@
             
             if (deviceToken)
             {
-                if ([deviceToken isEqualToString:qsuser.ANDROID_ID])
+//                if ([deviceToken isEqualToString:qsuser.ANDROID_ID])
                 {
                     
                     NSData *deviceData = [[NSUserDefaults standardUserDefaults ] dataForKey:kDeviceTokenData];
@@ -88,8 +88,17 @@
                     //百度坐标
                   
                     BmobGeoPoint *location          = [[BmobGeoPoint alloc] initWithLongitude:longitude WithLatitude:latitude];
+                    
+                    
+                    BmobUser *user = [BmobUser getCurrentUser];
+                    
                     [user setObject:location forKey:@"location"];
-                    [[BmobUser getCurrentUser] updateInBackground];
+                    
+                    [user setObject:deviceToken forKey:@"installId"];
+                    [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
+                    
+                   
+                    [user updateInBackground];
                     
                     
                     //登录成功 保存好友列表
@@ -100,15 +109,15 @@
                     
                     
                 }
-                else
-                {
-                    
-                    [QSUser logout];
-                    
-                    [CommonMethods showDefaultErrorString:@"抱歉,不能在其它手机上登录"];
-                    
-  
-                }
+//                else
+//                {
+//                    
+//                    [QSUser logout];
+//                    
+//                    [CommonMethods showDefaultErrorString:@"抱歉,不能在其它手机上登录"];
+//                    
+//  
+//                }
              }
             
               else

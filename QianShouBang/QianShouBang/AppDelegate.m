@@ -17,6 +17,7 @@
 
 #import "Constants.h"
 #import <CoreLocation/CoreLocation.h>
+#import "UserService.h"
 
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
@@ -40,21 +41,22 @@
     
     [[UITabBar appearance] setTintColor:NavigationBarColor];
     
-
-    
-    
-    
     //remoteNotification  远程通知
     
     
     //bmob
     [Bmob registerWithAppKey:kBmobApplicationID];
+    [BmobChat registerAppWithAppKey:kBmobApplicationID];
     
-    //用户存在就创建数据库
+
+    
+    //用户存在就创建数据库 并获取和保存好友
     BmobUser *user = [BmobUser getCurrentUser];
     if (user) {
-        BmobDB *db = [BmobDB currentDatabase];
-        [db createDataBase];
+        
+        [UserService saveFriendsList];
+        
+        
     }else{
         
     }
@@ -112,12 +114,23 @@
     
     dToken = [dToken stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    //    NSLog(@"STR:%@",dToken);
+        NSLog(@"STR:%@",dToken);
     
     
     if (dToken)
     {
+        [BmobChat regisetDeviceWithDeviceToken:deviceToken];
         
+        BmobUser *user = [BmobUser getCurrentUser];
+        if (user)
+        {
+//            [user setObject:dToken forKey:@"installId"];
+//            [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
+            
+//            [user updateInBackground];
+            
+            
+        }
         [[NSUserDefaults standardUserDefaults ] setObject:dToken forKey:kDeviceTokenKey];
         
         [[NSUserDefaults standardUserDefaults ] synchronize];
@@ -241,7 +254,7 @@
             //这时的placemarks数组里面只有一个元素
             CLPlacemark * placemark = [placemarks firstObject];
           
-            NSLog(@"=========== addressDictionary:%@", placemark.addressDictionary);
+//            NSLog(@"=========== addressDictionary:%@", placemark.addressDictionary);
         
 
             
@@ -333,23 +346,23 @@
     
 }
 
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
-    
-    NSLog(@"%s,userInfo is :%@",__func__,[userInfo description]);
-    
-    if ([userInfo objectForKey:@"tag"]) {
-        if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"add"]) {
-            [self saveInviteMessageWithAddTag:userInfo];
-            [BmobPush handlePush:userInfo];
-        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"agree"]) {
-            [self saveInviteMessageWithAgreeTag:userInfo];
-        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@""]) {
-            [self saveMessageWith:userInfo];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
-        }
-    }
-}
+//-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+//{
+//    
+//    NSLog(@"%s,userInfo is :%@",__func__,[userInfo description]);
+//    
+//    if ([userInfo objectForKey:@"tag"]) {
+//        if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"add"]) {
+//            [self saveInviteMessageWithAddTag:userInfo];
+//            [BmobPush handlePush:userInfo];
+//        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"agree"]) {
+//            [self saveInviteMessageWithAgreeTag:userInfo];
+//        } else if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@""]) {
+//            [self saveMessageWith:userInfo];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
+//        }
+//    }
+//}
 
 
 #pragma mark save

@@ -173,8 +173,9 @@
     user.password = _codeTF.text;
     user.ANDROID_ID = dviceToken;
     [user setObject:dviceToken forKey:@"ANDROID_ID"];
-    [user setObject:dviceToken forKey:@"installId"];
     
+    [user setObject:dviceToken forKey:@"installId"];
+    [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
     
     user.mobilePhoneNumber = _phoneTF.text;
     

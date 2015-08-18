@@ -96,6 +96,14 @@
 		13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6791B7C419A00850683 /* PrivacyTVC.m */; };
 		13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F5B67B1B7C419E00850683 /* NoAddCell.xib */; };
 		13F5B67F1B7C41CE00850683 /* StringHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B67E1B7C41CE00850683 /* StringHeight.m */; };
+		13F818061B82EB9C007E23B2 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818051B82EB9C007E23B2 /* ChatViewController.m */; };
+		13F818091B82EC09007E23B2 /* BubbleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818081B82EC09007E23B2 /* BubbleTableViewCell.m */; };
+		13F8180C1B82EC27007E23B2 /* NSDate+TimeAgo.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F8180B1B82EC27007E23B2 /* NSDate+TimeAgo.m */; };
+		13F8180E1B82F2E7007E23B2 /* NSDateTimeAgo.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13F8180D1B82F2E7007E23B2 /* NSDateTimeAgo.bundle */; };
+		13F818111B82F7B5007E23B2 /* EmojiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818101B82F7B5007E23B2 /* EmojiView.m */; };
+		13F818141B82F7C0007E23B2 /* ChatFootbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818131B82F7C0007E23B2 /* ChatFootbarView.m */; };
+		13F818171B82F9F8007E23B2 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818161B82F9F8007E23B2 /* LocationViewController.m */; };
+		13F8181A1B82FA02007E23B2 /* LocateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F818191B82FA02007E23B2 /* LocateViewController.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
 		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
@@ -352,6 +360,21 @@
 		13F5B67B1B7C419E00850683 /* NoAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoAddCell.xib; sourceTree = SOURCE_ROOT; };
 		13F5B67D1B7C41CA00850683 /* StringHeight.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringHeight.h; sourceTree = "<group>"; };
 		13F5B67E1B7C41CE00850683 /* StringHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringHeight.m; sourceTree = "<group>"; };
+		13F818041B82EB96007E23B2 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		13F818051B82EB9C007E23B2 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		13F818071B82EC05007E23B2 /* BubbleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BubbleTableViewCell.h; sourceTree = "<group>"; };
+		13F818081B82EC09007E23B2 /* BubbleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BubbleTableViewCell.m; sourceTree = "<group>"; };
+		13F8180A1B82EC22007E23B2 /* NSDate+TimeAgo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeAgo.h"; sourceTree = "<group>"; };
+		13F8180B1B82EC27007E23B2 /* NSDate+TimeAgo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeAgo.m"; sourceTree = "<group>"; };
+		13F8180D1B82F2E7007E23B2 /* NSDateTimeAgo.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = NSDateTimeAgo.bundle; sourceTree = "<group>"; };
+		13F8180F1B82F7B1007E23B2 /* EmojiView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmojiView.h; sourceTree = "<group>"; };
+		13F818101B82F7B5007E23B2 /* EmojiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiView.m; sourceTree = "<group>"; };
+		13F818121B82F7BB007E23B2 /* ChatFootbarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatFootbarView.h; sourceTree = "<group>"; };
+		13F818131B82F7C0007E23B2 /* ChatFootbarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatFootbarView.m; sourceTree = "<group>"; };
+		13F818151B82F9F4007E23B2 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		13F818161B82F9F8007E23B2 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		13F818181B82F9FE007E23B2 /* LocateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocateViewController.h; sourceTree = "<group>"; };
+		13F818191B82FA02007E23B2 /* LocateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocateViewController.m; sourceTree = "<group>"; };
 		15A721E61B7712AD005A2303 /* NotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKey.h; sourceTree = "<group>"; };
 		15A721F41B77137B005A2303 /* DarenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenTableViewController.h; sourceTree = "<group>"; };
 		15A721F51B77137B005A2303 /* DarenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenTableViewController.m; sourceTree = "<group>"; };
@@ -1118,6 +1141,25 @@
 			path = NetWorkClass;
 			sourceTree = "<group>";
 		};
+		13F818031B82EB5F007E23B2 /* chatView */ = {
+			isa = PBXGroup;
+			children = (
+				13F818041B82EB96007E23B2 /* ChatViewController.h */,
+				13F818051B82EB9C007E23B2 /* ChatViewController.m */,
+				13F818181B82F9FE007E23B2 /* LocateViewController.h */,
+				13F818191B82FA02007E23B2 /* LocateViewController.m */,
+				13F818151B82F9F4007E23B2 /* LocationViewController.h */,
+				13F818161B82F9F8007E23B2 /* LocationViewController.m */,
+				13F8180F1B82F7B1007E23B2 /* EmojiView.h */,
+				13F818101B82F7B5007E23B2 /* EmojiView.m */,
+				13F818121B82F7BB007E23B2 /* ChatFootbarView.h */,
+				13F818131B82F7C0007E23B2 /* ChatFootbarView.m */,
+				13F818071B82EC05007E23B2 /* BubbleTableViewCell.h */,
+				13F818081B82EC09007E23B2 /* BubbleTableViewCell.m */,
+			);
+			name = chatView;
+			sourceTree = "<group>";
+		};
 		15A721F31B77137B005A2303 /* Daren */ = {
 			isa = PBXGroup;
 			children = (
@@ -1303,6 +1345,10 @@
 		15E183701B80890200E13391 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				13F8180A1B82EC22007E23B2 /* NSDate+TimeAgo.h */,
+				13F8180B1B82EC27007E23B2 /* NSDate+TimeAgo.m */,
+				13F8180D1B82F2E7007E23B2 /* NSDateTimeAgo.bundle */,
+				13F818031B82EB5F007E23B2 /* chatView */,
 				136682D31B81D75300C6767D /* newfriendsrequest */,
 				136682CF1B81B05D00C6767D /* searchfriends */,
 				15E1837A1B80E82100E13391 /* UserService.h */,
@@ -1731,6 +1777,7 @@
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
 				13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
+				13F8180E1B82F2E7007E23B2 /* NSDateTimeAgo.bundle in Resources */,
 				D24C37031B74792600228886 /* MallCell.xib in Resources */,
 				15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */,
 				D24C370C1B74933100228886 /* MessageCell.xib in Resources */,
@@ -1780,6 +1827,7 @@
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
+				13F818141B82F7C0007E23B2 /* ChatFootbarView.m in Sources */,
 				D24C37011B7478F300228886 /* MallTableViewController.m in Sources */,
 				15E183761B808FF500E13391 /* CommonUtil.m in Sources */,
 				D2B4D9781B78430400A5AE14 /* PickDateView.m in Sources */,
@@ -1790,6 +1838,7 @@
 				13688F491B79A4F800251AC4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				D28FEA9C1B73017D0026D674 /* ContactCell.m in Sources */,
 				D24C59711B7C6ED2006F88D3 /* FeedBackViewController.m in Sources */,
+				13F818111B82F7B5007E23B2 /* EmojiView.m in Sources */,
 				D28FEA921B72F2A60026D674 /* RowCell.m in Sources */,
 				13983A5A1B6B3ABF00D44BF0 /* BaseViewController.m in Sources */,
 				132E9FF81B7891DC00B342D7 /* MJRefreshLegendFooter.m in Sources */,
@@ -1804,12 +1853,14 @@
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */,
+				13F818171B82F9F8007E23B2 /* LocationViewController.m in Sources */,
 				15E1835D1B7F284F00E13391 /* YellCell.m in Sources */,
 				15A7226A1B771686005A2303 /* DataSigner.m in Sources */,
 				13688F3E1B79A4F800251AC4 /* SDImageCache.m in Sources */,
 				137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */,
 				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
 				137263E11B744E3D0006661C /* JSONHTTPClient.m in Sources */,
+				13F8181A1B82FA02007E23B2 /* LocateViewController.m in Sources */,
 				B35069771B7728BF0045CF10 /* NearPeopleTVC.m in Sources */,
 				15E183591B7F177C00E13391 /* SDPhotoItem.m in Sources */,
 				13688F471B79A4F800251AC4 /* UIImage+MultiFormat.m in Sources */,
@@ -1854,6 +1905,7 @@
 				15E1836F1B80872700E13391 /* Location.m in Sources */,
 				13688F3F1B79A4F800251AC4 /* SDWebImageCompat.m in Sources */,
 				15E1837C1B80E82600E13391 /* UserService.m in Sources */,
+				13F818091B82EC09007E23B2 /* BubbleTableViewCell.m in Sources */,
 				15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */,
 				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
 				132E9FF51B7891DC00B342D7 /* MJRefreshGifFooter.m in Sources */,
@@ -1861,6 +1913,7 @@
 				132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */,
 				13688F411B79A4F800251AC4 /* SDWebImageDownloader.m in Sources */,
 				15E183571B7F177C00E13391 /* SDPhotoBrowser.m in Sources */,
+				13F818061B82EB9C007E23B2 /* ChatViewController.m in Sources */,
 				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
 				13688F481B79A4F800251AC4 /* UIImage+WebP.m in Sources */,
 				132E9FF91B7891DC00B342D7 /* MJRefreshLegendHeader.m in Sources */,
@@ -1871,6 +1924,7 @@
 				D24C37181B74A84400228886 /* NickNameViewController.m in Sources */,
 				132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */,
 				13688F3C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m in Sources */,
+				13F8180C1B82EC27007E23B2 /* NSDate+TimeAgo.m in Sources */,
 				D28FEAA21B7323D80026D674 /* MyPurseTableViewController.m in Sources */,
 				15E183561B7F177C00E13391 /* SDBrowserImageView.m in Sources */,
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
@@ -2011,7 +2065,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haikun Zhu (72J467J83G)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/QianShouBang/ThirdPartClasses",
@@ -2031,7 +2085,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "d0899d77-9970-4c70-aae2-b3999037f373";
 			};
 			name = Debug;
 		};

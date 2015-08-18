@@ -20,6 +20,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"新的朋友";
+    
     [self search];
     
 }
@@ -38,6 +40,10 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newFriendCell"];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+    
     
     UILabel *usernameLabel = (UILabel*)[cell viewWithTag:100];
     
@@ -73,11 +79,17 @@
         
         
     }
+        
+          });
     
     return cell;
     
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 -(void)search{
     
     NSArray *array = [[BmobDB currentDatabase] queryBmobInviteList];
@@ -108,6 +120,8 @@
             tmpInvitation.statue = STATUS_ADD_AGREE;
             
             NSLog(@"已同意");
+            
+            [self.tableView reloadData];
             
        
         }else{

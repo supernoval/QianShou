@@ -21,6 +21,7 @@
 
 
     
+    self.view.backgroundColor = kBackgroundColor;
     
 //    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"leftArrow"] style:UIBarButtonItemStylePlain target:self action:@selector(popViewController)];
 //    

@@ -12,9 +12,11 @@
 #import "PersonInfoSettingTVC.h"
 #import "NearPeopleTVC.h"
 #import "NewFriendsTableViewController.h"
+#import "ChatViewController.h"
 
 @interface ContactTVC ()
 {
+    NSArray *_friendListArray;
     
 }
 @property(strong,nonatomic)UISearchBar *headSearchBar;
@@ -33,8 +35,55 @@
     
     self.tableView.tableHeaderView = [self tableHeadView];
     
+    
+   
+    
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+     [self getFriendList];
 }
 
+-(void)getFriendList
+{
+//    [[BmobUserManager currentUserManager] queryCurrentContactArray:^(NSArray *array, NSError *error) {
+//        NSMutableArray *chatUserArray = [NSMutableArray array];
+//        for (BmobUser * user in array)
+//        {
+//            BmobChatUser *chatUser = [[BmobChatUser alloc] init];
+//            chatUser.username      = [user objectForKey:@"username"];
+//            chatUser.avatar        = [user objectForKey:@"avatar"];
+//            chatUser.nick          = [user objectForKey:@"nick"];
+//            chatUser.objectId      = user.objectId;
+//            [chatUserArray addObject:chatUser];
+//            
+//            
+//        }
+//        
+//        
+//        _friendListArray = chatUserArray;
+//        
+//        
+//        [self.tableView reloadData];
+//        
+//    
+//    
+//    
+//    }];
+    
+    
+    NSArray *array = [[BmobDB currentDatabase] contaclList];
+    
+    if (array) {
+       
+        _friendListArray = array;
+        
+        
+        [self.tableView  reloadData];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -78,26 +127,72 @@
 
 #pragma tableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    
+    if (section < 3) {
+        
+      return 1;
+    }
+    
+    return _friendListArray.count;
+    
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
+    
+    return 4;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 5)];
+    if (section < 3)
+    {
+        
+        UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 1)];
+        headView.backgroundColor = [UIColor clearColor];
+        return headView;
+    }
+    
+    
+    
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
     headView.backgroundColor = [UIColor clearColor];
     return headView;
+   
     
+    
+  
+    
+}
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
+    headView.backgroundColor = [UIColor clearColor];
+    return headView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 5;
+    
+    
+    if (section < 3) {
+        
+        return 1;
+        
+    }
+    return 20;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0;
+    
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+ 
+   
+    
     return 40;
 }
 
@@ -124,6 +219,25 @@
         case 2:
             cell.image.image = [UIImage imageNamed:@"near_by"];
             cell.text.text = @"附近人";
+            break;
+            
+        case 3:
+        {
+            BmobChatUser *chatUser = [_friendListArray objectAtIndex:indexPath.row];
+            if (chatUser.avatar) {
+                
+                   [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar]]; 
+            }
+        
+            if (chatUser.nick) {
+                
+                 cell.text.text = chatUser.nick;
+            }
+           
+            
+            
+            
+        }
             break;
             
         default:
@@ -162,13 +276,34 @@
             case 2:
             {
                 NearPeopleTVC *nearTVC = [sb instantiateViewControllerWithIdentifier:@"NearPeopleTVC"];
+                nearTVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:nearTVC animated:YES];
             }
                 break;
+            case 3:
+            {
+                NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
+                BmobChatUser *user = (BmobChatUser *)[_friendListArray objectAtIndex:indexPath.row];
+                [infoDic setObject:user.objectId forKey:@"uid"];
+                [infoDic setObject:user.username forKey:@"name"];
+                if (user.avatar) {
+                    [infoDic setObject:user.avatar forKey:@"avatar"];
+                }
+                if (user.nick) {
+                    [infoDic setObject:user.nick forKey:@"nick"];
+                }
+                ChatViewController *cvc = [[ChatViewController alloc] initWithUserDictionary:infoDic];
+                cvc.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:cvc animated:YES];
+                
+            }
                 
             default:
                 break;
         }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 

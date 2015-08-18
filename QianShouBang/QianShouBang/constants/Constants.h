@@ -46,6 +46,9 @@
 #define kSecondStoryboard @"Second"
 
 
+#define IS_iOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 ? YES : NO)
+
+#define ViewOriginY (IS_iOS7 ? 64:0)
 
 /*宽高*/
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
