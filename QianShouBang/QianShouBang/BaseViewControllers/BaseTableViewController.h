@@ -19,6 +19,7 @@
 #import <BmobIM/BmobChatManager.h>
 #import <BmobIM/BmobChat.h>
 #import <BmobIM/BmobDB.h>
+#import "UIImageView+WebCache.h"
 
 @interface BaseTableViewController : UITableViewController
 {

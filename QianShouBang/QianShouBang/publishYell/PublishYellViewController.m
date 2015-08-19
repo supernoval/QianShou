@@ -417,11 +417,14 @@
     if (hideInfo) {
         
         hideInfo = NO;
+        
+        [_hideInfoButton setImage:[UIImage imageNamed:@"unselected"] forState:UIControlStateNormal];
+        
     }
     else
     {
         hideInfo = YES;
-        
+         [_hideInfoButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
     }
 }
 @end

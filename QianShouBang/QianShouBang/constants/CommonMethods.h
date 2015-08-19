@@ -53,6 +53,10 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma mark - 判断手机号码格式是否正确
 + (BOOL)checkTel:(NSString *)str;
 
+#pragma mark - 拨打电话
++ (void)callPhoneWithSuperView:(UIView*)view phoneNum:(NSString*)phoneNum;
+
+
 #pragma mark - 判断email格式是否正确
 + (BOOL)isValidateEmail:(NSString *)Email;
 

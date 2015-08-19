@@ -10,7 +10,7 @@
 
 @interface NewFriendsTableViewController ()
 {
-    NSArray *_newFriendsArray;
+    NSMutableArray *_newFriendsArray;
 }
 @end
 
@@ -21,6 +21,7 @@
     // Do any additional setup after loading the view.
     
     self.title = @"新的朋友";
+    _newFriendsArray = [[NSMutableArray alloc]init];
     
     [self search];
     
@@ -86,18 +87,52 @@
     
 }
 
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        [self deleteInviteMessage:indexPath];
+        
+    }
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 -(void)search{
     
     NSArray *array = [[BmobDB currentDatabase] queryBmobInviteList];
+    
     if (array) {
        
-        _newFriendsArray = array;
+        [_newFriendsArray setArray:array];
         
     }
+    
+    
+    
+    
+}
+
+#pragma mark - 删除好友邀请信息
+-(void)deleteInviteMessage:(NSIndexPath*)index
+{
+     BmobInvitation *tmpInvitation = [_newFriendsArray objectAtIndex:index.section];
+    [[BmobDB currentDatabase] deleteInviteMsgWithUid:tmpInvitation.fromId time:[NSString stringWithFormat:@"%ld",(long)tmpInvitation.time]];
+    
+    [_newFriendsArray removeObjectAtIndex:index.section];
+    
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:index.section] withRowAnimation:UITableViewRowAnimationFade];
     
     
     

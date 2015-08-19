@@ -152,15 +152,16 @@
         
         [MyProgressHUD dismiss];
         
+        
         if (isSuccessful) {
             NSLog(@"send requst success!");
             
-             [MyProgressHUD showError:@"好友请求发送成功"];
+            [CommonMethods showDefaultErrorString:@"好友请求发送成功"];
             
         }else{
-      
-            [MyProgressHUD showError:@"好友请求发送失败"];
-             NSLog(@"send requst fail:%@!",error);
+            
+            [CommonMethods showDefaultErrorString:@"好友请求发送失败"];
+            NSLog(@"send requst fail:%@!",error);
             
             
         }

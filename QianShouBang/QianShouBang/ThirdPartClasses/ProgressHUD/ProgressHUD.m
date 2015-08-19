@@ -132,7 +132,7 @@
         
         backGroundView = [[UIView alloc]initWithFrame:[[UIScreen mainScreen] bounds]];
         
-        backGroundView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.7];
+        backGroundView.backgroundColor = HUD_BACKGROUND_COLOR;
     }
     
     if (backGroundView.superview == nil) {
@@ -262,7 +262,7 @@
     hud.center = CGPointMake(screen.width/2, screen.height/2);
     hud.bounds = CGRectMake(0, 0, hudWidth, hudHeight);
     
-    
+   
     
     label.frame = labelRect;
     
@@ -283,7 +283,7 @@
         
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseOut;
         
-        [UIView animateWithDuration:0.2 delay:0 options:options animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:options animations:^{
             hud.transform = CGAffineTransformScale(hud.transform, 1/1.4, 1/1.4);
             hud.alpha = 1;
         }
@@ -299,7 +299,7 @@
     {
         NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
         
-        [UIView animateWithDuration:1.0 delay:0 options:options animations:^{
+        [UIView animateWithDuration:0.1 delay:0 options:options animations:^{
             hud.transform = CGAffineTransformScale(hud.transform, 0.7, 0.7);
             hud.alpha = 0;
             
@@ -321,7 +321,7 @@
     @autoreleasepool
     {
         double length = label.text.length;
-        NSTimeInterval sleep = length * 0.04 + 0.5;
+        NSTimeInterval sleep = length * 0.04 + 1.5;
         
         [NSThread sleepForTimeInterval:sleep];
         [self hudHide];

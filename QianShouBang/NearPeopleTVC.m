@@ -8,6 +8,7 @@
 
 #import "NearPeopleTVC.h"
 #import "NearPeopleCell.h"
+#import "UserDetailTVC.h"
 
 static NSUInteger pageSize = 10;
 
@@ -209,6 +210,20 @@ static NSUInteger pageSize = 10;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    BmobUser *user = [_dataArray objectAtIndex:indexPath.row];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    UserDetailTVC *detailVC = [sb instantiateViewControllerWithIdentifier:@"UserDetailTVC"];
+    
+    detailVC.fromType = FromTypeNear;
+    
+    detailVC.user = user;
+    
+    detailVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
@@ -249,7 +264,17 @@ static NSUInteger pageSize = 10;
     [greetBtn addTarget:self action:@selector(checkAllAction) forControlEvents:UIControlEventTouchUpInside];
     [greenView addSubview:greetBtn];
     
-    return greenView;
+    
+    UIControl *backView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0,ScreenWidth, ScreenHeight- 64)];
+    
+    backView.backgroundColor = kTransParentBackColor;
+    
+    [backView addTarget:self action:@selector(catagotyAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backView addSubview:greenView];
+    
+    
+    return backView;
 }
 
 - (void)checkFemalealeAction{

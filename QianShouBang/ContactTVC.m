@@ -14,10 +14,13 @@
 #import "NewFriendsTableViewController.h"
 #import "ChatViewController.h"
 #import "RecentChatListTVC.h"
+#import "UserDetailTVC.h"
 
-@interface ContactTVC ()
+@interface ContactTVC ()<UIAlertViewDelegate>
 {
-    NSArray *_friendListArray;
+    NSMutableArray *_friendListArray;
+    UIAlertView *_deleteContactAlert;
+    
     
 }
 @property(strong,nonatomic)UISearchBar *headSearchBar;
@@ -29,12 +32,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"联系人";
+    
+    _friendListArray = [[NSMutableArray alloc]init];
+    
+    
     self.view.backgroundColor = kBackgroundColor;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 //    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     self.tableView.tableHeaderView = [self tableHeadView];
+    
+    _deleteContactAlert = [[UIAlertView alloc]initWithTitle:nil message:@"确定删除该联系人?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
     
    
@@ -79,7 +88,7 @@
     
     if (array) {
        
-        _friendListArray = array;
+        [_friendListArray setArray: array];
         
         
         [self.tableView  reloadData];
@@ -200,6 +209,8 @@
     
     static NSString *cellId = @"ContactCell";
     ContactCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
+    
+    
     if (cell == nil) {
         cell = [[NSBundle mainBundle]loadNibNamed:@"ContactCell" owner:self options:nil][0];
     }
@@ -224,8 +235,12 @@
         case 3:
         {
             BmobChatUser *chatUser = [_friendListArray objectAtIndex:indexPath.row];
+            
+            cell.image.clipsToBounds = YES;
+            cell.image.layer.cornerRadius = 12.0;
+            
             if (chatUser.avatar) {
-                
+             
              [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar]]; 
             }
         
@@ -286,19 +301,19 @@
                 break;
             case 3:
             {
-                NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
-                BmobChatUser *user = (BmobChatUser *)[_friendListArray objectAtIndex:indexPath.row];
-                [infoDic setObject:user.objectId forKey:@"uid"];
-                [infoDic setObject:user.username forKey:@"name"];
-                if (user.avatar) {
-                    [infoDic setObject:user.avatar forKey:@"avatar"];
-                }
-                if (user.nick) {
-                    [infoDic setObject:user.nick forKey:@"nick"];
-                }
-                ChatViewController *cvc = [[ChatViewController alloc] initWithUserDictionary:infoDic];
-                cvc.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:cvc animated:YES];
+                BmobUser *user = [_friendListArray objectAtIndex:indexPath.row];
+                
+                UserDetailTVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetailTVC"];
+                
+                detailVC.fromType = FromTypeFriendList;
+                
+                detailVC.user = user;
+                
+                detailVC.hidesBottomBarWhenPushed = YES;
+                
+                [self.navigationController pushViewController:detailVC animated:YES];
+                
+                
                 
             }
                 
@@ -310,6 +325,98 @@
     
 }
 
+#pragma mark - 删除联系人
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section > 2) {
+        
+        return YES;
+    }
+    
+    return NO;
+}
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section > 2) {
+        
+        return UITableViewCellEditingStyleDelete;
+    }
+    
+    return UITableViewCellEditingStyleNone;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self showdeleteAlertView:indexPath];
+}
+
+-(void)showdeleteAlertView:(NSIndexPath*)indexPath
+{
+    _deleteContactAlert.tag = indexPath.row;
+    
+    [_deleteContactAlert show];
+}
+
+-(void)deleteFriendWithindexRow:(NSInteger)tag
+{
+    BmobChatUser *_user = [_friendListArray objectAtIndex:tag];
+    
+   
+
+    
+    [MyProgressHUD showProgress];
+    
+    [[BmobUserManager currentUserManager] deleteContactWithUid:_user.objectId block:^(BOOL isSuccessful, NSError *error) {
+        
+        [MyProgressHUD dismiss];
+        
+        if (isSuccessful)
+        {
+            
+            if (_friendListArray.count > 0)
+            {
+                [_friendListArray removeObject:_user];
+                
+                [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:tag inSection:3]] withRowAnimation:UITableViewRowAnimationFade];
+                
+            }
+            else
+            {
+                [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationFade];
+                
+                
+            }
+        }
+        else
+        {
+            [MyProgressHUD showError:@"删除失败"];
+            
+        }
+        
+    }];
+    
+
+    
+}
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _deleteContactAlert ) {
+        
+        if (buttonIndex == 0) {
+            
+            [self.tableView setEditing:NO animated:YES];
+            
+        }
+        else
+        {
+            [self deleteFriendWithindexRow:alertView.tag];
+            
+        }
+        
+    }
+}
 
 #pragma mark - UISearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar

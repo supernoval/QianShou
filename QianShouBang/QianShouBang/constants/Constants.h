@@ -89,6 +89,8 @@
 //蓝绿字体
 #define kBlueColor RGB(65,174,158,1)
 
+//半透明背景色
+#define kTransParentBackColor RGB(200,200,200,0.2)
 //黄色字体
 #define kYellowColor RGB(253,159,8,1)
 

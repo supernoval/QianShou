@@ -92,6 +92,7 @@
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
+		13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D1EA241B84445400D1D81E /* UserDetailTVC.m */; };
 		13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6761B7C415600850683 /* AccountManageTVC.m */; };
 		13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6791B7C419A00850683 /* PrivacyTVC.m */; };
 		13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F5B67B1B7C419E00850683 /* NoAddCell.xib */; };
@@ -356,6 +357,8 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		13D1EA231B84445400D1D81E /* UserDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailTVC.h; path = chat/UserDetailTVC.h; sourceTree = "<group>"; };
+		13D1EA241B84445400D1D81E /* UserDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailTVC.m; path = chat/UserDetailTVC.m; sourceTree = "<group>"; };
 		13F5B6751B7C415300850683 /* AccountManageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
 		13F5B6761B7C415600850683 /* AccountManageTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountManageTVC.m; sourceTree = SOURCE_ROOT; };
 		13F5B6781B7C419600850683 /* PrivacyTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrivacyTVC.h; sourceTree = SOURCE_ROOT; };
@@ -1150,6 +1153,15 @@
 			path = NetWorkClass;
 			sourceTree = "<group>";
 		};
+		13D1EA221B84441F00D1D81E /* userDetail */ = {
+			isa = PBXGroup;
+			children = (
+				13D1EA231B84445400D1D81E /* UserDetailTVC.h */,
+				13D1EA241B84445400D1D81E /* UserDetailTVC.m */,
+			);
+			name = userDetail;
+			sourceTree = "<group>";
+		};
 		13F818031B82EB5F007E23B2 /* chatView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1377,6 +1389,7 @@
 		15E183701B80890200E13391 /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				13D1EA221B84441F00D1D81E /* userDetail */,
 				1511F2D31B8389F6002CEBD0 /* recentChatList */,
 				1511F2D21B8389DF002CEBD0 /* chatsupportfiles */,
 				13F818031B82EB5F007E23B2 /* chatView */,
@@ -1931,6 +1944,7 @@
 				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
+				13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */,
 				1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */,
 				13688F4A1B79A4F800251AC4 /* UIImageView+WebCache.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,

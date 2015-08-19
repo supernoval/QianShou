@@ -703,5 +703,17 @@
 }
 
 
++ (void)callPhoneWithSuperView:(UIView *)view phoneNum:(NSString *)phoneNum
+{
+    UIWebView *webView = [[UIWebView alloc]init];
+    
+    NSString *phonestr  = [NSString stringWithFormat:@"tel://%@", phoneNum];
+    NSURL *telUrl = [NSURL URLWithString:phonestr];
+    [webView loadRequest:[NSURLRequest requestWithURL:telUrl]];
+    [view addSubview:webView];
+    
+    
+}
+
 
 @end
