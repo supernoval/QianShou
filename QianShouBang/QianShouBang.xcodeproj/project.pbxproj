@@ -173,6 +173,7 @@
 		D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */; };
 		D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */; };
 		D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */ = {isa = PBXBuildFile; fileRef = D26965931B832B6A009ACEFD /* AboutQsBi.html */; };
+		D26965A81B847AF3009ACEFD /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = D26965A71B847AF3009ACEFD /* city.json */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -580,6 +581,7 @@
 		D26965901B832997009ACEFD /* HtmlTextIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlTextIntroduceViewController.h; sourceTree = "<group>"; };
 		D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlTextIntroduceViewController.m; sourceTree = "<group>"; };
 		D26965931B832B6A009ACEFD /* AboutQsBi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutQsBi.html; sourceTree = "<group>"; };
+		D26965A71B847AF3009ACEFD /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1647,6 +1649,7 @@
 				D26965901B832997009ACEFD /* HtmlTextIntroduceViewController.h */,
 				D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */,
 				D26965931B832B6A009ACEFD /* AboutQsBi.html */,
+				D26965A71B847AF3009ACEFD /* city.json */,
 			);
 			name = html;
 			sourceTree = "<group>";
@@ -1812,6 +1815,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */,
+				D26965A81B847AF3009ACEFD /* city.json in Resources */,
 				D26965811B81C36F009ACEFD /* AcceptedOrderCell.xib in Resources */,
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
 				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,

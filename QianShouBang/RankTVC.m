@@ -63,11 +63,11 @@ static NSUInteger pageSize = 10;
 
 - (void)getData{
     
-    BmobQuery *query = [BmobQuery queryWithClassName:kWeiboListItem];
+    BmobQuery *query = [BmobUser query];
     
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
-    [query includeKey:@"user"];
+    [query orderByDescending:kbalance];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
@@ -97,7 +97,7 @@ static NSUInteger pageSize = 10;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return _dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -115,34 +115,53 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"RankCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
-    cell.nameWidth.constant = [StringHeight widthtWithText:@"超人不会飞" font:FONT_15  constrainedToHeight:21];
-    
-    cell.rankNumber.text = [NSString stringWithFormat:@"%ld",(indexPath.row+1)];
-    if (indexPath.row == 0) {
-        cell.rankNumber.backgroundColor = [UIColor redColor];
-        cell.rankNumber.textColor = [UIColor whiteColor];
-    }else if(indexPath.row == 1){
-        cell.rankNumber.backgroundColor = [UIColor purpleColor];
-        cell.rankNumber.textColor = [UIColor whiteColor];
-    }else if(indexPath.row == 2){
-        cell.rankNumber.backgroundColor = [UIColor orangeColor];
-        cell.rankNumber.textColor = [UIColor whiteColor];
-    }else{
-        cell.rankNumber.backgroundColor = [UIColor whiteColor];
-        cell.rankNumber.textColor = [UIColor blackColor];
+    if (_dataArray.count > indexPath.row) {
+        BmobUser *oneUser = [_dataArray objectAtIndex:indexPath.row];
+        
+        cell.rankNumber.text = [NSString stringWithFormat:@"%ld",(indexPath.row+1)];
+        if (indexPath.row == 0) {
+            cell.rankNumber.backgroundColor = [UIColor redColor];
+            cell.rankNumber.textColor = [UIColor whiteColor];
+        }else if(indexPath.row == 1){
+            cell.rankNumber.backgroundColor = [UIColor purpleColor];
+            cell.rankNumber.textColor = [UIColor whiteColor];
+        }else if(indexPath.row == 2){
+            cell.rankNumber.backgroundColor = [UIColor orangeColor];
+            cell.rankNumber.textColor = [UIColor whiteColor];
+        }else{
+            cell.rankNumber.backgroundColor = [UIColor whiteColor];
+            cell.rankNumber.textColor = [UIColor blackColor];
+        }
+        
+        //头像
+        if ([oneUser objectForKey:kavatar] != nil) {
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
+        }else{
+            cell.image.image = [UIImage imageNamed:@"head_default"];
+        }
+        
+        //姓名
+        cell.name.text = CheckNil([oneUser objectForKey:knick]);
+        cell.nameWidth.constant = [StringHeight widthtWithText:CheckNil([oneUser objectForKey:knick]) font:FONT_15  constrainedToHeight:21]+2;
+        
+        //简介
+        cell.intro_text.text = CheckNil([oneUser objectForKey:kuser_individuality_signature]);
+        
+        //会员
+        if ([[oneUser objectForKey:kuser_level]integerValue] == 2) {//会员
+            cell.vip.image = [UIImage imageNamed:@"vip_super"];
+        }else if ([[oneUser objectForKey:kuser_level]integerValue] == 1) {//普通会员
+            cell.vip.image = [UIImage imageNamed:@"vip_1"];
+        }else{
+            cell.vip.image = nil;
+        }
+        CGFloat moneyNum = [[oneUser objectForKey:kbalance]floatValue];
+        cell.money.text = [NSString stringWithFormat:@"¥%.1f",moneyNum];
+
+        
     }
-    //头像
-    cell.image.image = [UIImage imageNamed:@"setting"];
-    //姓名
-    cell.name.text = @"超人不会飞";
     
-    //简介
-    cell.intro_text.text = @"去尼玛的超人不会飞";
     
-    //vip
-    cell.vip.image = [UIImage imageNamed:@"vip_2"];
-    
-    cell.money.text = [NSString stringWithFormat:@"¥250.0"];
     return cell;
 }
 
