@@ -22,24 +22,22 @@
         
         
         _addressArray = (NSArray*)[NSJSONSerialization JSONObjectWithData:jdata options:NSJSONReadingMutableContainers error:nil];
-//        NSLog(@"_____addressArray:%@",_addressArray);
         
-//        if (_addressArray !=nil)
-//        {
-//            
-//            NSDictionary *selProvinceDict = [_addressArray objectAtIndex:0];
-//            province = [selProvinceDict objectForKey:@"province"];
-//            
-//            _cityArray = [selProvinceDict objectForKey:@"city"];
-//            NSDictionary *citydict = [_cityArray objectAtIndex:0];
-//            city = [citydict objectForKey:@"city"];
-//            
-//            NSLog(@"%s,%@",__func__,citydict);
-//
-//            _townArray = [citydict objectForKey:@"town"];
-//
-//            town = [_townArray objectAtIndex:0];
-//        }
+        if (_addressArray !=nil)
+        {
+            
+            NSDictionary *selProvinceDict = [_addressArray objectAtIndex:0];
+            province = [selProvinceDict objectForKey:@"name"];
+            
+            _cityArray = [selProvinceDict objectForKey:@"city"];
+            NSDictionary *citydict = [_cityArray objectAtIndex:0];
+            city = [citydict objectForKey:@"name"];
+            
+            _townArray = [citydict objectForKey:@"area"];
+
+            town = [_townArray objectAtIndex:0];
+            NSLog(@"省市区：%@%@%@",province,city,town);
+        }
      
         
         
@@ -247,7 +245,7 @@
               // NSLog(@"%s,_____addressArray:%@",__func__,_addressArray);
             NSDictionary *oneProvinceDict = [_addressArray objectAtIndex:row];
             
-           text = [oneProvinceDict objectForKey:@"province"];
+           text = [oneProvinceDict objectForKey:@"name"];
             
          
             
@@ -259,7 +257,7 @@
         {
             NSDictionary *oneCityDict = [_cityArray objectAtIndex:row];
             
-            text = [oneCityDict objectForKey:@"city"];
+            text = [oneCityDict objectForKey:@"name"];
           
             
             
@@ -297,22 +295,21 @@
             NSLog(@"%s,_____addressArray:%@",__func__,_addressArray);
             
             NSDictionary *selProvinceDict = [_addressArray objectAtIndex:row];
-            province = [selProvinceDict objectForKey:@"province"];
+            province = [selProvinceDict objectForKey:@"name"];
             
             _cityArray = [selProvinceDict objectForKey:@"city"];
             
             
             NSDictionary *selCity = [_cityArray firstObject];
-            city = [selCity objectForKey:@"city"];
+            city = [selCity objectForKey:@"name"];
             
-            _townArray = [selCity objectForKey:@"town"];
+            _townArray = [selCity objectForKey:@"area"];
            
             town = [_townArray firstObject];
             
             [_addressPickerView reloadAllComponents];
             
-//            [_addressPickerView reloadComponent:1];
-//            [_addressPickerView reloadComponent:2];
+            
             
             
             
@@ -321,9 +318,13 @@
             break;
         case 1:
         {
+            NSDictionary *selCity = [_cityArray objectAtIndex:row];
+            city = [selCity objectForKey:@"name"];
+            _townArray = [selCity objectForKey:@"area"];
+            town = [_townArray firstObject];
          
-            
-//            [_addressPickerView reloadComponent:2];
+            [_addressPickerView reloadComponent:1];
+            [_addressPickerView reloadComponent:2];
             
         }
             break;

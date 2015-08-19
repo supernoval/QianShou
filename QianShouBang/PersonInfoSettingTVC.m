@@ -14,12 +14,14 @@
 #import "BindPhoneViewController.h"
 #import "PickDateView.h"
 #import <BmobSDK/BmobProFile.h>
+#import "PickAddressView.h"
 
 
 @interface PersonInfoSettingTVC ()
 @property (nonatomic, strong)UIActionSheet *sexAC;
 @property (nonatomic, strong)UIActionSheet *pickPhotoActionSheet;
 @property (nonatomic, strong)PickDateView *pickDateView ;
+@property (nonatomic, strong)PickAddressView *pickAddressView;
 @end
 
 @implementation PersonInfoSettingTVC
@@ -309,12 +311,16 @@
                 
                 //生日
             case 1:
+            {
                 [self showDatePickerView];
+            }
                 break;
                 
                 //地区
             case 2:
-                self.view.backgroundColor = [UIColor redColor];
+            {
+                [self showAddressPickView];
+            }
                 break;
                 
                 //性别
@@ -402,6 +408,33 @@
     }
 }
 
+#pragma mark - 显示地址选择View
+- (void)showAddressPickView{
+    _pickAddressView = [[PickAddressView alloc]initWithFrame:CGRectMake(10, ScreenHeight+100, ScreenWidth -20, 200)];
+    
+    [_pickAddressView pickAddressBlock:^(NSDictionary *addressDic){
+        if (addressDic != nil) {
+            NSString *address = [NSString stringWithFormat:@"%@-%@-%@",[addressDic objectForKey:@"province"],[addressDic objectForKey:@"city"],[addressDic objectForKey:@"town"]];
+            BmobUser *user = [BmobUser getCurrentUser];
+            [MyProgressHUD showProgress];
+            [user setObject:address forKey:kuser_city];
+            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                if (isSuccessful) {
+                    [self getCurrentUserInfo];
+                    [MyProgressHUD dismiss];
+                    
+                    [CommonMethods showAlertString:@"修改地区成功!" delegate:self tag:50];
+                }else {
+                    [MyProgressHUD dismiss];
+                    [CommonMethods showAlertString:@"修改地区失败!" delegate:self tag:51];
+                }
+            }];
+        }
+    }];
+    [self.navigationController.view addSubview:_pickAddressView];
+    
+    [_pickAddressView show];
+}
 #pragma  mark － 显示日期选择view
 -(void)showDatePickerView
 {
@@ -495,64 +528,5 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
--(void)setPhotos
-{
-    
-    for (UIView *view in imagesView.subviews) {
-        
-        [view removeFromSuperview];
-        
-    }
-    
-    CGFloat offSet = 8.0;
-    
-    CGFloat imageViewWith = imagesCellHeight - offSet*2;
-    CGFloat deleteButtonWith = 15.0;
-    
-    
-    for (int i = 0; i < _PhotosArray.count; i++) {
-        
-        UIImage *oneImage = [_PhotosArray objectAtIndex:i];
-        
-        UIImageView *oneImageView = [[UIImageView alloc]initWithFrame:CGRectMake(offSet +(imageViewWith+offSet)*i , offSet, imageViewWith, imageViewWith)];
-        oneImageView.image = oneImage;
-        
-        [imagesView addSubview:oneImageView];
-        
-        
-        //add delete button
-        
-        UIButton *deleteButton = [[UIButton alloc]initWithFrame:CGRectMake(oneImageView.frame.origin.x - 6.0, 0, deleteButtonWith, deleteButtonWith)];
-        
-        [deleteButton setImage:[UIImage imageNamed:@"minus"] forState:UIControlStateNormal];
-        deleteButton.tag = i;
-        
-        [deleteButton addTarget:self action:@selector(deleteOneImage:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [imagesView addSubview:deleteButton];
-        
-        
-        
-        
-    }
-    
-    if (_PhotosArray.count < 4)
-    {
-        
-        UIButton *addButton = [[UIButton alloc]initWithFrame:CGRectMake(offSet + (imageViewWith+offSet)*_PhotosArray.count, offSet, imageViewWith, imageViewWith)];
-        
-        [addButton setImage:[UIImage imageNamed:@"compose_pic_add"] forState:UIControlStateNormal];
-        
-        [addButton addTarget:self action:@selector(pickPhoto:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [imagesView addSubview:addButton];
-        
-        
-    }
-    
-    
-    
-    
-}*/
+
 @end

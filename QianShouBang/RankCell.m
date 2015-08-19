@@ -15,6 +15,11 @@
     self.rankNumber.layer.cornerRadius = 4;
     self.rankNumber.layer.borderColor = [UIColor whiteColor].CGColor;
     self.rankNumber.layer.borderWidth = 1.0;
+    
+    self.image.layer.masksToBounds = YES;
+    self.image.layer.cornerRadius = self.image.frame.size.width/2;
+    self.rankNumber.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.rankNumber.layer.borderWidth = 1.0;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
