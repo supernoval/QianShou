@@ -125,6 +125,7 @@
 		15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722661B771686005A2303 /* RSADataSigner.m */; };
 		15A722701B771686005A2303 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722681B771686005A2303 /* RSADataVerifier.m */; };
 		15A722721B7716F2005A2303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A722711B7716F2005A2303 /* Main.storyboard */; };
+		15B159E81B84BBE80097733A /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B159E71B84BBE80097733A /* OrderCell.m */; };
 		15E183561B7F177C00E13391 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1834C1B7F177C00E13391 /* SDBrowserImageView.m */; };
 		15E183571B7F177C00E13391 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1834E1B7F177C00E13391 /* SDPhotoBrowser.m */; };
 		15E183581B7F177C00E13391 /* SDPhotoGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E183511B7F177C00E13391 /* SDPhotoGroup.m */; };
@@ -494,6 +495,8 @@
 		15A722671B771686005A2303 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		15A722681B771686005A2303 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		15A722711B7716F2005A2303 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		15B159E61B84BBE80097733A /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		15B159E71B84BBE80097733A /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		15E1834B1B7F177C00E13391 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
 		15E1834C1B7F177C00E13391 /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
 		15E1834D1B7F177C00E13391 /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
@@ -1080,6 +1083,8 @@
 			children = (
 				13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */,
 				13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */,
+				15B159E61B84BBE80097733A /* OrderCell.h */,
+				15B159E71B84BBE80097733A /* OrderCell.m */,
 			);
 			name = catchorder;
 			path = "抢单";
@@ -1866,6 +1871,7 @@
 				15A722561B77167E005A2303 /* Order.m in Sources */,
 				136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */,
 				D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */,
+				15B159E81B84BBE80097733A /* OrderCell.m in Sources */,
 				1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				D26965751B817450009ACEFD /* PickAddressView.m in Sources */,

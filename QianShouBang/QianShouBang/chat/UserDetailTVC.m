@@ -198,12 +198,25 @@
 }
 */
 
+#pragma mark - 发送添加好友信息 、开始聊天
 - (IBAction)sendAction:(id)sender {
     
     
     switch (_fromType) {
         case FromTypeNear:
         {
+            
+            BOOL isSeal = [[targetUser objectForKey:@"seal_up"]boolValue];
+            if (isSeal) {
+                
+                [CommonMethods showDefaultErrorString:@"该用户已设置不能添加好友"];
+                
+                return;
+                
+                
+            }
+            
+            
             [MyProgressHUD showProgress];
             
             [[BmobChatManager currentInstance] sendMessageWithTag:TAG_ADD_CONTACT targetId:targetUser.objectId block:^(BOOL isSuccessful, NSError *error) {
