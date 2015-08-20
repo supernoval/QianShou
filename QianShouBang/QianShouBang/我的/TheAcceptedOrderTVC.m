@@ -132,7 +132,9 @@ static NSUInteger pageSize = 10;
         {
             BmobQuery *query = [[BmobQuery alloc]initWithClassName:kAttachItem];
             
-            [query whereKey:@"items" equalTo:oneModel.yellObject];
+            [query whereKey:@"order" equalTo:oneModel.yellObject];
+            
+            NSLog(@"yellobjectid:%@",oneModel.yellObject.objectId);
             
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
              
@@ -141,9 +143,27 @@ static NSUInteger pageSize = 10;
                 if (array)
                 {
                     
-                    oneModel.photos = array;
+                    NSMutableArray *urls = [[NSMutableArray alloc]init];
                     
-//                    NSLog(@"")
+                    for (int d =0; d < array.count; d++) {
+                        
+                        BmobObject *attachObject = array[d];
+                        
+                        SDPhotoItem *it = [[SDPhotoItem alloc]init];
+                        it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
+                        
+                        [urls addObject:it];
+                        
+                    
+                        
+                      
+                    }
+                    
+                      NSLog(@"photos:%@",array);
+                    
+                        oneModel.photos = urls;
+           
+                    
                     
                 }
                 
@@ -184,6 +204,46 @@ static NSUInteger pageSize = 10;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+   
+    
+    
+    
+    CGFloat photoViewHeight = 0;
+    
+      CGFloat textHeight = 0;
+    
+    if (_dataArray.count > 0) {
+        
+        YellModel *weiboModel = [_dataArray objectAtIndex:indexPath.section];
+        NSArray *imgs = weiboModel.photos;
+        
+        long imageCount = imgs.count;
+        int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+        CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+        int totalRowCount = ceil(imageCount / perRowImageCountF);
+        
+        photoViewHeight = 95 * totalRowCount;
+        
+        
+        
+        NSString *text = [weiboModel.yellObject objectForKey:@"content"];
+        
+        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+        
+        if (textHeight < 20)
+        {
+            
+            textHeight = 20;
+            
+            
+        }
+    }
+
+    
+    
+    return 164 + photoViewHeight + textHeight;
+    
+    
     return 235;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -198,7 +258,9 @@ static NSUInteger pageSize = 10;
     
     if (_dataArray.count > indexPath.section)
     {
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+      
         YellModel *model = [_dataArray objectAtIndex:indexPath.section];
         
         BmobObject *_orderObject = model.yellObject;
@@ -239,8 +301,46 @@ static NSUInteger pageSize = 10;
             
             cell.photosView.photoItemArray = model.photos;
             
-            NSLog(@"photos:%@",model.photos);
+            CGFloat photoViewHeight = 0;
+            
+            
+            YellModel *weiboModel = [_dataArray objectAtIndex:indexPath.section];
+            NSArray *imgs = weiboModel.photos;
+            
+            long imageCount = imgs.count;
+            int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+            CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+            int totalRowCount = ceil(imageCount / perRowImageCountF);
+            
+            photoViewHeight = 95 * totalRowCount;
+            
+            cell.heightContraints.constant = photoViewHeight;
+            
         }
+        else
+        {
+            cell.heightContraints.constant = 0;
+            
+        }
+        
+ 
+            
+        //内容
+            
+            double textHeight = 20;
+            
+            NSString *text = [_orderObject objectForKey:@"content"];
+            
+            textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+          
+            if (textHeight < 20) {
+                
+                textHeight = 20;
+                
+            }
+            cell.textHeightContrains.constant = textHeight;
+            
+            
         
         //倒计时
         
@@ -259,7 +359,7 @@ static NSUInteger pageSize = 10;
             _timerLabel.delegate = self;
             [_timerLabel start];
             
-        
+          });
       
     }
     
@@ -281,8 +381,9 @@ static NSUInteger pageSize = 10;
     
     UITableViewCell *cell = (UITableViewCell*)[sender superview];
     
-    BmobObject *orderObject = [_dataArray objectAtIndex:cell.tag];
-    BmobGeoPoint *point = [orderObject objectForKey:@"location"];
+    YellModel *model = [_dataArray objectAtIndex:cell.tag];
+    
+    BmobGeoPoint *point = [model.yellObject objectForKey:@"location"];
     
     LocationViewController *locVC = [[LocationViewController alloc]initWithLocationCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude)];
     locVC.hidesBottomBarWhenPushed = YES;

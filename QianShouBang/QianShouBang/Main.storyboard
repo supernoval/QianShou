@@ -154,7 +154,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明天不在" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p8-BD-EVb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明天不在" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p8-BD-EVb">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="sC5-PR-6gT"/>
@@ -249,11 +249,13 @@
                                                 <action selector="acceptAction:" destination="PkD-Ed-gOV" eventType="touchUpInside" id="cb8-Fj-ZNo"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-tv-cB7">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fT-tv-cB7" customClass="SDPhotoGroup">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="53" id="lr6-WE-QZV"/>
+                                                <constraint firstAttribute="height" constant="53" id="lr6-WE-QZV">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="40"/>
+                                                </constraint>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -291,10 +293,12 @@
                                         <constraint firstAttribute="trailing" secondItem="5p8-BD-EVb" secondAttribute="trailing" constant="23" id="cGM-PN-YxU">
                                             <variation key="heightClass=regular-widthClass=compact" constant="8"/>
                                         </constraint>
-                                        <constraint firstItem="5p8-BD-EVb" firstAttribute="top" secondItem="uk2-mN-lnT" secondAttribute="bottom" constant="2" id="eXF-wr-cdF"/>
+                                        <constraint firstItem="5p8-BD-EVb" firstAttribute="top" secondItem="uk2-mN-lnT" secondAttribute="bottom" constant="2" id="eXF-wr-cdF">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                                        </constraint>
                                         <constraint firstItem="oFi-Hx-iDz" firstAttribute="leading" secondItem="3Pu-cF-muy" secondAttribute="trailing" constant="8" id="hIe-Yl-73G"/>
                                         <constraint firstItem="YJS-es-mEi" firstAttribute="top" secondItem="av6-ec-Nno" secondAttribute="bottom" constant="24" id="iUz-4l-QVB">
-                                            <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                                            <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                                         </constraint>
                                         <constraint firstItem="3fT-tv-cB7" firstAttribute="leading" secondItem="5V2-pG-40w" secondAttribute="leading" constant="8" id="mTD-C4-0NY"/>
                                         <constraint firstItem="3Pu-cF-muy" firstAttribute="top" secondItem="5V2-pG-40w" secondAttribute="top" constant="8" id="nwM-yv-td2"/>
@@ -391,6 +395,8 @@
                                     <outlet property="moneyLabel" destination="2Ts-Yi-7TS" id="fSO-TJ-owt"/>
                                     <outlet property="nicknameLabel" destination="3Pu-cF-muy" id="DwP-Bt-KMk"/>
                                     <outlet property="nicknameLabelWithConstraint" destination="n8k-MF-RXX" id="L8o-HA-gt5"/>
+                                    <outlet property="photoView" destination="3fT-tv-cB7" id="BjR-JJ-ubV"/>
+                                    <outlet property="photoViewHeightContraint" destination="lr6-WE-QZV" id="TPi-7F-YKd"/>
                                     <outlet property="vipImageView" destination="oFi-Hx-iDz" id="ofU-Uh-yLV"/>
                                 </connections>
                             </tableViewCell>

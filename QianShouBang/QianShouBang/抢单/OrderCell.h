@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SDPhotoItem.h"
+#import "SDPhotoGroup.h"
 
 @interface OrderCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
@@ -33,5 +35,9 @@
 
 - (IBAction)acceptAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet SDPhotoGroup *photoView;
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHeightContraint;
 
 @end

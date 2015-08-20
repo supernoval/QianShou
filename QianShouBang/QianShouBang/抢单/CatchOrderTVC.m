@@ -15,6 +15,8 @@
 #import "OrderCell.h"
 #import "StringHeight.h"
 #import "LocationViewController.h"
+#import "YellModel.h"
+#import "SDPhotoItem.h"
 
 static NSString *orderCellId = @"orderCell";
 
@@ -127,9 +129,25 @@ static NSString *orderCellId = @"orderCell";
                 [_ordersArray removeAllObjects];
                 
             }
-              [_ordersArray addObjectsFromArray:array];
             
-              [self.tableView reloadData];
+            
+            for (int i = 0; i < array.count; i ++) {
+                
+                BmobObject *orderObject = [array objectAtIndex:i];
+                
+                YellModel *model = [[YellModel alloc]init];
+                
+                model.yellObject = orderObject;
+                
+                [_ordersArray addObject:model];
+                
+                
+            }
+            
+            
+             [self getPhotos];
+            
+            
             
         }
         
@@ -144,6 +162,72 @@ static NSString *orderCellId = @"orderCell";
     
 }
 
+-(void)getPhotos
+{
+    
+    __block NSInteger count = 0;
+    
+    for (int i = 0; i < _ordersArray.count; i ++) {
+        
+        YellModel *oneModel = _ordersArray[i];
+        
+        if (!oneModel.photos)
+        {
+            BmobQuery *query = [[BmobQuery alloc]initWithClassName:kAttachItem];
+            
+            [query whereKey:@"order" equalTo:oneModel.yellObject];
+            
+//            NSLog(@"yellobjectid:%@",oneModel.yellObject.objectId);
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                
+                count ++;
+                
+                if (array)
+                {
+                    
+                    NSMutableArray *urls = [[NSMutableArray alloc]init];
+                    
+                    for (int d =0; d < array.count; d++) {
+                        
+                        BmobObject *attachObject = array[d];
+                        
+                        SDPhotoItem *it = [[SDPhotoItem alloc]init];
+                        it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
+                        
+                        [urls addObject:it];
+                        
+                        
+                        
+                        
+                    }
+                    
+//                    NSLog(@"photos:%@",array);
+                    
+                    oneModel.photos = urls;
+                    
+                    
+                    
+                }
+                
+                if (count == _ordersArray.count)
+                {
+                    
+                    [self.tableView reloadData];
+                    
+                }
+            }];
+            
+            
+            
+        }
+        else
+        {
+            count ++;
+        }
+        
+    }
+}
 
 #pragma mark - UITableViewDataSource
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -168,6 +252,42 @@ static NSString *orderCellId = @"orderCell";
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    CGFloat photoViewHeight = 0;
+    
+    CGFloat textHeight = 0;
+    
+    if (_ordersArray.count > 0) {
+        
+        YellModel *weiboModel = [_ordersArray objectAtIndex:indexPath.section];
+        NSArray *imgs = weiboModel.photos;
+        
+        long imageCount = imgs.count;
+        int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+        CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+        int totalRowCount = ceil(imageCount / perRowImageCountF);
+        
+        photoViewHeight = 95 * totalRowCount;
+        
+        
+        
+        NSString *text  = [weiboModel.yellObject objectForKey:@"order_description"];;
+        
+        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:200];
+        
+        if (textHeight < 20)
+        {
+            
+            textHeight = 20;
+            
+            
+        }
+    }
+    
+    
+    
+    return 120 + photoViewHeight + textHeight;
+    
     return 180;
     
 }
@@ -181,8 +301,11 @@ static NSString *orderCellId = @"orderCell";
     OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCellId];
     
     if (indexPath.section < _ordersArray.count) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+        YellModel *model = [_ordersArray objectAtIndex:indexPath.section];
         
-        BmobObject *_object = [_ordersArray objectAtIndex:indexPath.section];
+        BmobObject *_object = model.yellObject;
         
         BmobUser *_user = [_object objectForKey:@"user"];
         
@@ -210,14 +333,18 @@ static NSString *orderCellId = @"orderCell";
         NSString *order_description = [_object objectForKey:@"order_description"];
         
         cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
-        cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
+       
         
         NSString *order_address = [_object objectForKey:@"order_address"];
         BmobGeoPoint *point = [_object objectForKey:@"location"];
         NSString * distanceStr = [CommonMethods distanceStringWithLatitude:point.latitude longitude:point.longitude];
         
-        
+       
+            
+       
         [cell.locationButton setTitle:order_address forState:UIControlStateNormal];
+            
+          
         [cell.locationButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.distanceLabel.text = distanceStr;
@@ -228,6 +355,52 @@ static NSString *orderCellId = @"orderCell";
                                action:@selector(catchOrder:)
                      forControlEvents:UIControlEventTouchUpInside];
         
+        
+        //内容
+        
+        double textHeight = 20;
+        
+        
+         cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
+        
+        textHeight = [StringHeight heightWithText:order_description font:FONT_17 constrainedToWidth:200];
+        
+        if (textHeight < 20) {
+            
+            textHeight = 20;
+            
+        }
+        
+        
+        cell.descripContraints.constant = textHeight;
+        
+        if (model.photos) {
+            
+            cell.photoView.photoItemArray = model.photos;
+            
+            CGFloat photoViewHeight = 0;
+            
+            
+            YellModel *weiboModel = [_ordersArray objectAtIndex:indexPath.section];
+            NSArray *imgs = weiboModel.photos;
+            
+            long imageCount = imgs.count;
+            int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+            CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+            int totalRowCount = ceil(imageCount / perRowImageCountF);
+            
+            photoViewHeight = 95 * totalRowCount;
+            
+            cell.photoViewHeightContraint.constant = photoViewHeight;
+            
+        }
+        else
+        {
+            cell.photoViewHeightContraint.constant = 0;
+            
+        }
+        
+                });
     }
     
     return cell;

@@ -119,15 +119,81 @@ static NSInteger pageSize = 10;
             
         }
         
+        [self getPhotos];
         
         
-        [self.tableView reloadData];
+//        [self.tableView reloadData];
         
         
     }];
 }
 
-
+-(void)getPhotos
+{
+    
+    __block NSInteger count = 0;
+    
+    for (int i = 0; i < _weiboListArray.count; i ++) {
+        
+        YellModel *oneModel = _weiboListArray[i];
+        
+        if (!oneModel.photos)
+        {
+            BmobQuery *query = [[BmobQuery alloc]initWithClassName:kAttachItem];
+            
+            [query whereKey:@"items" equalTo:oneModel.yellObject];
+            
+//            NSLog(@"yellobjectid:%@",oneModel.yellObject.objectId);
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                
+                count ++;
+                
+                if (array)
+                {
+                    
+                    NSMutableArray *urls = [[NSMutableArray alloc]init];
+                    
+                    for (int d =0; d < array.count; d++) {
+                        
+                        BmobObject *attachObject = array[d];
+                        
+                        SDPhotoItem *it = [[SDPhotoItem alloc]init];
+                        it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
+                        
+                        [urls addObject:it];
+                        
+                        
+                        
+                        
+                    }
+                    
+//                    NSLog(@"photos:%@",array);
+                    
+                    oneModel.photos = urls;
+                    
+                    
+                    
+                }
+                
+                if (count == _weiboListArray.count)
+                {
+                    
+                    [self.tableView reloadData];
+                    
+                }
+            }];
+            
+            
+            
+        }
+        else
+        {
+            count ++;
+        }
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -305,15 +371,21 @@ static NSInteger pageSize = 10;
         
             cell.contentView.tag = indexPath.section;
             
-            for (UIView *subview in imageView.subviews) {
+//            for (UIView *subview in imageView.subviews) {
+//                
+//                [subview removeFromSuperview];
+//                
+//               
+//                
+//            }
                 
-                [subview removeFromSuperview];
+            if (weiboModel.photos)
+            {
+                    
+                imageView.photoItemArray = weiboModel.photos;
+                    
+                }
                 
-               
-                
-                
-            }
-            [self setImageViewWithObject:weiboModel withView:imageView];
                 
             
             CGFloat photoViewHeight = 0;
@@ -409,77 +481,6 @@ static NSInteger pageSize = 10;
 }
 
 
-#pragma mark - 获取图片
--(void)setImageViewWithObject:(YellModel *)weiboModel withView:(SDPhotoGroup*)view
-{
-
-    //
-    
-    if (weiboModel.photos)
-    {
-        
-        view.photoItemArray = weiboModel.photos;
-        
-       
-        
-        return;
-        
-    }
- 
-    
-    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
-    
-    [query whereKey:@"items" equalTo:weiboModel.yellObject];
-    
-
-    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
-        
-        if (error) {
-            
-        }
-        else
-        {
-            if (array.count > 0)
-            {
-                NSMutableArray *imgURLs = [[NSMutableArray alloc ]init];
-                
-                for (int i = 0; i < array.count; i++)
-                {
-                    
-                        
-                      BmobObject *attachObject = array[i];
-
-                    SDPhotoItem *it = [[SDPhotoItem alloc]init];
-                    it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
-                    
-                     [imgURLs addObject:it];
-                        
-                    
-                
-                    
-                 }
-                
-                
-                weiboModel.photos = imgURLs;
-                
-                
-                
-                
-                NSInteger tag = [view superview].tag;
-                
-              
-                NSIndexPath *indexpath = [NSIndexPath indexPathForItem:0  inSection:tag];
-          
-                
-                [self.tableView reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationNone];
-                
-                
-            }
-        }
-        
-    }];
-    
-}
 
 
 

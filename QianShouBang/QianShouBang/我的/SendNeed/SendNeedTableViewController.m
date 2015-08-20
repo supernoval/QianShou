@@ -271,7 +271,7 @@ static CGFloat imagesCellHeight = 70.0;
     
     CGFloat xiaofei = [_xiaofeiTF.text floatValue];
     
-    if (xiaofei < 1)
+    if (xiaofei ==0)
     {
         
         [MyProgressHUD showError:@"小费金额必须大于1"];

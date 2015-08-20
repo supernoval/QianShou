@@ -23,4 +23,9 @@
 
 @property (weak, nonatomic) IBOutlet SDPhotoGroup *photosView;
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *heightContraints;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textHeightContrains;
+
 @end
