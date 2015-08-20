@@ -100,6 +100,29 @@ static NSUInteger pageSize = 10;
     
 }
 
+- (NSString *)getQsCountData{
+    __block NSString *text = @"";
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    [query orderByDescending:@"updatedAt"];
+    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    [query whereKey:kisQsMoneyType equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            NSLog(@"牵手%li",(unsigned long)array.count);
+            if (array.count != 0) {
+                BmobObject *obj = [array firstObject];
+                CGFloat t = [[obj objectForKey:ktIntegralCount]floatValue];
+                text = [NSString stringWithFormat:@"%.1f",t];
+                
+            }
+        }
+    }];
+    return text;
+}
+
+
 
 #pragma mark - Table view data source
 
@@ -137,7 +160,7 @@ static NSUInteger pageSize = 10;
     [yellowView addSubview:text];
     
     UILabel *money = [[UILabel alloc]initWithFrame:CGRectMake(0, 27, 60, 15)];
-    money.text = @"100";
+    money.text = [self getQsCountData];
     money.textAlignment = NSTextAlignmentCenter;
     money.font = FONT_13;
     money.textColor = [UIColor whiteColor];

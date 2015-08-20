@@ -176,6 +176,10 @@
 		D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */; };
 		D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */ = {isa = PBXBuildFile; fileRef = D26965931B832B6A009ACEFD /* AboutQsBi.html */; };
 		D26965A81B847AF3009ACEFD /* city.json in Resources */ = {isa = PBXBuildFile; fileRef = D26965A71B847AF3009ACEFD /* city.json */; };
+		D26965AB1B85BE70009ACEFD /* ApplyVipTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965AA1B85BE70009ACEFD /* ApplyVipTVC.m */; };
+		D26965AE1B85C350009ACEFD /* BlackListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26965AD1B85C350009ACEFD /* BlackListCell.xib */; };
+		D26965B11B85C504009ACEFD /* BlackListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965B01B85C504009ACEFD /* BlackListCell.m */; };
+		D26965B41B85C61B009ACEFD /* BlackListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965B31B85C61B009ACEFD /* BlackListTVC.m */; };
 		D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA891B72EF3C0026D674 /* InfoCell.xib */; };
 		D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D28FEA8B1B72F14B0026D674 /* RowCell.xib */; };
 		D28FEA921B72F2A60026D674 /* RowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D28FEA911B72F2A60026D674 /* RowCell.m */; };
@@ -588,6 +592,13 @@
 		D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HtmlTextIntroduceViewController.m; sourceTree = "<group>"; };
 		D26965931B832B6A009ACEFD /* AboutQsBi.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = AboutQsBi.html; sourceTree = "<group>"; };
 		D26965A71B847AF3009ACEFD /* city.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.json; sourceTree = "<group>"; };
+		D26965A91B85BE70009ACEFD /* ApplyVipTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyVipTVC.h; sourceTree = SOURCE_ROOT; };
+		D26965AA1B85BE70009ACEFD /* ApplyVipTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyVipTVC.m; sourceTree = SOURCE_ROOT; };
+		D26965AD1B85C350009ACEFD /* BlackListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlackListCell.xib; sourceTree = SOURCE_ROOT; };
+		D26965AF1B85C504009ACEFD /* BlackListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackListCell.h; sourceTree = SOURCE_ROOT; };
+		D26965B01B85C504009ACEFD /* BlackListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackListCell.m; sourceTree = SOURCE_ROOT; };
+		D26965B21B85C61B009ACEFD /* BlackListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlackListTVC.h; sourceTree = SOURCE_ROOT; };
+		D26965B31B85C61B009ACEFD /* BlackListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlackListTVC.m; sourceTree = SOURCE_ROOT; };
 		D28FEA891B72EF3C0026D674 /* InfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA8B1B72F14B0026D674 /* RowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RowCell.xib; sourceTree = SOURCE_ROOT; };
 		D28FEA901B72F2A60026D674 /* RowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RowCell.h; sourceTree = SOURCE_ROOT; };
@@ -1586,6 +1597,8 @@
 			children = (
 				13F5B6751B7C415300850683 /* AccountManageTVC.h */,
 				13F5B6761B7C415600850683 /* AccountManageTVC.m */,
+				D26965A91B85BE70009ACEFD /* ApplyVipTVC.h */,
+				D26965AA1B85BE70009ACEFD /* ApplyVipTVC.m */,
 			);
 			name = "账户管理";
 			sourceTree = "<group>";
@@ -1593,6 +1606,7 @@
 		D24C595A1B7B3492006F88D3 /* 隐私 */ = {
 			isa = PBXGroup;
 			children = (
+				D26965AC1B85C30C009ACEFD /* 黑名单 */,
 				13F5B6781B7C419600850683 /* PrivacyTVC.h */,
 				13F5B6791B7C419A00850683 /* PrivacyTVC.m */,
 				13F5B67B1B7C419E00850683 /* NoAddCell.xib */,
@@ -1670,6 +1684,18 @@
 				D26965A71B847AF3009ACEFD /* city.json */,
 			);
 			name = html;
+			sourceTree = "<group>";
+		};
+		D26965AC1B85C30C009ACEFD /* 黑名单 */ = {
+			isa = PBXGroup;
+			children = (
+				D26965AD1B85C350009ACEFD /* BlackListCell.xib */,
+				D26965AF1B85C504009ACEFD /* BlackListCell.h */,
+				D26965B01B85C504009ACEFD /* BlackListCell.m */,
+				D26965B21B85C61B009ACEFD /* BlackListTVC.h */,
+				D26965B31B85C61B009ACEFD /* BlackListTVC.m */,
+			);
+			name = "黑名单";
 			sourceTree = "<group>";
 		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
@@ -1836,6 +1862,7 @@
 				D26965A81B847AF3009ACEFD /* city.json in Resources */,
 				D26965811B81C36F009ACEFD /* AcceptedOrderCell.xib in Resources */,
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
+				D26965AE1B85C350009ACEFD /* BlackListCell.xib in Resources */,
 				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
@@ -1933,6 +1960,7 @@
 				15E183591B7F177C00E13391 /* SDPhotoItem.m in Sources */,
 				13688F471B79A4F800251AC4 /* UIImage+MultiFormat.m in Sources */,
 				137263E01B744E3D0006661C /* JSONAPI.m in Sources */,
+				D26965B11B85C504009ACEFD /* BlackListCell.m in Sources */,
 				137775FC1B730DF7005C2C53 /* SendNeedTableViewController.m in Sources */,
 				15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */,
 				15A7226B1B771686005A2303 /* DataVerifier.m in Sources */,
@@ -1966,6 +1994,7 @@
 				B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
 				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
+				D26965AB1B85BE70009ACEFD /* ApplyVipTVC.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
 				13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */,
@@ -1973,6 +2002,7 @@
 				13688F4A1B79A4F800251AC4 /* UIImageView+WebCache.m in Sources */,
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				132E9FF31B7891DC00B342D7 /* MJRefreshConst.m in Sources */,
+				D26965B41B85C61B009ACEFD /* BlackListTVC.m in Sources */,
 				15E1836F1B80872700E13391 /* Location.m in Sources */,
 				13688F3F1B79A4F800251AC4 /* SDWebImageCompat.m in Sources */,
 				15E1837C1B80E82600E13391 /* UserService.m in Sources */,

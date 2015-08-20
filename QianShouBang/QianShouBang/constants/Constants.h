@@ -114,38 +114,7 @@ typedef NS_ENUM(NSInteger, OrderState)
 
 #define CheckNil(a) (a)==nil?@"":(a)
 
-/*User表对应Key*/
-#define kUser @"_User"
-#define kobjectId @"objectId"
-#define kusername @"username"
-#define kmobilePhoneNumber @"mobilePhoneNumber"
-#define kuser_sex @"user_sex"
-#define kuser_individuality_signature @"user_individuality_signature"
-#define kuser_phone @"user_phone"
-#define knick @"nick"
-#define kavatar @"avatar"
-#define klocation @"location"
-#define kauthData @"authData"
-#define kwheather_allow_add @"wheather_allow_add"
-#define kuser_birthday @"user_birthday"
-#define kuser_city @"user_city"
-#define kbalance @"balance"
-#define kuser_level @"user_level"
 
-/*牵手币商城表*/
-#define kIntergralBean @"IntergralBean"
-#define kintergralGoodsDescription @"intergralGoodsDescription"
-#define kintergralGoodsIcon_url @"intergralGoodsIcon_url"
-#define kintergralGoodsSurplusNumber @"intergralGoodsSurplusNumber"
-#define kintergralGoodsTitle @"intergralGoodsTitle"
-#define kintergralGoodsValue @"intergralGoodsValue"
-
-/*账户明细表*/
-#define kDetailAccount @"DetailAccount"
-
-/*系统消息表对应Key*/
-#define ksystem_msg_content @"system_msg_content"
-#define ksystem_msg_title @"system_msg_title"
 
 #define kDarkTintColor   RGB(49, 46, 46, 1)
 

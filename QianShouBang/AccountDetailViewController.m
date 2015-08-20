@@ -61,6 +61,9 @@ static NSUInteger pageSize = 10;
     [self getData];
 }
 
+
+
+
 - (void)getData{
     
     BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
@@ -68,7 +71,14 @@ static NSUInteger pageSize = 10;
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
     
+    [query orderByDescending:@"updatedAt"];
+    
     [query whereKey:@"user" equalTo:_user];
+    if (self.from == 1) {
+        [query whereKey:kisAccountAmountType equalTo:@YES];
+    }else if(self.from == 2){
+         [query whereKey:kisQsMoneyType equalTo:@YES];
+    }
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
@@ -158,7 +168,7 @@ static NSUInteger pageSize = 10;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return _dataArray.count;
 }
 
 
@@ -172,11 +182,77 @@ static NSUInteger pageSize = 10;
     if (cell == nil) {
         cell = [[AccountCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
     }
-    cell.time.text = @"09/05";
-    cell.fromLabel.text = @"我用支付宝支出";
-    cell.money.text = @"+201";
-    cell.remainMoney.text = @"654";
-   
+    if (_dataArray.count > indexPath.row) {
+        BmobObject *oneObj = [_dataArray objectAtIndex:indexPath.row];
+        NSLog(@"更新时间:%@",[oneObj updatedAt]);
+        cell.time.text = [CommonMethods getMounthAndDay:oneObj.updatedAt];
+        
+        if (self.from == 1) {
+            CGFloat tmoney = [[oneObj objectForKey:ktMoney]floatValue];
+            CGFloat remain_tmoney = [[oneObj objectForKey:ktMoneyCount]floatValue];
+            cell.money.text = [NSString stringWithFormat:@"%.1f",tmoney];
+            cell.remainMoney.text = [NSString stringWithFormat:@"%.1f",remain_tmoney];
+        }else if (self.from == 2){
+            CGFloat tintegral = [[oneObj objectForKey:ktIntegral]floatValue];
+            CGFloat remain_tintegral = [[oneObj objectForKey:ktIntegralCount]floatValue];
+            cell.money.text = [NSString stringWithFormat:@"%.1f",tintegral];
+            cell.remainMoney.text = [NSString stringWithFormat:@"%.1f",remain_tintegral];
+        }
+        
+        
+        if ([oneObj objectForKey:@"income"]) {
+            cell.fromLabel.text = @"赚取金额";
+        }
+        else if ([oneObj objectForKey:@"cash"]){
+            cell.fromLabel.text = @"提取现金";
+        }
+        else if ([oneObj objectForKey:@"failure_pay"]){
+            cell.fromLabel.text = @"退款(发布订单失败)";
+        }
+        else if ([oneObj objectForKey:@"return_money"]){
+            cell.fromLabel.text = @"退款(取消订单)";
+        }
+        
+        
+        else if ([oneObj objectForKey:@"recharge"]){
+            cell.fromLabel.text = @"存钱";
+        }
+        else if ([oneObj objectForKey:@"expenditure"]){
+            if ([oneObj objectForKey:@"openMaster"]) {
+                cell.fromLabel.text = @"(支付宝支付)保证金";
+            }else{
+            cell.fromLabel.text = @"支付宝支出";
+            }
+        }
+        
+        else if ([oneObj objectForKey:@"return_bzj"]){
+            cell.fromLabel.text = @"退还保证金";
+        }
+        
+        else if ([oneObj objectForKey:@"vip"]){
+            cell.fromLabel.text = @"开通会员费(支付宝支出)";
+        }else if ([oneObj objectForKey:@"integral_exchange"]){
+            cell.fromLabel.text = @"牵手币兑换余额";
+        }
+        else if ([oneObj objectForKey:@"pay_error"] || [oneObj objectForKey:@"open_vip_error"]){
+            if ([oneObj objectForKey:@"openMaster"]) {
+                cell.fromLabel.text = @"未支付保证金";
+            }else{
+            cell.fromLabel.text = @"支付失败";
+            }
+        }
+        else if ([oneObj objectForKey:@"isJiangLi"]){
+            if ([oneObj objectForKey:@"release_order_jl"]) {
+                cell.fromLabel.text = @"奖励(发布订单)";
+            }else{
+            cell.fromLabel.text = @"奖励(接单)";
+            }
+        }else if ([oneObj objectForKey:@"cash_error"]){
+            cell.fromLabel.text = @"提现失败";
+        }
+    }
+    
+
     return cell;
 }
 

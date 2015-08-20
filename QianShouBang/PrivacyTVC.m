@@ -8,6 +8,7 @@
 
 #import "PrivacyTVC.h"
 #import "RowTextCell.h"
+#import "BlackListTVC.h"
 
 @interface PrivacyTVC ()
 @property (strong, nonatomic)UISwitch *addSwitch;
@@ -144,9 +145,13 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {//通信录黑名单
+            BlackListTVC *blackList = [sb instantiateViewControllerWithIdentifier:@"BlackListTVC"];
+            [self.navigationController pushViewController:blackList animated:YES];
             
         }
     }

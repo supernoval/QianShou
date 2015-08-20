@@ -51,6 +51,181 @@
             </objects>
             <point key="canvasLocation" x="252" y="-209"/>
         </scene>
+        <!--Apply VipTVC-->
+        <scene sceneID="7Io-74-CpQ">
+            <objects>
+                <tableViewController storyboardIdentifier="ApplyVipTVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1UT-MA-q4p" customClass="ApplyVipTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Moc-Ro-Es8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="5eV-wz-rDf">
+                            <rect key="frame" x="0.0" y="313" width="320" height="61"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btw-Yb-yJ8">
+                                    <rect key="frame" x="8" y="16" width="304" height="30"/>
+                                    <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="02m-gz-gV1"/>
+                                    </constraints>
+                                    <state key="normal" title="注册成VIP会员（金邦果）">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="applyVipAction:" destination="1UT-MA-q4p" eventType="touchUpInside" id="nZb-sw-ssY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="btw-Yb-yJ8" firstAttribute="top" secondItem="5eV-wz-rDf" secondAttribute="top" constant="16" id="Meg-1f-pHx"/>
+                                <constraint firstAttribute="trailing" secondItem="btw-Yb-yJ8" secondAttribute="trailing" constant="8" id="WSD-fe-iBu"/>
+                                <constraint firstItem="btw-Yb-yJ8" firstAttribute="leading" secondItem="5eV-wz-rDf" secondAttribute="leading" constant="8" id="cGv-0b-fo6"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="bt7-5m-KKX">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="67" id="5UW-bj-99P">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5UW-bj-99P" id="qg0-7z-un4">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="非会员(青邦果)每日只能发布5个订单，并且只能提现5次，每次提现金额不能超过100元" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfk-jJ-4K3">
+                                                    <rect key="frame" x="8" y="8" width="304" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.25490196079999999" green="0.68235294120000001" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Tfk-jJ-4K3" firstAttribute="top" secondItem="qg0-7z-un4" secondAttribute="top" constant="8" id="JHI-sq-Wz3"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tfk-jJ-4K3" secondAttribute="bottom" constant="8" id="SlM-8N-wTz"/>
+                                                <constraint firstItem="Tfk-jJ-4K3" firstAttribute="leading" secondItem="qg0-7z-un4" secondAttribute="leading" constant="8" id="s5N-uR-42K"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tfk-jJ-4K3" secondAttribute="trailing" constant="8" id="uxO-K6-0PL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="teB-9j-LGZ">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="teB-9j-LGZ" id="AYI-pR-u8R">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="会员(红邦果)每日只能发布20个订单，并且只能提现10次，每次提现不能超过200元，会员费30元／月" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lrh-oL-AMc">
+                                                    <rect key="frame" x="31" y="8" width="281" height="58"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.83137254900000002" green="0.83137254900000002" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="活动结束" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9q-4V-kNX">
+                                                    <rect key="frame" x="218" y="29" width="94" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="Sbd-kE-hix"/>
+                                                        <constraint firstAttribute="width" constant="94" id="arf-BT-Bw4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_1" translatesAutoresizingMaskIntoConstraints="NO" id="jhD-Rx-c0E">
+                                                    <rect key="frame" x="8" y="29" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="iCj-ny-YcI"/>
+                                                        <constraint firstAttribute="height" constant="15" id="vVn-1k-mfv"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Lrh-oL-AMc" secondAttribute="trailing" constant="8" id="3eE-bw-X3C"/>
+                                                <constraint firstAttribute="trailing" secondItem="n9q-4V-kNX" secondAttribute="trailing" constant="8" id="FqW-cc-3as"/>
+                                                <constraint firstItem="Lrh-oL-AMc" firstAttribute="leading" secondItem="jhD-Rx-c0E" secondAttribute="trailing" constant="8" id="PGI-BD-eyz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Lrh-oL-AMc" secondAttribute="bottom" constant="8" id="eXG-2G-HCj"/>
+                                                <constraint firstItem="Lrh-oL-AMc" firstAttribute="top" secondItem="AYI-pR-u8R" secondAttribute="top" constant="8" id="oUx-zv-grr"/>
+                                                <constraint firstItem="jhD-Rx-c0E" firstAttribute="top" secondItem="AYI-pR-u8R" secondAttribute="top" constant="29" id="sVx-2R-gdA"/>
+                                                <constraint firstAttribute="bottom" secondItem="n9q-4V-kNX" secondAttribute="bottom" constant="17" id="wwo-ve-XML"/>
+                                                <constraint firstItem="jhD-Rx-c0E" firstAttribute="leading" secondItem="AYI-pR-u8R" secondAttribute="leading" constant="8" id="xXw-ri-1bW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="62" id="G1z-BM-6Hg">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G1z-BM-6Hg" id="Obn-Zp-Zs6">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VIP会员(金邦果)发单无限制，提现无限制，VIP会员费399元／年" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKs-xV-kTz">
+                                                    <rect key="frame" x="31" y="8" width="281" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="ard-0l-WYQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip_1" translatesAutoresizingMaskIntoConstraints="NO" id="dSa-69-RFD">
+                                                    <rect key="frame" x="8" y="23" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="64B-ev-NUu"/>
+                                                        <constraint firstAttribute="width" constant="15" id="at7-Ob-JFg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dSa-69-RFD" firstAttribute="top" secondItem="Obn-Zp-Zs6" secondAttribute="top" constant="23" id="EnX-BB-p5k"/>
+                                                <constraint firstItem="dSa-69-RFD" firstAttribute="leading" secondItem="Obn-Zp-Zs6" secondAttribute="leading" constant="8" id="KMf-SW-ZaF"/>
+                                                <constraint firstAttribute="trailing" secondItem="EKs-xV-kTz" secondAttribute="trailing" constant="8" id="NfU-Ft-j2h"/>
+                                                <constraint firstItem="EKs-xV-kTz" firstAttribute="top" secondItem="Obn-Zp-Zs6" secondAttribute="top" constant="8" id="aYI-AV-ZYH"/>
+                                                <constraint firstItem="EKs-xV-kTz" firstAttribute="leading" secondItem="dSa-69-RFD" secondAttribute="trailing" constant="8" id="kE9-S6-LXo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="1UT-MA-q4p" id="FAq-w1-koW"/>
+                            <outlet property="delegate" destination="1UT-MA-q4p" id="UfF-jC-V5g"/>
+                        </connections>
+                    </tableView>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="applyBtn" destination="btw-Yb-yJ8" id="SfZ-Vz-gc9"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kl6-sk-g14" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="-209"/>
+        </scene>
+        <!--Black ListTVC-->
+        <scene sceneID="cOk-ah-on6">
+            <objects>
+                <tableViewController storyboardIdentifier="BlackListTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LF1-Ou-NEp" customClass="BlackListTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="O3F-6f-Rdz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="1hT-DT-CXq">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1hT-DT-CXq" id="gcf-CW-SS5">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LF1-Ou-NEp" id="A5d-Gg-20F"/>
+                            <outlet property="delegate" destination="LF1-Ou-NEp" id="wKJ-Ci-hAm"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c8C-xN-rGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015" y="-209"/>
+        </scene>
         <!--Person Info SettingTVC-->
         <scene sceneID="z3x-sh-trF">
             <objects>
@@ -1014,5 +1189,6 @@
     <resources>
         <image name="head_default" width="125" height="125"/>
         <image name="near_catagory" width="22" height="22"/>
+        <image name="vip_1" width="27" height="27"/>
     </resources>
 </document>

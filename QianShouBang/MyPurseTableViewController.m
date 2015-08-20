@@ -12,6 +12,8 @@
 #import "AccountDetailViewController.h"
 
 @interface MyPurseTableViewController ()
+@property (nonatomic, strong)NSString *tCount;
+@property (nonatomic, strong)NSString *tQsCount;
 
 @end
 
@@ -25,12 +27,55 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     
-    
+    [self getMoneyCountData];
+    [self getQsCountData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
+}
+
+
+- (void)getMoneyCountData{
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    [query orderByDescending:@"updatedAt"];
+    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    [query whereKey:kisAccountAmountType equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            NSLog(@"账户%li",(unsigned long)array.count);
+            if (array.count != 0) {
+                BmobObject *obj = [array firstObject];
+                CGFloat t = [[obj objectForKey:ktMoneyCount]floatValue];
+                self.tCount = [NSString stringWithFormat:@"%.1f",t];
+                [self.tableView reloadData];
+            }
+        }
+    }];
+}
+
+- (void)getQsCountData{
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    [query orderByDescending:@"updatedAt"];
+    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    [query whereKey:kisQsMoneyType equalTo:@YES];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            NSLog(@"牵手%li",(unsigned long)array.count);
+            if (array.count != 0) {
+                BmobObject *obj = [array firstObject];
+                CGFloat t = [[obj objectForKey:ktIntegralCount]floatValue];
+                self.tQsCount = [NSString stringWithFormat:@"%.1f",t];
+                [self.tableView reloadData];
+                
+            }
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -65,13 +110,21 @@
         case 0:
             cell.extraText.hidden = NO;
             cell.text.text = @"钱包余额";
-            cell.extraText.text = @"1元";
+            if (self.tCount == nil) {
+                cell.extraText.text = @"";
+            }else{
+            cell.extraText.text = [NSString stringWithFormat:@"%@元",self.tCount];
+            }
             break;
             
         case 1:
             cell.extraText.hidden = NO;
             cell.text.text = @"牵手币";
-            cell.extraText.text = @"1牵手币";
+            if (self.tQsCount == nil) {
+                cell.extraText.text = @"";
+            }else{
+            cell.extraText.text = [NSString stringWithFormat:@"%@牵手币",self.tQsCount];
+            }
             break;
             
         case 2:

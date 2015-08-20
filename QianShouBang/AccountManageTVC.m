@@ -9,6 +9,7 @@
 #import "AccountManageTVC.h"
 #import "RowTextCell.h"
 #import "ChangeCodeTVC.h"
+#import "ApplyVipTVC.h"
 
 @interface AccountManageTVC ()
 
@@ -96,6 +97,8 @@
             ChangeCodeTVC *changeCode = [storyboard instantiateViewControllerWithIdentifier:@"ChangeCodeTVC"];
             [self.navigationController pushViewController:changeCode animated:YES];
         }else if(indexPath.row == 1){//会员申请
+            ApplyVipTVC *applyVip = [sb instantiateViewControllerWithIdentifier:@"ApplyVipTVC"];
+            [self.navigationController pushViewController:applyVip animated:YES];
         }
     }else if(indexPath.section == 1){
         if (indexPath.row == 0) {//抢单权限申请
