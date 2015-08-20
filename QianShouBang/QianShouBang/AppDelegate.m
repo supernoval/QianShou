@@ -131,6 +131,9 @@
             
             
         }
+        
+        [[NSUserDefaults standardUserDefaults ] setObject:deviceToken forKey:kDeviceTokenData];
+        
         [[NSUserDefaults standardUserDefaults ] setObject:dToken forKey:kDeviceTokenKey];
         
         [[NSUserDefaults standardUserDefaults ] synchronize];

@@ -73,7 +73,7 @@
                     
                     NSData *deviceData = [[NSUserDefaults standardUserDefaults ] dataForKey:kDeviceTokenData];
                     
-                    [[BmobUserManager currentUserManager] checkAndBindDeviceToken:deviceData];
+                    
                     
                     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:kHadLogin];
                     [[NSUserDefaults standardUserDefaults ] synchronize];
@@ -94,8 +94,17 @@
                     
                     [user setObject:location forKey:@"location"];
                     
-                    [user setObject:deviceToken forKey:@"installId"];
-                    [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
+                    NSString *install = [user objectForKey:@"installId"];
+                    if (install.length == 0 && deviceData && deviceToken.length > 0) {
+                        
+                         [user setObject:deviceToken forKey:@"installId"];
+                        
+                        [[BmobUserManager currentUserManager] checkAndBindDeviceToken:deviceData];
+                        
+                      
+                    }
+                   
+                    
                     
                    
                     [user updateInBackground];

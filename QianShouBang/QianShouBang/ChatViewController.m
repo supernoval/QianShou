@@ -100,6 +100,8 @@
     
     //通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideBottomView) name:UIKeyboardWillHideNotification object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewMessage:) name:@"DidRecieveUserMessage" object:nil];
     //
     _chatArray  = [[NSMutableArray alloc] init];
@@ -109,6 +111,8 @@
     //查询本地的消息
     [self performSelector:@selector(searchMessages) withObject:nil afterDelay:0.3f];
     
+    
+    
    
 }
 
@@ -117,13 +121,26 @@
 {
     [super viewDidDisappear:animated];
     
+    [_bottomView removeFromSuperview];
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidRecieveUserMessage" object:nil];
+    
+    
+    
     
 
 }
 
 
+-(void)keyboardWillShow:(NSNotification*)note
+{
+    
+}
+-(void)keyboardWillHide:(NSNotification*)hide
+{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -321,6 +338,8 @@
 
 -(void)hideBottomView{
     [self.view endEditing:YES];
+    [_chatTextField resignFirstResponder];
+    
     CGFloat bottomViewOrginY = 0.0f;
     if (IS_iOS7) {
         bottomViewOrginY = ScreenHeight-44;
@@ -329,6 +348,8 @@
     }
     [UIView animateWithDuration:0.4f animations:^{
         [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 144)];
+        
+//         self.view.center = CGPointMake(self.view.center.x, ScreenHeight/2);
     }];
     
     UIButton *hideKeyBoardButton =(UIButton*) [self.view viewWithTag:kHideButtonTag];
@@ -350,8 +371,12 @@
             bottomViewOrginY = ScreenHeight-64-44-keyboardEndRect.size.height;
         }
         
+        
         [UIView animateWithDuration:0.4f animations:^{
             [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 200)];
+            
+//            self.view.center = CGPointMake(self.view.center.x,ScreenHeight/2 - keyboardEndRect.size.height);
+            
         }];
         
         UIButton *hideKeyBoardButton =(UIButton*) [self.view viewWithTag:kHideButtonTag];
