@@ -23,7 +23,7 @@ static CGFloat imagesCellHeight = 70.0;
 
 
 
-@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate>
+@interface SendNeedTableViewController ()<UITextViewDelegate,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
 {
     RewardLimitationModel *rewardModel;
     
@@ -40,6 +40,10 @@ static CGFloat imagesCellHeight = 70.0;
     
     double _latitude;
     double _longitude;
+    
+    UIAlertView *_sucessPayAlert;
+    
+    UIAlertView *_failPayAlert;
     
     
     
@@ -267,7 +271,8 @@ static CGFloat imagesCellHeight = 70.0;
     
     CGFloat xiaofei = [_xiaofeiTF.text floatValue];
     
-    if (xiaofei < 1) {
+    if (xiaofei < 1)
+    {
         
         [MyProgressHUD showError:@"小费金额必须大于1"];
         
@@ -290,34 +295,14 @@ static CGFloat imagesCellHeight = 70.0;
     
     if (_PhotosArray.count > 0) {
         
-        NSMutableArray *photosDataArray = [[NSMutableArray alloc]init];
+          [MyProgressHUD showProgress];
         
-        for (NSInteger i = 0 ; i  < _PhotosArray.count ; i ++) {
-            
-            UIImage *oneImage = [_PhotosArray objectAtIndex:i];
-            NSData *imageData = UIImageJPEGRepresentation(oneImage, 1);
-            
-            
-            
-            NSDictionary *imagedataDic = @{@"data":imageData,@"filename":@"image.jpg"};
-            
-            [photosDataArray addObject:imagedataDic];
-            
-            
-        }
-        
-        
-        
-        [MyProgressHUD showProgress];
-        
-        
-        [BmobProFile uploadFilesWithDatas:photosDataArray resultBlock:^(NSArray *filenameArray, NSArray *urlArray, NSArray *bmobFileArray, NSError *error) {
-            
-            
-            
-            if (error) {
+        [CommonMethods upLoadPhotos:_PhotosArray resultBlock:^(BOOL success, NSArray *results) {
+          
+            if (!success)
+            {
                 
-                NSLog(@"%s,error:%@",__func__,error);
+           
                 
                 NSLog(@"图片上传失败");
                 
@@ -326,62 +311,16 @@ static CGFloat imagesCellHeight = 70.0;
             }else
             {
                 
-                NSLog(@"filename:%@  urlArray:%@",filenameArray,urlArray);
+                NSLog(@"filename:%@ ",results);
                 
                 
-                if (bmobFileArray.count > 0) {
-                    
-                    
-                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
-                    NSMutableArray *files = [[NSMutableArray alloc]init];
-                    
-                    
-                    for (int i = 0 ; i < bmobFileArray.count; i ++) {
-                        
-                        BmobFile *onefile = [bmobFileArray objectAtIndex:i];
-                        
-                        NSString *url = onefile.url;
-                        
-                        
-                   
-                        BmobObject *attachObject = [[BmobObject alloc]initWithClassName:kAttachItem];
-                        
-                        [attachObject setObject:url forKey:@"attach_name"];
-                        [attachObject setObject:url forKey:@"attach_url"];
-                        
-                        [files addObject:attachObject];
-                        
-                      
-                        [batch saveBmobObjectWithClassName:kAttachItem parameters:@{@"attach_name":url,@"attach_url":url}];
-                        
-                        
-                        
-                        
-                    }
-                    
-                    [self setjiangliMoney:files];
-                    
-//                    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//                        
-//                        if (isSuccessful) {
-//                            
-//                            
-//                            
-//                            
-//                        }
-//                    }];
-            
-                    
-                    
-                    
-                }
+                [self setjiangliMoney:results];
+                
             }
             
-            
-        } progress:^(NSUInteger index, CGFloat progress) {
-            
-            
         }];
+        
+      
         
         
         
@@ -414,7 +353,7 @@ static CGFloat imagesCellHeight = 70.0;
 
 #pragma mark - 先设置奖励
 
--(void)setjiangliMoney:(NSMutableArray*)picFilesObjects
+-(void)setjiangliMoney:(NSArray*)picFilesObjects
 {
     
   
@@ -526,7 +465,7 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
--(void)summitWithAttachObject:(NSMutableArray*)attachObjects jiangli:(CGFloat)jiangli
+-(void)summitWithAttachObject:(NSArray*)attachObjects jiangli:(CGFloat)jiangli
 {
     
     NSString *desc = _needTF.text;
@@ -605,6 +544,7 @@ static CGFloat imagesCellHeight = 70.0;
         BmobRelation *imageRelation = [[BmobRelation alloc]init];
         
         for (int i = 0; i < attachObjects.count; i ++) {
+            
             BmobObject *oneAttach = attachObjects[i];
             
             [imageRelation addObject:oneAttach];
@@ -626,9 +566,14 @@ static CGFloat imagesCellHeight = 70.0;
        
         if (isSuccessful) {
             
+            
+            [self addItems:attachObjects weiboItem:orderObject];
+            
+            
+            
             [self saveDetailAccount:orderObject];
             
-            
+       
             
         }
         else
@@ -644,7 +589,32 @@ static CGFloat imagesCellHeight = 70.0;
         
     }];
 }
-
+#pragma mark - 往AttachItem 添加 order point
+-(void)addItems:(NSArray*)attachItems weiboItem:(BmobObject*)orderitem
+{
+    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+    
+    for (int i = 0 ; i < attachItems.count; i ++) {
+        BmobObject *oneItem = [attachItems objectAtIndex:i];
+        
+        [batch updateBmobObjectWithClassName:kAttachItem objectId:oneItem.objectId parameters:@{@"order":orderitem}];
+        
+        
+    }
+    
+    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        
+        [MyProgressHUD dismiss];
+        
+  
+        
+        
+    }];
+    
+    
+    
+}
 #pragma mark - 保存订单
 
 #pragma mark - 保存明细
@@ -733,7 +703,7 @@ static CGFloat imagesCellHeight = 70.0;
     order.seller = kAliPaySellerID;
     
     
-    order.tradeNO = [NSString stringWithFormat:@"%@,%@",orderObject.objectId,detailObject.objectId]; //订单ID（由商家自行制定）
+    order.tradeNO = [NSString stringWithFormat:@"%@/%@",orderObject.objectId,detailObject.objectId]; //订单ID（由商家自行制定）
     
     order.productName = [orderObject objectForKey:@"order_title"]; //商品标题
     
@@ -771,15 +741,43 @@ static CGFloat imagesCellHeight = 70.0;
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             NSLog(@"%s,reslut = %@",__func__,resultDic);
             
-            [MyProgressHUD dismiss];
+        
             
             NSInteger resultStatus = [[resultDic objectForKey:@"resultStatus"]integerValue];
             if (resultStatus == 9000) {
                 
                 
+                [orderObject setObject:@(OrderStatePayedUnAccepted) forKey:@"order_state"];
+                [orderObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                    
+                     [MyProgressHUD dismiss];
+                    
+                    if (isSuccessful)
+                    {
+                        
+                        
+                        _sucessPayAlert = [[UIAlertView alloc]initWithTitle:nil message:@"支付成功，订单发布成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil] ;
+                        
+                        [_sucessPayAlert show];
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                    
+                }];
+                
+                
+                
+                
+           
+                
             }
             else
             {
+                
+                  [MyProgressHUD dismiss];
                 
                 NSString *memo = [resultDic objectForKey:@"memo"];
                 if (memo.length == 0) {
@@ -788,7 +786,10 @@ static CGFloat imagesCellHeight = 70.0;
                 }
                 
                 
-                [[[UIAlertView alloc]initWithTitle:nil message:memo delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil]show];
+                _failPayAlert = [[UIAlertView alloc]initWithTitle:nil message:memo delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                
+                [_failPayAlert show];
+                
                 
                 
                 
@@ -1008,6 +1009,19 @@ static CGFloat imagesCellHeight = 70.0;
     
 }
 
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _sucessPayAlert || alertView == _failPayAlert)
+    {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

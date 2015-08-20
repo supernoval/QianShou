@@ -92,6 +92,8 @@
                 case 0: //已接订单
                 {
                     TheAcceptedOrderTVC *theAcceptOrder = [sb instantiateViewControllerWithIdentifier:@"TheAcceptedOrderTVC"];
+                    theAcceptOrder.hidesBottomBarWhenPushed =YES;
+                    
                     [self.navigationController pushViewController:theAcceptOrder animated:YES];
                     
                     

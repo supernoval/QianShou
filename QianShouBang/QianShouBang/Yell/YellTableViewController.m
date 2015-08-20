@@ -262,6 +262,18 @@ static NSInteger pageSize = 10;
                 
             BmobUser *user = [weiboModel.yellObject objectForKey:@"user"];
             
+                NSInteger viplevel = [[user objectForKey:@"user_level"]integerValue];
+                if (viplevel == 2) {
+                    
+                    vipImageView.hidden = NO;
+                }
+                else
+                {
+                    vipImageView.hidden = YES;
+                    
+                }
+                
+                
             [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]]];
             
             
@@ -314,16 +326,11 @@ static NSInteger pageSize = 10;
             CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
             int totalRowCount = ceil(imageCount / perRowImageCountF);
             photoViewHeight  = 95 * totalRowCount;
-                        
-         
-            
-            
+                
+        
             cell.photoViewHeight.constant = photoViewHeight;
             
             
-            
-            
-        
             
             timeLabel.text = [CommonMethods timeStringFromNow:weiboModel.yellObject.createdAt];
             
@@ -412,8 +419,6 @@ static NSInteger pageSize = 10;
     {
         
         view.photoItemArray = weiboModel.photos;
-        
-       
         
        
         

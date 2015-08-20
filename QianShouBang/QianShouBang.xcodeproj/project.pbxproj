@@ -57,6 +57,7 @@
 		137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137775F71B72F430005C2C53 /* MineTableViewController.m */; };
 		137775FC1B730DF7005C2C53 /* SendNeedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 137775FB1B730DF7005C2C53 /* SendNeedTableViewController.m */; };
 		137776241B735273005C2C53 /* RewardLimitationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137776231B735273005C2C53 /* RewardLimitationModel.m */; };
+		137E107C1B859F9E009DDE48 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 137E107B1B859F9E009DDE48 /* MZTimerLabel.m */; };
 		13838B561B719F5F007CA809 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B551B719F5F007CA809 /* libz.dylib */; };
 		13838B581B719F69007CA809 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B571B719F69007CA809 /* MessageUI.framework */; };
 		13838B5A1B71A0C8007CA809 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13838B591B71A0C8007CA809 /* AddressBook.framework */; };
@@ -305,6 +306,8 @@
 		137775FB1B730DF7005C2C53 /* SendNeedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendNeedTableViewController.m; path = SendNeed/SendNeedTableViewController.m; sourceTree = "<group>"; };
 		137776221B735273005C2C53 /* RewardLimitationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RewardLimitationModel.h; path = UserModel/RewardLimitationModel.h; sourceTree = "<group>"; };
 		137776231B735273005C2C53 /* RewardLimitationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RewardLimitationModel.m; path = UserModel/RewardLimitationModel.m; sourceTree = "<group>"; };
+		137E107A1B859F9A009DDE48 /* MZTimerLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		137E107B1B859F9E009DDE48 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
 		13838B551B719F5F007CA809 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		13838B571B719F69007CA809 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		13838B591B71A0C8007CA809 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -891,6 +894,15 @@
 			name = RewardLimitation;
 			sourceTree = "<group>";
 		};
+		137E10791B859F8F009DDE48 /* countdownLabel */ = {
+			isa = PBXGroup;
+			children = (
+				137E107A1B859F9A009DDE48 /* MZTimerLabel.h */,
+				137E107B1B859F9E009DDE48 /* MZTimerLabel.m */,
+			);
+			name = countdownLabel;
+			sourceTree = "<group>";
+		};
 		13838B5D1B71A50A007CA809 /* regist */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1056,7 @@
 		13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */ = {
 			isa = PBXGroup;
 			children = (
+				137E10791B859F8F009DDE48 /* countdownLabel */,
 				15E1834A1B7F177C00E13391 /* SDPhotoBrowser */,
 				15E183381B7F170B00E13391 /* SDPhotoBrowser */,
 				13688F1A1B79A4F800251AC4 /* SDWebImage */,
@@ -1863,6 +1876,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				132E9FF21B7891DC00B342D7 /* MJRefreshComponent.m in Sources */,
+				137E107C1B859F9E009DDE48 /* MZTimerLabel.m in Sources */,
 				13688F431B79A4F800251AC4 /* SDWebImageManager.m in Sources */,
 				13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */,
 				D28FEAB91B7352560026D674 /* PersonInfoSettingTVC.m in Sources */,

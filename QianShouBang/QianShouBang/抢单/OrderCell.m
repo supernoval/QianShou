@@ -11,7 +11,13 @@
 @implementation OrderCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+    
+    self.accepteButton.clipsToBounds=YES;
+    self.accepteButton.layer.cornerRadius = 15;
+    
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,4 +26,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)acceptAction:(id)sender {
+    
+    
+    
+    
+    
+}
 @end

@@ -496,6 +496,21 @@
     
 }
 
++(NSString*)distanceStringWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude
+{
+    double dis = [self distanceFromLocation:latitude longitude:longitude];
+    
+    if (dis < 1000) {
+        
+        return [NSString stringWithFormat:@"距离:%.0fm",dis];
+    }
+    else
+    {
+        return [NSString stringWithFormat:@"距离:%.2fKM",dis/1000.0];
+        
+    }
+}
+
 +(NSString*)timeStringFromNow:(NSDate*)Thattime
 {
     
@@ -715,5 +730,22 @@
     
 }
 
++(double)timeLeft:(NSString *)sinceTimeStr
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+    
+    NSDate *fromDate = [formatter dateFromString:sinceTimeStr];
+    
+    
+    double secends = [[NSDate date] timeIntervalSinceDate:fromDate];
+    
+//    NSLog(@"fromDate:%@",fromDate);
+    
+    return (3600 - secends);
+    
+    
+    
+}
 
 @end

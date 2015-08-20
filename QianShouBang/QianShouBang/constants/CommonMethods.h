@@ -12,7 +12,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <BmobSDK/Bmob.h>
-
+#import "StringHeight.h"
 typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 
@@ -89,9 +89,16 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma mark - 计算距离
 +(double)distanceFromLocation:(CGFloat)latitude  longitude:(CGFloat)longitude;
 
+#pragma  mark - 得到距离字符串
++(NSString*)distanceStringWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude;
+
 
 #pragma mark -  获取几天前
 +(NSString*)timeStringFromNow:(NSDate*)Thattime;
+
+#pragma mark - 获取剩余时间
++(double )timeLeft:(NSString*)sinceTimeStr;
+
 
 #pragma mark - 获取date中的月日
 + (NSString *)getMounthAndDay:(NSDate *)dateTime;

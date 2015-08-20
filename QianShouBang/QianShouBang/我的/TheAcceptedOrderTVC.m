@@ -8,10 +8,16 @@
 
 #import "TheAcceptedOrderTVC.h"
 #import "AcceptedOrderCell.h"
+#import "LocationViewController.h"
+#import "MZTimerLabel.h"
+#import "YellModel.h"
+#import "SDPhotoItem.h"
+#import "SDPhotoGroup.h"
+
 
 static NSUInteger pageSize = 10;
 
-@interface TheAcceptedOrderTVC ()
+@interface TheAcceptedOrderTVC ()<MZTimerLabelDelegate>
 
 @end
 
@@ -64,10 +70,14 @@ static NSUInteger pageSize = 10;
 
 - (void)getData{
     
+    BmobUser *user = [BmobUser getCurrentUser];
+    
     BmobQuery *query = [BmobQuery queryWithClassName:kOrder];
     query.limit = pageSize;
     query.skip = pageSize * pageIndex;
     
+    [query includeKey:@"user"];
+    [query whereKey:@"receive_user" equalTo:user];
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -84,10 +94,23 @@ static NSUInteger pageSize = 10;
                 
             }
             
-            [_dataArray addObjectsFromArray:array];
+            for (int i = 0; i < array.count; i ++) {
+                
+                BmobObject *orderObject = [array objectAtIndex:i];
+                
+                YellModel *model = [[YellModel alloc]init];
+                
+                model.yellObject = orderObject;
+                
+                [_dataArray addObject:model];
+                
+                
+            }
             
-            NSLog(@"*******______----:%lu",(unsigned long)_dataArray.count);
-            [self.tableView reloadData];
+            
+            [self getPhotos];
+            
+    
         }
         
         
@@ -96,11 +119,57 @@ static NSUInteger pageSize = 10;
     
 }
 
+-(void)getPhotos
+{
+    
+   __block NSInteger count = 0;
+    
+    for (int i = 0; i < _dataArray.count; i ++) {
+        
+        YellModel *oneModel = _dataArray[i];
+        
+        if (!oneModel.photos)
+        {
+            BmobQuery *query = [[BmobQuery alloc]initWithClassName:kAttachItem];
+            
+            [query whereKey:@"items" equalTo:oneModel.yellObject];
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+             
+                count ++;
+                
+                if (array)
+                {
+                    
+                    oneModel.photos = array;
+                    
+//                    NSLog(@"")
+                    
+                }
+                
+                if (count == _dataArray.count)
+                {
+                    
+                    [self.tableView reloadData];
+                    
+                }
+            }];
+            
+            
+            
+        }
+        else
+        {
+            count ++;
+        }
+        
+    }
+}
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return _dataArray.count + 10;
+    return _dataArray.count ;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -114,7 +183,8 @@ static NSUInteger pageSize = 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 163;
+    
+    return 235;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -124,10 +194,73 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"AcceptedOrderCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
-    if (_dataArray.count > indexPath.row) {
+    cell.contentView.tag = indexPath.section;
+    
+    if (_dataArray.count > indexPath.section)
+    {
+        
+        YellModel *model = [_dataArray objectAtIndex:indexPath.section];
+        
+        BmobObject *_orderObject = model.yellObject;
+        
+        BmobUser *publishUser = [_orderObject objectForKey:@"user"];
+        
+        NSString *nick = [publishUser objectForKey:@"nick"];
+        
+        double nickWith = [StringHeight widthtWithText:nick font:FONT_16 constrainedToHeight:250];
+        cell.name_width.constant = nickWith;
         
         
+        cell.people_send.text =nick;
         
+        NSString *orderTime = [_orderObject objectForKey:@"order_start_time"];
+        
+        
+        NSString *title = [_orderObject objectForKey:@"order_title"];
+        
+        NSString *description = [_orderObject objectForKey:@"order_description"];
+        
+        NSString *address  = [_orderObject objectForKey:@"order_address"];
+        
+        cell.time.text = orderTime;
+        
+        cell.title.text = title;
+        
+        cell.descriptionLabel.text = description;
+        
+        
+        [cell.addressButton setTitle:address forState:UIControlStateNormal];
+        
+        [cell.addressButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+        //图片
+        if (model.photos) {
+            
+            cell.photosView.photoItemArray = model.photos;
+            
+            NSLog(@"photos:%@",model.photos);
+        }
+        
+        //倒计时
+        
+        
+        for (UIView *labelview in cell.remainTime.subviews) {
+            
+            [labelview removeFromSuperview];
+            
+        }
+            MZTimerLabel *_timerLabel = [[MZTimerLabel alloc] initWithLabel:cell.remainTime andTimerType:MZTimerLabelTypeTimer];
+            
+            double lefttime= [CommonMethods timeLeft:[_orderObject objectForKey:@"order_start_time"] ];
+            
+         
+            [_timerLabel setCountDownTime:lefttime];
+            _timerLabel.delegate = self;
+            [_timerLabel start];
+            
+        
+      
     }
     
     
@@ -142,5 +275,105 @@ static NSUInteger pageSize = 10;
 }
 
 
+#pragma mark - 显示地理位置
+- (void)showLocation:(UIButton*)sender
+{
+    
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    
+    BmobObject *orderObject = [_dataArray objectAtIndex:cell.tag];
+    BmobGeoPoint *point = [orderObject objectForKey:@"location"];
+    
+    LocationViewController *locVC = [[LocationViewController alloc]initWithLocationCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude)];
+    locVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:locVC animated:YES];
+    
+    
+}
+
+#pragma mark- MZTimerLabelDelegate
+- (NSString*)timerLabel:(MZTimerLabel *)timerLabel customTextToDisplayAtTime:(NSTimeInterval)time
+{
+    int second = (int)time  % 60;
+    int minute = ((int)time / 60) % 60;
+    int hours = ((int)(time / 3600))%24;
+//    int days = (int)(time/3600/24);
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours,minute,second];
+    //    return [NSString stringWithFormat:@"剩余%1d天 %02d:%02d:%02d",days,hours,minute,second];
+}
+
+
+#pragma mark - 获取图片
+-(void)setImageViewWithObject:(YellModel *)weiboModel withView:(SDPhotoGroup*)view
+{
+    
+    //
+    
+    if (weiboModel.photos)
+    {
+        
+        view.photoItemArray = weiboModel.photos;
+        
+        
+        
+        return;
+        
+    }
+    
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kAttachItem];
+    
+    [query whereKey:@"items" equalTo:weiboModel.yellObject];
+    
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        if (error) {
+            
+        }
+        else
+        {
+            if (array.count > 0)
+            {
+                NSMutableArray *imgURLs = [[NSMutableArray alloc ]init];
+                
+                for (int i = 0; i < array.count; i++)
+                {
+                    
+                    
+                    BmobObject *attachObject = array[i];
+                    
+                    SDPhotoItem *it = [[SDPhotoItem alloc]init];
+                    it.thumbnail_pic =[attachObject objectForKey:@"attach_url"];
+                    
+                    [imgURLs addObject:it];
+                    
+                    
+                    
+                    
+                }
+                
+                
+                weiboModel.photos = imgURLs;
+                
+                
+                
+                
+                NSInteger tag = [view superview].tag;
+                
+                
+                NSIndexPath *indexpath = [NSIndexPath indexPathForItem:0  inSection:tag];
+                
+                
+                [self.tableView reloadRowsAtIndexPaths:@[indexpath] withRowAnimation:UITableViewRowAnimationNone];
+                
+                
+            }
+        }
+        
+    }];
+    
+}
 
 @end

@@ -10,5 +10,6 @@
 #import "Constants.h"
 @interface CatchOrderTVC : BaseTableViewController
 
+- (IBAction)getDistance:(id)sender;
 
 @end

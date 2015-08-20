@@ -13,23 +13,13 @@
 #import "CatchOrderTVC.h"
 #import "LoginViewController.h"
 #import "OrderCell.h"
+#import "StringHeight.h"
+#import "LocationViewController.h"
 
 static NSString *orderCellId = @"orderCell";
 
 
-typedef NS_ENUM(NSInteger, OrderState)
-{
-    OrderStateUnPay = 3, //未付款
-    OrderStateDone = 4,// 完成
-    OrderStateAccepted = 2,//被接单
-    OrderStatePayedUnAccepted = 1,//已付款未接单
-    OrderStateAcceperCancel = 5, //接单者取消订单
-    OrderStatePublishCancel = 6, //发单者取消订单
-    OrderStateDelete = 10, //删除订单记录
-    
-    
-    
-};
+
 
 @interface CatchOrderTVC ()
 {
@@ -39,6 +29,13 @@ typedef NS_ENUM(NSInteger, OrderState)
     
     NSInteger pageNum;
     NSInteger pageSize;
+    
+    BmobGeoPoint *currentPoint;
+    
+    double distance;
+    
+    UIView *rightView;
+    
     
     
 }
@@ -55,6 +52,12 @@ typedef NS_ENUM(NSInteger, OrderState)
     
     pageNum = 0;
     pageSize = 10;
+    
+    
+    currentPoint = [[BmobUser getCurrentUser] objectForKey:@"location"];
+    distance = 1000000;
+    
+    rightView = [self  nearCatagoryVeiw];
     
     [self addHeaderRefresh];
     [self addFooterRefresh];
@@ -105,6 +108,8 @@ typedef NS_ENUM(NSInteger, OrderState)
 {
     BmobQuery *query = [BmobQuery queryWithClassName:kOrder];
     
+    [query whereKey:@"location" nearGeoPoint:currentPoint withinKilometers:distance];
+    
     [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
     query.limit = pageSize;
     query.skip = pageSize *pageNum;
@@ -117,7 +122,11 @@ typedef NS_ENUM(NSInteger, OrderState)
         
         if (array.count > 0)
         {
-            
+            if (pageNum == 0) {
+                
+                [_ordersArray removeAllObjects];
+                
+            }
               [_ordersArray addObjectsFromArray:array];
             
               [self.tableView reloadData];
@@ -159,7 +168,7 @@ typedef NS_ENUM(NSInteger, OrderState)
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 144;
+    return 180;
     
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -171,7 +180,55 @@ typedef NS_ENUM(NSInteger, OrderState)
 {
     OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCellId];
     
-    
+    if (indexPath.section < _ordersArray.count) {
+        
+        BmobObject *_object = [_ordersArray objectAtIndex:indexPath.section];
+        
+        BmobUser *_user = [_object objectForKey:@"user"];
+        
+        NSString *avatar = [_user objectForKey:@"avatar"];
+        NSString *nick = [_user objectForKey:@"nick"];
+        BOOL agent_user = [[_user objectForKey:@"agent_user"]boolValue];
+        
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        
+        cell.nicknameLabel.text = nick;
+        CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_16 constrainedToHeight:200];
+        cell.nicknameLabelWithConstraint.constant = nickwith;
+        
+        if (agent_user) {
+            
+            cell.vipImageView.hidden = NO;
+        }
+        else
+        {
+            cell.vipImageView.hidden = YES;
+            
+        }
+        
+        CGFloat order_commission = [[_object objectForKey:@"order_commission"]floatValue];
+        NSString *order_description = [_object objectForKey:@"order_description"];
+        
+        cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
+        cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
+        
+        NSString *order_address = [_object objectForKey:@"order_address"];
+        BmobGeoPoint *point = [_object objectForKey:@"location"];
+        NSString * distanceStr = [CommonMethods distanceStringWithLatitude:point.latitude longitude:point.longitude];
+        
+        
+        [cell.locationButton setTitle:order_address forState:UIControlStateNormal];
+        [cell.locationButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
+        
+        cell.distanceLabel.text = distanceStr;
+        
+        cell.contentView.tag = indexPath.section;
+       
+        [cell.accepteButton addTarget:self
+                               action:@selector(catchOrder:)
+                     forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     
     return cell;
     
@@ -194,19 +251,188 @@ typedef NS_ENUM(NSInteger, OrderState)
     
 }
 
+#pragma mark- 右上角弹出框
+- (UIView *)nearCatagoryVeiw{
+    CGFloat width = 100;
+    CGFloat height = 120;
+    UIView *greenView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
+    greenView.backgroundColor = kBlueColor;
+    
+    [CommonMethods addLine:15 startY:height/3 color:[UIColor whiteColor] toView:greenView];
+    [CommonMethods addLine:15 startY:height*2/3 color:[UIColor whiteColor] toView:greenView];
+    
+    
+    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
+    femaleBtn.backgroundColor = [UIColor clearColor];
+    [femaleBtn setTitle:@"5KM" forState:UIControlStateNormal];
+    [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [femaleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    femaleBtn.titleLabel.font = FONT_16;
+    [femaleBtn addTarget:self action:@selector(fiveKiloMeters) forControlEvents:UIControlEventTouchUpInside];
+    [greenView addSubview:femaleBtn];
+    
+    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
+    maleBtn.backgroundColor = [UIColor clearColor];
+    [maleBtn setTitle:@"10KM" forState:UIControlStateNormal];
+    [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [maleBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    maleBtn.titleLabel.font = FONT_16;
+    [maleBtn addTarget:self action:@selector(tenKiloMeters) forControlEvents:UIControlEventTouchUpInside];
+    [greenView addSubview:maleBtn];
+    
+    
+    
+    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
+    greetBtn.backgroundColor = [UIColor clearColor];
+    [greetBtn setTitle:@"不限距离" forState:UIControlStateNormal];
+    [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [greetBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    greetBtn.titleLabel.font = FONT_16;
+    [greetBtn addTarget:self action:@selector(unlimitDistance) forControlEvents:UIControlEventTouchUpInside];
+    [greenView addSubview:greetBtn];
+    
+    
+    UIControl *backView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0,ScreenWidth, ScreenHeight- 64)];
+    
+    backView.backgroundColor = kTransParentBackColor;
+    
+    [backView addTarget:self action:@selector(dismissRight) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backView addSubview:greenView];
+    
+    
+    return backView;
+}
+
+- (void)fiveKiloMeters
+{
+    distance = 5;
+    
+    [self headerRefresh];
+    
+    [self dismissRight];
+    
+}
+
+-(void)tenKiloMeters
+{
+    distance = 10;
+    
+    [self headerRefresh];
+    
+    [self dismissRight];
+}
+
+-(void)unlimitDistance
+{
+    distance = 1000000;
+    
+    [self headerRefresh];
+    
+    
+    [self dismissRight];
+}
+
+- (void)dismissRight
+{
+    [rightView removeFromSuperview];
+    
+}
+
+#pragma mark - 抢单
+- (void)catchOrder:(UIButton*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    
+    BmobObject *orderObject = [_ordersArray objectAtIndex:cell.tag];
+    
+    BmobUser *user = [orderObject objectForKey:@"user"];
+    
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    //判断是不是自己发的订单
+    if ([user.objectId isEqualToString:currentUser.objectId]) {
+        
+        [CommonMethods showDefaultErrorString:@"不能抢自己的订单"];
+        
+        return;
+        
+    }
+    
+    [orderObject setObject:user forKey:@"user"];
+    [orderObject setObject:currentUser forKey:@"receive_user"];
+    
+    [orderObject setObject:@(OrderStateAccepted) forKey:@"order_state"];
+    
+    
+    //抢单时间
+    NSString *startString = [CommonMethods getYYYYMMddhhmmDateStr:[NSDate date]];
+    
+    [orderObject setObject:startString forKey:@"order_start_time"];
+    [orderObject setObject:@(1) forKey:@"order_timeType"];
+    
+    
+    
+    [MyProgressHUD showProgress];
+    
+    [orderObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+       
+        [MyProgressHUD dismiss];
+        
+        if (isSuccessful) {
+            
+            [CommonMethods showDefaultErrorString:@"抢单成功"];
+            
+            [self headerRefresh];
+            
+            
+        }
+        else
+        {
+            [CommonMethods showDefaultErrorString:@"抢单失败"];
+            NSLog(@"%@",error);
+            
+        }
+    }];
+    
+}
+
+#pragma mark - 显示地理位置
+- (void)showLocation:(UIButton*)sender
+{
+    
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    
+    BmobObject *orderObject = [_ordersArray objectAtIndex:cell.tag];
+    BmobGeoPoint *point = [orderObject objectForKey:@"location"];
+    
+    LocationViewController *locVC = [[LocationViewController alloc]initWithLocationCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude)];
+    locVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:locVC animated:YES];
+      
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
+
+- (IBAction)getDistance:(id)sender {
+    
+    if (rightView.superview) {
+        
+        [rightView removeFromSuperview];
+        
+    }
+    
+    else
+    {
+        [self.view addSubview:rightView];
+        
+    }
+}
 @end

@@ -6,6 +6,19 @@
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
+typedef NS_ENUM(NSInteger, OrderState)
+{
+    OrderStateUnPay = 3, //未付款
+    OrderStateDone = 4,// 完成
+    OrderStateAccepted = 2,//被接单
+    OrderStatePayedUnAccepted = 1,//已付款未接单
+    OrderStateAcceperCancel = 5, //接单者取消订单
+    OrderStatePublishCancel = 6, //发单者取消订单
+    OrderStateDelete = 10, //删除订单记录
+    
+    
+    
+};
 
 //支付宝
 #define kAliPayPartnerID  @"2088811228816728"

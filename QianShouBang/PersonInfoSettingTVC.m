@@ -17,7 +17,7 @@
 #import "PickAddressView.h"
 
 
-@interface PersonInfoSettingTVC ()
+@interface PersonInfoSettingTVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong)UIActionSheet *sexAC;
 @property (nonatomic, strong)UIActionSheet *pickPhotoActionSheet;
 @property (nonatomic, strong)PickDateView *pickDateView ;
@@ -414,7 +414,7 @@
     
     [_pickAddressView pickAddressBlock:^(NSDictionary *addressDic){
         if (addressDic != nil) {
-            NSString *address = [NSString stringWithFormat:@"%@-%@-%@",[addressDic objectForKey:@"province"],[addressDic objectForKey:@"city"],[addressDic objectForKey:@"town"]];
+           __block NSString *address = [NSString stringWithFormat:@"%@-%@-%@",[addressDic objectForKey:@"province"],[addressDic objectForKey:@"city"],[addressDic objectForKey:@"town"]];
             BmobUser *user = [BmobUser getCurrentUser];
             [MyProgressHUD showProgress];
             [user setObject:address forKey:kuser_city];
@@ -447,7 +447,7 @@
                 [user setObject:dateStr forKey:kuser_birthday];
                 [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
                     if (isSuccessful) {
-                        [self getCurrentUserInfo];
+                       [self getCurrentUserInfo];
                         [MyProgressHUD dismiss];
                         
                         [CommonMethods showAlertString:@"修改生日成功!" delegate:self tag:11];
