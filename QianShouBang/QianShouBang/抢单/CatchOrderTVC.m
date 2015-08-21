@@ -117,6 +117,9 @@ static NSString *orderCellId = @"orderCell";
     query.skip = pageSize *pageNum;
     [query includeKey:@"user"];
     
+    [query whereKey:@"order_type" equalTo:@(0)];
+    
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         [self endHeaderRefresh];
@@ -273,7 +276,8 @@ static NSString *orderCellId = @"orderCell";
         
         NSString *text  = [weiboModel.yellObject objectForKey:@"order_description"];;
         
-        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:200];
+        textHeight = [StringHeight heightWithText:text font:FONT_15 constrainedToWidth:ScreenWidth - 125];
+        textHeight -= 10;
         
         if (textHeight < 20)
         {
@@ -316,7 +320,7 @@ static NSString *orderCellId = @"orderCell";
         [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
         
         cell.nicknameLabel.text = nick;
-        CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_16 constrainedToHeight:200];
+        CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:ScreenWidth - 70];
         cell.nicknameLabelWithConstraint.constant = nickwith;
         
         if (agent_user) {
@@ -363,8 +367,8 @@ static NSString *orderCellId = @"orderCell";
         
          cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
         
-        textHeight = [StringHeight heightWithText:order_description font:FONT_17 constrainedToWidth:200];
-        
+        textHeight = [StringHeight heightWithText:order_description font:FONT_15 constrainedToWidth:ScreenWidth - 125];
+        textHeight -= 10;
         if (textHeight < 20) {
             
             textHeight = 20;
@@ -574,8 +578,9 @@ static NSString *orderCellId = @"orderCell";
 {
     
     UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    YellModel *oneModel = [_ordersArray objectAtIndex:cell.tag];
     
-    BmobObject *orderObject = [_ordersArray objectAtIndex:cell.tag];
+    BmobObject *orderObject = oneModel.yellObject;
     BmobGeoPoint *point = [orderObject objectForKey:@"location"];
     
     LocationViewController *locVC = [[LocationViewController alloc]initWithLocationCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude)];

@@ -610,7 +610,7 @@
                  
                     NSMutableArray *files = [[NSMutableArray alloc]init];
                     
-                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
+//                    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
                     
                   __block  NSInteger num = 0;
                     

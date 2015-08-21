@@ -136,10 +136,12 @@
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="EP2-iE-I2S"/>
-                                                <constraint firstAttribute="width" constant="72" id="Fvr-T6-Oym"/>
+                                                <constraint firstAttribute="width" constant="72" id="Fvr-T6-Oym">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="65"/>
+                                                </constraint>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -154,13 +156,14 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明天不在" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p8-BD-EVb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="明天不在" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5p8-BD-EVb">
                                             <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="sC5-PR-6gT"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.25490196079999999" green="0.68235294120000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -284,7 +287,9 @@
                                         <constraint firstItem="av6-ec-Nno" firstAttribute="leading" secondItem="5V2-pG-40w" secondAttribute="leading" constant="8" id="J5H-h9-Agm"/>
                                         <constraint firstAttribute="bottom" secondItem="Kz1-Cy-1O8" secondAttribute="bottom" constant="8" id="Pen-1O-C7a"/>
                                         <constraint firstItem="YJS-es-mEi" firstAttribute="leading" secondItem="5V2-pG-40w" secondAttribute="leading" constant="8" id="Tm8-4r-4kY"/>
-                                        <constraint firstItem="5p8-BD-EVb" firstAttribute="leading" secondItem="YJS-es-mEi" secondAttribute="trailing" constant="8" id="U7i-Rm-qXy"/>
+                                        <constraint firstItem="5p8-BD-EVb" firstAttribute="leading" secondItem="YJS-es-mEi" secondAttribute="trailing" constant="8" id="U7i-Rm-qXy">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                                        </constraint>
                                         <constraint firstAttribute="trailing" secondItem="uk2-mN-lnT" secondAttribute="trailing" constant="8" id="Xlw-iO-ngn"/>
                                         <constraint firstAttribute="bottom" secondItem="q45-sB-ih2" secondAttribute="bottom" constant="8" id="Xn3-iJ-5zq"/>
                                         <constraint firstItem="3fT-tv-cB7" firstAttribute="top" secondItem="5p8-BD-EVb" secondAttribute="bottom" constant="8" id="Yqu-KP-Sjg"/>

@@ -1148,7 +1148,7 @@
 				D26965761B81AE1C009ACEFD /* 已完成订单 */,
 				15A721FB1B7713A1005A2303 /* MyOrders */,
 				15A721F71B771393005A2303 /* PayOrder */,
-				15A721F31B77137B005A2303 /* Daren */,
+				15A721F31B77137B005A2303 /* sendDaren */,
 				137775F91B730DCD005C2C53 /* sendNeed */,
 				137775F61B72F430005C2C53 /* MineTableViewController.h */,
 				137775F71B72F430005C2C53 /* MineTableViewController.m */,
@@ -1235,12 +1235,13 @@
 			name = recentChatList;
 			sourceTree = "<group>";
 		};
-		15A721F31B77137B005A2303 /* Daren */ = {
+		15A721F31B77137B005A2303 /* sendDaren */ = {
 			isa = PBXGroup;
 			children = (
 				15A721F41B77137B005A2303 /* DarenTableViewController.h */,
 				15A721F51B77137B005A2303 /* DarenTableViewController.m */,
 			);
+			name = sendDaren;
 			path = Daren;
 			sourceTree = "<group>";
 		};
