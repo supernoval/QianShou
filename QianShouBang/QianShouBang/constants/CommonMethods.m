@@ -15,7 +15,34 @@
 
 @implementation CommonMethods
 
-
++ (NSString*)getHHmmssStr:(NSString *)dateStr
+{
+    NSDateFormatter *dateformatter1 = [[NSDateFormatter alloc]init];
+    
+    [dateformatter1 setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    
+    NSDate *formateDate = [dateformatter1 dateFromString:dateStr];
+    
+    
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
+    [dateformatter setDateFormat:@"HH:mm:ss"];
+    
+    
+    NSString *timeStr = [dateformatter stringFromDate:formateDate] ;
+    
+    return timeStr;
+}
++ (NSString*)getYYYYMMddHHmmssDateStr:(NSDate *)date
+{
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
+    
+    [dateformatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    
+    NSString *finalDateStr = [dateformatter stringFromDate:date];
+    
+    
+    return finalDateStr;
+}
 +(NSInteger)getDay:(NSString *)dateStr
 {
     NSDateFormatter *fromatter = [[NSDateFormatter alloc]init];
@@ -65,6 +92,7 @@
     
 }
 
+
 +(NSString*)getHHmmFromDefaultDateStr:(NSDate *)date
 {
     
@@ -78,10 +106,21 @@
     
 }
 
++(NSString*)getHHmmssFromDefaultDateStr:(NSDate *)date
+{
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
+    [dateformatter setDateFormat:@"HH:mm:ss"];
+    
+    
+    NSString *timeStr = [dateformatter stringFromDate:date];
+    
+    return timeStr;
+}
+
 +(NSString*)getYYYYMMddhhmmDateStr:(NSDate *)date
 {
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
-    [dateformatter setDateFormat:@"YYYY-MM-dd  hh:mm"];
+    [dateformatter setDateFormat:@"YYYY-MM-dd hh:mm"];
     
     
     NSString *timeStr = [dateformatter stringFromDate:date];

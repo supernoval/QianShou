@@ -12,6 +12,7 @@
 #import "MyOrdersTableViewController.h"
 #import "TheCompletedOrderTVC.h"
 #import "TheAcceptedOrderTVC.h"
+#import "CatchOrderPeoPleListTVC.h"
 
 
 @interface MineTableViewController ()
@@ -103,6 +104,8 @@
                 case 1:  //已完成订单
                 {
                     TheCompletedOrderTVC *theCompletedOrder = [sb instantiateViewControllerWithIdentifier:@"TheCompletedOrderTVC"];
+                    theCompletedOrder.hidesBottomBarWhenPushed = YES;
+                    
                     [self.navigationController pushViewController:theCompletedOrder animated:YES];
                     
                 }
@@ -110,6 +113,11 @@
                     
                 case 2:  //抢单人列表
                 {
+                    CatchOrderPeoPleListTVC *_catchPeople = [self.storyboard instantiateViewControllerWithIdentifier:@"CatchOrderPeoPleListTVC"];
+                    
+                    _catchPeople.hidesBottomBarWhenPushed = YES;
+                    
+                    [self.navigationController pushViewController:_catchPeople animated:YES];
                     
                 }
                     break;

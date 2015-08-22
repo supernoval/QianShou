@@ -18,11 +18,16 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 @interface CommonMethods : NSObject
 
- 
++(NSString*)getHHmmssStr:(NSString*)dateStr;
+
++(NSString *)getYYYYMMddHHmmssDateStr:(NSDate*)date;
+
 +(NSString*)getYYYYMMddhhmmDateStr:(NSDate*)date;
 
 +(NSString*)getYYYYMMddFromDefaultDateStr:(NSDate*)date;
 +(NSString*)getHHmmFromDefaultDateStr:(NSDate*)date;
+
++(NSString *)getHHmmssFromDefaultDateStr:(NSDate*)date;
 
 
 +(NSDate*)getYYYMMddFromString:(NSString*)dateStr;

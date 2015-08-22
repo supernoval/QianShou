@@ -12,6 +12,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *time;
 @property (strong, nonatomic) IBOutlet UIButton *completeBtn;
 @property (strong, nonatomic) IBOutlet UILabel *title;
-@property (strong, nonatomic) IBOutlet UILabel *address;
+
+@property (weak, nonatomic) IBOutlet UIButton *addressButton;
+
 
 @end

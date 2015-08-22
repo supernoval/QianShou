@@ -13,6 +13,7 @@
 #import "YellModel.h"
 #import "SDPhotoItem.h"
 #import "SDPhotoGroup.h"
+#import "OrderProgressViewController.h"
 
 
 static NSUInteger pageSize = 10;
@@ -159,7 +160,7 @@ static NSUInteger pageSize = 10;
                       
                     }
                     
-                      NSLog(@"photos:%@",array);
+//                      NSLog(@"photos:%@",array);
                     
                         oneModel.photos = urls;
            
@@ -184,7 +185,7 @@ static NSUInteger pageSize = 10;
         }
         
     }
-}
+ }
 
 #pragma mark - Table view data source
 
@@ -371,6 +372,16 @@ static NSUInteger pageSize = 10;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    
+    YellModel *model = [_dataArray objectAtIndex:indexPath.section];
+    
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    OrderProgressViewController *progressVC = [main instantiateViewControllerWithIdentifier:@"OrderProgressViewController"];
+    
+    progressVC.orderObject = model.yellObject;
+    
+    [self.navigationController pushViewController:progressVC animated:YES];
     
 }
 

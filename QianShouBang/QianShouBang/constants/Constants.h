@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, OrderState)
     OrderStatePayedUnAccepted = 1,//已付款未接单
     OrderStateAcceperCancel = 5, //接单者取消订单
     OrderStatePublishCancel = 6, //发单者取消订单
+    OrderStatePublishConfirm = 7, //发单者确认
     OrderStateDelete = 10, //删除订单记录
     
     

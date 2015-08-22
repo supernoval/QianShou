@@ -8,6 +8,8 @@
 
 #import "TheCompletedOrderTVC.h"
 #import "CompletedOrderCell.h"
+#import "LocationViewController.h"
+#import "OrderProgressViewController.h"
 
 static NSUInteger pageSize = 10;
 
@@ -39,6 +41,8 @@ static NSUInteger pageSize = 10;
     pageIndex = 0;
 }
 
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -69,7 +73,11 @@ static NSUInteger pageSize = 10;
     query.limit = pageSize;
     query.skip = pageSize * pageIndex;
     
-   
+    [query whereKey:@"receive_user" equalTo:[BmobUser getCurrentUser]];
+    [query whereKey:@"order_state" equalTo:@(OrderStateDone)];
+    [query includeKey:@"receive_user"];
+    [query includeKey:@"user"];
+    
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
@@ -101,12 +109,12 @@ static NSUInteger pageSize = 10;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return _dataArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return _dataArray.count + 10;
+    return 1;
 }
 
 
@@ -125,9 +133,22 @@ static NSUInteger pageSize = 10;
         cell = [[NSBundle mainBundle]loadNibNamed:@"CompletedOrderCell" owner:self options:nil][0];
     }
     cell.backgroundColor = kContentColor;
-    if (_dataArray.count > indexPath.row) {
+    cell.contentView.tag = indexPath.section;
+    
+    if (_dataArray.count > indexPath.section) {
         
-      
+        
+        BmobObject *orderObject = [_dataArray objectAtIndex:indexPath.section];
+        
+        cell.time.text = [CommonMethods getYYYYMMddhhmmDateStr:orderObject.createdAt];
+        
+        cell.title.text = [orderObject objectForKey:@"order_title"];
+        
+        [cell.addressButton setTitle:[orderObject objectForKey:@"order_address"] forState:UIControlStateNormal];
+        
+        [cell.addressButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
         
     }
     
@@ -140,6 +161,36 @@ static NSUInteger pageSize = 10;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    BmobObject *orderObject = [_dataArray objectAtIndex:indexPath.section];
+    
+    UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    OrderProgressViewController *progressVC = [main instantiateViewControllerWithIdentifier:@"OrderProgressViewController"];
+    
+    progressVC.orderObject = orderObject;
+    progressVC.isFisnish = YES;
+    
+    [self.navigationController pushViewController:progressVC animated:YES];
+    
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    
+}
+
+
+
+-(void)showLocation:(UIButton*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    BmobObject *orderObject = [_dataArray objectAtIndex:cell.tag];
+    
+    BmobGeoPoint *point = [orderObject objectForKey:@"location"];
+    
+    LocationViewController *locVC = [[LocationViewController alloc]initWithLocationCoordinate:CLLocationCoordinate2DMake(point.latitude, point.longitude)];
+    locVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:locVC animated:YES];
 }
 
 

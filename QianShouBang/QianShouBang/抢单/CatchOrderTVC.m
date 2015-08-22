@@ -23,7 +23,7 @@ static NSString *orderCellId = @"orderCell";
 
 
 
-@interface CatchOrderTVC ()
+@interface CatchOrderTVC ()<UIAlertViewDelegate>
 {
     NSMutableArray *_ordersArray;
     
@@ -37,6 +37,9 @@ static NSString *orderCellId = @"orderCell";
     double distance;
     
     UIView *rightView;
+    
+    UIAlertView *_catchOrderAlert;
+    
     
     
     
@@ -113,6 +116,9 @@ static NSString *orderCellId = @"orderCell";
     [query whereKey:@"location" nearGeoPoint:currentPoint withinKilometers:distance];
     
     [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
+    
+    [query whereKeyDoesNotExist:@"receive_user"];
+    
     query.limit = pageSize;
     query.skip = pageSize *pageNum;
     [query includeKey:@"user"];
@@ -521,55 +527,18 @@ static NSString *orderCellId = @"orderCell";
 {
     UITableViewCell *cell = (UITableViewCell*)[sender superview];
     
-    BmobObject *orderObject = [_ordersArray objectAtIndex:cell.tag];
+    YellModel *oneModel = [_ordersArray objectAtIndex:cell.tag];
     
-    BmobUser *user = [orderObject objectForKey:@"user"];
+    BmobObject *orderObject = oneModel.yellObject;
+   
     
-    BmobUser *currentUser = [BmobUser getCurrentUser];
-    //判断是不是自己发的订单
-    if ([user.objectId isEqualToString:currentUser.objectId]) {
-        
-        [CommonMethods showDefaultErrorString:@"不能抢自己的订单"];
-        
-        return;
-        
-    }
+    _catchOrderAlert = [[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"确定接单:%@?",[orderObject objectForKey:@"order_title"]] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     
-    [orderObject setObject:user forKey:@"user"];
-    [orderObject setObject:currentUser forKey:@"receive_user"];
+    _catchOrderAlert.tag = cell.tag;
     
-    [orderObject setObject:@(OrderStateAccepted) forKey:@"order_state"];
+    [_catchOrderAlert show];
     
     
-    //抢单时间
-    NSString *startString = [CommonMethods getYYYYMMddhhmmDateStr:[NSDate date]];
-    
-    [orderObject setObject:startString forKey:@"order_start_time"];
-    [orderObject setObject:@(1) forKey:@"order_timeType"];
-    
-    
-    
-    [MyProgressHUD showProgress];
-    
-    [orderObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-       
-        [MyProgressHUD dismiss];
-        
-        if (isSuccessful) {
-            
-            [CommonMethods showDefaultErrorString:@"抢单成功"];
-            
-            [self headerRefresh];
-            
-            
-        }
-        else
-        {
-            [CommonMethods showDefaultErrorString:@"抢单失败"];
-            NSLog(@"%@",error);
-            
-        }
-    }];
     
 }
 
@@ -610,6 +579,68 @@ static NSString *orderCellId = @"orderCell";
     else
     {
         [self.view addSubview:rightView];
+        
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _catchOrderAlert && buttonIndex == 1)
+    {
+        
+        YellModel *oneModel = [_ordersArray objectAtIndex:alertView.tag];
+        
+        BmobObject *orderObject = oneModel.yellObject;
+        BmobUser *user = [orderObject objectForKey:@"user"];
+        
+        BmobUser *currentUser = [BmobUser getCurrentUser];
+        //判断是不是自己发的订单
+        if ([user.objectId isEqualToString:currentUser.objectId]) {
+            
+            [CommonMethods showDefaultErrorString:@"不能抢自己的订单"];
+            
+            return;
+            
+        }
+        
+        
+        [orderObject setObject:user forKey:@"user"];
+        [orderObject setObject:currentUser forKey:@"receive_user"];
+        
+//        [orderObject setObject:@(OrderStateAccepted) forKey:@"order_state"];
+        
+        
+        //抢单时间
+        NSString *startString = [CommonMethods getYYYYMMddHHmmssDateStr:[NSDate date]];
+        
+        [orderObject setObject:startString forKey:@"order_start_time"];
+        [orderObject setObject:@(1) forKey:@"order_timeType"];
+        
+        
+        
+        [MyProgressHUD showProgress];
+        
+        [orderObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            
+            [MyProgressHUD dismiss];
+            
+            if (isSuccessful) {
+                
+                [CommonMethods showDefaultErrorString:@"抢单成功"];
+                
+                [self headerRefresh];
+                
+                
+            }
+            else
+            {
+                [CommonMethods showDefaultErrorString:@"抢单失败"];
+                NSLog(@"%@",error);
+                
+            }
+        }];
+
         
     }
 }

@@ -20,6 +20,13 @@
 #import <BmobIM/BmobChat.h>
 #import <BmobIM/BmobDB.h>
 #import "UIImageView+WebCache.h"
+#import "YellModel.h"
+#import "SDPhotoItem.h"
+#import "SDPhotoGroup.h"
+
+#import "Order.h"
+#import "DataSigner.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface BaseTableViewController : UITableViewController
 {

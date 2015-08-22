@@ -690,6 +690,7 @@ static CGFloat imagesCellHeight = 70.0;
 }
 
 
+#pragma mark - 支付
 -(void)payOrder:(BmobObject*)orderObject detailObject:(BmobObject*)detailObject
 {
     
@@ -798,7 +799,7 @@ static CGFloat imagesCellHeight = 70.0;
         }];
         
     }
-}
+ }
 #pragma mark - 查询奖励设置表
 -(void)getRewardLimitation
 {
