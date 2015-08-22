@@ -50,6 +50,7 @@
             if (array.count != 0) {
                 BmobObject *obj = [array firstObject];
                 CGFloat t = [[obj objectForKey:ktMoneyCount]floatValue];
+                NSLog(@"余额：%f",t );
                 self.tCount = [NSString stringWithFormat:@"%.1f",t];
                 [self.tableView reloadData];
             }

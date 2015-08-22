@@ -154,6 +154,9 @@
 		B350698F1B7750AE0045CF10 /* TitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B350698E1B7750AE0045CF10 /* TitleCell.m */; };
 		B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069911B77510E0045CF10 /* GoodsDescripCell.m */; };
 		B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B35069931B7751270045CF10 /* GoodsDescripCell.xib */; };
+		B368C73B1B885971006AB55C /* ExchangeQsBiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B368C73A1B885971006AB55C /* ExchangeQsBiViewController.m */; };
+		B368C73E1B887A9C006AB55C /* DrawCashDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B368C73D1B887A9C006AB55C /* DrawCashDetailTVC.m */; };
+		B368C7401B887AF5006AB55C /* DrawCashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B368C73F1B887AF5006AB55C /* DrawCashCell.xib */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
@@ -559,6 +562,11 @@
 		B35069901B77510E0045CF10 /* GoodsDescripCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsDescripCell.h; sourceTree = SOURCE_ROOT; };
 		B35069911B77510E0045CF10 /* GoodsDescripCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsDescripCell.m; sourceTree = SOURCE_ROOT; };
 		B35069931B7751270045CF10 /* GoodsDescripCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodsDescripCell.xib; sourceTree = SOURCE_ROOT; };
+		B368C7391B885971006AB55C /* ExchangeQsBiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExchangeQsBiViewController.h; sourceTree = SOURCE_ROOT; };
+		B368C73A1B885971006AB55C /* ExchangeQsBiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExchangeQsBiViewController.m; sourceTree = SOURCE_ROOT; };
+		B368C73C1B887A9C006AB55C /* DrawCashDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawCashDetailTVC.h; sourceTree = SOURCE_ROOT; };
+		B368C73D1B887A9C006AB55C /* DrawCashDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawCashDetailTVC.m; sourceTree = SOURCE_ROOT; };
+		B368C73F1B887AF5006AB55C /* DrawCashCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawCashCell.xib; sourceTree = SOURCE_ROOT; };
 		B392A3641B7238ED00B7CA6D /* PersonCenterTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonCenterTableViewController.h; sourceTree = SOURCE_ROOT; };
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
@@ -1129,6 +1137,7 @@
 		13983ADE1B6B50FE00D44BF0 /* personcenter */ = {
 			isa = PBXGroup;
 			children = (
+				B368C7381B88593A006AB55C /* 兑换牵手币 */,
 				D24C37071B7492E300228886 /* 消息中心 */,
 				D24C36FE1B7477C400228886 /* 牵手币商城 */,
 				D28FEAB61B73521E0026D674 /* 个人信息设置 */,
@@ -1494,6 +1503,9 @@
 			children = (
 				B350697E1B7749740045CF10 /* WithDrawCashViewController.h */,
 				B350697F1B7749740045CF10 /* WithDrawCashViewController.m */,
+				B368C73C1B887A9C006AB55C /* DrawCashDetailTVC.h */,
+				B368C73D1B887A9C006AB55C /* DrawCashDetailTVC.m */,
+				B368C73F1B887AF5006AB55C /* DrawCashCell.xib */,
 			);
 			name = "余额提现";
 			sourceTree = "<group>";
@@ -1522,6 +1534,15 @@
 				B35069911B77510E0045CF10 /* GoodsDescripCell.m */,
 			);
 			name = Cell;
+			sourceTree = "<group>";
+		};
+		B368C7381B88593A006AB55C /* 兑换牵手币 */ = {
+			isa = PBXGroup;
+			children = (
+				B368C7391B885971006AB55C /* ExchangeQsBiViewController.h */,
+				B368C73A1B885971006AB55C /* ExchangeQsBiViewController.m */,
+			);
+			name = "兑换牵手币";
 			sourceTree = "<group>";
 		};
 		B392A3601B72388300B7CA6D /* cell */ = {
@@ -1917,6 +1938,7 @@
 				13983A341B6B261500D44BF0 /* Images.xcassets in Resources */,
 				B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */,
 				B35069871B774E6D0045CF10 /* ImageCell.xib in Resources */,
+				B368C7401B887AF5006AB55C /* DrawCashCell.xib in Resources */,
 				B350698C1B774FD20045CF10 /* TitleCell.xib in Resources */,
 				B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */,
 				132E9FF11B7891DC00B342D7 /* MJRefresh.bundle in Resources */,
@@ -2051,6 +2073,7 @@
 				15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */,
 				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
 				1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */,
+				B368C73B1B885971006AB55C /* ExchangeQsBiViewController.m in Sources */,
 				132E9FF51B7891DC00B342D7 /* MJRefreshGifFooter.m in Sources */,
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
 				132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */,
@@ -2073,6 +2096,7 @@
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
 				D24C37061B74794200228886 /* MallCell.m in Sources */,
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
+				B368C73E1B887A9C006AB55C /* DrawCashDetailTVC.m in Sources */,
 				1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,

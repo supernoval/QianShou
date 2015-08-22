@@ -16,6 +16,7 @@
 #import "MallTableViewController.h"
 #import "MessageTableViewController.h"
 #import "QSUser.h"
+#import "ExchangeQsBiViewController.h"
 
 
 @interface PersonCenterTableViewController ()
@@ -278,6 +279,8 @@
             switch (indexPath.row) {
                 case 0://兑换牵手币
                 {
+                    ExchangeQsBiViewController *qsBi = [sb instantiateViewControllerWithIdentifier:@"ExchangeQsBiViewController"];
+                    [self.navigationController pushViewController:qsBi animated:YES];
                     
                 }
                     break;

@@ -569,6 +569,352 @@
             </objects>
             <point key="canvasLocation" x="252" y="1440"/>
         </scene>
+        <!--Exchange Qs Bi View Controller-->
+        <scene sceneID="MgK-ai-uz8">
+            <objects>
+                <viewController storyboardIdentifier="ExchangeQsBiViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x1h-Ef-ybE" customClass="ExchangeQsBiViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lMg-SJ-YCu"/>
+                        <viewControllerLayoutGuide type="bottom" id="OIk-60-P5F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cB7-47-j7U">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xA-v6-WgG">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-0B-uo9">
+                                        <rect key="frame" x="8" y="71" width="304" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="ed9-Q5-IVf"/>
+                                        </constraints>
+                                        <state key="normal" title="首次兑换">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ed9-Q5-IVf"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="ed9-Q5-IVf"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="button_1Action:" destination="x1h-Ef-ybE" eventType="touchUpInside" id="Wu6-s1-3rD"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="500元--35个牵手币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahc-TX-ghC">
+                                        <rect key="frame" x="8" y="129" width="304" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="9Av-pr-2je"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="9Av-pr-2je"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="9Av-pr-2je"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wn2-4W-Yjb">
+                                        <rect key="frame" x="8" y="166" width="304" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="vYi-Wv-LIw"/>
+                                        </constraints>
+                                        <state key="normal" title="立即兑换">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="vYi-Wv-LIw"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="vYi-Wv-LIw"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="button_2Action:" destination="x1h-Ef-ybE" eventType="touchUpInside" id="ar6-Dh-FXS"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2000元--150个牵手币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zxg-CH-TKd">
+                                        <rect key="frame" x="8" y="235" width="304" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="DYL-t4-U2U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="DYL-t4-U2U"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="DYL-t4-U2U"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybB-yi-WH6">
+                                        <rect key="frame" x="8" y="276" width="304" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="MTp-h1-4OD"/>
+                                        </constraints>
+                                        <state key="normal" title="立即兑换">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="MTp-h1-4OD"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="MTp-h1-4OD"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="button_3Action:" destination="x1h-Ef-ybE" eventType="touchUpInside" id="lKi-ro-FMl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5000元--350个牵手币" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jaa-gY-6tP">
+                                        <rect key="frame" x="8" y="333" width="304" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="fn8-FY-tf3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="fn8-FY-tf3"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="fn8-FY-tf3"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLF-ND-Upv">
+                                        <rect key="frame" x="8" y="362" width="304" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qRJ-Wl-GU9"/>
+                                        </constraints>
+                                        <state key="normal" title="立即兑换">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="qRJ-Wl-GU9"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="qRJ-Wl-GU9"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="button_4Action:" destination="x1h-Ef-ybE" eventType="touchUpInside" id="rbm-4r-KQf"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="exchangeQsBi" translatesAutoresizingMaskIntoConstraints="NO" id="wSO-bw-Hs9">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="221" id="7mD-Ti-yld"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="7mD-Ti-yld"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="7mD-Ti-yld"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="wSO-bw-Hs9" secondAttribute="centerX" id="52H-CS-pFY"/>
+                                    <constraint firstItem="Jaa-gY-6tP" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="5Ac-9F-FZW"/>
+                                    <constraint firstAttribute="bottom" secondItem="CLF-ND-Upv" secondAttribute="bottom" constant="88" id="7Cy-yt-k1N"/>
+                                    <constraint firstItem="zxg-CH-TKd" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="7PG-8v-DQD"/>
+                                    <constraint firstItem="CLF-ND-Upv" firstAttribute="top" secondItem="Jaa-gY-6tP" secondAttribute="bottom" constant="25" id="7WD-lm-ZeV"/>
+                                    <constraint firstItem="CLF-ND-Upv" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="CbK-Gf-gew"/>
+                                    <constraint firstAttribute="trailing" secondItem="ahc-TX-ghC" secondAttribute="trailing" constant="8" id="HpY-UB-V1J"/>
+                                    <constraint firstAttribute="trailing" secondItem="ybB-yi-WH6" secondAttribute="trailing" constant="8" id="IqZ-nz-sRF"/>
+                                    <constraint firstItem="6AP-0B-uo9" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="Kgv-Og-KSG"/>
+                                    <constraint firstAttribute="trailing" secondItem="zxg-CH-TKd" secondAttribute="trailing" constant="8" id="OyM-3g-mZ7"/>
+                                    <constraint firstItem="wSO-bw-Hs9" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" id="Q8S-gU-2fY"/>
+                                    <constraint firstAttribute="trailing" secondItem="CLF-ND-Upv" secondAttribute="trailing" constant="8" id="Trr-e7-0Rz"/>
+                                    <constraint firstItem="wn2-4W-Yjb" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="YfC-16-4xc"/>
+                                    <constraint firstItem="ybB-yi-WH6" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="ZwH-fN-GjT"/>
+                                    <constraint firstItem="Jaa-gY-6tP" firstAttribute="top" secondItem="ybB-yi-WH6" secondAttribute="bottom" constant="25" id="dwM-v4-HG8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jaa-gY-6tP" secondAttribute="trailing" constant="8" id="g7L-ee-5we"/>
+                                    <constraint firstItem="ahc-TX-ghC" firstAttribute="top" secondItem="6AP-0B-uo9" secondAttribute="bottom" constant="25" id="gKb-QO-z3K"/>
+                                    <constraint firstAttribute="height" constant="667" id="gPj-yl-CsG"/>
+                                    <constraint firstItem="ybB-yi-WH6" firstAttribute="top" secondItem="zxg-CH-TKd" secondAttribute="bottom" constant="25" id="hdY-9x-PfO"/>
+                                    <constraint firstAttribute="trailing" secondItem="6AP-0B-uo9" secondAttribute="trailing" constant="8" id="iby-IZ-oOm"/>
+                                    <constraint firstItem="6AP-0B-uo9" firstAttribute="top" secondItem="wSO-bw-Hs9" secondAttribute="bottom" constant="25" id="ih3-gr-Yty"/>
+                                    <constraint firstItem="zxg-CH-TKd" firstAttribute="top" secondItem="wn2-4W-Yjb" secondAttribute="bottom" constant="25" id="jAN-Jd-3YN"/>
+                                    <constraint firstItem="wn2-4W-Yjb" firstAttribute="top" secondItem="ahc-TX-ghC" secondAttribute="bottom" constant="25" id="jMC-rH-La1"/>
+                                    <constraint firstItem="wSO-bw-Hs9" firstAttribute="top" secondItem="6xA-v6-WgG" secondAttribute="top" id="sgE-O5-yag"/>
+                                    <constraint firstItem="ahc-TX-ghC" firstAttribute="leading" secondItem="6xA-v6-WgG" secondAttribute="leading" constant="8" id="tGe-nS-jJu"/>
+                                    <constraint firstAttribute="trailing" secondItem="wn2-4W-Yjb" secondAttribute="trailing" constant="8" id="twd-Vt-1vz"/>
+                                    <constraint firstAttribute="trailing" secondItem="wSO-bw-Hs9" secondAttribute="trailing" id="z7W-co-pVe"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gPj-yl-CsG"/>
+                                        <exclude reference="52H-CS-pFY"/>
+                                        <exclude reference="Q8S-gU-2fY"/>
+                                        <exclude reference="sgE-O5-yag"/>
+                                        <exclude reference="z7W-co-pVe"/>
+                                        <exclude reference="Kgv-Og-KSG"/>
+                                        <exclude reference="iby-IZ-oOm"/>
+                                        <exclude reference="ih3-gr-Yty"/>
+                                        <exclude reference="HpY-UB-V1J"/>
+                                        <exclude reference="gKb-QO-z3K"/>
+                                        <exclude reference="tGe-nS-jJu"/>
+                                        <exclude reference="YfC-16-4xc"/>
+                                        <exclude reference="jMC-rH-La1"/>
+                                        <exclude reference="twd-Vt-1vz"/>
+                                        <exclude reference="7PG-8v-DQD"/>
+                                        <exclude reference="OyM-3g-mZ7"/>
+                                        <exclude reference="jAN-Jd-3YN"/>
+                                        <exclude reference="IqZ-nz-sRF"/>
+                                        <exclude reference="ZwH-fN-GjT"/>
+                                        <exclude reference="hdY-9x-PfO"/>
+                                        <exclude reference="5Ac-9F-FZW"/>
+                                        <exclude reference="dwM-v4-HG8"/>
+                                        <exclude reference="g7L-ee-5we"/>
+                                        <exclude reference="7Cy-yt-k1N"/>
+                                        <exclude reference="7WD-lm-ZeV"/>
+                                        <exclude reference="CbK-Gf-gew"/>
+                                        <exclude reference="Trr-e7-0Rz"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="gPj-yl-CsG"/>
+                                        <include reference="52H-CS-pFY"/>
+                                        <include reference="Q8S-gU-2fY"/>
+                                        <include reference="sgE-O5-yag"/>
+                                        <include reference="z7W-co-pVe"/>
+                                        <include reference="Kgv-Og-KSG"/>
+                                        <include reference="iby-IZ-oOm"/>
+                                        <include reference="ih3-gr-Yty"/>
+                                        <include reference="HpY-UB-V1J"/>
+                                        <include reference="gKb-QO-z3K"/>
+                                        <include reference="tGe-nS-jJu"/>
+                                        <include reference="YfC-16-4xc"/>
+                                        <include reference="jMC-rH-La1"/>
+                                        <include reference="twd-Vt-1vz"/>
+                                        <include reference="7PG-8v-DQD"/>
+                                        <include reference="OyM-3g-mZ7"/>
+                                        <include reference="jAN-Jd-3YN"/>
+                                        <include reference="IqZ-nz-sRF"/>
+                                        <include reference="ZwH-fN-GjT"/>
+                                        <include reference="hdY-9x-PfO"/>
+                                        <include reference="5Ac-9F-FZW"/>
+                                        <include reference="dwM-v4-HG8"/>
+                                        <include reference="g7L-ee-5we"/>
+                                        <include reference="7Cy-yt-k1N"/>
+                                        <include reference="7WD-lm-ZeV"/>
+                                        <include reference="CbK-Gf-gew"/>
+                                        <include reference="Trr-e7-0Rz"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6xA-v6-WgG" secondAttribute="trailing" id="0c6-IX-4UI"/>
+                            <constraint firstItem="6xA-v6-WgG" firstAttribute="leading" secondItem="cB7-47-j7U" secondAttribute="leading" id="7KO-ms-9az"/>
+                            <constraint firstItem="OIk-60-P5F" firstAttribute="top" secondItem="6xA-v6-WgG" secondAttribute="bottom" id="8WG-AU-Xg3"/>
+                            <constraint firstAttribute="centerX" secondItem="6xA-v6-WgG" secondAttribute="centerX" id="Hr5-YH-CNB"/>
+                            <constraint firstItem="6xA-v6-WgG" firstAttribute="top" secondItem="cB7-47-j7U" secondAttribute="top" id="fET-4N-Kh9"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0c6-IX-4UI"/>
+                                <exclude reference="7KO-ms-9az"/>
+                                <exclude reference="Hr5-YH-CNB"/>
+                                <exclude reference="fET-4N-Kh9"/>
+                                <exclude reference="8WG-AU-Xg3"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="0c6-IX-4UI"/>
+                                <include reference="7KO-ms-9az"/>
+                                <include reference="Hr5-YH-CNB"/>
+                                <include reference="fET-4N-Kh9"/>
+                                <include reference="8WG-AU-Xg3"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="button_1" destination="6AP-0B-uo9" id="zDd-hv-3ci"/>
+                        <outlet property="button_2" destination="wn2-4W-Yjb" id="6m3-E3-7pL"/>
+                        <outlet property="button_3" destination="ybB-yi-WH6" id="k13-3r-YiP"/>
+                        <outlet property="button_4" destination="CLF-ND-Upv" id="Uec-vC-9Ie"/>
+                        <outlet property="scrollView" destination="6xA-v6-WgG" id="o0Y-dL-eyu"/>
+                        <outlet property="topImageView" destination="wSO-bw-Hs9" id="m2J-aT-Rwu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HiI-bZ-vXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251.25" y="1990.875"/>
+        </scene>
+        <!--Draw Cash DetailTVC-->
+        <scene sceneID="dER-U2-WBT">
+            <objects>
+                <tableViewController storyboardIdentifier="DrawCashDetailTVC" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YQS-g1-Mn4" customClass="DrawCashDetailTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="zho-QF-FqV">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5xC-S0-6hd">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5xC-S0-6hd" id="3Yr-ss-MOw">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YQS-g1-Mn4" id="zGt-89-GKq"/>
+                            <outlet property="delegate" destination="YQS-g1-Mn4" id="cCy-1M-b14"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjC-bb-woB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="894" y="1920.75"/>
+        </scene>
         <!--Account ManageTVC-->
         <scene sceneID="W2U-zJ-Wt0">
             <objects>
@@ -1187,6 +1533,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exchangeQsBi" width="621" height="453"/>
         <image name="head_default" width="125" height="125"/>
         <image name="near_catagory" width="22" height="22"/>
         <image name="vip_1" width="27" height="27"/>

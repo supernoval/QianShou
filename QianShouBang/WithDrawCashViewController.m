@@ -7,6 +7,8 @@
 //
 
 #import "WithDrawCashViewController.h"
+#import "DrawCashDetailTVC.h"
+#import "QSUser.h"
 
 @interface WithDrawCashViewController ()
 
@@ -31,16 +33,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)commitAction:(UIButton *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    BmobUser *user = [BmobUser getCurrentUser];
+   
+    if (self.codeTextField.text.length == 0) {
+        [CommonMethods showAlertString:@"请输入您的牵手邦密码" delegate:self tag:20];
+    }else{
+        [QSUser loginInbackgroundWithAccount:[user objectForKey:@"username"] andPassword:self.codeTextField.text block:^(BmobUser *user, NSError *error){
+            if (!error) {
+                DrawCashDetailTVC *detail = [sb instantiateViewControllerWithIdentifier:@"DrawCashDetailTVC"];
+                [self.navigationController pushViewController:detail animated:YES];
+            }
+        }];
+        
+    }
 }
 @end
