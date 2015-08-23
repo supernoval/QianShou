@@ -61,7 +61,13 @@
 #define ktJiangLi        @"tJiangLi"
 #define kisAccountAmountType @"isAccountAmountType"
 #define kisQsMoneyType   @"isQsMoneyType"
+#define kIntergral_exchange @"Intergral_exchange"
 
 /*系统消息表对应Key*/
 #define ksystem_msg_content @"system_msg_content"
 #define ksystem_msg_title @"system_msg_title"
+
+/*兑换牵手币*/
+#define kExchangeMoneyBean @"ExchangeMoneyBean"
+#define kexchange_integrl_num @"exchange_integrl_num"
+#define kuse_money_value @"use_money_value"

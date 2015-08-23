@@ -593,6 +593,15 @@
     return [NSString stringWithFormat:@"%ld/%ld",month,day];
 }
 
++ (NSInteger)getMonthFromDate:(NSDate *)dateTime{
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    
+    NSInteger unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekdayCalendarUnit | NSHourCalendarUnit;
+    comps = [calendar components:unitFlags fromDate:dateTime];
+    long month=[comps month];//获取日期对应的月
+    return month;
+}
 
 +(void)upLoadPhotos:(NSArray *)photos resultBlock:(upLoadPhotoBlock)block
 {

@@ -10,7 +10,10 @@
 
 @interface DrawCashDetailTVC ()
 @property (nonatomic, strong)NSString* tCount;
-
+@property (nonatomic,strong)UITextField *textField_0;
+@property (nonatomic,strong)UITextField *textField_1;
+@property (nonatomic,strong)UITextField *textField_2;
+@property (nonatomic,strong)UITextField *textField_3;
 @end
 
 @implementation DrawCashDetailTVC
@@ -22,6 +25,7 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     self.tableView.tableFooterView = [self tableFooterView];
     [self getMoneyCountData];
+    
     
 }
 
@@ -101,33 +105,41 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     UILabel *textLabel = (UILabel *)[cell viewWithTag:100];
-    UITextField *textField = (UITextField *)[cell viewWithTag:101];
+
     switch (indexPath.row) {
         case 0:
         {
+            self.textField_0 = (UITextField *)[cell viewWithTag:101];
             textLabel.text = @"姓名:";
-            textField.placeholder = @"收款支付宝账户姓名";
+            self.textField_0.placeholder = @"收款支付宝账户姓名";
+        
         }
             break;
             
         case 1:
         {
+            _textField_1 = (UITextField *)[cell viewWithTag:101];
             textLabel.text = @"账号:";
-            textField.placeholder = @"收款支付宝账号";
+            _textField_1.placeholder = @"收款支付宝账号";
+            
         }
             break;
             
         case 2:
         {
+            _textField_2 = (UITextField *)[cell viewWithTag:101];
             textLabel.text = @"确认账号";
-            textField.placeholder = @"确认收款支付宝账号";
+            _textField_2.placeholder = @"确认收款支付宝账号";
+            
         }
             break;
             
         case 3:
         {
+            _textField_3 = (UITextField *)[cell viewWithTag:101];
             textLabel.text = @"提现金额";
-            textField.placeholder = @"输入您想要提现的金额";
+            _textField_3.placeholder = @"输入您想要提现的金额";
+            
         }
             break;
             
@@ -165,7 +177,20 @@
     
 }
 
+
+
 - (void)confirmAction{
+    if (self.textField_0.text.length == 0) {
+        [CommonMethods showAlertString:@"收款支付宝账户姓名不能为空" delegate:self tag:10];
+    }else if (self.textField_1.text.length == 0){
+        [CommonMethods showAlertString:@"支付宝账号不能为空" delegate:self tag:11];
+    }else if (self.textField_2.text.length == 0){
+        [CommonMethods showAlertString:@"请再次输入支付宝账号以确认" delegate:self tag:12];
+    }else if (![self.textField_1.text isEqualToString:self.textField_2.text]){
+        [CommonMethods showAlertString:@"两次输入的收款支付宝账号不一样" delegate:self tag:13];
+    }else if (self.textField_3.text.length == 0){
+        [CommonMethods showAlertString:@"请输入提现金额" delegate:self tag:14];
+    }
 }
 
 @end
