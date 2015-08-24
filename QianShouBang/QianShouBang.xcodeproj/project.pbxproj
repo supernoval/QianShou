@@ -142,6 +142,8 @@
 		15F086211B88710A008C7EDB /* CatchPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086201B88710A008C7EDB /* CatchPeopleCell.m */; };
 		15F086251B889DE5008C7EDB /* OrderProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086241B889DE5008C7EDB /* OrderProgressViewController.m */; };
 		15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FFB2A41B78DBA400E5750F /* YellTableViewController.m */; };
+		8EDE5B051B8B09A600940A8A /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE5B041B8B09A600940A8A /* OrderDetailTableViewController.m */; };
+		8EDE5B081B8B362A00940A8A /* OrderDetailCel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE5B071B8B362A00940A8A /* OrderDetailCel.m */; };
 		B35069701B771A730045CF10 /* NearPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B350696F1B771A730045CF10 /* NearPeopleCell.xib */; };
 		B35069731B771A940045CF10 /* NearPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069721B771A940045CF10 /* NearPeopleCell.m */; };
 		B35069771B7728BF0045CF10 /* NearPeopleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B35069761B7728BF0045CF10 /* NearPeopleTVC.m */; };
@@ -542,6 +544,10 @@
 		15F086241B889DE5008C7EDB /* OrderProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderProgressViewController.m; sourceTree = "<group>"; };
 		15FFB2A31B78DB9F00E5750F /* YellTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YellTableViewController.h; path = Yell/YellTableViewController.h; sourceTree = "<group>"; };
 		15FFB2A41B78DBA400E5750F /* YellTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YellTableViewController.m; path = Yell/YellTableViewController.m; sourceTree = "<group>"; };
+		8EDE5B031B8B09A600940A8A /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewController.h; sourceTree = "<group>"; };
+		8EDE5B041B8B09A600940A8A /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableViewController.m; sourceTree = "<group>"; };
+		8EDE5B061B8B362A00940A8A /* OrderDetailCel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailCel.h; sourceTree = "<group>"; };
+		8EDE5B071B8B362A00940A8A /* OrderDetailCel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailCel.m; sourceTree = "<group>"; };
 		B350696F1B771A730045CF10 /* NearPeopleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPeopleCell.xib; sourceTree = SOURCE_ROOT; };
 		B35069711B771A940045CF10 /* NearPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPeopleCell.h; sourceTree = SOURCE_ROOT; };
 		B35069721B771A940045CF10 /* NearPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPeopleCell.m; sourceTree = SOURCE_ROOT; };
@@ -1089,7 +1095,6 @@
 			children = (
 				137E10791B859F8F009DDE48 /* countdownLabel */,
 				15E1834A1B7F177C00E13391 /* SDPhotoBrowser */,
-				15E183381B7F170B00E13391 /* SDPhotoBrowser */,
 				13688F1A1B79A4F800251AC4 /* SDWebImage */,
 				132E9FD81B7891DC00B342D7 /* MJRefresh */,
 				15A721FF1B77164A005A2303 /* AliPay */,
@@ -1280,6 +1285,7 @@
 		15A721FB1B7713A1005A2303 /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				8EDE5B021B8B096500940A8A /* OrderDetail */,
 				15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */,
 				15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */,
 				15F086181B8852EF008C7EDB /* MyOderCell.h */,
@@ -1418,13 +1424,6 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
-		15E183381B7F170B00E13391 /* SDPhotoBrowser */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = SDPhotoBrowser;
-			sourceTree = "<group>";
-		};
 		15E1834A1B7F177C00E13391 /* SDPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1475,17 @@
 				15F086241B889DE5008C7EDB /* OrderProgressViewController.m */,
 			);
 			name = "订单进度";
+			sourceTree = "<group>";
+		};
+		8EDE5B021B8B096500940A8A /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8EDE5B031B8B09A600940A8A /* OrderDetailTableViewController.h */,
+				8EDE5B041B8B09A600940A8A /* OrderDetailTableViewController.m */,
+				8EDE5B061B8B362A00940A8A /* OrderDetailCel.h */,
+				8EDE5B071B8B362A00940A8A /* OrderDetailCel.m */,
+			);
+			name = OrderDetail;
 			sourceTree = "<group>";
 		};
 		B35069741B7728950045CF10 /* 附近人 */ = {
@@ -1979,6 +1989,7 @@
 				D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */,
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
+				8EDE5B051B8B09A600940A8A /* OrderDetailTableViewController.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
 				13F818141B82F7C0007E23B2 /* ChatFootbarView.m in Sources */,
@@ -2057,6 +2068,7 @@
 				B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
 				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
+				8EDE5B081B8B362A00940A8A /* OrderDetailCel.m in Sources */,
 				D26965AB1B85BE70009ACEFD /* ApplyVipTVC.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
 				137263DE1B744E3D0006661C /* JSONModelError.m in Sources */,
@@ -2252,7 +2264,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d0899d77-9970-4c70-aae2-b3999037f373";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};

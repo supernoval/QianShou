@@ -190,6 +190,7 @@
     [self addSubview:tempView];
 
     _saveButton.hidden = YES;
+    _indexLabel.hidden = YES;
     
     [UIView animateWithDuration:SDPhotoBrowserHideImageAnimationDuration animations:^{
         tempView.frame = targetTemp;

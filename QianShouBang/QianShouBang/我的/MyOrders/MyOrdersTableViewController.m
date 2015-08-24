@@ -8,6 +8,7 @@
 
 #import "MyOrdersTableViewController.h"
 #import "MyOderCell.h"
+#import "OrderDetailTableViewController.h"
 
 
 static NSString *myOrderCell = @"myOrderCell";
@@ -76,6 +77,7 @@ static NSInteger pageSize = 10;
     
     [query whereKey:@"user" equalTo:[BmobUser getCurrentUser].objectId];
     
+    [query orderByDescending:@"updatedAt"];
     
     query.limit = pageSize;
     query.skip = pageSize *index;
@@ -84,8 +86,7 @@ static NSInteger pageSize = 10;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
     
-        [self endHeaderRefresh];
-        [self endFooterRefresh];
+       
         
         if (index == 0) {
             
@@ -171,6 +172,8 @@ static NSInteger pageSize = 10;
                 
                 if (count == ordersArray.count)
                 {
+                    [self endHeaderRefresh];
+                    [self endFooterRefresh];
                     
                     [self.tableView reloadData];
                     
@@ -418,6 +421,22 @@ static NSInteger pageSize = 10;
     
     return blankView;
     
+    
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    
+    OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+    
+    detatilTVC.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:detatilTVC animated:YES];
+    
+    
+  
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
