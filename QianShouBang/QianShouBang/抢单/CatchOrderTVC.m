@@ -40,6 +40,9 @@ static NSString *orderCellId = @"orderCell";
     
     UIAlertView *_catchOrderAlert;
     
+    BOOL isShowDaRen; //是否显示达人
+    
+    
     
     
     
@@ -63,6 +66,8 @@ static NSString *orderCellId = @"orderCell";
     distance = 1000000;
     
     rightView = [self  nearCatagoryVeiw];
+    
+    isShowDaRen = NO;
     
     [self addHeaderRefresh];
     [self addFooterRefresh];
@@ -115,27 +120,46 @@ static NSString *orderCellId = @"orderCell";
     
     [query whereKey:@"location" nearGeoPoint:currentPoint withinKilometers:distance];
     
-    [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
-    
-    [query whereKeyDoesNotExist:@"receive_user"];
     
     query.limit = pageSize;
     query.skip = pageSize *pageNum;
     [query includeKey:@"user"];
     
-    [query whereKey:@"order_type" equalTo:@(0)];
+    if (isShowDaRen)
+    {
+        
+       [query whereKey:@"order_type" equalTo:@(100)];
+    }
+    else
+    {
+        [query whereKey:@"order_type" equalTo:@(0)];
+        
+        [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
+        
+        [query whereKeyDoesNotExist:@"receive_user"];
+    }
+    
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
-        [self endHeaderRefresh];
-        [self endFooterRefresh];
+        NSMutableArray *temArray = [[NSMutableArray alloc]init];
+        
+        if (isShowDaRen) {
+            
+            temArray = _darenArray;
+        }
+        else
+        {
+            temArray = _ordersArray;
+            
+        }
         
         if (array.count > 0)
         {
             if (pageNum == 0) {
                 
-                [_ordersArray removeAllObjects];
+                [temArray removeAllObjects];
                 
             }
             
@@ -148,11 +172,21 @@ static NSString *orderCellId = @"orderCell";
                 
                 model.yellObject = orderObject;
                 
-                [_ordersArray addObject:model];
+                [temArray addObject:model];
                 
                 
             }
             
+            
+            if (isShowDaRen) {
+                
+                _darenArray = temArray;
+            }
+            else
+            {
+                _ordersArray = temArray;
+                
+            }
             
              [self getPhotos];
             
@@ -176,9 +210,21 @@ static NSString *orderCellId = @"orderCell";
     
     __block NSInteger count = 0;
     
-    for (int i = 0; i < _ordersArray.count; i ++) {
+    NSMutableArray *temArray = [[NSMutableArray alloc]init];
+    
+    if (isShowDaRen) {
         
-        YellModel *oneModel = _ordersArray[i];
+        temArray = _darenArray;
+    }
+    else
+    {
+        temArray = _ordersArray;
+        
+    }
+    
+    for (int i = 0; i < temArray.count; i ++) {
+        
+        YellModel *oneModel = temArray[i];
         
         if (!oneModel.photos)
         {
@@ -189,6 +235,9 @@ static NSString *orderCellId = @"orderCell";
 //            NSLog(@"yellobjectid:%@",oneModel.yellObject.objectId);
             
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                
+                [self endHeaderRefresh];
+                [self endFooterRefresh];
                 
                 count ++;
                 
@@ -219,7 +268,7 @@ static NSString *orderCellId = @"orderCell";
                     
                 }
                 
-                if (count == _ordersArray.count)
+                if (count == temArray.count)
                 {
                     
                     [self.tableView reloadData];
@@ -256,6 +305,16 @@ static NSString *orderCellId = @"orderCell";
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
+    if (isShowDaRen) {
+        
+       return  _darenArray.count;
+    }
+    else
+    {
+        return _ordersArray.count;
+        
+        
+    }
     return _ordersArray.count;
     
 }
@@ -266,9 +325,21 @@ static NSString *orderCellId = @"orderCell";
     
     CGFloat textHeight = 0;
     
-    if (_ordersArray.count > 0) {
+    NSMutableArray *temArray = [[NSMutableArray alloc]init];
+    
+    if (isShowDaRen) {
         
-        YellModel *weiboModel = [_ordersArray objectAtIndex:indexPath.section];
+        temArray = _darenArray;
+    }
+    else
+    {
+        temArray = _ordersArray;
+        
+    }
+    
+    if (temArray.count > 0) {
+        
+        YellModel *weiboModel = [temArray objectAtIndex:indexPath.section];
         NSArray *imgs = weiboModel.photos;
         
         long imageCount = imgs.count;
@@ -310,10 +381,23 @@ static NSString *orderCellId = @"orderCell";
 {
     OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCellId];
     
-    if (indexPath.section < _ordersArray.count) {
+    NSMutableArray *temArray = [[NSMutableArray alloc]init];
+    
+    if (isShowDaRen) {
+        
+        temArray = _darenArray;
+    }
+    else
+    {
+        temArray = _ordersArray;
+        
+    }
+
+    
+    if (indexPath.section < temArray.count) {
          dispatch_async(dispatch_get_main_queue(), ^{
              
-        YellModel *model = [_ordersArray objectAtIndex:indexPath.section];
+        YellModel *model = [temArray objectAtIndex:indexPath.section];
         
         BmobObject *_object = model.yellObject;
         
@@ -353,11 +437,15 @@ static NSString *orderCellId = @"orderCell";
             
        
         [cell.locationButton setTitle:order_address forState:UIControlStateNormal];
+//        cell.locationButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+             
             
           
         [cell.locationButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.distanceLabel.text = distanceStr;
+        cell.distanceLabel.adjustsFontSizeToFitWidth = YES;
+             
         
         cell.contentView.tag = indexPath.section;
        
@@ -581,6 +669,39 @@ static NSString *orderCellId = @"orderCell";
         [self.view addSubview:rightView];
         
     }
+}
+
+
+#pragma mark - 有事找你 有事找我 切换
+- (IBAction)zhaonizhaowo:(id)sender {
+    
+     UISegmentedControl*switcher = (UISegmentedControl*)sender;
+    
+    switch (switcher.selectedSegmentIndex) {
+        case 0:  // 有事找你
+        {
+            isShowDaRen = NO;
+            [self.tableView reloadData];
+            
+          [self.tableView.header beginRefreshing];
+            
+        }
+            break;
+            
+        case 1: //有事找我
+        {
+            isShowDaRen = YES;
+            [self.tableView reloadData];
+           [self.tableView.header beginRefreshing];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
 }
 
 #pragma mark - UIAlertViewDelegate

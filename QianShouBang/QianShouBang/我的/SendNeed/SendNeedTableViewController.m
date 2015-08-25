@@ -626,7 +626,7 @@ static CGFloat imagesCellHeight = 70.0;
     
     double jiangli = [[orderObject objectForKey:@"jiangli_money"]doubleValue];
     double benjin = [[orderObject objectForKey:@"order_benjin"]doubleValue];
-    double commision = [[orderObject objectForKey:@"order_commmission"]doubleValue];
+    double commision = [[orderObject objectForKey:@"order_commission"]doubleValue];
     
     
     BmobObject *detailObject = [BmobObject objectWithClassName:kDetailAccount];

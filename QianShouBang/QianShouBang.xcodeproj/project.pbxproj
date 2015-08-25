@@ -109,6 +109,8 @@
 		1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D01B837C36002CEBD0 /* MyAnnotation.m */; };
 		1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */; };
 		1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */; };
+		159420E71B8C941D00DA5A22 /* MIneDaRenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */; };
+		159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E91B8C98B900DA5A22 /* MineDarenCell.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
 		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
@@ -405,6 +407,10 @@
 		1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentChatListTVC.m; path = chat/RecentChatListTVC.m; sourceTree = "<group>"; };
 		1511F2D71B838A56002CEBD0 /* RecentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
 		1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
+		159420E51B8C941D00DA5A22 /* MIneDaRenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIneDaRenTableViewController.h; path = Daren/MIneDaRenTableViewController.h; sourceTree = "<group>"; };
+		159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIneDaRenTableViewController.m; path = Daren/MIneDaRenTableViewController.m; sourceTree = "<group>"; };
+		159420E81B8C98B900DA5A22 /* MineDarenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineDarenCell.h; path = Daren/MineDarenCell.h; sourceTree = "<group>"; };
+		159420E91B8C98B900DA5A22 /* MineDarenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MineDarenCell.m; path = Daren/MineDarenCell.m; sourceTree = "<group>"; };
 		15A721E61B7712AD005A2303 /* NotificationKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationKey.h; sourceTree = "<group>"; };
 		15A721F41B77137B005A2303 /* DarenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenTableViewController.h; sourceTree = "<group>"; };
 		15A721F51B77137B005A2303 /* DarenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenTableViewController.m; sourceTree = "<group>"; };
@@ -1170,6 +1176,7 @@
 		13983AE11B6B510E00D44BF0 /* Orders */ = {
 			isa = PBXGroup;
 			children = (
+				159420E41B8C93E800DA5A22 /* 我的达人 */,
 				15F086221B889DBF008C7EDB /* 订单进度 */,
 				15F0861B1B886EC1008C7EDB /* 抢单人列表 */,
 				D269657F1B81C344009ACEFD /* 已接订单 */,
@@ -1261,6 +1268,17 @@
 				1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */,
 			);
 			name = recentChatList;
+			sourceTree = "<group>";
+		};
+		159420E41B8C93E800DA5A22 /* 我的达人 */ = {
+			isa = PBXGroup;
+			children = (
+				159420E51B8C941D00DA5A22 /* MIneDaRenTableViewController.h */,
+				159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */,
+				159420E81B8C98B900DA5A22 /* MineDarenCell.h */,
+				159420E91B8C98B900DA5A22 /* MineDarenCell.m */,
+			);
+			name = "我的达人";
 			sourceTree = "<group>";
 		};
 		15A721F31B77137B005A2303 /* sendDaren */ = {
@@ -2078,6 +2096,7 @@
 				13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */,
 				132E9FF31B7891DC00B342D7 /* MJRefreshConst.m in Sources */,
 				D26965B41B85C61B009ACEFD /* BlackListTVC.m in Sources */,
+				159420E71B8C941D00DA5A22 /* MIneDaRenTableViewController.m in Sources */,
 				15E1836F1B80872700E13391 /* Location.m in Sources */,
 				13688F3F1B79A4F800251AC4 /* SDWebImageCompat.m in Sources */,
 				15E1837C1B80E82600E13391 /* UserService.m in Sources */,
@@ -2094,6 +2113,7 @@
 				13F818061B82EB9C007E23B2 /* ChatViewController.m in Sources */,
 				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
 				13688F481B79A4F800251AC4 /* UIImage+WebP.m in Sources */,
+				159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */,
 				132E9FF91B7891DC00B342D7 /* MJRefreshLegendHeader.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
 				132E9FF61B7891DC00B342D7 /* MJRefreshGifHeader.m in Sources */,

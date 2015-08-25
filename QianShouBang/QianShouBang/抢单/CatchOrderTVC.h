@@ -11,5 +11,6 @@
 @interface CatchOrderTVC : BaseTableViewController
 
 - (IBAction)getDistance:(id)sender;
+- (IBAction)zhaonizhaowo:(id)sender;
 
 @end

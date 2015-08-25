@@ -13,6 +13,7 @@
 #import "TheCompletedOrderTVC.h"
 #import "TheAcceptedOrderTVC.h"
 #import "CatchOrderPeoPleListTVC.h"
+#import "MIneDaRenTableViewController.h"
 
 
 @interface MineTableViewController ()
@@ -77,6 +78,13 @@
                     break;
                 case 1:  //我的达人
                 {
+                    
+                    MIneDaRenTableViewController *mineDaren = [self.storyboard instantiateViewControllerWithIdentifier:@"MIneDaRenTableViewController"];
+                    
+                    mineDaren.hidesBottomBarWhenPushed  = YES;
+                    
+                    [self.navigationController pushViewController:mineDaren animated:YES];
+                    
                     
                 }
                     break;

@@ -238,6 +238,9 @@ static CGFloat imagesCellHeight = 70.0;
     BmobQuery *queryDaren = [BmobQuery queryWithClassName:kOrder];
     
     [queryDaren whereKey:@"order_type" equalTo:@(100)];
+    [queryDaren whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    
+    [MyProgressHUD showProgress];
     
     [queryDaren findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
@@ -309,6 +312,7 @@ static CGFloat imagesCellHeight = 70.0;
             {
                 
               
+                [MyProgressHUD dismiss];
                 
                 NSLog(@"图片上传失败");
                 
@@ -403,6 +407,9 @@ static CGFloat imagesCellHeight = 70.0;
     [orderObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
         
+         
+        
+        
         if (isSuccessful) {
            
             [self saveDetailAccount:orderObject];
@@ -433,7 +440,7 @@ static CGFloat imagesCellHeight = 70.0;
     
     double jiangli = [[orderObject objectForKey:@"jiangli_money"]doubleValue];
     double benjin = [[orderObject objectForKey:@"order_benjin"]doubleValue];
-    double commision = [[orderObject objectForKey:@"order_commmission"]doubleValue];
+    double commision = [[orderObject objectForKey:@"order_commission"]doubleValue];
     
     
     BmobObject *detailObject = [BmobObject objectWithClassName:kDetailAccount];
