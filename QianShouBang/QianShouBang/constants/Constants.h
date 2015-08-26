@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, OrderState)
 
 
 #pragma mark - Bmob
-#define kBmobApplicationID    @"ee9115c95d4ce604631935b1979a5edd"
+#define kBmobApplicationID    @"b5cbd002adfbe8feee7bd6f184087379"
 
 // 短信验证码  ShareSDK
 #define kShareSDKSMSAppKey     @"95c9c33abb2c"

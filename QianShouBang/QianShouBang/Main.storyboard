@@ -6981,10 +6981,11 @@
             <objects>
                 <tableViewController storyboardIdentifier="MIneDaRenTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ADx-9T-uFe" customClass="MIneDaRenTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="wWn-Ez-eyh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="E2Q-vw-II8">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="64" width="375" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_default" translatesAutoresizingMaskIntoConstraints="NO" id="6HT-2m-mKf">
@@ -7119,7 +7120,7 @@
                             </variation>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="gMf-63-0Nf">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="736" width="375" height="568"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjN-xS-Zwr">
@@ -7182,12 +7183,12 @@
                                     <exclude reference="ofh-vm-lMv"/>
                                 </mask>
                                 <mask key="constraints">
-                                    <exclude reference="G3K-Rn-KBG"/>
-                                    <exclude reference="evX-0r-j4X"/>
-                                    <exclude reference="v1J-JQ-V2N"/>
                                     <exclude reference="IFD-x5-bbz"/>
                                     <exclude reference="ahW-yq-p3f"/>
                                     <exclude reference="pJi-DI-gS2"/>
+                                    <exclude reference="G3K-Rn-KBG"/>
+                                    <exclude reference="evX-0r-j4X"/>
+                                    <exclude reference="v1J-JQ-V2N"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
@@ -7196,12 +7197,12 @@
                                     <include reference="ofh-vm-lMv"/>
                                 </mask>
                                 <mask key="constraints">
-                                    <include reference="G3K-Rn-KBG"/>
-                                    <include reference="evX-0r-j4X"/>
-                                    <include reference="v1J-JQ-V2N"/>
                                     <include reference="IFD-x5-bbz"/>
                                     <include reference="ahW-yq-p3f"/>
                                     <include reference="pJi-DI-gS2"/>
+                                    <include reference="G3K-Rn-KBG"/>
+                                    <include reference="evX-0r-j4X"/>
+                                    <include reference="v1J-JQ-V2N"/>
                                 </mask>
                             </variation>
                         </view>

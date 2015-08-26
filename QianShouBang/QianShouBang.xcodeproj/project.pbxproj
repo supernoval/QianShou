@@ -2284,7 +2284,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "cc0715d9-4809-4e60-916a-24593ec459c9";
 			};
 			name = Debug;
 		};
@@ -2312,7 +2312,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e8691b1e-efee-45a6-92ee-baec052b10c3";
 			};
 			name = Release;
 		};

@@ -135,7 +135,7 @@
 //
 //                     [CommonMethods showDefaultErrorString:@"无法获取您的设备编号,请在 设置-通知 里面打开对《牵手邦》的通知许可"];
 //                }
-            
+//            
             }
             else
             {

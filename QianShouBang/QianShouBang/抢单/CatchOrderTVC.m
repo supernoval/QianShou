@@ -94,7 +94,7 @@ static NSString *orderCellId = @"orderCell";
     {
         UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
         
-        [[UIApplication sharedApplication].keyWindow.rootViewController  presentViewController:loginVC animated:NO completion:nil];
+        [self presentViewController:loginVC animated:YES completion:nil];
         
     }
 }
@@ -405,7 +405,7 @@ static NSString *orderCellId = @"orderCell";
         
         NSString *avatar = [_user objectForKey:@"avatar"];
         NSString *nick = [_user objectForKey:@"nick"];
-        BOOL agent_user = [[_user objectForKey:@"agent_user"]boolValue];
+        NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
         
         [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
         
@@ -413,7 +413,7 @@ static NSString *orderCellId = @"orderCell";
         CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:ScreenWidth - 70];
         cell.nicknameLabelWithConstraint.constant = nickwith;
         
-        if (agent_user) {
+        if (user_level != 2) {
             
             cell.vipImageView.hidden = NO;
         }
@@ -423,10 +423,31 @@ static NSString *orderCellId = @"orderCell";
             
         }
         
-        CGFloat order_commission = [[_object objectForKey:@"order_commission"]floatValue];
+             
+        if (isShowDaRen)
+        {
+            CGFloat benjin = [[_object objectForKey:@"order_benjin"]floatValue];
+            
+            cell.moneyLabel.text = [NSString stringWithFormat:@"保证金:%.1f元",benjin];
+            
+            cell.moneyLabel.textColor = [UIColor orangeColor];
+            
+            cell.accepteButton.hidden = YES;
+        }
+        else
+        {
+            
+            CGFloat order_commission = [[_object objectForKey:@"order_commission"]floatValue];
+            
+             cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
+            cell.moneyLabel.textColor = [UIColor redColor];
+            cell.accepteButton.hidden = NO;
+        }
+             
+        
         NSString *order_description = [_object objectForKey:@"order_description"];
         
-        cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
+       
        
         
         NSString *order_address = [_object objectForKey:@"order_address"];
@@ -479,7 +500,7 @@ static NSString *orderCellId = @"orderCell";
             CGFloat photoViewHeight = 0;
             
             
-            YellModel *weiboModel = [_ordersArray objectAtIndex:indexPath.section];
+            YellModel *weiboModel = [temArray objectAtIndex:indexPath.section];
             NSArray *imgs = weiboModel.photos;
             
             long imageCount = imgs.count;
