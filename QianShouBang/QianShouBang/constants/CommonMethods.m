@@ -344,6 +344,24 @@
     return newImage;
 }
 
+#pragma mark - 自动压缩图片
++ (UIImage*)autoSizeImageWithImage:(UIImage *)image
+{
+    CGSize imageSize = image.size;
+    
+    
+    CGFloat imagewith = 300.0;
+    
+    CGFloat imageHeight = imageSize.height *imagewith/imageSize.width;
+    
+    
+    
+   return [self imageWithImage:image scaledToSize:CGSizeMake(imagewith, imageHeight)];
+    
+ 
+    
+}
+
 #pragma mark - 将中间字符变成 ****
 +(NSString*)geteditedmobile:(NSString*)mobile
 {
@@ -778,6 +796,15 @@
     
 }
 
++ (void)sendMessageWithSuperView:(UIView *)view phoneNum:(NSString *)phoneNum
+{
+    UIWebView *webView = [[UIWebView alloc]init];
+    
+    NSString *phonestr  = [NSString stringWithFormat:@"sms://%@", phoneNum];
+    NSURL *telUrl = [NSURL URLWithString:phonestr];
+    [webView loadRequest:[NSURLRequest requestWithURL:telUrl]];
+    [view addSubview:webView];
+}
 +(double)timeLeft:(NSString *)sinceTimeStr
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];

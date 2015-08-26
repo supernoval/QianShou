@@ -183,7 +183,7 @@
         // 跳转到相机或相册页面
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = YES;
+        imagePickerController.allowsEditing = NO;
         imagePickerController.sourceType = sourceType;
         
         
@@ -197,11 +197,12 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
-    UIImage *image  = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *image  = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     if (image != nil)
     {
         
+        image = [CommonMethods autoSizeImageWithImage:image];
         
         
         [photos addObject:image];

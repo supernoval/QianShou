@@ -62,7 +62,7 @@
         }
     }
     
-    NSArray  *emojiArray = @[@"\ue415",@"\ue056",@"\ue057",@"\ue414",@"\ue405",@"\ue106",@"\ue418",
+    NSArray  *emojiArray = @[@"\U0001F609",@"\1f60",@"\ue415",@"\ue056",@"\ue057",@"\ue414",@"\ue405",@"\ue106",@"\ue418",
                                    @"\ue417",@"\ue40d",@"\ue40a",@"\ue404",@"\ue105",@"\ue409",@"\ue40e",
                                    @"\ue402",@"\ue108",@"\ue403",@"\ue058",@"\ue407",@"\ue401",@"\ue40f",
                                    @"\ue40b",@"\ue406",@"\ue413",@"\ue411",@"\ue412",
@@ -87,8 +87,15 @@
     
     for (int i = 0; i < [emojiBtnArray count]; i++) {
         UIButton *eBtn      = [emojiBtnArray objectAtIndex:i];
-        NSString    *emojbS = [emojiArray objectAtIndex:i];
-//        eBtn.titleLabel.text = emojbS;
+        
+        NSString    *emojbS = [CommonUtil escapeUnicodeString:[emojiArray objectAtIndex:i]];
+    
+        
+        emojbS = [emojiArray objectAtIndex:i];
+        
+        NSData *stringData = [emojbS dataUsingEncoding:NSNonLossyASCIIStringEncoding];
+        
+        
         [eBtn setTitle:emojbS forState:UIControlStateNormal];
 //         [[eBtn titleLabel] setFont:[UIFont systemFontOfSize:18]];
         eBtn.tag            = i;
@@ -100,7 +107,7 @@
 -(void)addEmoji:(UIButton*)sender{
     
     
-    NSArray  *emojiArray = @[@"\ue415",@"\ue056",@"\ue057",@"\ue414",@"\ue405",@"\ue106",@"\ue418",
+    NSArray  *emojiArray = @[@"\U0001F609",@"\ue415",@"\ue056",@"\ue057",@"\ue414",@"\ue405",@"\ue106",@"\ue418",
                              @"\ue417",@"\ue40d",@"\ue40a",@"\ue404",@"\ue105",@"\ue409",@"\ue40e",
                              @"\ue402",@"\ue108",@"\ue403",@"\ue058",@"\ue407",@"\ue401",@"\ue40f",
                              @"\ue40b",@"\ue406",@"\ue413",@"\ue411",@"\ue412",

@@ -109,6 +109,8 @@
 		1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D01B837C36002CEBD0 /* MyAnnotation.m */; };
 		1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */; };
 		1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */; };
+		157915321B8E071E00E31111 /* DarenListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157915311B8E071E00E31111 /* DarenListCell.m */; };
+		157915361B8E10B800E31111 /* DarenDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157915351B8E10B800E31111 /* DarenDetailTableViewController.m */; };
 		159420E71B8C941D00DA5A22 /* MIneDaRenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */; };
 		159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E91B8C98B900DA5A22 /* MineDarenCell.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
@@ -407,6 +409,10 @@
 		1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentChatListTVC.m; path = chat/RecentChatListTVC.m; sourceTree = "<group>"; };
 		1511F2D71B838A56002CEBD0 /* RecentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
 		1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
+		157915301B8E071E00E31111 /* DarenListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenListCell.h; sourceTree = "<group>"; };
+		157915311B8E071E00E31111 /* DarenListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenListCell.m; sourceTree = "<group>"; };
+		157915341B8E10B800E31111 /* DarenDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenDetailTableViewController.h; sourceTree = "<group>"; };
+		157915351B8E10B800E31111 /* DarenDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenDetailTableViewController.m; sourceTree = "<group>"; };
 		159420E51B8C941D00DA5A22 /* MIneDaRenTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIneDaRenTableViewController.h; path = Daren/MIneDaRenTableViewController.h; sourceTree = "<group>"; };
 		159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIneDaRenTableViewController.m; path = Daren/MIneDaRenTableViewController.m; sourceTree = "<group>"; };
 		159420E81B8C98B900DA5A22 /* MineDarenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MineDarenCell.h; path = Daren/MineDarenCell.h; sourceTree = "<group>"; };
@@ -1136,10 +1142,13 @@
 		13983ADD1B6B50B300D44BF0 /* catchorder */ = {
 			isa = PBXGroup;
 			children = (
+				157915331B8E108E00E31111 /* 达人详情 */,
 				13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */,
 				13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */,
 				15B159E61B84BBE80097733A /* OrderCell.h */,
 				15B159E71B84BBE80097733A /* OrderCell.m */,
+				157915301B8E071E00E31111 /* DarenListCell.h */,
+				157915311B8E071E00E31111 /* DarenListCell.m */,
 			);
 			name = catchorder;
 			path = "抢单";
@@ -1268,6 +1277,15 @@
 				1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */,
 			);
 			name = recentChatList;
+			sourceTree = "<group>";
+		};
+		157915331B8E108E00E31111 /* 达人详情 */ = {
+			isa = PBXGroup;
+			children = (
+				157915341B8E10B800E31111 /* DarenDetailTableViewController.h */,
+				157915351B8E10B800E31111 /* DarenDetailTableViewController.m */,
+			);
+			name = "达人详情";
 			sourceTree = "<group>";
 		};
 		159420E41B8C93E800DA5A22 /* 我的达人 */ = {
@@ -1996,6 +2014,7 @@
 				D28FEAB91B7352560026D674 /* PersonInfoSettingTVC.m in Sources */,
 				13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */,
 				D28FEAB51B7348550026D674 /* SettingTVC.m in Sources */,
+				157915361B8E10B800E31111 /* DarenDetailTableViewController.m in Sources */,
 				15A722561B77167E005A2303 /* Order.m in Sources */,
 				136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */,
 				D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */,
@@ -2037,6 +2056,7 @@
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
 				15F0861E1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
+				157915321B8E071E00E31111 /* DarenListCell.m in Sources */,
 				D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */,
 				13F818171B82F9F8007E23B2 /* LocationViewController.m in Sources */,
 				15E1835D1B7F284F00E13391 /* YellCell.m in Sources */,

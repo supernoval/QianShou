@@ -61,6 +61,9 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma mark - 拨打电话
 + (void)callPhoneWithSuperView:(UIView*)view phoneNum:(NSString*)phoneNum;
 
+#pragma mark - 发送短信
++ (void)sendMessageWithSuperView:(UIView*)view phoneNum:(NSString*)phoneNum;
+
 
 #pragma mark - 判断email格式是否正确
 + (BOOL)isValidateEmail:(NSString *)Email;
@@ -75,6 +78,10 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 #pragma mark - 对图片进行大小压缩
 +(UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
+
+#pragma makr - 自动压缩图片
++(UIImage*)autoSizeImageWithImage:(UIImage *)image;
+
 
 #pragma mark - 将中间字符变成 ****
 +(NSString*)geteditedmobile:(NSString*)mobile;

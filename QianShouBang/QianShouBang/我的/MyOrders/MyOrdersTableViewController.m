@@ -81,7 +81,8 @@ static NSInteger pageSize = 10;
     
     query.limit = pageSize;
     query.skip = pageSize *index;
-
+    [query whereKey:@"order_type" equalTo:@(0)];
+    
    
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {

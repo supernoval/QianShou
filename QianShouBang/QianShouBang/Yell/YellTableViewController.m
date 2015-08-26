@@ -13,6 +13,8 @@
 #import "SDPhotoItem.h"
 #import "YellCell.h"
 #import "StringHeight.h"
+#import "CommonUtil.h"
+
 
 
 
@@ -52,7 +54,7 @@ static NSInteger pageSize = 10;
     
     [self addFooterRefresh];
     
-   
+     [self getweibolist];
     
     
     
@@ -62,9 +64,9 @@ static NSInteger pageSize = 10;
 {
     [super viewWillAppear:animated];
     
-    [self.tableView.header beginRefreshing];
     
-    [self getweibolist];
+    
+  
 }
 
 -(void)headerRefresh
@@ -340,7 +342,7 @@ static NSInteger pageSize = 10;
                 }
                 
                 
-            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]]];
+            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"head_default"]];
             
             
             headTitle.text = [user objectForKey:@"nick"];
@@ -349,7 +351,11 @@ static NSInteger pageSize = 10;
                 
             
            // 文字内容
-            contentLabel.text = [weiboModel.yellObject objectForKey:@"content"];
+                NSString * content = [weiboModel.yellObject objectForKey:@"content"];
+//                content = [CommonUtil escapeUnicodeString:content];
+                content = [CommonUtil turnStringToEmojiText:content];
+                
+                contentLabel.text = content;
             
             NSString *text = [weiboModel.yellObject objectForKey:@"content"];
             
@@ -461,6 +467,20 @@ static NSInteger pageSize = 10;
                 
                 
             }
+                
+                BOOL hideInfo = [[weiboModel.yellObject objectForKey:@"hide_info"]boolValue];
+                
+                
+                //匿名 隐藏信息
+                if (hideInfo) {
+                    
+                    headTitle.text = @"匿名";
+                    
+                    distanceLabel.text = @"0.0km";
+                    
+                    headImageView.image = [UIImage imageNamed:@"head_default"];
+                    
+                }
             
              });
             

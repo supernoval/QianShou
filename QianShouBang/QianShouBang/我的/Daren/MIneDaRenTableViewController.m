@@ -29,6 +29,8 @@ static NSString *const cellid = @"darencell";
     self.title = @"我的达人";
     
     _headerView.frame = CGRectMake(0, 0, ScreenWidth, 125);
+    _headerView.hidden = YES;
+    
     _footerView.frame = CGRectMake(0, 0, ScreenWidth, 122);
     _footerView.hidden = YES;
     
@@ -98,6 +100,10 @@ static NSString *const cellid = @"darencell";
             _darenObject = [array firstObject];
             
             _footerView.hidden = NO;
+            
+//            _headerView.frame = CGRectMake(0, 0, ScreenWidth, 125);
+            _headerView.hidden = NO;
+            
             
         }
         

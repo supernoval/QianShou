@@ -45,7 +45,9 @@
     if ([array count] !=0) {
         for (NSTextCheckingResult *b in array) {
             NSString *string = [description substringWithRange:b.range];
-            NSString *newString = [self decodeUnicodeBytes:(char *)[string UTF8String]];
+            NSString *unicodeStr = [string  stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
+            
+            NSString *newString = [self decodeUnicodeBytes:(char *)[unicodeStr UTF8String]];
             text = [text stringByReplacingOccurrencesOfString:string withString:newString];
         }
     }
@@ -101,11 +103,12 @@
         for (NSTextCheckingResult *b in array) {
             NSString *string = [description substringWithRange:b.range];
             
-            NSString *newString = [NSString stringWithFormat:@"\\%@",string];//[self unescapeUnicodeString:string];
+            NSString *newString = [NSString stringWithFormat:@"\\%@",string];
+            //[self unescapeUnicodeString:string];
             text = [text stringByReplacingOccurrencesOfString:string withString:newString];
         }
     }
-    NSLog(@"text%@,array count%d",text,[array count]);
+//    NSLog(@"text%@,array count%d",text,[array count]);
     return text;
 }
 
@@ -169,6 +172,8 @@
     }
     
     // done
+    NSLog(@"unencodeString:%@",tokenizedString);
+    
     return tokenizedString;
 }
 
@@ -208,6 +213,9 @@
     }
     
     // done
+    
+    NSLog(@"edcodeString:%@",encodedString);
+    
     return encodedString;
 }
 

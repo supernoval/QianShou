@@ -611,7 +611,7 @@
     
     cell.timeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[message.msgTime integerValue]] timeAgoWithLimit:kTimeLimit dateFormat:NSDateFormatterMediumStyle andTimeFormat:NSDateFormatterShortStyle];
     [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:message.belongAvatar]
-                  placeholderImage:[UIImage imageNamed:@"setting_head"]
+                  placeholderImage:[UIImage imageNamed:@"head_default"]
                            options:SDWebImageLowPriority
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              
@@ -657,7 +657,7 @@
    
     [picker dismissViewControllerAnimated:YES completion:^{
     }];
-    UIImage *editImage          = [info objectForKey:UIImagePickerControllerEditedImage];
+    UIImage *editImage          = [info objectForKey:UIImagePickerControllerOriginalImage];
     UIImage *cutImage           = [self cutImage:editImage size:CGSizeMake(160, 160)];
     NSString *currentTimeString = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970] ];
     NSString *imagePath         = [NSString stringWithFormat:@"%@/%@.jpg",[CommonUtil filepath],currentTimeString];

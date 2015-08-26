@@ -1,20 +1,17 @@
 //
-//  OrderCell.m
+//  DarenListCell.m
 //  QianShouBang
 //
-//  Created by ZhuHaikun on 15/8/19.
+//  Created by ZhuHaikun on 15/8/26.
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
-#import "OrderCell.h"
+#import "DarenListCell.h"
 
-@implementation OrderCell
+@implementation DarenListCell
 
 - (void)awakeFromNib {
-    
-    
-    self.accepteButton.clipsToBounds=YES;
-    self.accepteButton.layer.cornerRadius = 15;
+    // Initialization code
     
     self.headImageView.clipsToBounds = YES;
     self.headImageView.layer.cornerRadius = 25.0;
@@ -27,11 +24,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)acceptAction:(id)sender {
-    
-    
-    
-    
-    
-}
 @end

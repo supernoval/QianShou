@@ -17,8 +17,13 @@
 #import "LocationViewController.h"
 #import "YellModel.h"
 #import "SDPhotoItem.h"
+#import "DarenListCell.h"
+#import "DarenDetailTableViewController.h"
+
 
 static NSString *orderCellId = @"orderCell";
+
+static NSString *dareCellId = @"dasrenCell";
 
 
 
@@ -205,6 +210,8 @@ static NSString *orderCellId = @"orderCell";
     
 }
 
+
+
 -(void)getPhotos
 {
     
@@ -236,8 +243,7 @@ static NSString *orderCellId = @"orderCell";
             
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                 
-                [self endHeaderRefresh];
-                [self endFooterRefresh];
+               
                 
                 count ++;
                 
@@ -270,6 +276,8 @@ static NSString *orderCellId = @"orderCell";
                 
                 if (count == temArray.count)
                 {
+                    [self endHeaderRefresh];
+                    [self endFooterRefresh];
                     
                     [self.tableView reloadData];
                     
@@ -353,8 +361,8 @@ static NSString *orderCellId = @"orderCell";
         
         NSString *text  = [weiboModel.yellObject objectForKey:@"order_description"];;
         
-        textHeight = [StringHeight heightWithText:text font:FONT_15 constrainedToWidth:ScreenWidth - 125];
-        textHeight -= 10;
+        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 125];
+//        textHeight -= 10;
         
         if (textHeight < 20)
         {
@@ -379,9 +387,11 @@ static NSString *orderCellId = @"orderCell";
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCellId];
+     NSMutableArray *temArray = [[NSMutableArray alloc]init];
     
-    NSMutableArray *temArray = [[NSMutableArray alloc]init];
+   
+    
+   
     
     if (isShowDaRen) {
         
@@ -393,7 +403,127 @@ static NSString *orderCellId = @"orderCell";
         
     }
 
-    
+    if (isShowDaRen) {
+        
+        DarenListCell *cell = [tableView dequeueReusableCellWithIdentifier:dareCellId];
+        
+        if (indexPath.section < temArray.count) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                YellModel *model = [temArray objectAtIndex:indexPath.section];
+                
+                BmobObject *_object = model.yellObject;
+                
+                BmobUser *_user = [_object objectForKey:@"user"];
+                
+                NSString *avatar = [_user objectForKey:@"avatar"];
+                NSString *nick = [_user objectForKey:@"nick"];
+                NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
+                
+                [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+                
+                cell.nameLabel.text = nick;
+                CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:200];
+                cell.nickNameWithContraints.constant = nickwith;
+                
+                if (user_level != 2) {
+                    
+                    cell.vipImageView.hidden = NO;
+                }
+                else
+                {
+                    cell.vipImageView.hidden = YES;
+                    
+                }
+                
+                
+                
+                //保证金
+                CGFloat benjin = [[_object objectForKey:@"order_benjin"]floatValue];
+                
+                cell.benjinLabel.text = [NSString stringWithFormat:@"已交保证金:%.1f元",benjin];
+                
+                
+                
+                NSString *order_description = [_object objectForKey:@"order_description"];
+                
+
+                NSString *order_address = [_object objectForKey:@"order_address"];
+                BmobGeoPoint *point = [_object objectForKey:@"location"];
+                NSString * distanceStr = [CommonMethods distanceStringWithLatitude:point.latitude longitude:point.longitude];
+                
+                
+                
+                
+                [cell.addressButton setTitle:order_address forState:UIControlStateNormal];
+                //        cell.locationButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+                
+                
+                
+                [cell.addressButton addTarget:self action:@selector(showLocation:) forControlEvents:UIControlEventTouchUpInside];
+                
+                cell.distanceLabel.text = distanceStr;
+                cell.distanceLabel.adjustsFontSizeToFitWidth = YES;
+                
+                
+                cell.contentView.tag = indexPath.section;
+                
+               
+                
+                
+                //内容
+                
+                double textHeight = 20;
+                
+                
+                cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
+                
+                textHeight = [StringHeight heightWithText:order_description font:FONT_17 constrainedToWidth:ScreenWidth - 125];
+//                textHeight -= 10;
+                if (textHeight < 20) {
+                    
+                    textHeight = 20;
+                    
+                }
+                
+                
+                cell.descripHeight.constant = textHeight;
+                
+                if (model.photos) {
+                    
+                    cell.imagesView.photoItemArray = model.photos;
+                    
+                    CGFloat photoViewHeight = 0;
+                    
+                    
+                    YellModel *weiboModel = [temArray objectAtIndex:indexPath.section];
+                    NSArray *imgs = weiboModel.photos;
+                    
+                    long imageCount = imgs.count;
+                    int perRowImageCount = ((imageCount == 4) ? 2 : 3);
+                    CGFloat perRowImageCountF = (CGFloat)perRowImageCount;
+                    int totalRowCount = ceil(imageCount / perRowImageCountF);
+                    
+                    photoViewHeight = 95 * totalRowCount;
+                    
+                    cell.imageViewHeightConstraints.constant = photoViewHeight;
+                    
+                }
+                else
+                {
+                    cell.imageViewHeightConstraints.constant = 0;
+                    
+                }
+                
+            });
+        }
+         return cell;
+        
+    }
+    else
+    {
+     OrderCell *cell = [tableView dequeueReusableCellWithIdentifier:orderCellId];
+        
     if (indexPath.section < temArray.count) {
          dispatch_async(dispatch_get_main_queue(), ^{
              
@@ -410,7 +540,7 @@ static NSString *orderCellId = @"orderCell";
         [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
         
         cell.nicknameLabel.text = nick;
-        CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:ScreenWidth - 70];
+        CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:200];
         cell.nicknameLabelWithConstraint.constant = nickwith;
         
         if (user_level != 2) {
@@ -424,25 +554,14 @@ static NSString *orderCellId = @"orderCell";
         }
         
              
-        if (isShowDaRen)
-        {
-            CGFloat benjin = [[_object objectForKey:@"order_benjin"]floatValue];
-            
-            cell.moneyLabel.text = [NSString stringWithFormat:@"保证金:%.1f元",benjin];
-            
-            cell.moneyLabel.textColor = [UIColor orangeColor];
-            
-            cell.accepteButton.hidden = YES;
-        }
-        else
-        {
+  
             
             CGFloat order_commission = [[_object objectForKey:@"order_commission"]floatValue];
             
              cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
             cell.moneyLabel.textColor = [UIColor redColor];
             cell.accepteButton.hidden = NO;
-        }
+        
              
         
         NSString *order_description = [_object objectForKey:@"order_description"];
@@ -519,10 +638,13 @@ static NSString *orderCellId = @"orderCell";
             
         }
         
-                });
+                 });
+    }
+        
+           return cell;
     }
     
-    return cell;
+ 
     
 }
 
@@ -539,6 +661,23 @@ static NSString *orderCellId = @"orderCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (isShowDaRen) {
+        
+        DarenDetailTableViewController *_drVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DarenDetailTableViewController"];
+        _drVC.hidesBottomBarWhenPushed = YES;
+        
+         YellModel *model = [_darenArray objectAtIndex:indexPath.section];
+        
+        _drVC.darenObject = model.yellObject;
+        
+        [self.navigationController pushViewController:_drVC animated:YES];
+        
+        
+        
+        
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
