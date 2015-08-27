@@ -361,7 +361,6 @@
 {
     BmobChatUser *_user = [_friendListArray objectAtIndex:tag];
     
-   
 
     
     [MyProgressHUD showProgress];

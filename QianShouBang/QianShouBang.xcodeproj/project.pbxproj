@@ -19,6 +19,7 @@
 		132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEC1B7891DC00B342D7 /* UIScrollView+MJExtension.m */; };
 		132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */; };
 		132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */; };
+		135C80D11B8ED12400842813 /* YellDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 135C80D01B8ED12400842813 /* YellDetailTableViewController.m */; };
 		1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */; };
 		1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6841B7B124A00094224 /* PublishYellViewController.m */; };
 		1363D6891B7B274C00094224 /* PhotoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363D6881B7B274C00094224 /* PhotoListView.m */; };
@@ -248,6 +249,8 @@
 		132E9FEE1B7891DC00B342D7 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		132E9FEF1B7891DC00B342D7 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		132E9FF01B7891DC00B342D7 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		135C80CF1B8ED12400842813 /* YellDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YellDetailTableViewController.h; path = Yell/YellDetailTableViewController.h; sourceTree = "<group>"; };
+		135C80D01B8ED12400842813 /* YellDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YellDetailTableViewController.m; path = Yell/YellDetailTableViewController.m; sourceTree = "<group>"; };
 		1363D67F1B7AEFDD00094224 /* MessageDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDetailTVC.m; sourceTree = SOURCE_ROOT; };
 		1363D6811B7AEFE200094224 /* MessageDetailTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailTVC.h; sourceTree = SOURCE_ROOT; };
 		1363D6831B7B124A00094224 /* PublishYellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PublishYellViewController.h; path = publishYell/PublishYellViewController.h; sourceTree = "<group>"; };
@@ -744,6 +747,7 @@
 		132EA0031B78957B00B342D7 /* yell */ = {
 			isa = PBXGroup;
 			children = (
+				135C80CE1B8ED0FA00842813 /* yellDetail */,
 				1363D6861B7B271800094224 /* photoView */,
 				1363D6821B7B10BA00094224 /* publishYell */,
 				15FFB2A31B78DB9F00E5750F /* YellTableViewController.h */,
@@ -754,6 +758,15 @@
 				15E183621B805BF600E13391 /* YellModel.m */,
 			);
 			name = yell;
+			sourceTree = "<group>";
+		};
+		135C80CE1B8ED0FA00842813 /* yellDetail */ = {
+			isa = PBXGroup;
+			children = (
+				135C80CF1B8ED12400842813 /* YellDetailTableViewController.h */,
+				135C80D01B8ED12400842813 /* YellDetailTableViewController.m */,
+			);
+			name = yellDetail;
 			sourceTree = "<group>";
 		};
 		1363D6821B7B10BA00094224 /* publishYell */ = {
@@ -2129,6 +2142,7 @@
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
 				132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */,
 				13688F411B79A4F800251AC4 /* SDWebImageDownloader.m in Sources */,
+				135C80D11B8ED12400842813 /* YellDetailTableViewController.m in Sources */,
 				15E183571B7F177C00E13391 /* SDPhotoBrowser.m in Sources */,
 				13F818061B82EB9C007E23B2 /* ChatViewController.m in Sources */,
 				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
