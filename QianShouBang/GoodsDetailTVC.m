@@ -85,7 +85,7 @@
     if (indexPath.row == 0) {
         return self.image_height;
     }else if(indexPath.row == 3){
-        return [StringHeight heightWithText:[obj objectForKey:kintergralGoodsDescription] font:FONT_14 constrainedToWidth:ScreenWidth-16]+45;
+        return [StringHeight heightWithText:[obj objectForKey:kintergralGoodsDescription] font:FONT_14 constrainedToWidth:ScreenWidth-16]+120;
         
     }
     return 40;
@@ -97,7 +97,7 @@
     if (imageCell == nil) {
         imageCell = [[NSBundle mainBundle]loadNibNamed:@"ImageCell" owner:self options:nil][0];
     }
-    
+    imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     
     static NSString *titleCellId = @"ImageCell";
@@ -105,14 +105,14 @@
     if (titleCell == nil) {
         titleCell = [[NSBundle mainBundle]loadNibNamed:@"TitleCell" owner:self options:nil][0];
     }
-    
+    titleCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     static NSString *detailCellId = @"ImageCell";
     GoodsDescripCell *detailCell = [tableView dequeueReusableCellWithIdentifier:detailCellId];
     if (detailCell == nil) {
         detailCell = [[NSBundle mainBundle]loadNibNamed:@"GoodsDescripCell" owner:self options:nil][0];
     }
-    
+    detailCell.selectionStyle = UITableViewCellSelectionStyleNone;
     switch (indexPath.row) {
         case 0:
         {
@@ -159,7 +159,7 @@
 
 #pragma 立即兑换
 - (UIView *)tableFooterView{
-    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 55)];
+    UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 75)];
     footerView.backgroundColor = kBackgroundColor;
     UIButton *logoutBtn = [[UIButton alloc]initWithFrame:CGRectMake(8, 15, ScreenWidth-16, 40)];
     logoutBtn.layer.masksToBounds = YES;

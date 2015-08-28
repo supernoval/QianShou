@@ -11,7 +11,7 @@
 @implementation GoodsDescripCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    [self.descrip setEditable:NO];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -51,9 +51,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 0) {
-        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_title] font:FONT_16 constrainedToWidth:ScreenWidth-16]+10;
+        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_title] font:FONT_16 constrainedToWidth:ScreenWidth-16]+20;
     }else if (indexPath.row == 1) {
-        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_content] font:FONT_14 constrainedToWidth:ScreenWidth-16]+15;
+        return [StringHeight heightWithText:[messageObj objectForKey:ksystem_msg_content] font:FONT_14 constrainedToWidth:ScreenWidth-16]+100;
     }
     return 40;
 }

@@ -71,6 +71,7 @@ static NSUInteger pageSize = 10;
     query.limit = pageSize;
     query.skip = pageSize*pageIndex;
     
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
         [self endHeaderRefresh];
