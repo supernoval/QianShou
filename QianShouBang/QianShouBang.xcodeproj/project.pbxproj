@@ -72,7 +72,6 @@
 		13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B811B71E35B007CA809 /* MyProgressHUD.m */; };
 		13876D261B78414F000C480D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13876D251B78414F000C480D /* MapKit.framework */; };
 		13983A291B6B261500D44BF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A281B6B261500D44BF0 /* main.m */; };
-		13983A341B6B261500D44BF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13983A331B6B261500D44BF0 /* Images.xcassets */; };
 		13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13983A351B6B261500D44BF0 /* LaunchScreen.xib */; };
 		13983A431B6B261500D44BF0 /* QianShouBangTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A421B6B261500D44BF0 /* QianShouBangTests.m */; };
 		13983A551B6B3A7300D44BF0 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 13983A521B6B3A7300D44BF0 /* ProgressHUD.bundle */; };
@@ -180,6 +179,8 @@
 		D24C59711B7C6ED2006F88D3 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59701B7C6ED2006F88D3 /* FeedBackViewController.m */; };
 		D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C59731B7D92EF006F88D3 /* AccountDetailViewController.m */; };
 		D24C597C1B7DC5A6006F88D3 /* AccountCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C597B1B7DC5A6006F88D3 /* AccountCell.m */; };
+		D2611A001B8FEA0C00E033C3 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26119FF1B8FEA0C00E033C3 /* GuideViewController.m */; };
+		D2611A041B8FFA4900E033C3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2611A031B8FFA4900E033C3 /* Images.xcassets */; };
 		D26965751B817450009ACEFD /* PickAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965741B817450009ACEFD /* PickAddressView.m */; };
 		D26965781B81AF22009ACEFD /* CompletedOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26965771B81AF22009ACEFD /* CompletedOrderCell.xib */; };
 		D269657B1B81AF40009ACEFD /* CompletedOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D269657A1B81AF40009ACEFD /* CompletedOrderCell.m */; };
@@ -353,7 +354,6 @@
 		13983A281B6B261500D44BF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		13983A2A1B6B261500D44BF0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13983A2B1B6B261500D44BF0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		13983A331B6B261500D44BF0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		13983A361B6B261500D44BF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13983A3C1B6B261500D44BF0 /* QianShouBangTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QianShouBangTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		13983A411B6B261500D44BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -617,6 +617,9 @@
 		D24C59731B7D92EF006F88D3 /* AccountDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountDetailViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C597A1B7DC5A6006F88D3 /* AccountCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountCell.h; sourceTree = SOURCE_ROOT; };
 		D24C597B1B7DC5A6006F88D3 /* AccountCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountCell.m; sourceTree = SOURCE_ROOT; };
+		D26119FE1B8FEA0C00E033C3 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		D26119FF1B8FEA0C00E033C3 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		D2611A031B8FFA4900E033C3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D26965731B817450009ACEFD /* PickAddressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickAddressView.h; sourceTree = "<group>"; };
 		D26965741B817450009ACEFD /* PickAddressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickAddressView.m; sourceTree = "<group>"; };
 		D26965771B81AF22009ACEFD /* CompletedOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedOrderCell.xib; sourceTree = "<group>"; };
@@ -1079,9 +1082,9 @@
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
 				13983A2A1B6B261500D44BF0 /* AppDelegate.h */,
 				13983A2B1B6B261500D44BF0 /* AppDelegate.m */,
+				D2611A031B8FFA4900E033C3 /* Images.xcassets */,
 				15A722711B7716F2005A2303 /* Main.storyboard */,
 				D28FEA9D1B730D700026D674 /* Second.storyboard */,
-				13983A331B6B261500D44BF0 /* Images.xcassets */,
 				13983A351B6B261500D44BF0 /* LaunchScreen.xib */,
 				136A920A1B6F3BD40064B541 /* Framework */,
 				13983A261B6B261500D44BF0 /* Supporting Files */,
@@ -1155,6 +1158,7 @@
 		13983ADD1B6B50B300D44BF0 /* catchorder */ = {
 			isa = PBXGroup;
 			children = (
+				D26119FD1B8FE9F500E033C3 /* 引导页 */,
 				157915331B8E108E00E31111 /* 达人详情 */,
 				13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */,
 				13983AE31B6B513A00D44BF0 /* CatchOrderTVC.m */,
@@ -1759,6 +1763,15 @@
 			name = "反馈";
 			sourceTree = "<group>";
 		};
+		D26119FD1B8FE9F500E033C3 /* 引导页 */ = {
+			isa = PBXGroup;
+			children = (
+				D26119FE1B8FEA0C00E033C3 /* GuideViewController.h */,
+				D26119FF1B8FEA0C00E033C3 /* GuideViewController.m */,
+			);
+			name = "引导页";
+			sourceTree = "<group>";
+		};
 		D26965721B817431009ACEFD /* AddressPick */ = {
 			isa = PBXGroup;
 			children = (
@@ -1984,6 +1997,7 @@
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
+				D2611A041B8FFA4900E033C3 /* Images.xcassets in Resources */,
 				137263EE1B744FF90006661C /* SMS_SDKLocalizable.strings in Resources */,
 				13F5B67C1B7C419E00850683 /* NoAddCell.xib in Resources */,
 				D28FEA991B73015C0026D674 /* ContactCell.xib in Resources */,
@@ -1994,7 +2008,6 @@
 				15A722721B7716F2005A2303 /* Main.storyboard in Resources */,
 				D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */,
 				D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */,
-				13983A341B6B261500D44BF0 /* Images.xcassets in Resources */,
 				B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */,
 				B35069871B774E6D0045CF10 /* ImageCell.xib in Resources */,
 				B368C7401B887AF5006AB55C /* DrawCashCell.xib in Resources */,
@@ -2100,6 +2113,7 @@
 				D26965841B81C394009ACEFD /* TheAcceptedOrderTVC.m in Sources */,
 				D269657E1B81B7A2009ACEFD /* TheCompletedOrderTVC.m in Sources */,
 				132E9FF71B7891DC00B342D7 /* MJRefreshHeader.m in Sources */,
+				D2611A001B8FEA0C00E033C3 /* GuideViewController.m in Sources */,
 				15A722701B771686005A2303 /* RSADataVerifier.m in Sources */,
 				15A722691B771686005A2303 /* base64.m in Sources */,
 				13688F441B79A4F800251AC4 /* SDWebImagePrefetcher.m in Sources */,

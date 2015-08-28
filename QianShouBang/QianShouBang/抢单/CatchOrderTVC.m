@@ -19,6 +19,7 @@
 #import "SDPhotoItem.h"
 #import "DarenListCell.h"
 #import "DarenDetailTableViewController.h"
+#import "GuideViewController.h"
 
 
 static NSString *orderCellId = @"orderCell";
@@ -59,6 +60,27 @@ static NSString *dareCellId = @"dasrenCell";
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    
+    
+    //引导页设置
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults boolForKey:@"FirstLaunch"])
+    {
+        self.view.alpha = 0;
+        [UIView animateWithDuration:3.0 animations:^{
+            self.view.alpha = 1;
+        }];
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"alpha"];
+        animation.duration = 3;
+        animation.fromValue = @0.5;
+        animation.toValue = @1.0;
+        [self.view.layer addAnimation:animation forKey:@"animation"];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+        GuideViewController *guideVC = [sb instantiateViewControllerWithIdentifier:@"GuideViewController"];
+        [self presentViewController:guideVC animated:NO completion:nil];
+    }
+
     
     _ordersArray = [[NSMutableArray alloc]init];
     _darenArray = [[NSMutableArray alloc]init];
