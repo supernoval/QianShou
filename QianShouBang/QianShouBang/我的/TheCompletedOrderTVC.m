@@ -109,6 +109,12 @@ static NSUInteger pageSize = 10;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    if (_dataArray.count == 0) {
+        
+        return 1;
+        
+    }
     return _dataArray.count;
 }
 
@@ -123,10 +129,30 @@ static NSUInteger pageSize = 10;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (_dataArray.count == 0) {
+        
+        return 44;
+        
+    }
     return 88;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (_dataArray.count == 0) {
+        
+        UITableViewCell *blankCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+        
+        blankCell.textLabel.text = @"暂无订单";
+        
+        blankCell.textLabel.textColor = kDarkTintColor;
+        blankCell.textLabel.textAlignment = NSTextAlignmentCenter;
+        blankCell.textLabel.font = FONT_15;
+        
+        blankCell.userInteractionEnabled = NO;
+        
+        return blankCell;
+    }
     static NSString *cellId = @"CompletedOrderCell";
     CompletedOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {

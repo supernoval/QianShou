@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, FromType)
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property (weak, nonatomic) IBOutlet UILabel *nickLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+
+@property (weak, nonatomic) IBOutlet UIButton *headButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -51,5 +52,6 @@ typedef NS_ENUM(NSInteger, FromType)
 
 - (IBAction)showRightAction:(id)sender;
 
+- (IBAction)showHeadView:(id)sender;
 
 @end

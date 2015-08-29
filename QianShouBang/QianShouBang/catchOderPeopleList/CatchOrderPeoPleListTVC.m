@@ -127,6 +127,12 @@ static NSString *cellid = @"catchPeopleCell";
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (_peopleArray.count == 0) {
+        
+        return 1;
+        
+    }
+    
     return _peopleArray.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -137,6 +143,12 @@ static NSString *cellid = @"catchPeopleCell";
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (_peopleArray.count == 0) {
+        
+        return 44;
+        
+        }
     BmobObject *object = [_peopleArray objectAtIndex:indexPath.section];
     
     BmobUser *receiveUser = [object objectForKey:@"receive_user"];
@@ -161,6 +173,22 @@ static NSString *cellid = @"catchPeopleCell";
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (_peopleArray.count == 0) {
+        
+        UITableViewCell *blankCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+        
+        blankCell.textLabel.text = @"暂无记录";
+        
+        blankCell.textLabel.textColor = kDarkTintColor;
+        blankCell.textLabel.textAlignment = NSTextAlignmentCenter;
+        blankCell.textLabel.font = FONT_15;
+        
+        blankCell.userInteractionEnabled = NO;
+        
+        return blankCell;
+    }
+    
     CatchPeopleCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     
     

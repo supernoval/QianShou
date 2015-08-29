@@ -75,7 +75,7 @@ static NSInteger pageSize = 10;
 {
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:kOrder];
     
-    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser].objectId];
+    [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
     
     [query orderByDescending:@"updatedAt"];
     
@@ -92,7 +92,6 @@ static NSInteger pageSize = 10;
         if (index == 0) {
             
             [ordersArray removeAllObjects];
-            
             
             
         }
@@ -189,11 +188,29 @@ static NSInteger pageSize = 10;
             count ++;
         }
         
+     }
+    
+    if (ordersArray.count == 0)
+    {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
     }
 }
 #pragma mark - UITabelViewDataSource
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+    if (ordersArray.count == 0) {
+        
+        UITableViewCell *blankCell = [tableView dequeueReusableCellWithIdentifier:@"blankCell"];
+        
+        return blankCell;
+        
+    }
+    
+    
     
     MyOderCell *cell = [tableView dequeueReusableCellWithIdentifier:myOrderCell];
     
@@ -359,6 +376,12 @@ static NSInteger pageSize = 10;
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (ordersArray.count == 0) {
+        
+        return 44;
+        
+    }
     CGFloat photoViewHeight = 0;
     
     CGFloat textHeight = 0;
@@ -404,6 +427,11 @@ static NSInteger pageSize = 10;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (ordersArray.count == 0) {
+        
+        return 1;
+        
+    }
     return ordersArray.count;
 }
 
@@ -427,6 +455,11 @@ static NSInteger pageSize = 10;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (ordersArray.count > 0) {
+        
+        
+    }
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];

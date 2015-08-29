@@ -14,7 +14,7 @@
 #import "YellCell.h"
 #import "StringHeight.h"
 #import "CommonUtil.h"
-
+#import "YellDetailTableViewController.h"
 
 
 
@@ -244,8 +244,10 @@ static NSInteger pageSize = 10;
                 
                 
                 NSString *text = [weiboModel.yellObject objectForKey:@"content"];
-                
-                textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+            
+//            text = [CommonUtil turnStringToEmojiText:text];
+            
+                textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
                 
                 if (textHeight < 30)
                 {
@@ -307,9 +309,11 @@ static NSInteger pageSize = 10;
             cell = [tableView dequeueReusableCellWithIdentifier:contentCell];
             
             
-                
+          
+            
             dispatch_async(dispatch_get_main_queue(), ^{
-                
+            
+            cell.contentView.tag = indexPath.section;
            
             UIImageView *headImageView = (UIImageView*)[cell viewWithTag:100];
             
@@ -353,13 +357,13 @@ static NSInteger pageSize = 10;
            // 文字内容
                 NSString * content = [weiboModel.yellObject objectForKey:@"content"];
 //                content = [CommonUtil escapeUnicodeString:content];
-                content = [CommonUtil turnStringToEmojiText:content];
+//                content = [CommonUtil turnStringToEmojiText:content];
                 
                 contentLabel.text = content;
             
             NSString *text = [weiboModel.yellObject objectForKey:@"content"];
             
-            CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+            CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
             
             if (textHeight < 30) {
                 
@@ -374,16 +378,8 @@ static NSInteger pageSize = 10;
             //图片view  高度
       
             
-        
-            cell.contentView.tag = indexPath.section;
             
-//            for (UIView *subview in imageView.subviews) {
-//                
-//                [subview removeFromSuperview];
-//                
-//               
-//                
-//            }
+
                 
             if (weiboModel.photos)
             {
@@ -440,11 +436,28 @@ static NSInteger pageSize = 10;
             
             UILabel *commentNumlabel = (UILabel*)[cell viewWithTag:111];
             
+                BOOL hadzan = [self hadZan:weiboModel.yellObject];
+                
+                if (hadzan) {
+                    
+                    likeButton.backgroundColor = [UIColor redColor];
+                    likeButton.tintColor = [UIColor redColor];
+                }
+                else
+                {
+                    likeButton.backgroundColor = [UIColor whiteColor];
+                    likeButton.tintColor = [UIColor whiteColor];
+                    
+                    
+                }
+                
+                [likeButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
+                
             
             fromlabel.text = [weiboModel.yellObject objectForKey:@"build_model"];
             
             NSInteger commentNum = [[weiboModel.yellObject objectForKey:@"comment_total"]integerValue];
-            NSInteger totalNum = [[weiboModel.yellObject objectForKey:@"total"]integerValue];
+            NSInteger totalNum = [[weiboModel.yellObject objectForKey:@"zan_total"]integerValue];
             
             commentNumlabel.text = [NSString stringWithFormat:@"%ld",(long)commentNum];
             
@@ -482,7 +495,7 @@ static NSInteger pageSize = 10;
                     
                 }
             
-             });
+              });
             
         }
             break;
@@ -502,7 +515,25 @@ static NSInteger pageSize = 10;
 
 
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+      YellModel *weiboModel = [_weiboListArray objectAtIndex:indexPath.section];
+    
+    YellDetailTableViewController *_detail = [self.storyboard instantiateViewControllerWithIdentifier:@"YellDetailTableViewController"];
+    _detail.yellmodel = weiboModel;
+    
+    _detail.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:_detail animated:YES];
+    
+    
+    
+    
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 
 
@@ -513,6 +544,206 @@ static NSInteger pageSize = 10;
     [self.navigationController pushViewController:pushYell animated:YES];
     
     
+    
+}
+
+-(void)likeAction:(UIButton*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    
+    YellModel *model = [_weiboListArray objectAtIndex:cell.tag];
+    
+    NSString *objectId = model.yellObject.objectId;
+    
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    
+    NSString *userObjectId = currentUser.objectId;
+    
+    NSArray *zanArray = [[NSUserDefaults standardUserDefaults ] objectForKey:kZanList];
+    
+    BOOL finalZan = YES;
+    
+    if (zanArray)
+    {
+        NSMutableArray *muZanArray = [[NSMutableArray alloc]initWithArray:zanArray];
+        
+       
+        
+        
+        BOOL had = NO;
+        
+        for (int i = 0 ; i < zanArray.count; i ++) {
+            
+            NSDictionary *dict = [zanArray objectAtIndex:i];
+            
+            NSString *temObjectId = [dict objectForKey:@"weiboObjectId"];
+            NSString *temuserObjectId = [dict objectForKey:@"userObjectId"];
+            
+            if ([temObjectId isEqualToString:objectId] && [temuserObjectId isEqualToString:userObjectId]) {
+                
+                BOOL hadzan = [[dict objectForKey:@"hadzan"]boolValue];
+                
+                if (hadzan) {
+                    
+                    hadzan = NO;
+                    
+                    finalZan = NO;
+                    
+                }
+                else
+                {
+                    hadzan = YES;
+                    
+                  
+                    
+                }
+                
+                NSMutableDictionary *mudict = [[NSMutableDictionary alloc]initWithDictionary:dict];
+                [mudict setObject:@(hadzan) forKey:@"hadzan"];
+                
+                [muZanArray replaceObjectAtIndex:i withObject:mudict];
+                
+                
+                had = YES;
+                
+            }
+        }
+        
+        
+        if (!had)
+        {
+            
+         
+            
+            NSDictionary *dict = @{@"weiboObjectId":objectId,@"userObjectId":userObjectId,@"hadzan":@YES};
+            
+            [muZanArray addObject:dict];
+            
+        }
+        
+        [[NSUserDefaults standardUserDefaults ] setObject:muZanArray forKey:kZanList];
+        [[NSUserDefaults standardUserDefaults ] synchronize];
+        
+        
+    }
+    else
+    {
+        NSArray *zanArray = @[@{@"weiboObjectId":objectId,@"userObjectId":userObjectId,@"hadzan":@YES}];
+        
+        [[NSUserDefaults standardUserDefaults ] setObject:zanArray forKey:kZanList];
+        [[NSUserDefaults standardUserDefaults ] synchronize];
+        
+  
+        
+        
+    }
+    
+//    BmobUser *fromuser = [model.yellObject objectForKey:@"user"];
+//    
+//    [model.yellObject setObject:fromuser forKey:@"user"];
+    
+    NSInteger zanNum = [[model.yellObject objectForKey:@"zan_total"]integerValue];
+    
+    
+    
+    
+
+    
+    BmobObject *object = [BmobObject objectWithoutDatatWithClassName:kWeiboListItem objectId:model.yellObject.objectId];
+    
+    if (finalZan) {
+        
+        [object incrementKey:@"zan_total"];
+    }
+    else
+    {
+        if (zanNum > 0)
+        {
+            
+            [object decrementKey:@"zan_total"];
+            
+        }
+        
+        
+    }
+    
+    [MyProgressHUD showProgress];
+    
+    [object updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        
+        if (isSuccessful)
+        {
+            
+            BmobQuery *query = [BmobQuery queryWithClassName:kWeiboListItem];
+            [query includeKey:@"user"];
+            [query whereKey:@"objectId" equalTo:object.objectId];
+            
+            [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                
+                if (array) {
+                    
+                    BmobObject *firstObject = [array firstObject];
+                    model.yellObject = firstObject;
+                    
+                    [self.tableView reloadData];
+                    
+                }
+                
+                [MyProgressHUD dismiss];
+                
+            }];
+            
+            
+            
+        
+        
+        }
+     
+     
+        if (error) {
+            
+            NSLog(@"error:%@",error);
+            [MyProgressHUD dismiss];
+            
+        }
+        
+    }];
+}
+
+-(BOOL)hadZan:(BmobObject*)weiboObject
+{
+    NSString *objectId = weiboObject.objectId;
+    
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    
+    NSString *userObjectId = currentUser.objectId;
+    
+    NSArray *zanArray = [[NSUserDefaults standardUserDefaults ] objectForKey:kZanList];
+    
+    if (zanArray)
+    {
+        
+        for (int i = 0 ; i < zanArray.count; i ++) {
+            
+            NSDictionary *dict = [zanArray objectAtIndex:i];
+            
+            NSString *temObjectId = [dict objectForKey:@"weiboObjectId"];
+            NSString *temuserObjectId = [dict objectForKey:@"userObjectId"];
+            BOOL hadZan = [[dict objectForKey:@"hadzan"]boolValue];
+            
+            
+            if ([temObjectId isEqualToString:objectId] && [temuserObjectId isEqualToString:userObjectId] && hadZan) {
+                
+                
+                return YES;
+                
+            }
+        }
+        
+    }
+    
+    return NO;
     
 }
 @end

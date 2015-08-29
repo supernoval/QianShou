@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "EmojiEmoticons.h"
+
 @protocol EmojiViewDelegate;
 
 @interface EmojiView : UIView{

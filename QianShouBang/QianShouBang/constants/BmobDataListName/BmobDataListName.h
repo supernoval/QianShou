@@ -23,8 +23,14 @@
 //呐喊
 #define kWeiboListItem      @"WeiboListItem"
 
+//呐喊回复
+#define kCommentList      @"CommentList"
+
 //系统消息
 #define kSystemMsg          @"SystemMsg"
+
+//点赞
+#define kZanList            @"ZanList"  //存本地数组   weiboItem objectid, zanuser objectid ,iszan bool
 
 /*User表对应Key*/
 #define kUser @"_User"

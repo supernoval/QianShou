@@ -9,11 +9,14 @@
 #import "UserDetailTVC.h"
 #import "ChatViewController.h"
 
-@interface UserDetailTVC ()
+@interface UserDetailTVC ()<SDPhotoBrowserDelegate>
 {
     BmobUser *targetUser;
     
     UIView *_rightView;
+    
+    UIImage *headimage;
+    
     
 }
 @end
@@ -63,9 +66,11 @@
 
 -(void)getUserInfo
 {
-    BmobQuery *query = [BmobQuery queryWithClassName:kUser];
-    
+    BmobQuery *query = [BmobQuery queryWithClassName:kUser ];
+  
     [query whereKey:@"username" equalTo:self.user.username];
+    
+    NSLog(@"username:%@",[self.user objectForKey:@"username"]);
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
        
@@ -84,7 +89,10 @@
 {
    
     
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:[targetUser objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"head_default"]];
+    [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[targetUser objectForKey:@"avatar"]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"head_default"]];
+    
+    
+
     self.nickLabel.text = [targetUser objectForKey:@"nick"];
     NSString *username = [CommonMethods geteditedmobile:targetUser.username];
     self.usernameLabel.text = [NSString stringWithFormat:@"牵手号:%@",username];
@@ -245,11 +253,14 @@
             BmobChatUser *user = (BmobChatUser *)self.user;
             [infoDic setObject:user.objectId forKey:@"uid"];
             [infoDic setObject:user.username forKey:@"name"];
-            if (user.avatar) {
-                [infoDic setObject:user.avatar forKey:@"avatar"];
+            NSString *avatar = [user objectForKey:@"avatar"];
+            NSString *nick = [user objectForKey:@"nick"];
+            
+            if (avatar) {
+                [infoDic setObject:avatar forKey:@"avatar"];
             }
-            if (user.nick) {
-                [infoDic setObject:user.nick forKey:@"nick"];
+            if (nick) {
+                [infoDic setObject:nick forKey:@"nick"];
             }
             ChatViewController *cvc = [[ChatViewController alloc] initWithUserDictionary:infoDic];
             cvc.hidesBottomBarWhenPushed = YES;
@@ -283,5 +294,38 @@
          [self.view addSubview:_rightView];
     }
     
+}
+
+- (IBAction)showHeadView:(id)sender {
+    
+    NSString *avatar = [targetUser objectForKey:@"avatar"];
+    
+    if (avatar) {
+        
+        SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+        browser.sourceImagesContainerView = self.headButton; // 原图的父控件
+        browser.imageCount = 1; // 图片总数
+        browser.currentImageIndex = 0;
+        browser.delegate = self;
+        [browser show];
+    }
+}
+
+#pragma mark - photobrowser代理方法
+
+// 返回临时占位图片（即原来的小图）
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+   
+    
+    return self.headButton.currentBackgroundImage;
+}
+
+
+// 返回高质量图片的url
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    NSString *urlStr = [targetUser objectForKey:@"avatar"];
+    return [NSURL URLWithString:urlStr];
 }
 @end

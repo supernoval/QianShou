@@ -105,6 +105,12 @@
                     }
                    
                     
+                    if (![install isEqualToString:deviceToken]) {
+                        
+                         [user setObject:deviceToken forKey:@"installId"];
+                        
+                        [[BmobUserManager currentUserManager] checkAndBindDeviceToken:deviceData];
+                    }
                     
                    
                     [user updateInBackground];

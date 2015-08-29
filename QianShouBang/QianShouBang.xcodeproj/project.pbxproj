@@ -109,6 +109,11 @@
 		1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D01B837C36002CEBD0 /* MyAnnotation.m */; };
 		1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */; };
 		1511F2D91B838A5B002CEBD0 /* RecentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */; };
+		15138B871B9171070000A8C0 /* Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 15138B841B9171070000A8C0 /* Emoji.m */; };
+		15138B881B9171070000A8C0 /* EmojiEmoticons.m in Sources */ = {isa = PBXBuildFile; fileRef = 15138B861B9171070000A8C0 /* EmojiEmoticons.m */; };
+		15138B8C1B9188900000A8C0 /* Emoji.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15138B8B1B9188900000A8C0 /* Emoji.plist */; };
+		15138B8F1B9188D40000A8C0 /* EmojiConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 15138B8E1B9188D40000A8C0 /* EmojiConvert.m */; };
+		15138B921B91ABDE0000A8C0 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15138B911B91ABDE0000A8C0 /* CommentCell.m */; };
 		157915321B8E071E00E31111 /* DarenListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 157915311B8E071E00E31111 /* DarenListCell.m */; };
 		157915361B8E10B800E31111 /* DarenDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 157915351B8E10B800E31111 /* DarenDetailTableViewController.m */; };
 		159420E71B8C941D00DA5A22 /* MIneDaRenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E61B8C941D00DA5A22 /* MIneDaRenTableViewController.m */; };
@@ -416,6 +421,15 @@
 		1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecentChatListTVC.m; path = chat/RecentChatListTVC.m; sourceTree = "<group>"; };
 		1511F2D71B838A56002CEBD0 /* RecentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecentTableViewCell.h; sourceTree = "<group>"; };
 		1511F2D81B838A5B002CEBD0 /* RecentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentTableViewCell.m; sourceTree = "<group>"; };
+		15138B831B9171070000A8C0 /* Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emoji.h; sourceTree = "<group>"; };
+		15138B841B9171070000A8C0 /* Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emoji.m; sourceTree = "<group>"; };
+		15138B851B9171070000A8C0 /* EmojiEmoticons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiEmoticons.h; sourceTree = "<group>"; };
+		15138B861B9171070000A8C0 /* EmojiEmoticons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiEmoticons.m; sourceTree = "<group>"; };
+		15138B8B1B9188900000A8C0 /* Emoji.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Emoji.plist; sourceTree = "<group>"; };
+		15138B8D1B9188D40000A8C0 /* EmojiConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiConvert.h; sourceTree = "<group>"; };
+		15138B8E1B9188D40000A8C0 /* EmojiConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiConvert.m; sourceTree = "<group>"; };
+		15138B901B91ABDE0000A8C0 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommentCell.h; path = Yell/CommentCell.h; sourceTree = "<group>"; };
+		15138B911B91ABDE0000A8C0 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommentCell.m; path = Yell/CommentCell.m; sourceTree = "<group>"; };
 		157915301B8E071E00E31111 /* DarenListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenListCell.h; sourceTree = "<group>"; };
 		157915311B8E071E00E31111 /* DarenListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DarenListCell.m; sourceTree = "<group>"; };
 		157915341B8E10B800E31111 /* DarenDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DarenDetailTableViewController.h; sourceTree = "<group>"; };
@@ -779,6 +793,8 @@
 			children = (
 				135C80CF1B8ED12400842813 /* YellDetailTableViewController.h */,
 				135C80D01B8ED12400842813 /* YellDetailTableViewController.m */,
+				15138B901B91ABDE0000A8C0 /* CommentCell.h */,
+				15138B911B91ABDE0000A8C0 /* CommentCell.m */,
 			);
 			name = yellDetail;
 			sourceTree = "<group>";
@@ -1268,6 +1284,7 @@
 		13F818031B82EB5F007E23B2 /* chatView */ = {
 			isa = PBXGroup;
 			children = (
+				15138B821B9171070000A8C0 /* Emoji */,
 				13F818041B82EB96007E23B2 /* ChatViewController.h */,
 				13F818051B82EB9C007E23B2 /* ChatViewController.m */,
 				13F818181B82F9FE007E23B2 /* LocateViewController.h */,
@@ -1305,6 +1322,20 @@
 				1511F2D51B838A18002CEBD0 /* RecentChatListTVC.m */,
 			);
 			name = recentChatList;
+			sourceTree = "<group>";
+		};
+		15138B821B9171070000A8C0 /* Emoji */ = {
+			isa = PBXGroup;
+			children = (
+				15138B8B1B9188900000A8C0 /* Emoji.plist */,
+				15138B831B9171070000A8C0 /* Emoji.h */,
+				15138B841B9171070000A8C0 /* Emoji.m */,
+				15138B851B9171070000A8C0 /* EmojiEmoticons.h */,
+				15138B861B9171070000A8C0 /* EmojiEmoticons.m */,
+				15138B8D1B9188D40000A8C0 /* EmojiConvert.h */,
+				15138B8E1B9188D40000A8C0 /* EmojiConvert.m */,
+			);
+			path = Emoji;
 			sourceTree = "<group>";
 		};
 		157915331B8E108E00E31111 /* 达人详情 */ = {
@@ -2028,7 +2059,11 @@
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
 				D26965AE1B85C350009ACEFD /* BlackListCell.xib in Resources */,
 				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,
+
+				15138B8C1B9188900000A8C0 /* Emoji.plist in Resources */,
+
 				B3C469D71B91C2AA00DC7569 /* IntroCell.xib in Resources */,
+
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
@@ -2080,6 +2115,7 @@
 				136682D61B81D7A000C6767D /* NewFriendsTableViewController.m in Sources */,
 				D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */,
 				15B159E81B84BBE80097733A /* OrderCell.m in Sources */,
+				15138B871B9171070000A8C0 /* Emoji.m in Sources */,
 				1363D6801B7AEFDD00094224 /* MessageDetailTVC.m in Sources */,
 				13688F451B79A4F800251AC4 /* UIButton+WebCache.m in Sources */,
 				D26965751B817450009ACEFD /* PickAddressView.m in Sources */,
@@ -2135,6 +2171,7 @@
 				137263E01B744E3D0006661C /* JSONAPI.m in Sources */,
 				D26965B11B85C504009ACEFD /* BlackListCell.m in Sources */,
 				137775FC1B730DF7005C2C53 /* SendNeedTableViewController.m in Sources */,
+				15138B921B91ABDE0000A8C0 /* CommentCell.m in Sources */,
 				15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */,
 				15A7226B1B771686005A2303 /* DataVerifier.m in Sources */,
 				1363D6891B7B274C00094224 /* PhotoListView.m in Sources */,
@@ -2144,6 +2181,7 @@
 				13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */,
 				B3C469D51B91C29500DC7569 /* IntroCell.m in Sources */,
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
+				15138B8F1B9188D40000A8C0 /* EmojiConvert.m in Sources */,
 				15F086251B889DE5008C7EDB /* OrderProgressViewController.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				15E183581B7F177C00E13391 /* SDPhotoGroup.m in Sources */,
@@ -2224,6 +2262,7 @@
 				D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */,
 				D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */,
 				132E9FF41B7891DC00B342D7 /* MJRefreshFooter.m in Sources */,
+				15138B881B9171070000A8C0 /* EmojiEmoticons.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

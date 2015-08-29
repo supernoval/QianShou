@@ -105,6 +105,13 @@ static NSString *dareCellId = @"dasrenCell";
     
     
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [rightView removeFromSuperview];
+    
+}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -707,15 +714,15 @@ static NSString *dareCellId = @"dasrenCell";
 #pragma mark- 右上角弹出框
 - (UIView *)nearCatagoryVeiw{
     CGFloat width = 100;
-    CGFloat height = 120;
+    CGFloat height = 160;
     UIView *greenView = [[UIView alloc]initWithFrame:CGRectMake(ScreenWidth-width-2, 2, width, height)];
     greenView.backgroundColor = kBlueColor;
     
-    [CommonMethods addLine:15 startY:height/3 color:[UIColor whiteColor] toView:greenView];
-    [CommonMethods addLine:15 startY:height*2/3 color:[UIColor whiteColor] toView:greenView];
+    [CommonMethods addLine:15 startY:height/4 color:[UIColor whiteColor] toView:greenView];
+    [CommonMethods addLine:15 startY:height*2/4 color:[UIColor whiteColor] toView:greenView];
+    [CommonMethods addLine:15 startY:height*3/4 color:[UIColor whiteColor] toView:greenView];
     
-    
-    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/3)];
+    UIButton *femaleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, width, height/4)];
     femaleBtn.backgroundColor = [UIColor clearColor];
     [femaleBtn setTitle:@"5KM" forState:UIControlStateNormal];
     [femaleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -724,7 +731,7 @@ static NSString *dareCellId = @"dasrenCell";
     [femaleBtn addTarget:self action:@selector(fiveKiloMeters) forControlEvents:UIControlEventTouchUpInside];
     [greenView addSubview:femaleBtn];
     
-    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/3, width, height/3)];
+    UIButton *maleBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height/4, width, height/4)];
     maleBtn.backgroundColor = [UIColor clearColor];
     [maleBtn setTitle:@"10KM" forState:UIControlStateNormal];
     [maleBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -733,9 +740,16 @@ static NSString *dareCellId = @"dasrenCell";
     [maleBtn addTarget:self action:@selector(tenKiloMeters) forControlEvents:UIControlEventTouchUpInside];
     [greenView addSubview:maleBtn];
     
+    UIButton *thirtyButton = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/4, width, height/4)];
+    thirtyButton.backgroundColor = [UIColor clearColor];
+    [thirtyButton setTitle:@"30KM" forState:UIControlStateNormal];
+    [thirtyButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [thirtyButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateHighlighted];
+    thirtyButton.titleLabel.font = FONT_16;
+    [thirtyButton addTarget:self action:@selector(thirtyKiloMeters) forControlEvents:UIControlEventTouchUpInside];
+    [greenView addSubview:thirtyButton];
     
-    
-    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*2/3, width, height/3)];
+    UIButton *greetBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, height*3/4, width, height/4)];
     greetBtn.backgroundColor = [UIColor clearColor];
     [greetBtn setTitle:@"不限距离" forState:UIControlStateNormal];
     [greetBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -745,7 +759,7 @@ static NSString *dareCellId = @"dasrenCell";
     [greenView addSubview:greetBtn];
     
     
-    UIControl *backView = [[UIControl alloc]initWithFrame:CGRectMake(0, 0,ScreenWidth, ScreenHeight- 64)];
+    UIControl *backView = [[UIControl alloc]initWithFrame:CGRectMake(0, 64,ScreenWidth, ScreenHeight- 64)];
     
     backView.backgroundColor = kTransParentBackColor;
     
@@ -761,7 +775,7 @@ static NSString *dareCellId = @"dasrenCell";
 {
     distance = 5;
     
-    [self headerRefresh];
+    [self.tableView.header beginRefreshing];
     
     [self dismissRight];
     
@@ -771,16 +785,24 @@ static NSString *dareCellId = @"dasrenCell";
 {
     distance = 10;
     
-    [self headerRefresh];
+  [self.tableView.header beginRefreshing];
     
     [self dismissRight];
 }
 
+-(void)thirtyKiloMeters
+{
+    distance = 30;
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self dismissRight];
+}
 -(void)unlimitDistance
 {
     distance = 1000000;
     
-    [self headerRefresh];
+  [self.tableView.header beginRefreshing];
     
     
     [self dismissRight];
@@ -848,7 +870,7 @@ static NSString *dareCellId = @"dasrenCell";
     
     else
     {
-        [self.view addSubview:rightView];
+        [self.navigationController.view addSubview:rightView];
         
     }
 }

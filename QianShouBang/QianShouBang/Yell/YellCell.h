@@ -10,6 +10,7 @@
 
 @interface YellCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIButton *headButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWithConstrain;
 

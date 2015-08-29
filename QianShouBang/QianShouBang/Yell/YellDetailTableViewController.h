@@ -7,7 +7,10 @@
 //
 
 #import "BaseTableViewController.h"
+#import "YellModel.h"
 
 @interface YellDetailTableViewController : BaseTableViewController
+
+@property (nonatomic) YellModel *yellmodel;
 
 @end

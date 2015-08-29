@@ -36,8 +36,15 @@
     _headerView.frame = CGRectMake(0, 0, ScreenWidth, 90);
     
     
+    
     _footerView.frame = CGRectMake(0, 0, ScreenWidth, 223);
     
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    
+    if ([currentUser.objectId isEqualToString:user.objectId]) {
+        
+        _footerView.hidden = YES;
+    }
     
     NSString *avatar = [user objectForKey:@"avatar"];
     
@@ -176,6 +183,12 @@
 
 - (IBAction)zixunAction:(id)sender {
     
+    
+    
+    if (user) {
+        
+        
+  
     NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
 
     [infoDic setObject:user.objectId forKey:@"uid"];
@@ -193,6 +206,6 @@
     cvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:cvc animated:YES];
     
-    
+      }
 }
 @end

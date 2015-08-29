@@ -321,6 +321,8 @@
     [weiboObject setObject:phoneModel forKey:@"build_model"];
     
     [weiboObject setObject:@(hideInfo) forKey:@"hide_info"];
+    [weiboObject setObject:@YES forKey:@"isSuccess"];
+    
     
     [weiboObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         

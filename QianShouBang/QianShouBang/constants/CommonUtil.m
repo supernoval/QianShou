@@ -48,13 +48,45 @@
             NSString *unicodeStr = [string  stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
             
             NSString *newString = [self decodeUnicodeBytes:(char *)[unicodeStr UTF8String]];
-            text = [text stringByReplacingOccurrencesOfString:string withString:newString];
+            NSString *str = [self getNewEmojiString:unicodeStr];
+            
+            text = [text stringByReplacingOccurrencesOfString:string withString:str];
         }
     }
+    
+    NSLog(@"text:%@",text);
     
     return text;
 }
 
++(NSString *)getNewEmojiString:(NSString*)oldString
+{
+    NSString *filepath= [[NSBundle mainBundle] pathForResource:@"Emoji" ofType:@"plist"];
+//    NSData *emojiData = [[NSData alloc]initWithContentsOfFile:filepath];
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:filepath];
+    
+//    NSArray *allKeys = [dict allKeys];
+    
+    NSString *lastFour = [oldString substringFromIndex:2];
+    
+//    NSLog(@"lastFour:%@",lastFour);
+    
+    lastFour = [lastFour uppercaseString];
+    
+    oldString = [NSString stringWithFormat:@"\\u%@",lastFour];
+    
+  
+    
+    NSString *value = [dict objectForKey:oldString];
+    
+    NSLog(@"oldstring:%@,emoji:%@",oldString,value);
+    
+    
+    return value;
+    
+    
+}
 
 +(NSString *)decodeUnicodeBytes:(char *)stringEncoded {
     unsigned int    unicodeValue;
@@ -78,13 +110,19 @@
                 pScanner = [NSScanner scannerWithString: hexString];
                 [pScanner scanHexInt: &unicodeValue];
                 
+//                NSLog(@"theString1:%@",theString);
+                
                 [theString appendFormat:@"%C", (unichar)unicodeValue];
                 p += 4;
+              
                 continue;
             }
         }
         
+        
+        
         [theString appendFormat:@"%c", *p];
+    
         p++;
     }
     
@@ -104,11 +142,11 @@
             NSString *string = [description substringWithRange:b.range];
             
             NSString *newString = [NSString stringWithFormat:@"\\%@",string];
-            //[self unescapeUnicodeString:string];
+//            [self unescapeUnicodeString:string];
             text = [text stringByReplacingOccurrencesOfString:string withString:newString];
         }
     }
-//    NSLog(@"text%@,array count%d",text,[array count]);
+    NSLog(@"text%@,array count%ld,array:%@",text,(long)[array count],array);
     return text;
 }
 
@@ -214,7 +252,7 @@
     
     // done
     
-    NSLog(@"edcodeString:%@",encodedString);
+//    NSLog(@"edcodeString:%@",encodedString);
     
     return encodedString;
 }
