@@ -77,6 +77,14 @@
     
 }
 
++(NSDate *)getYYYYMMFromString:(NSString *)dateStr{
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
+    [dateformatter setDateFormat:@"YYYY-MM"];
+    NSDate *date = [dateformatter dateFromString:dateStr];
+    
+    return date;
+}
+
 +(NSString*)getYYYYMMddFromDefaultDateStr:(NSDate *)date
 {
  

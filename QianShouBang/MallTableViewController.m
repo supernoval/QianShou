@@ -11,6 +11,7 @@
 #import "GoodsDetailTVC.h"
 #import "HtmlTextIntroduceViewController.h"
 #import "AccountDetailViewController.h"
+#import "TheExchangedGoodsTVC.h"
 
 static NSUInteger pageSize = 10;
 
@@ -254,8 +255,13 @@ static NSUInteger pageSize = 10;
 
 
 - (void)exchangeGoods:(UIButton *)button{
+    
+    
 }
 
 - (IBAction)theExchangesGoods:(UIBarButtonItem *)sender {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+    TheExchangedGoodsTVC *exchangeTVC = [sb instantiateViewControllerWithIdentifier:@"TheExchangedGoodsTVC"];
+    [self.navigationController pushViewController:exchangeTVC animated:YES];
 }
 @end

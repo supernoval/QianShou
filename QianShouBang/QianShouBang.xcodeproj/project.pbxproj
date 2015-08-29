@@ -165,6 +165,10 @@
 		B368C7401B887AF5006AB55C /* DrawCashCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B368C73F1B887AF5006AB55C /* DrawCashCell.xib */; };
 		B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */; };
 		B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B392A3681B72396B00B7CA6D /* InfoCell.m */; };
+		B3C469CE1B918BE400DC7569 /* TheExchangedGoodsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C469CD1B918BE400DC7569 /* TheExchangedGoodsTVC.m */; };
+		B3C469D21B91C27700DC7569 /* IntroQSBTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C469D11B91C27700DC7569 /* IntroQSBTVC.m */; };
+		B3C469D51B91C29500DC7569 /* IntroCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B3C469D41B91C29500DC7569 /* IntroCell.m */; };
+		B3C469D71B91C2AA00DC7569 /* IntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3C469D61B91C2AA00DC7569 /* IntroCell.xib */; };
 		D24C37011B7478F300228886 /* MallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37001B7478F300228886 /* MallTableViewController.m */; };
 		D24C37031B74792600228886 /* MallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24C37021B74792600228886 /* MallCell.xib */; };
 		D24C37061B74794200228886 /* MallCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D24C37051B74794200228886 /* MallCell.m */; };
@@ -592,6 +596,13 @@
 		B392A3651B7238ED00B7CA6D /* PersonCenterTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonCenterTableViewController.m; sourceTree = SOURCE_ROOT; };
 		B392A3671B72396B00B7CA6D /* InfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoCell.h; sourceTree = SOURCE_ROOT; };
 		B392A3681B72396B00B7CA6D /* InfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoCell.m; sourceTree = SOURCE_ROOT; };
+		B3C469CC1B918BE400DC7569 /* TheExchangedGoodsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheExchangedGoodsTVC.h; sourceTree = SOURCE_ROOT; };
+		B3C469CD1B918BE400DC7569 /* TheExchangedGoodsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheExchangedGoodsTVC.m; sourceTree = SOURCE_ROOT; };
+		B3C469D01B91C27700DC7569 /* IntroQSBTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroQSBTVC.h; sourceTree = SOURCE_ROOT; };
+		B3C469D11B91C27700DC7569 /* IntroQSBTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroQSBTVC.m; sourceTree = SOURCE_ROOT; };
+		B3C469D31B91C29500DC7569 /* IntroCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroCell.h; sourceTree = SOURCE_ROOT; };
+		B3C469D41B91C29500DC7569 /* IntroCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroCell.m; sourceTree = SOURCE_ROOT; };
+		B3C469D61B91C2AA00DC7569 /* IntroCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroCell.xib; sourceTree = SOURCE_ROOT; };
 		D24C36FF1B7478F300228886 /* MallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MallTableViewController.h; sourceTree = SOURCE_ROOT; };
 		D24C37001B7478F300228886 /* MallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MallTableViewController.m; sourceTree = SOURCE_ROOT; };
 		D24C37021B74792600228886 /* MallCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MallCell.xib; sourceTree = SOURCE_ROOT; };
@@ -1648,9 +1659,31 @@
 			name = "个人中心";
 			sourceTree = "<group>";
 		};
+		B3C469CB1B918BB600DC7569 /* 已兑换商品 */ = {
+			isa = PBXGroup;
+			children = (
+				B3C469CC1B918BE400DC7569 /* TheExchangedGoodsTVC.h */,
+				B3C469CD1B918BE400DC7569 /* TheExchangedGoodsTVC.m */,
+			);
+			name = "已兑换商品";
+			sourceTree = "<group>";
+		};
+		B3C469CF1B91C22F00DC7569 /* 功能介绍 */ = {
+			isa = PBXGroup;
+			children = (
+				B3C469D01B91C27700DC7569 /* IntroQSBTVC.h */,
+				B3C469D11B91C27700DC7569 /* IntroQSBTVC.m */,
+				B3C469D31B91C29500DC7569 /* IntroCell.h */,
+				B3C469D41B91C29500DC7569 /* IntroCell.m */,
+				B3C469D61B91C2AA00DC7569 /* IntroCell.xib */,
+			);
+			name = "功能介绍";
+			sourceTree = "<group>";
+		};
 		D24C36FE1B7477C400228886 /* 牵手币商城 */ = {
 			isa = PBXGroup;
 			children = (
+				B3C469CB1B918BB600DC7569 /* 已兑换商品 */,
 				B35069811B774CB90045CF10 /* 商品详情 */,
 				D24C36FF1B7478F300228886 /* MallTableViewController.h */,
 				D24C37001B7478F300228886 /* MallTableViewController.m */,
@@ -1747,6 +1780,7 @@
 		D24C596A1B7C614E006F88D3 /* 关于牵手邦 */ = {
 			isa = PBXGroup;
 			children = (
+				B3C469CF1B91C22F00DC7569 /* 功能介绍 */,
 				D24C596E1B7C6EAB006F88D3 /* 反馈 */,
 				D24C596B1B7C6182006F88D3 /* AboutQianShouBangTVC.h */,
 				D24C596C1B7C6182006F88D3 /* AboutQianShouBangTVC.m */,
@@ -1994,6 +2028,7 @@
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
 				D26965AE1B85C350009ACEFD /* BlackListCell.xib in Resources */,
 				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,
+				B3C469D71B91C2AA00DC7569 /* IntroCell.xib in Resources */,
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
@@ -2088,7 +2123,9 @@
 				15E1835D1B7F284F00E13391 /* YellCell.m in Sources */,
 				15A7226A1B771686005A2303 /* DataSigner.m in Sources */,
 				13688F3E1B79A4F800251AC4 /* SDImageCache.m in Sources */,
+				B3C469D21B91C27700DC7569 /* IntroQSBTVC.m in Sources */,
 				137775F81B72F430005C2C53 /* MineTableViewController.m in Sources */,
+				B3C469CE1B918BE400DC7569 /* TheExchangedGoodsTVC.m in Sources */,
 				13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */,
 				137263E11B744E3D0006661C /* JSONHTTPClient.m in Sources */,
 				13F8181A1B82FA02007E23B2 /* LocateViewController.m in Sources */,
@@ -2105,6 +2142,7 @@
 				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */,
+				B3C469D51B91C29500DC7569 /* IntroCell.m in Sources */,
 				13983AE41B6B513A00D44BF0 /* CatchOrderTVC.m in Sources */,
 				15F086251B889DE5008C7EDB /* OrderProgressViewController.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,

@@ -16,6 +16,8 @@
 @property (nonatomic)CGFloat image_height;
 @property (nonatomic, strong)UIImageView *goods_imageview;
 @property (nonatomic, strong)UIImage *goods_image;
+@property (nonatomic)NSInteger qsCount;
+@property (nonatomic)CGFloat moneyCount;
 
 @end
 
@@ -38,7 +40,7 @@
 - (void)loadImage{
     self.goods_imageview = [[UIImageView alloc]init];
     
-    [self.goods_imageview sd_setImageWithURL:[NSURL URLWithString:[obj objectForKey:kintergralGoodsIcon_url]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+    [self.goods_imageview sd_setImageWithURL:[NSURL URLWithString:[self.obj objectForKey:kintergralGoodsIcon_url]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
         if (error) {
         }else{
         self.goods_image = image;
@@ -85,7 +87,7 @@
     if (indexPath.row == 0) {
         return self.image_height;
     }else if(indexPath.row == 3){
-        return [StringHeight heightWithText:[obj objectForKey:kintergralGoodsDescription] font:FONT_14 constrainedToWidth:ScreenWidth-16]+120;
+        return [StringHeight heightWithText:[self.obj objectForKey:kintergralGoodsDescription] font:FONT_14 constrainedToWidth:ScreenWidth-16]+120;
         
     }
     return 40;
@@ -126,7 +128,7 @@
             case 1:
         {
             titleCell.title.text = @"兑换标题:";
-            titleCell.text.text = [obj objectForKey:kintergralGoodsTitle];
+            titleCell.text.text = [self.obj objectForKey:kintergralGoodsTitle];
             return titleCell;
         }
             break;
@@ -134,7 +136,7 @@
         case 2:
         {
             titleCell.title.text = @"兑换价格:";
-            titleCell.text.text = [NSString stringWithFormat:@"%@",[obj objectForKey:kintergralGoodsValue]];
+            titleCell.text.text = [NSString stringWithFormat:@"%@",CheckNil([self.obj objectForKey:kintergralGoodsValue])];
             return titleCell;
         }
             break;
@@ -142,8 +144,8 @@
         case 3:
         {
             detailCell.title.text = @"商品描述:";
-            detailCell.descrip.text = [obj objectForKey:kintergralGoodsDescription];
-            NSLog(@"描述：%@",[obj objectForKey:kintergralGoodsDescription]);
+            detailCell.descrip.text = [self.obj objectForKey:kintergralGoodsDescription];
+            NSLog(@"描述：%@",[self.obj objectForKey:kintergralGoodsDescription]);
             return detailCell;
             
         }
@@ -177,7 +179,173 @@
 }
 
 - (void)withDrawAction:(UIButton *)button{
-    self.view.backgroundColor = [UIColor redColor];
+    [MyProgressHUD showProgress];
+    BmobUser *user = [BmobUser getCurrentUser];
+    
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    [query orderByDescending:@"updatedAt"];
+    [query whereKey:@"user" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error){
+        if (error) {
+            [MyProgressHUD dismiss];
+            [CommonMethods showDefaultErrorString:@"兑换失败"];
+            NSLog(@"%@",error);
+        }else{
+            NSLog(@"牵手%li",(unsigned long)array.count);
+            if (array.count != 0) {
+                BmobObject *object = [array firstObject];
+                self.qsCount = [[object objectForKey:ktIntegralCount]integerValue];
+                self.moneyCount = [[object objectForKey:ktMoneyCount]floatValue];
+                
+                //牵手币兑换
+                if ([[self.obj objectForKey:kintergralGoodsTitle]isEqualToString:@"牵手币兑换"]) {
+                    if (self.moneyCount<10) {
+                        [MyProgressHUD dismiss];
+                        [CommonMethods showDefaultErrorString:@"账户余额小于10，不能兑换"];
+                    }else{
+                        NSInteger qsBi;
+                        NSInteger exchangeMoney;
+                        if (self.moneyCount>5000) {
+                            qsBi = 500;
+                            exchangeMoney = 5000;
+                        }else{
+                            qsBi = self.moneyCount/10;
+                            exchangeMoney = self.moneyCount;
+                        }
+                        
+                        BmobObject *exchangeObj = [BmobObject objectWithClassName:kExchangeMoneyBean];
+                        
+                        [exchangeObj setObject:[NSNumber numberWithInteger:qsBi] forKey:kexchange_integrl_num];
+                        [exchangeObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:kuse_money_value];
+                        [exchangeObj setObject:user forKey:@"user"];
+                        [exchangeObj setObject:self.obj forKey:kintergralBean];
+                        [exchangeObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                            if (isSuccessful) {
+                                BmobObject *detailObj = [BmobObject objectWithClassName:kDetailAccount];
+                                [detailObj setObject:@YES forKey:kisQsMoneyType];
+                                [detailObj setObject:@YES forKey:kIntergral_exchange];
+                                [detailObj setObject:[NSNumber numberWithInteger:qsBi] forKey:ktIntegral];
+                                [detailObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:ktMoney];
+                                [detailObj setObject:[NSNumber numberWithInteger:(self.qsCount+qsBi)] forKey:ktIntegralCount];
+                                [detailObj setObject:[NSNumber numberWithFloat:self.moneyCount] forKey:ktMoneyCount];
+                                [detailObj setObject:user forKey:@"user"];
+                                [detailObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                                    if (isSuccessful) {
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换成功"];
+                                    }else{
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                        
+                                    }
+                                }];
+                            }else{
+                                [MyProgressHUD dismiss];
+                                [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                
+                            }
+                        }];
+                        
+                    }
+                }else if ([[self.obj objectForKey:kintergralGoodsTitle]isEqualToString:@"现金兑换"]) {//现金兑换
+                    if (self.moneyCount<2) {
+                        [MyProgressHUD dismiss];
+                        [CommonMethods showDefaultErrorString:@"账户牵手币余额小于2，不能兑换"];
+                    }else{
+                        NSInteger qsBi = self.qsCount;
+                        NSInteger exchangeMoney = self.qsCount/2;
+                      
+                        
+                        BmobObject *exchangeObj = [BmobObject objectWithClassName:kExchangeMoneyBean];
+                        
+                        [exchangeObj setObject:[NSNumber numberWithInteger:qsBi] forKey:kexchange_integrl_num];
+                        [exchangeObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:kuse_money_value];
+                        [exchangeObj setObject:user forKey:@"user"];
+                        [exchangeObj setObject:self.obj forKey:kintergralBean];
+                        [exchangeObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                            if (isSuccessful) {
+                                BmobObject *detailObj = [BmobObject objectWithClassName:kDetailAccount];
+                                [detailObj setObject:@YES forKey:kisQsMoneyType];
+                                [detailObj setObject:@YES forKey:kisAccountAmountType];
+                                [detailObj setObject:@YES forKey:kIntergral_exchange];
+                                [detailObj setObject:[NSNumber numberWithInteger:qsBi] forKey:ktIntegral];
+                                [detailObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:ktMoney];
+                                [detailObj setObject:[NSNumber numberWithInteger:0] forKey:ktIntegralCount];
+                                [detailObj setObject:[NSNumber numberWithFloat:self.moneyCount+exchangeMoney] forKey:ktMoneyCount];
+                                [detailObj setObject:user forKey:@"user"];
+                                [detailObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                                    if (isSuccessful) {
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换成功"];
+                                    }else{
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                        
+                                    }
+                                }];
+                            }else{
+                                [MyProgressHUD dismiss];
+                                [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                
+                            }
+                        }];
+                        
+                        
+                    }
+                }else{//兑换商品
+                    if (self.qsCount<[[self.obj objectForKey:kintergralGoodsValue]integerValue]) {
+                        [MyProgressHUD dismiss];
+                        [CommonMethods showDefaultErrorString:@"账户牵手币余额不足，不能兑换"];
+                    }else{
+                        NSInteger qsBi = [[self.obj objectForKey:kintergralGoodsValue]integerValue];
+                        NSInteger exchangeMoney = 0;
+                        
+                        
+                        BmobObject *exchangeObj = [BmobObject objectWithClassName:kExchangeMoneyBean];
+                        
+                        [exchangeObj setObject:[NSNumber numberWithInteger:qsBi] forKey:kexchange_integrl_num];
+                        [exchangeObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:kuse_money_value];
+                        [exchangeObj setObject:user forKey:@"user"];
+                        [exchangeObj setObject:self.obj forKey:kintergralBean];
+                        [exchangeObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                            if (isSuccessful) {
+                                BmobObject *detailObj = [BmobObject objectWithClassName:kDetailAccount];
+                                [detailObj setObject:@YES forKey:kisQsMoneyType];
+                                [detailObj setObject:@YES forKey:kIntergral_exchange];
+                                [detailObj setObject:[NSNumber numberWithInteger:qsBi] forKey:ktIntegral];
+                                [detailObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:ktMoney];
+                                [detailObj setObject:[NSNumber numberWithInteger:self.qsCount-qsBi] forKey:ktIntegralCount];
+                                [detailObj setObject:[NSNumber numberWithFloat:self.moneyCount+exchangeMoney] forKey:ktMoneyCount];
+                                [detailObj setObject:user forKey:@"user"];
+                                [detailObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                                    if (isSuccessful) {
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换成功"];
+                                    }else{
+                                        [MyProgressHUD dismiss];
+                                        [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                        
+                                    }
+                                }];
+                            }else{
+                                [MyProgressHUD dismiss];
+                                [CommonMethods showDefaultErrorString:@"兑换失败"];
+                                
+                            }
+                        }];
+                        
+                        
+                    }
+                }
+                
+                
+            }
+        }
+    }];
+    
 }
+
+
 
 @end

@@ -10,7 +10,7 @@
 
 @interface ExchangeQsBiViewController ()
 @property (nonatomic)CGFloat tCount;
-@property (nonatomic)CGFloat integralCount;
+@property (nonatomic)NSInteger integralCount;
 
 @end
 
@@ -32,7 +32,18 @@
 
 - (BOOL)isFirstByMonth{
     __block BOOL isYes = NO;
-    NSDate *now = [NSDate date];
+
+    
+    NSString  *timeString = [Bmob getServerTimestamp];
+    //时间戳转化成时间
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:[timeString intValue]];
+    
+    NSString *dateStr = [CommonMethods getYYYYMMddFromDefaultDateStr:date];
+    
+    NSDate * serviceDate = [CommonMethods  getYYYMMddFromString:dateStr];
+
+    
+    
     __block BmobObject *obj;
     BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
     query.limit = 1;
@@ -49,8 +60,12 @@
                 isYes = YES;
             }else{
                 obj = [array firstObject];
-                NSDate *firstDate = obj.createdAt;
-                if ([CommonMethods getMonthFromDate:now] == [CommonMethods getMonthFromDate:firstDate]) {
+                
+                NSString *creatTime = [CommonMethods getYYYYMMddFromDefaultDateStr:obj.createdAt];
+                
+                NSDate *createDate = [CommonMethods getYYYMMddFromString:creatTime];
+
+                if ([serviceDate isEqualToDate:createDate]) {
                     isYes = NO;
                 }else{
                     isYes = YES;
@@ -66,6 +81,9 @@
     return isYes;
 
 }
+
+
+
 
 - (void)setAppearance{
 
@@ -94,7 +112,7 @@
             NSLog(@"账户%li",(unsigned long)array.count);
             if (array.count != 0) {
                 BmobObject *obj = [array firstObject];
-                self.integralCount = [[obj objectForKey:ktIntegralCount]floatValue];
+                self.integralCount = [[obj objectForKey:ktIntegralCount]integerValue];
                 self.tCount = [[obj objectForKey:ktMoneyCount]floatValue];
                 self.title = [NSString stringWithFormat:@"当前余额%.1f",self.tCount];
                 
@@ -151,7 +169,7 @@
                 if (array.count != 0) {
                     BmobObject *obj = [array firstObject];
                     self.integralCount = [[obj objectForKey:ktIntegralCount]floatValue];
-                    NSLog(@"获取牵手币：%f",self.integralCount);
+                    NSLog(@"获取牵手币：%ld",(long)self.integralCount);
                     self.tCount = [[obj objectForKey:ktMoneyCount]floatValue];
                     self.title = [NSString stringWithFormat:@"当前余额%.1f",self.tCount];
                     
@@ -195,7 +213,7 @@
                 if (array.count != 0) {
                     BmobObject *obj = [array firstObject];
                     self.integralCount = [[obj objectForKey:ktIntegralCount]floatValue];
-                    NSLog(@"获取牵手币：%f",self.integralCount);
+                    NSLog(@"获取牵手币：%ld",(long)self.integralCount);
                     self.tCount = [[obj objectForKey:ktMoneyCount]floatValue];
                     self.title = [NSString stringWithFormat:@"当前余额%.1f",self.tCount];
                     
@@ -243,7 +261,7 @@
                 if (array.count != 0) {
                     BmobObject *obj = [array firstObject];
                     self.integralCount = [[obj objectForKey:ktIntegralCount]floatValue];
-                    NSLog(@"获取牵手币：%f",self.integralCount);
+                    NSLog(@"获取牵手币：%li",(long)self.integralCount);
                     self.tCount = [[obj objectForKey:ktMoneyCount]floatValue];
                     self.title = [NSString stringWithFormat:@"当前余额%.1f",self.tCount];
                     
@@ -290,7 +308,6 @@
                 qsBi = self.tCount/10;
                 exchangeMoney = self.tCount/10;
             }
-            
             
             
             BmobUser *user = [BmobUser getCurrentUser];
@@ -424,7 +441,7 @@
                     [detailObj setObject:[NSNumber numberWithInteger:exchangeMoney] forKey:ktMoney];
                     [detailObj setObject:[NSNumber numberWithInteger:(self.integralCount+qsBi)] forKey:ktIntegralCount];
                     [detailObj setObject:user forKey:@"user"];
-                    NSLog(@"当前牵手币：%f 交易后：%f",self.integralCount, self.integralCount+qsBi);
+                    NSLog(@"当前牵手币：%ld 交易后：%ld",(long)self.integralCount, self.integralCount+qsBi);
                     [detailObj setObject:[NSNumber numberWithFloat:self.tCount] forKey:ktMoneyCount];
                     
                     [detailObj saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){

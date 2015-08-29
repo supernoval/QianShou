@@ -93,7 +93,9 @@
     if (alertView.tag == 100) {
         if (buttonIndex == 1) {
             //清除存储空间
-            
+            [[SDImageCache sharedImageCache]cleanDisk];
+            [[SDImageCache sharedImageCache]clearMemory];
+            [CommonMethods showDefaultErrorString:@"清理成功"];
         }
     }else if (alertView.tag == 101){
         if (buttonIndex == 1) {

@@ -71,3 +71,11 @@
 #define kExchangeMoneyBean @"ExchangeMoneyBean"
 #define kexchange_integrl_num @"exchange_integrl_num"
 #define kuse_money_value @"use_money_value"
+#define  kintergralBean  @"intergralBean"
+
+/*余额提现表*/
+#define kCash @"Cash"
+#define kcash_account  @"cash_account"
+#define kcash_number   @"cash_number"
+#define kis_need_cash  @"is_need_cash"
+#define kname          @"name"

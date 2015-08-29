@@ -10,6 +10,7 @@
 #import "RowTextCell.h"
 #import "MessageTableViewController.h"
 #import "FeedBackViewController.h"
+#import "IntroQSBTVC.h"
 
 @interface AboutQianShouBangTVC ()
 
@@ -94,6 +95,8 @@
             
         case 1://功能介绍
         {
+            IntroQSBTVC *intro = [sb instantiateViewControllerWithIdentifier:@"IntroQSBTVC"];
+            [self.navigationController pushViewController:intro animated:YES];
         }
             break;
             
