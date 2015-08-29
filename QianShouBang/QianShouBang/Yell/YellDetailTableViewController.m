@@ -62,6 +62,8 @@ static NSString *contentCell = @"contentCell";
     
     self.title = @"呐喊详情";
     
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
     
@@ -77,9 +79,14 @@ static NSString *contentCell = @"contentCell";
 
 -(void)hideKeyboard
 {
+//    [self.view endEditing:YES];
+//    [self.tableView becomeFirstResponder];
+    
+    [self.tableView removeGestureRecognizer:_tapResign];
+    
     [_replayTextField resignFirstResponder];
     
-    [self.view removeGestureRecognizer:_tapResign];
+    
     
     
 }
@@ -89,7 +96,12 @@ static NSString *contentCell = @"contentCell";
     
     [query whereKey:@"items" equalTo:self.yellmodel.yellObject];
     [query includeKey:@"from_user"];
+    
+    [MyProgressHUD showProgress];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        
+        [MyProgressHUD dismiss];
         
         if (array)
         {
@@ -466,11 +478,35 @@ static NSString *contentCell = @"contentCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section > 0) {
+        
+        BmobObject *commentObject = [_commentArray objectAtIndex:indexPath.section -1];
+        
+        BmobUser *user = [commentObject objectForKey:@"from_user"];
+        
+        NSString *usernick = [user objectForKey:@"nick"];
+        
+        if (usernick) {
+            
+            _replayTextField.text = nil;
+            
+            _replayTextField.placeholder = [NSString stringWithFormat:@"回复%@",usernick];
+            
+//            [_replayTextField becomeFirstResponder];
+            
+            
+        }
+    }
+}
+
 
 - (void)setBottomView
 {
@@ -592,6 +628,7 @@ static NSString *contentCell = @"contentCell";
             [MyProgressHUD showError:@"评论成功"];
             
             _replayTextField.text = nil;
+            _replayTextField.placeholder = nil;
             
 //            BmobObject *object = [BmobObject objectWithoutDatatWithClassName:kWeiboListItem objectId:_yellmodel.yellObject.objectId];
 //            
@@ -656,7 +693,7 @@ static NSString *contentCell = @"contentCell";
 -(void)keyBoardShow:(NSNotification*)note
 {
     
-    [self.view addGestureRecognizer:_tapResign];
+//    [self.tableView addGestureRecognizer:_tapResign];
     
     if (note)
     {
@@ -691,6 +728,8 @@ static NSString *contentCell = @"contentCell";
 
 -(void)keyBoardHide:(NSNotification*)note
 {
+
+    
     if (note)
     {
      
