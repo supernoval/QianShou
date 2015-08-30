@@ -32,6 +32,14 @@
     self.headerView.frame = CGRectMake(0, 0, ScreenWidth, 70);
     
     self.footerView.frame = CGRectMake(0, 0, ScreenWidth, 180);
+    
+    if ([_user.username isEqualToString:[BmobUser getCurrentUser].username]) {
+        
+        
+        _sendMesButton.hidden = YES;
+        _phoneCallButton.hidden = YES;
+        
+    }
     switch (_fromType) {
         case FromTypeFriendList:
         {

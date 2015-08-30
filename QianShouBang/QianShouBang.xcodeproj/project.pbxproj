@@ -2059,11 +2059,8 @@
 				D28FEA8A1B72EF3C0026D674 /* InfoCell.xib in Resources */,
 				D26965AE1B85C350009ACEFD /* BlackListCell.xib in Resources */,
 				D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */,
-
 				15138B8C1B9188900000A8C0 /* Emoji.plist in Resources */,
-
 				B3C469D71B91C2AA00DC7569 /* IntroCell.xib in Resources */,
-
 				13983A371B6B261500D44BF0 /* LaunchScreen.xib in Resources */,
 				D28FEABB1B7353380026D674 /* PortraitCell.xib in Resources */,
 				D28FEA8C1B72F14B0026D674 /* RowCell.xib in Resources */,
