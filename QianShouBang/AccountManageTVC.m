@@ -35,16 +35,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (section == 0) {
-        return 2;
-    }else{
-        return 1;
-    }
+    return 2;
 }
 
 
@@ -81,13 +77,15 @@
             cell.text.text = @"会员申请";
         }
         
-    }else if(indexPath.section == 1){
-        if (indexPath.row == 0) {
-            cell.text.text = @"抢单权限申请";
-        }
     }
+//    else if(indexPath.section == 1){
+//        if (indexPath.row == 0) {
+//            cell.text.text = @"抢单权限申请";
+//        }
+//    }
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
@@ -100,11 +98,12 @@
             ApplyVipTVC *applyVip = [sb instantiateViewControllerWithIdentifier:@"ApplyVipTVC"];
             [self.navigationController pushViewController:applyVip animated:YES];
         }
-    }else if(indexPath.section == 1){
-        if (indexPath.row == 0) {//抢单权限申请
-            
-        }
     }
+//    else if(indexPath.section == 1){
+//        if (indexPath.row == 0) {//抢单权限申请
+//            
+//        }
+//    }
 }
 
 @end
