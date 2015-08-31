@@ -129,7 +129,11 @@
                     if (currentUser.avatar.length != 0) {
                         [portraitCell.image sd_setImageWithURL:[NSURL URLWithString:currentUser.avatar]];
                     }else{//未设置头像时的处理
-                        portraitCell.image.image = [UIImage imageNamed:@"head_default"];
+                        int i = arc4random()%10;
+                        
+                        NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                        
+                        portraitCell.image.image = [UIImage imageNamed:headString];
                     }
                 
 

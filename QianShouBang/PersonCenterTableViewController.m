@@ -135,7 +135,11 @@
                     if (userInfo.avatar.length != 0) {
                         [infoCell.image sd_setImageWithURL:[NSURL URLWithString:userInfo.avatar]];
                     }else{//未设置头像时的处理
-                        infoCell.image.image = [UIImage imageNamed:@"head_default"];
+                        int i = arc4random()%10;
+                        
+                        NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                        
+                        infoCell.image.image = [UIImage imageNamed:headString];
                     }
                     //电话
                     infoCell.phone.text = userInfo.username;

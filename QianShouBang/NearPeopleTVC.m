@@ -173,9 +173,18 @@ static NSUInteger pageSize = 10;
         
         BmobUser *oneUser = [_dataArray objectAtIndex:indexPath.row];
         if ([oneUser objectForKey:kavatar] != nil) {
-            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
+            int i = arc4random()%10;
+            
+            NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+            
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]] placeholderImage:[UIImage imageNamed:headString]];
         }else{
-            cell.image.image = [UIImage imageNamed:@"head_default"];
+            
+            int i = arc4random()%10;
+            
+            NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+            
+            cell.image.image = [UIImage imageNamed:headString];
         }
         
         
@@ -282,21 +291,21 @@ static NSUInteger pageSize = 10;
     self.checkView.hidden = YES;
     self.catagoryNum = 0;
     [MyProgressHUD showProgress];
-    [self getData];
+    [self.tableView.header beginRefreshing];
 }
 -(void)checkMaleAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
     self.catagoryNum = 1;
     [MyProgressHUD showProgress];
-    [self getData];
+    [self.tableView.header beginRefreshing];
 }
 - (void)checkAllAction{
     self.showCheckView = NO;
     self.checkView.hidden = YES;
     self.catagoryNum = 2;
     [MyProgressHUD showProgress];
-    [self getData];
+    [self.tableView.header beginRefreshing];
 }
 #pragma mark- 查看不同种类的附近人
 - (IBAction)catagotyAction:(UIBarButtonItem *)sender {

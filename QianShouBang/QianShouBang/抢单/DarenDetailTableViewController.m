@@ -51,7 +51,11 @@
 //    _headImageView.clipsToBounds = YES;
 //    _headImageView.layer.cornerRadius = 40;
     
-    [_headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+    int i = arc4random()%10;
+    
+    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:headString]];
     
     
     

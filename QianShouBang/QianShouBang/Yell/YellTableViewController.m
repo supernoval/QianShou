@@ -345,8 +345,10 @@ static NSInteger pageSize = 10;
                     
                 }
                 
+                int i = arc4random()%10;
                 
-            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"head_default"]];
+                NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:headString]];
             
             
             headTitle.text = [user objectForKey:@"nick"];
@@ -440,14 +442,13 @@ static NSInteger pageSize = 10;
                 
                 if (hadzan) {
                     
-                    likeButton.backgroundColor = [UIColor redColor];
-                    likeButton.tintColor = [UIColor redColor];
+                    [likeButton setImage:[UIImage imageNamed:@"liked"] forState:UIControlStateNormal];
+                    
                 }
                 else
                 {
-                    likeButton.backgroundColor = [UIColor whiteColor];
-                    likeButton.tintColor = [UIColor whiteColor];
-                    
+                  
+                    [likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
                     
                 }
                 
@@ -491,7 +492,11 @@ static NSInteger pageSize = 10;
                     
                     distanceLabel.text = @"0.0km";
                     
-                    headImageView.image = [UIImage imageNamed:@"head_default"];
+                    int i = arc4random()%10;
+                    
+                    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                    
+                    headImageView.image = [UIImage imageNamed:headString];
                     
                 }
             

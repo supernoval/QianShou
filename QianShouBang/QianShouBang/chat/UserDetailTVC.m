@@ -96,8 +96,11 @@
 -(void)setupViews
 {
    
+    int i = arc4random()%10;
     
-    [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[targetUser objectForKey:@"avatar"]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"head_default"]];
+    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    
+    [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[targetUser objectForKey:@"avatar"]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:headString]];
     
     
 

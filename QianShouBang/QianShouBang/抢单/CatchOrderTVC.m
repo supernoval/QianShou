@@ -64,23 +64,7 @@ static NSString *dareCellId = @"dasrenCell";
     
     
     
-    //引导页设置
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults boolForKey:@"FirstLaunch"])
-    {
-        self.view.alpha = 0;
-        [UIView animateWithDuration:3.0 animations:^{
-            self.view.alpha = 1;
-        }];
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"alpha"];
-        animation.duration = 3;
-        animation.fromValue = @0.5;
-        animation.toValue = @1.0;
-        [self.view.layer addAnimation:animation forKey:@"animation"];
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
-        GuideViewController *guideVC = [sb instantiateViewControllerWithIdentifier:@"GuideViewController"];
-        [self presentViewController:guideVC animated:NO completion:nil];
-    }
+
 
     
     _ordersArray = [[NSMutableArray alloc]init];
@@ -122,7 +106,23 @@ static NSString *dareCellId = @"dasrenCell";
     [super viewWillAppear:animated];
     
     
-  
+    //引导页设置
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults boolForKey:@"FirstLaunch"])
+    {
+        self.view.alpha = 0;
+        [UIView animateWithDuration:3.0 animations:^{
+            self.view.alpha = 1;
+        }];
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"alpha"];
+        animation.duration = 3;
+        animation.fromValue = @0.5;
+        animation.toValue = @1.0;
+        [self.view.layer addAnimation:animation forKey:@"animation"];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+        GuideViewController *guideVC = [sb instantiateViewControllerWithIdentifier:@"GuideViewController"];
+        [self presentViewController:guideVC animated:NO completion:nil];
+    }
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -526,7 +526,11 @@ static NSString *dareCellId = @"dasrenCell";
                 NSString *nick = [_user objectForKey:@"nick"];
                 NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
                 
-                [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+                int i = arc4random()%10;
+                
+                NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                
+                [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:headString]];
                 
                 cell.nameLabel.text = nick;
                 CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:200];
@@ -541,6 +545,9 @@ static NSString *dareCellId = @"dasrenCell";
                     cell.vipImageView.hidden = YES;
                     
                 }
+                
+                 NSString *title = [_object objectForKey:@"order_title"];
+                 cell.titleLabel.text = title;
                 
                 
                 
@@ -643,7 +650,11 @@ static NSString *dareCellId = @"dasrenCell";
         NSString *nick = [_user objectForKey:@"nick"];
         NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
         
-        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        int i = arc4random()%10;
+             
+        NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+             
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:headString]];
         
         cell.nicknameLabel.text = nick;
         CGFloat nickwith = [StringHeight widthtWithText:nick font:FONT_15 constrainedToHeight:200];

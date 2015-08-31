@@ -55,8 +55,12 @@
     self.publishDateLabel.text = createdAt;
     self.publishTimeLabel.text = startTime;
     
-    [self.publisherHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
-    [self.secPublishHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+    int i = arc4random()%10;
+    
+    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    
+    [self.publisherHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:headString]];
+    [self.secPublishHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:headString]];
     
     
     NSLog(@"order_start_time:%@",[self.orderObject objectForKey:@"order_start_time"]);
@@ -64,7 +68,7 @@
     NSString *catchTime = [CommonMethods getHHmmssStr:[self.orderObject objectForKey:@"order_start_time"]];
     NSString *catchAvatar = [user objectForKey:@"avatar"];
     
-    [self.catchHeadImage sd_setImageWithURL:[NSURL URLWithString:catchAvatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+    [self.catchHeadImage sd_setImageWithURL:[NSURL URLWithString:catchAvatar] placeholderImage:[UIImage imageNamed:headString]];
     self.catchTimeLabel.text = catchTime;
     
     

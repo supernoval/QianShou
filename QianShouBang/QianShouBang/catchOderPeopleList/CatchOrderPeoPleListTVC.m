@@ -208,7 +208,11 @@ static NSString *cellid = @"catchPeopleCell";
         
         cell.distanceLabel.text = [NSString stringWithFormat:@"距离:%@",distance];
         
-        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        int i = arc4random()%10;
+        
+        NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+        
+        [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:avatar] placeholderImage:[UIImage imageNamed:headString]];
         
         cell.nameLabel.text =nick;
         cell.descriCell.text = [NSString stringWithFormat:@"个人描述:%@",descrip];

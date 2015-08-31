@@ -62,56 +62,56 @@
         case 0:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 1:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 2:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 3:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 4:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 5:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             
         case 6:
         {
             cell.introText.text = @"我去发送你哦啊放假哦啊见";
-            cell.image_1.image = [UIImage imageNamed:@"head_default"];
-            cell.image_2.image = [UIImage imageNamed:@"head_default"];
+            cell.image_1.image = [UIImage imageNamed:@"head_default_0"];
+            cell.image_2.image = [UIImage imageNamed:@"head_default_0"];
         }
             break;
             

@@ -124,6 +124,7 @@
         BmobUser *user = [BmobUser getCurrentUser];
         if (user)
         {
+            
 //            [user setObject:dToken forKey:@"installId"];
 //            [[BmobUserManager currentUserManager] bindDeviceToken:[[NSUserDefaults standardUserDefaults] dataForKey:kDeviceTokenData]];
             

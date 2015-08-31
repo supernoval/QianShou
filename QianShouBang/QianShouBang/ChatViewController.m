@@ -610,8 +610,13 @@
     }
     
     cell.timeLabel.text = [[NSDate dateWithTimeIntervalSince1970:[message.msgTime integerValue]] timeAgoWithLimit:kTimeLimit dateFormat:NSDateFormatterMediumStyle andTimeFormat:NSDateFormatterShortStyle];
+    
+    int i = arc4random()%10;
+    
+    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    
     [cell.headImageView sd_setImageWithURL:[NSURL URLWithString:message.belongAvatar]
-                  placeholderImage:[UIImage imageNamed:@"head_default"]
+                  placeholderImage:[UIImage imageNamed:headString]
                            options:SDWebImageLowPriority
                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              

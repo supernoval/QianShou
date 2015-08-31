@@ -239,6 +239,7 @@ static CGFloat imagesCellHeight = 70.0;
     
     [queryDaren whereKey:@"order_type" equalTo:@(100)];
     [queryDaren whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    [queryDaren whereKey:@"order_state" equalTo:@(1)];
     
     [MyProgressHUD showProgress];
     
@@ -463,6 +464,8 @@ static CGFloat imagesCellHeight = 70.0;
     [detailObject setObject:@YES forKey:@"isAccountAmountType"];
     [detailObject setObject:@NO forKey:@"pay_error"];
     [detailObject setObject:@NO forKey:@"return_bzj"];
+    [detailObject setObject:@YES forKey:@"is_master_order"];
+    
     
     [detailObject setObject:@(jiangli) forKey:@"tIntegralCount"];
     

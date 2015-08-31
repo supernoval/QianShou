@@ -264,8 +264,11 @@ static NSString *contentCell = @"contentCell";
                 }
                 
             
+                int i = arc4random()%10;
                 
-                [headbutton sd_setImageWithURL:[NSURL URLWithString:[weibouser objectForKey:@"avatar"] ] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"head_default"]];
+                NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                
+                [headbutton sd_setImageWithURL:[NSURL URLWithString:[weibouser objectForKey:@"avatar"] ] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:headString]];
                  
                 
                 headTitle.text = [weibouser objectForKey:@"nick"];
@@ -356,6 +359,21 @@ static NSString *contentCell = @"contentCell";
                 
                 UILabel *commentNumlabel = (UILabel*)[cell viewWithTag:111];
                 
+                BOOL hadzan = [self hadZan:_yellmodel.yellObject];
+                
+                if (hadzan) {
+                    
+                    [likeButton setImage:[UIImage imageNamed:@"liked"] forState:UIControlStateNormal];
+                    
+                }
+                else
+                {
+                    
+                    [likeButton setImage:[UIImage imageNamed:@"like"] forState:UIControlStateNormal];
+                    
+                }
+                
+                
                 [likeButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
                 
                 fromlabel.text = [_yellmodel.yellObject objectForKey:@"build_model"];
@@ -398,7 +416,11 @@ static NSString *contentCell = @"contentCell";
                     
                     distanceLabel.text = @"0.0km";
                     
-                    [headbutton setImage:[UIImage imageNamed:@"head_default"] forState:UIControlStateNormal];
+                    int i = arc4random()%10;
+                    
+                    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                    
+                    [headbutton setImage:[UIImage imageNamed:headString] forState:UIControlStateNormal];
                     
                 }
                 
@@ -440,7 +462,11 @@ static NSString *contentCell = @"contentCell";
             NSString *avatar = [user objectForKey:@"avatar"];
             NSInteger user_level = [[user objectForKey:@"user_level"]integerValue];
             
-            [cell.headButton sd_setImageWithURL:[NSURL URLWithString:avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"head_default"]];
+            int i = arc4random()%10;
+            
+            NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+            
+            [cell.headButton sd_setImageWithURL:[NSURL URLWithString:avatar] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:headString]];
             
             cell.headButton.clipsToBounds = YES;
             cell.headButton.layer.cornerRadius = 25;

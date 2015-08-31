@@ -72,7 +72,11 @@
     BmobRecent *recent = (BmobRecent *)[_chatsArray objectAtIndex:indexPath.row];
     
     if (recent.avatar) {
-        [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:recent.avatar] placeholderImage:[UIImage imageNamed:@"head_default"]];
+        int i = arc4random()%10;
+        
+        NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+        
+        [cell.avatarImageView sd_setImageWithURL:[NSURL URLWithString:recent.avatar] placeholderImage:[UIImage imageNamed:headString]];
     }
     
     cell.nameLabel.text      = recent.nick;

@@ -19,6 +19,8 @@ static NSString *const cellid = @"darencell";
     
     UIAlertView *_sureAlertView;
     
+    UIAlertView *_sucessAlertView;
+    
     
     
 }
@@ -54,7 +56,7 @@ static NSString *const cellid = @"darencell";
 
 -(void)setSubViews
 {
-    [_headImageView sd_setImageWithURL:[NSURL URLWithString:[_currentUser objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"head_default"]];
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:[_currentUser objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:@"head_default_0"]];
     
     BOOL isMale = [[_currentUser objectForKey:@"user_sex"]boolValue];
     
@@ -88,7 +90,7 @@ static NSString *const cellid = @"darencell";
     
     [query whereKey:@"order_type" equalTo:@(100)];
     [query whereKey:@"user" equalTo:_currentUser];
-    
+    [query whereKey:@"order_state" equalTo:@(1)];
     
     [MyProgressHUD showProgress];
     
@@ -241,15 +243,124 @@ static NSString *const cellid = @"darencell";
 
 -(void)cancelDaren
 {
+    [_darenObject setObject:[BmobUser getCurrentUser] forKey:@"user"];
+    [_darenObject setObject:@(OrderStatePublishCancel) forKey:@"order_state"];
+    
+    [_darenObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        if (isSuccessful) {
+           
+            
+            [self saveDetailAccount:_darenObject];
+            
+           
+            
+            
+        }
+        else
+        {
+            [CommonMethods showDefaultErrorString:@"下架失败"];
+            
+        }
+        
+    }];
+}
+
+
+#pragma mark - 保存明细
+-(void)saveDetailAccount:(BmobObject*)orderObject
+{
+    BmobUser *user = [BmobUser getCurrentUser];
+    
+    double jiangli = [[orderObject objectForKey:@"jiangli_money"]doubleValue];
+    double benjin = [[orderObject objectForKey:@"order_benjin"]doubleValue];
+    double commision = [[orderObject objectForKey:@"order_commission"]doubleValue];
+    
+    
+    BmobObject *detailObject = [BmobObject objectWithClassName:kDetailAccount];
+    
+    
+    [detailObject setObject:user forKey:@"user"];
+    [detailObject setObject:orderObject forKey:@"order"];
+    
+    [detailObject setObject:@NO forKey:@"expenditure"];
+    [detailObject setObject:@NO forKey:@"monthly_bonus_points"];
+    [detailObject setObject:@NO forKey:@"open_vip_error"];
+    [detailObject setObject:@NO forKey:@"receive_order_jl"];
+    [detailObject setObject:@NO forKey:@"recharge"];
+    [detailObject setObject:@NO forKey:@"release_order_jl"];
+    [detailObject setObject:@NO forKey:@"return_money"];
+    [detailObject setObject:@NO forKey:@"cash_error"];
+    [detailObject setObject:@NO forKey:@"cash"];
+    [detailObject setObject:@NO forKey:@"failure_pay"];
+    [detailObject setObject:@NO forKey:@"income"];
+    [detailObject setObject:@YES forKey:@"isAccountAmountType"];
+    [detailObject setObject:@NO forKey:@"pay_error"];
+    [detailObject setObject:@NO forKey:@"return_bzj"];
+    [detailObject setObject:@YES forKey:@"is_master_order"];
+
+    [detailObject setObject:@NO forKey:@"OpenMaster"];
+    
+    
+    [detailObject setObject:@(jiangli) forKey:@"tIntegralCount"];
+    
+    [detailObject setObject:@(benjin) forKey:@"tMoneyCount"];
+    
+    [detailObject setObject:@NO forKey:@"vip"];
+    
+    [detailObject setObject:@(commision) forKey:@"tIntegral"];
+    
+    [detailObject setObject:@(benjin) forKey:@"tMoney"];
+    
+    [detailObject setObject:@(jiangli) forKey:@"tJiangli"];
+    
+    
+    
+    
+    [detailObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        
+        if (isSuccessful) {
+            
+            _sucessAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"下架成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+            
+            [_sucessAlertView show];
+            
+        }
+        else
+        {
+            
+            [MyProgressHUD dismiss];
+            
+            
+            NSLog(@"%s,error:%@",__func__,error);
+            
+            
+            
+        }
+        
+    }];
+    
+    
     
 }
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView == _sureAlertView && buttonIndex == 1) {
         
+        [self cancelDaren];
         
     }
+    
+    if (alertView == _sucessAlertView) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
+    
+    
 }
 
 @end

@@ -137,7 +137,11 @@ static NSUInteger pageSize = 10;
         if ([oneUser objectForKey:kavatar] != nil) {
             [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
         }else{
-            cell.image.image = [UIImage imageNamed:@"head_default"];
+            int i = arc4random()%10;
+            
+            NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+            
+            cell.image.image = [UIImage imageNamed:headString];
         }
         
         //姓名
