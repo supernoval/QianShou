@@ -1148,6 +1148,7 @@
 		13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */ = {
 			isa = PBXGroup;
 			children = (
+				D28EFE131B93EDDC00EC0B70 /* New Group */,
 				137E10791B859F8F009DDE48 /* countdownLabel */,
 				15E1834A1B7F177C00E13391 /* SDPhotoBrowser */,
 				13688F1A1B79A4F800251AC4 /* SDWebImage */,
@@ -1891,6 +1892,13 @@
 				D26965B31B85C61B009ACEFD /* BlackListTVC.m */,
 			);
 			name = "黑名单";
+			sourceTree = "<group>";
+		};
+		D28EFE131B93EDDC00EC0B70 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		D28FEA931B72FEDA0026D674 /* contactlist */ = {
