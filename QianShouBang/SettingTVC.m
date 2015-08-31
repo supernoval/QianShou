@@ -13,12 +13,12 @@
 #import "GeneralTVC.h"
 #import "AboutQianShouBangTVC.h"
 #import "LoginViewController.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKExtension/SSEShareHelper.h>
-#import <ShareSDKUI/ShareSDK+SSUI.h>
-#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
-#import <ShareSDKUI/SSUIShareActionSheetCustomItem.h>
-#import <ShareSDK/ShareSDK+Base.h>
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKExtension/SSEShareHelper.h>
+//#import <ShareSDKUI/ShareSDK+SSUI.h>
+//#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
+//#import <ShareSDKUI/SSUIShareActionSheetCustomItem.h>
+//#import <ShareSDK/ShareSDK+Base.h>
 
 @interface SettingTVC ()
 /**
@@ -145,7 +145,7 @@
             
         case 2:
         {//分享
-            [self showShareActionSheet:self.view];
+//            [self showShareActionSheet:self.view];
             
         }
             break;
@@ -187,12 +187,10 @@
      [BmobUser logout];
 }
 
-
+/*
 - (void)showShareActionSheet:(UIView *)view
 {
-    /**
-     * 在简单分享中，只要设置共有分享参数即可分享到任意的社交平台
-     **/
+    
     __weak SettingTVC *theController = self;
     
     //1、创建分享参数（必要）
@@ -332,7 +330,7 @@
     //    [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeWechat)];
     //    [sheet.directSharePlatforms addObject:@(SSDKPlatformTypeTencentWeibo)];
     //    [sheet showInView:self.view];
-}
+}*/
 
 #pragma mark -
 

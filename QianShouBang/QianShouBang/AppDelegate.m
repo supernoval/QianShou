@@ -18,13 +18,13 @@
 #import "Constants.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UserService.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKConnector/ShareSDKConnector.h>
-#import <TencentOpenAPI/TencentOAuth.h>
-#import <TencentOpenAPI/QQApiInterface.h>
-#import "WXApi.h"
-#import "WeiboSDK.h"
-#import <RennSDK/RennSDK.h>
+//#import <ShareSDK/ShareSDK.h>
+//#import <ShareSDKConnector/ShareSDKConnector.h>
+//#import <TencentOpenAPI/TencentOAuth.h>
+//#import <TencentOpenAPI/QQApiInterface.h>
+//#import "WXApi.h"
+//#import "WeiboSDK.h"
+//#import <RennSDK/RennSDK.h>
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 {
