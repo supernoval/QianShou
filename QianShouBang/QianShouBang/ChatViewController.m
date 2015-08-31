@@ -445,18 +445,19 @@
 -(void)photoLib{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType               = UIImagePickerControllerSourceTypePhotoLibrary;
-    picker.allowsEditing            = YES;
+    picker.allowsEditing            = NO;
     
     picker.delegate                 = self;
-    [self performSelector:@selector(presentImagePickerController:) withObject:picker afterDelay:.5f];
+    [self presentImagePickerController:picker];
+    
 }
 //拍照
 -(void)takePhoto{
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType               = UIImagePickerControllerSourceTypeCamera;
-    picker.allowsEditing            = YES;
+    picker.allowsEditing            = NO;
     picker.delegate                 = self;
-    [self performSelector:@selector(presentImagePickerController:) withObject:picker afterDelay:.5f];
+     [self presentImagePickerController:picker];
 }
 //发送位置
 -(void)sendPosition{
@@ -485,8 +486,8 @@
 
 
 -(void)presentImagePickerController:(UIImagePickerController *)picker{
-    [self.navigationController presentViewController:picker animated:YES completion:^{
-        [self hideBottomView];
+    [self presentViewController:picker animated:YES completion:^{
+//        [self hideBottomView];
     }];
 }
 
@@ -663,7 +664,9 @@
     [picker dismissViewControllerAnimated:YES completion:^{
     }];
     UIImage *editImage          = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImage *cutImage           = [self cutImage:editImage size:CGSizeMake(160, 160)];
+//    UIImage *cutImage           = [self cutImage:editImage size:CGSizeMake(160, 160)];
+    UIImage *cutImage  = [self changeImageSize:editImage];
+    
     NSString *currentTimeString = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970] ];
     NSString *imagePath         = [NSString stringWithFormat:@"%@/%@.jpg",[CommonUtil filepath],currentTimeString];
     
@@ -702,4 +705,13 @@
     return image;
 }
 
+-(UIImage*)changeImageSize:(UIImage*)originImage
+{
+    NSData *imageData = UIImageJPEGRepresentation(originImage, 0.8);
+    
+    UIImage *image = [UIImage imageWithData:imageData];
+    
+    return image;
+    
+}
 @end
