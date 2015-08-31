@@ -11,11 +11,14 @@
 
 static NSString *const cellid = @"darencell";
 
-@interface MIneDaRenTableViewController ()
+@interface MIneDaRenTableViewController ()<UIAlertViewDelegate>
 {
     BmobUser *_currentUser;
     
     BmobObject *_darenObject;
+    
+    UIAlertView *_sureAlertView;
+    
     
     
 }
@@ -229,6 +232,24 @@ static NSString *const cellid = @"darencell";
 
 - (IBAction)xiajiaAction:(id)sender {
     
+    _sureAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"确定下架达人吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [_sureAlertView show];
+    
+    
     
 }
+
+-(void)cancelDaren
+{
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _sureAlertView && buttonIndex == 1) {
+        
+        
+    }
+}
+
 @end

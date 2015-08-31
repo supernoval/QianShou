@@ -20,6 +20,7 @@
 #import "DarenListCell.h"
 #import "DarenDetailTableViewController.h"
 #import "GuideViewController.h"
+#import "Location.h"
 
 
 static NSString *orderCellId = @"orderCell";
@@ -88,8 +89,12 @@ static NSString *dareCellId = @"dasrenCell";
     pageNum = 0;
     pageSize = 10;
     
+    CLLocationCoordinate2D coord = [Location shareInstance].currentLocation;
     
-    currentPoint = [[BmobUser getCurrentUser] objectForKey:@"location"];
+    currentPoint = [[BmobGeoPoint alloc]initWithLongitude:coord.longitude WithLatitude:coord.latitude];
+    
+    
+    
     distance = 1000000;
     
     rightView = [self  nearCatagoryVeiw];
@@ -177,6 +182,11 @@ static NSString *dareCellId = @"dasrenCell";
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         
+        if (error) {
+            
+            NSLog(@"error:%@",error);
+            
+        }
         NSMutableArray *temArray = [[NSMutableArray alloc]init];
         
         if (isShowDaRen) {
@@ -226,6 +236,31 @@ static NSString *dareCellId = @"dasrenCell";
             
             
             
+         }
+        else
+        {
+            
+            if (pageNum == 0) {
+                
+                [temArray removeAllObjects];
+                
+             }
+            
+            if (isShowDaRen) {
+                
+                _darenArray = temArray;
+            }
+            else
+            {
+                _ordersArray = temArray;
+                
+            }
+            
+            [self getPhotos];
+            
+       
+            
+            
         }
         
         if (array.count < pageSize) {
@@ -258,6 +293,14 @@ static NSString *dareCellId = @"dasrenCell";
         
     }
     
+    if (temArray.count == 0) {
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+        [self.tableView reloadData];
+    }
+    
     for (int i = 0; i < temArray.count; i ++) {
         
         YellModel *oneModel = temArray[i];
@@ -272,7 +315,11 @@ static NSString *dareCellId = @"dasrenCell";
             
             [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
                 
-               
+                if (error) {
+                    
+                    NSLog(@"getphotoerror:%@",error);
+                    
+                }
                 
                 count ++;
                 
@@ -321,7 +368,10 @@ static NSString *dareCellId = @"dasrenCell";
             count ++;
         }
         
-    }
+     }
+    
+ 
+   
 }
 
 #pragma mark - UITableViewDataSource
@@ -341,6 +391,12 @@ static NSString *dareCellId = @"dasrenCell";
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (_darenArray.count == 0 && _ordersArray.count == 0) {
+        
+     
+        return 1;
+        
+    }
     
     if (isShowDaRen) {
         
@@ -374,6 +430,11 @@ static NSString *dareCellId = @"dasrenCell";
         
     }
     
+    if (temArray.count == 0) {
+        
+        return 44;
+        
+    }
     if (temArray.count > 0) {
         
         YellModel *weiboModel = [temArray objectAtIndex:indexPath.section];
@@ -418,10 +479,6 @@ static NSString *dareCellId = @"dasrenCell";
 {
      NSMutableArray *temArray = [[NSMutableArray alloc]init];
     
-   
-    
-   
-    
     if (isShowDaRen) {
         
         temArray = _darenArray;
@@ -432,6 +489,26 @@ static NSString *dareCellId = @"dasrenCell";
         
     }
 
+    
+    if (temArray.count == 0) {
+        
+        UITableViewCell *blankCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
+        
+        blankCell.textLabel.text = @"暂无数据";
+        
+        blankCell.textLabel.textAlignment = NSTextAlignmentCenter;
+        
+        blankCell.textLabel.font = FONT_16;
+        blankCell.textLabel.textColor = kDarkTintColor;
+        
+        blankCell.userInteractionEnabled = NO;
+        
+       
+        
+        
+        return blankCell;
+        
+    }
     if (isShowDaRen) {
         
         DarenListCell *cell = [tableView dequeueReusableCellWithIdentifier:dareCellId];

@@ -62,7 +62,9 @@
     CFRelease(framesetter);
     CFRelease(attrString);
     //NSLog(@"frameSize=======:%f", frameSize.height);
-    return frameSize.width +5;
+
+    return frameSize.width + 5;
+
 }
 
 @end
