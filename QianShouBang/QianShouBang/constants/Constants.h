@@ -44,6 +44,9 @@ typedef NS_ENUM(NSInteger, OrderState)
 // 短信验证码  ShareSDK
 #define kShareSDKSMSAppKey     @"95c9c33abb2c"
 #define kShareSDKSMSAppSecret  @"071f5c608c8f07ba627b85e485ff6041"
+#define kShareSDKAppKey     @"9fb642bf4dd8"
+#define kShareSDKAppSecrec     @"e423a1146cfed92f67485c7084d96d2d"
+
 
 //DeviceToken  ANDROID_ID
 #define kDeviceTokenKey        @"DeviceTokenKey"

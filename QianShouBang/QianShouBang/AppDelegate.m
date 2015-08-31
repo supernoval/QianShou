@@ -18,7 +18,13 @@
 #import "Constants.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UserService.h"
-
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKConnector/ShareSDKConnector.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
+#import <RennSDK/RennSDK.h>
 
 @interface AppDelegate ()<CLLocationManagerDelegate>
 {
@@ -89,6 +95,91 @@
     {
         [_locationManager startUpdatingLocation];
     }
+    
+    
+    //shareSDK
+    /*
+    [ShareSDK registerApp:@"iosv1101"
+          activePlatforms:@[
+                            @(SSDKPlatformTypeSinaWeibo),
+                            @(SSDKPlatformTypeTencentWeibo),
+                            @(SSDKPlatformTypeWechat),
+                            @(SSDKPlatformTypeQQ),
+                            @(SSDKPlatformTypeDouBan),
+                            @(SSDKPlatformTypeRenren),
+                            ]
+                 onImport:^(SSDKPlatformType platformType) {
+                     
+                     switch (platformType)
+                     {
+                         case SSDKPlatformTypeWechat:
+                             [ShareSDKConnector connectWeChat:[WXApi class]];
+                             break;
+                         case SSDKPlatformTypeQQ:
+                             [ShareSDKConnector connectQQ:[QQApiInterface class] tencentOAuthClass:[TencentOAuth class]];
+                             break;
+                         case SSDKPlatformTypeSinaWeibo:
+                             [ShareSDKConnector connectWeibo:[WeiboSDK class]];
+                             break;
+                         case SSDKPlatformTypeRenren:
+                             [ShareSDKConnector connectRenren:[RennClient class]];
+                             break;
+                             
+                        default:
+                             break;
+                     }
+                     
+                 }
+          onConfiguration:^(SSDKPlatformType platformType, NSMutableDictionary *appInfo) {
+              
+              switch (platformType)
+              {
+                  case SSDKPlatformTypeSinaWeibo:
+                      //设置新浪微博应用信息,其中authType设置为使用SSO＋Web形式授权
+                      [appInfo SSDKSetupSinaWeiboByAppKey:@"568898243"
+                                                appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                                              redirectUri:@"http://www.sharesdk.cn"
+                                                 authType:SSDKAuthTypeBoth];
+                      break;
+                  case SSDKPlatformTypeTencentWeibo:
+                      //设置腾讯微博应用信息，其中authType设置为只用Web形式授权
+                      [appInfo SSDKSetupTencentWeiboByAppKey:@"801307650"
+                                                   appSecret:@"ae36f4ee3946e1cbb98d6965b0b2ff5c"
+                                                 redirectUri:@"http://www.sharesdk.cn"];
+                      break;
+                 
+                 
+                  case SSDKPlatformTypeWechat:
+                      [appInfo SSDKSetupWeChatByAppId:@"wx4868b35061f87885"
+                                            appSecret:@"64020361b8ec4c99936c0e3999a9f249"];
+                      break;
+                      
+                  case SSDKPlatformTypeQQ:
+                      [appInfo SSDKSetupQQByAppId:@"100371282"
+                                           appKey:@"aed9b0303e3ed1e27bae87c33761161d"
+                                         authType:SSDKAuthTypeBoth];
+                      break;
+                      
+                  case SSDKPlatformTypeDouBan:
+                      [appInfo SSDKSetupDouBanByApiKey:@"02e2cbe5ca06de5908a863b15e149b0b"
+                                                secret:@"9f1e7b4f71304f2f"
+                                           redirectUri:@"http://www.sharesdk.cn"];
+                      break;
+                  case SSDKPlatformTypeRenren:
+                      [appInfo SSDKSetupRenRenByAppId:@"226427"
+                                               appKey:@"fc5b8aed373c4c27a05b712acba0f8c3"
+                                            secretKey:@"f29df781abdd4f49beca5a2194676ca4"
+                                             authType:SSDKAuthTypeBoth];
+                      break;
+                
+                  
+                 
+                  default:
+                      break;
+              }
+          }];*/
+
+    
     
     return YES;
 }
