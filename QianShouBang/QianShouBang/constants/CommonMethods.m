@@ -11,6 +11,9 @@
 #import "MyProgressHUD.h"
 #import <BmobSDK/BmobProFile.h>
 #import "BmobDataListName.h"
+#import "SBJSON.h"
+#import "JSONModel.h"
+
 
 
 @implementation CommonMethods
@@ -827,6 +830,71 @@
     
     return (3600 - secends);
     
+    
+    
+}
+
+#pragma mark - 发送订单相关推送
++(void)sendOrderWithReceiver:(BmobUser *)receiver orderObject:(BmobObject *)orderObject message:(NSString *)message orderstate:(OrderState)state
+{
+   
+    if (!message) {
+        
+        message = @"消息";
+    }
+    NSDictionary *orderDict = [orderObject valueForKey:@"bmobDataDic"];
+    
+    BmobUser *currentuser = [BmobUser getCurrentUser];
+    
+    NSDictionary *userDict = [currentuser valueForKey:@"bmobDataDic"];
+    
+    
+    SBJsonWriter *write = [[SBJsonWriter alloc]init];
+    
+    NSString *orderJsonStr = [write stringWithObject:orderDict];
+    NSString *userJsonStr = [write stringWithObject:userDict];
+    
+
+      //推送内容
+    NSMutableDictionary *msgDict = [[NSMutableDictionary alloc]init];
+    
+    [msgDict setObject:@{@"sound":@"default",@"badge":@1,@"alert":message} forKey:@"aps"];
+    [msgDict setObject:orderJsonStr forKey:@"order"];
+    [msgDict setObject:@(state) forKey:@"state"];
+    
+//    [msgDict setObject:userJsonStr forKey:@"user"];
+
+    
+    BmobQuery *query = [BmobQuery queryForUser];
+    [query selectKeys:@[@"deviceType",@"installId"]];
+    [query getObjectInBackgroundWithId:receiver.objectId block:^(BmobObject *object, NSError *error) {
+        BmobQuery *pushQuery = [BmobInstallation query];
+        if ([[[object objectForKey:@"deviceType"] description] isEqualToString:@"ios"]) {
+            [pushQuery whereKeyExists:@"deviceToken"];
+            [pushQuery whereKey:@"deviceToken" equalTo:[object objectForKey:@"installId"]];
+        }else{
+            [pushQuery whereKeyExists:@"installationId"];
+            [pushQuery whereKey:@"installationId" equalTo:[object objectForKey:@"installId"]];
+        }
+        //推送
+        BmobPush *push = [BmobPush push];
+      
+        [push setData:msgDict];
+        [push setQuery:pushQuery];
+        [push sendPushInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+            if (isSuccessful) {
+                
+                NSLog(@"push Success!");
+             
+            }
+            else
+            {
+                NSLog(@"push fail:%@",error);
+                
+            }
+           
+        }];
+    }];
     
     
 }

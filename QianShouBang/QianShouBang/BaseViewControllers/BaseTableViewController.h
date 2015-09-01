@@ -11,6 +11,7 @@
 #import "Constants.h"
 #import <SMS_SDK/SMS_SDK.h>
 #import "CommonMethods.h"
+#import "StringHeight.h"
 #import "MyProgressHUD.h"
 #import "QSUser.h"
 #import "BmobDataListName.h"

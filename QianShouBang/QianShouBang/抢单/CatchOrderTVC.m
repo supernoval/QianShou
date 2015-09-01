@@ -792,8 +792,18 @@ static NSString *dareCellId = @"dasrenCell";
         
         
         
-        
     }
+    YellModel *model = [_ordersArray objectAtIndex:indexPath.section];
+    BmobObject *_object = model.yellObject;
+    
+    BmobUser *_user = [_object objectForKey:@"user"];
+    
+    
+    [CommonMethods sendOrderWithReceiver:_user orderObject:_object message:@"订单被抢" orderstate:OrderStateAccepted];
+    
+    
+    
+    
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -1057,4 +1067,7 @@ static NSString *dareCellId = @"dasrenCell";
         
     }
 }
+
+
+
 @end

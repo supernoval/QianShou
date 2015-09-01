@@ -9,6 +9,9 @@
 
 //牵手邦   bmob 数据库表 名
 
+//设备表
+#define kInstallation  @"_Installation"
+
 //用户表
 #define kUserClassName  @"_User"
 

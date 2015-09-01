@@ -19,6 +19,7 @@
 #import <BmobIM/BmobDB.h>
 #import <BmobIM/BmobIM.h>
 #import <BmobSDK/Bmob.h>
+#import "StringHeight.h"
 
 @interface BaseViewController : UIViewController
 

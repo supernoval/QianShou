@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 
 #import<UIKit/UIKit.h>
+#import "Constants.h"
 
 #import <CoreLocation/CoreLocation.h>
+#import <BmobIM/BmobIM.h>
+#import <BmobIM/BmobChatManager.h>
+#import <BmobIM/BmobChat.h>
+#import <BmobIM/BmobDB.h>
+
 #import <BmobSDK/Bmob.h>
-#import "StringHeight.h"
+
 typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 
@@ -121,6 +127,13 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 + (NSInteger)getMonthFromDate:(NSDate *)dateTime;
 #pragma mark - Bmob上传图片 
 +(void)upLoadPhotos:(NSArray*)photos resultBlock:(upLoadPhotoBlock)block;
+
+#pragma mark - 发送订单相关推送
++(void)sendOrderWithReceiver:(BmobUser*)receiver
+                 orderObject:(BmobObject*)orderObject
+                     message:(NSString*)message
+                  orderstate:(OrderState)state;
+
 
 
 

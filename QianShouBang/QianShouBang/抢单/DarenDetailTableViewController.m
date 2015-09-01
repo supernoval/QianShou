@@ -8,7 +8,7 @@
 
 #import "DarenDetailTableViewController.h"
 #import "ChatViewController.h"
-
+#import "StringHeight.h"
 @interface DarenDetailTableViewController ()
 {
     BmobUser *user;

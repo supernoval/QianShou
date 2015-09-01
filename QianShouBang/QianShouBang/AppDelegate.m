@@ -18,6 +18,10 @@
 #import "Constants.h"
 #import <CoreLocation/CoreLocation.h>
 #import "UserService.h"
+#import "JSONModel.h"
+#import "SBJSON.h"
+#import "CommonMethods.h"
+
 //#import <ShareSDK/ShareSDK.h>
 //#import <ShareSDKConnector/ShareSDKConnector.h>
 //#import <TencentOpenAPI/TencentOAuth.h>
@@ -38,6 +42,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    application.applicationIconBadgeNumber = 0;
     
     //设置naigationbar 背景颜色和字体颜色
     [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
@@ -253,6 +258,9 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+     application.applicationIconBadgeNumber = 0;
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -438,6 +446,28 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
         }
     }
+     else
+     {
+         NSDictionary *aps = [userInfo objectForKey:@"aps"];
+         
+         NSString  *orderStr = [userInfo objectForKey:@"order"];
+         
+         JSONModel *model = [[JSONModel alloc]initWithString:orderStr error:nil];
+         
+         NSDictionary *order = [model toDictionary];
+         
+         NSLog(@"=========order:%@",order);
+         
+         NSInteger state = [[userInfo objectForKey:@"state"]integerValue];
+         
+         
+         NSString *msg = [aps objectForKey:@"alert"];
+         
+         [CommonMethods showDefaultErrorString:msg];
+         
+         
+         
+     }
     
 }
 

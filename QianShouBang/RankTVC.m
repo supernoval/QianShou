@@ -118,7 +118,7 @@ static NSUInteger pageSize = 10;
     if (_dataArray.count > indexPath.row) {
         BmobUser *oneUser = [_dataArray objectAtIndex:indexPath.row];
         
-        cell.rankNumber.text = [NSString stringWithFormat:@"%ld",(indexPath.row+1)];
+        cell.rankNumber.text = [NSString stringWithFormat:@"%d",(long)(indexPath.row+1)];
         if (indexPath.row == 0) {
             cell.rankNumber.backgroundColor = [UIColor redColor];
             cell.rankNumber.textColor = [UIColor whiteColor];
