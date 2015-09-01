@@ -95,11 +95,13 @@
             //清除存储空间
             [[SDImageCache sharedImageCache]cleanDisk];
             [[SDImageCache sharedImageCache]clearMemory];
-            [CommonMethods showDefaultErrorString:@"清理成功"];
+            [CommonMethods showDefaultErrorString:@"牵手邦存储空间清理成功"];
         }
     }else if (alertView.tag == 101){
         if (buttonIndex == 1) {
             //清除聊天记录
+            [[BmobDB currentDatabase]deleteAllRecent];
+            [CommonMethods showDefaultErrorString:@"聊天记录清理成功"];
             
         }
         

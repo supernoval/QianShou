@@ -84,7 +84,7 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             
-            cell.text.text = @"通信录黑名单";
+            cell.text.text = @"通信录黑名单(敬请期待)";
             return cell;
         }
         
@@ -146,12 +146,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
+//    UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {//通信录黑名单
-            BlackListTVC *blackList = [sb instantiateViewControllerWithIdentifier:@"BlackListTVC"];
-            [self.navigationController pushViewController:blackList animated:YES];
+//            BlackListTVC *blackList = [sb instantiateViewControllerWithIdentifier:@"BlackListTVC"];
+//            [self.navigationController pushViewController:blackList animated:YES];
+            [CommonMethods showDefaultErrorString:@"敬请期待"];
             
         }
     }

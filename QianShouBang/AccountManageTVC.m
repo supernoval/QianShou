@@ -35,12 +35,17 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 2;
+    }else{
+        return 1;
+    }
     
-    return 2;
+    
 }
 
 
@@ -78,11 +83,11 @@
         }
         
     }
-//    else if(indexPath.section == 1){
-//        if (indexPath.row == 0) {
-//            cell.text.text = @"抢单权限申请";
-//        }
-//    }
+    else if(indexPath.section == 1){
+        if (indexPath.row == 0) {
+            cell.text.text = @"抢单权限申请(敬请期待)";
+        }
+    }
     return cell;
 }
 
@@ -99,11 +104,12 @@
             [self.navigationController pushViewController:applyVip animated:YES];
         }
     }
-//    else if(indexPath.section == 1){
-//        if (indexPath.row == 0) {//抢单权限申请
-//            
-//        }
-//    }
+    else if(indexPath.section == 1){
+        if (indexPath.row == 0) {//抢单权限申请
+            [CommonMethods showDefaultErrorString:@"敬请期待"];
+            
+        }
+    }
 }
 
 @end
