@@ -579,6 +579,19 @@
     }
 }
 
++(double)distanceBetweenLocation:(CLLocationCoordinate2D)oneCoord andLocation:(CLLocationCoordinate2D)twoCoord
+{
+    CLLocation *locationOne = [[CLLocation alloc]initWithLatitude:oneCoord.latitude longitude:oneCoord.longitude];
+    
+    CLLocation *locationTwo = [[CLLocation alloc]initWithLatitude:twoCoord.latitude longitude:twoCoord.longitude];
+    
+    
+     CLLocationDistance meters = [locationOne distanceFromLocation:locationTwo];
+    
+    return meters;
+    
+}
+
 +(NSString*)timeStringFromNow:(NSDate*)Thattime
 {
     
@@ -819,14 +832,14 @@
 +(double)timeLeft:(NSString *)sinceTimeStr
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
     
     NSDate *fromDate = [formatter dateFromString:sinceTimeStr];
     
     
     double secends = [[NSDate date] timeIntervalSinceDate:fromDate];
     
-//    NSLog(@"fromDate:%@",fromDate);
+    NSLog(@"fromDate:%@",fromDate);
     
     return (3600 - secends);
     

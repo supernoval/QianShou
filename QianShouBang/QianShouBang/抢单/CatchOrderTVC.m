@@ -526,7 +526,7 @@ static NSString *dareCellId = @"dasrenCell";
                 NSString *nick = [_user objectForKey:@"nick"];
                 NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
                 
-                int i = arc4random()%10;
+                 int i = indexPath.section%10;
                 
                 NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
                 
@@ -650,7 +650,7 @@ static NSString *dareCellId = @"dasrenCell";
         NSString *nick = [_user objectForKey:@"nick"];
         NSInteger user_level = [[_user objectForKey:@"user_level"]integerValue];
         
-        int i = arc4random()%10;
+        int i = indexPath.section%10;
              
         NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
              
@@ -793,15 +793,7 @@ static NSString *dareCellId = @"dasrenCell";
         
         
     }
-    YellModel *model = [_ordersArray objectAtIndex:indexPath.section];
-    BmobObject *_object = model.yellObject;
-    
-    BmobUser *_user = [_object objectForKey:@"user"];
-    
-    
-    [CommonMethods sendOrderWithReceiver:_user orderObject:_object message:@"订单被抢" orderstate:OrderStateAccepted];
-    
-    
+
     
     
     
@@ -1050,6 +1042,9 @@ static NSString *dareCellId = @"dasrenCell";
             
             if (isSuccessful) {
                 
+                
+                [self sendPushWithObject:orderObject];
+                
                 [CommonMethods showDefaultErrorString:@"抢单成功"];
                 
                 [self headerRefresh];
@@ -1068,6 +1063,14 @@ static NSString *dareCellId = @"dasrenCell";
     }
 }
 
+
+-(void)sendPushWithObject:(BmobObject*)object
+{
+    BmobUser *_user = [object objectForKey:@"user"];
+    
+    [CommonMethods sendOrderWithReceiver:_user orderObject:object message:@"订单被抢" orderstate:OrderStateAccepted];
+    
+}
 
 
 @end

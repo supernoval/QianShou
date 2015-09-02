@@ -84,14 +84,17 @@ static NSString *cellid = @"catchPeopleCell";
         [self endHeaderRefresh ];
         [self endFooterRefresh];
         
+        if (pageNum == 0) {
+            
+            [_peopleArray removeAllObjects];
+            
+        }
+        
+        
         if (array.count > 0) {
             
             
-            if (pageNum == 0) {
-                
-                [_peopleArray removeAllObjects];
-                
-            }
+          
             
             
             [_peopleArray addObjectsFromArray:array];
@@ -158,11 +161,12 @@ static NSString *cellid = @"catchPeopleCell";
     
     
     
-    CGFloat desHeight = [StringHeight widthtWithText:descrip font:FONT_16 constrainedToHeight:ScreenWidth - 30];
+    CGFloat desHeight = [StringHeight heightWithText:descrip font:FONT_16 constrainedToWidth:ScreenWidth - 100];
     
-    if (desHeight < 20) {
+    
+    if (desHeight < 30) {
         
-        desHeight = 20;
+        desHeight = 30;
         
     }
     
@@ -217,11 +221,11 @@ static NSString *cellid = @"catchPeopleCell";
         cell.nameLabel.text =nick;
         cell.descriCell.text = [NSString stringWithFormat:@"个人描述:%@",descrip];
         
-        CGFloat desHeight = [StringHeight widthtWithText:descrip font:FONT_16 constrainedToHeight:ScreenWidth - 30];
+        CGFloat desHeight = [StringHeight heightWithText:descrip font:FONT_16 constrainedToWidth:ScreenWidth - 100];
         
-        if (desHeight < 20) {
+        if (desHeight < 30) {
             
-            desHeight = 20;
+            desHeight = 30;
             
         }
         cell.desHeightContraints.constant = desHeight;
@@ -269,9 +273,11 @@ static NSString *cellid = @"catchPeopleCell";
             
             if (isSuccessful) {
                 
-                [self headerRefresh];
+                [self.tableView.header beginRefreshing];
                 
                 [CommonMethods showDefaultErrorString:@"接受成功"];
+                
+                [CommonMethods sendOrderWithReceiver:receiveUser orderObject:orderObject message:@"您抢的订单已被确认" orderstate:OrderStateAccepted];
                 
                 
             }
@@ -290,6 +296,9 @@ static NSString *cellid = @"catchPeopleCell";
         
     }
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -31,8 +31,7 @@ static NSInteger pageSize = 10;
 {
     [super viewDidAppear:animated];
     
-    [self.tableView reloadData];
-    
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)viewDidLoad {
@@ -51,7 +50,7 @@ static NSInteger pageSize = 10;
     
 
     
-    [self.tableView.header beginRefreshing];
+
     
     
     
@@ -78,6 +77,9 @@ static NSInteger pageSize = 10;
     [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
     
     [query orderByDescending:@"updatedAt"];
+    
+    [query includeKey:@"user"];
+    [query includeKey:@"receive_user"];
     
     query.limit = pageSize;
     query.skip = pageSize *index;
@@ -456,21 +458,24 @@ static NSInteger pageSize = 10;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (ordersArray.count > 0) {
+    if (ordersArray.count > 0)
+    {
+        
+        YellModel *weiboModel = [ordersArray objectAtIndex:indexPath.section];
+        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        
+        OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+        
+        detatilTVC.hidesBottomBarWhenPushed = YES;
+        detatilTVC.orderObject = weiboModel.yellObject;
+        [self.navigationController pushViewController:detatilTVC animated:YES];
         
         
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
-    OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
-    
-    detatilTVC.hidesBottomBarWhenPushed = YES;
-    
-    [self.navigationController pushViewController:detatilTVC animated:YES];
-    
-    
-  
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

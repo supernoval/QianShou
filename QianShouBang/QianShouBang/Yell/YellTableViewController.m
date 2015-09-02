@@ -345,9 +345,11 @@ static NSInteger pageSize = 10;
                     
                 }
                 
-                int i = arc4random()%10;
+                int i = indexPath.section%10;
                 
                 NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                
+                
             [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:headString]];
             
             
@@ -359,7 +361,7 @@ static NSInteger pageSize = 10;
            // 文字内容
                 NSString * content = [weiboModel.yellObject objectForKey:@"content"];
 //                content = [CommonUtil escapeUnicodeString:content];
-//                content = [CommonUtil turnStringToEmojiText:content];
+                content = [CommonUtil turnStringToEmojiText:content];
                 
                 contentLabel.text = content;
             

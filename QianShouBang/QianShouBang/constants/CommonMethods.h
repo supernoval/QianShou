@@ -112,6 +112,9 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma  mark - 得到距离字符串
 +(NSString*)distanceStringWithLatitude:(CGFloat)latitude longitude:(CGFloat)longitude;
 
+#pragma mark - 计算两点距离
++(double)distanceBetweenLocation:(CLLocationCoordinate2D)oneCoord andLocation:(CLLocationCoordinate2D)twoCoord;
+
 
 #pragma mark -  获取几天前
 +(NSString*)timeStringFromNow:(NSDate*)Thattime;

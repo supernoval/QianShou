@@ -10,6 +10,10 @@
 
 @interface OrderDetailTableViewController : BaseTableViewController
 
+
+@property (nonatomic)BmobObject *orderObject;
+@property (weak, nonatomic) IBOutlet UILabel *stateLabel;
+
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *publisherHeadImage;
@@ -27,8 +31,18 @@
 
 - (IBAction)showLocation:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *doneAction;
+
+- (IBAction)doneAction:(id)sender;
 
 - (IBAction)cancelAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIButton *showLocationButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
+
 
 @end

@@ -305,7 +305,6 @@ static NSUInteger pageSize = 10;
         
         NSString *orderTime = [_orderObject objectForKey:@"order_start_time"];
         
-        
         NSString *title = [_orderObject objectForKey:@"order_title"];
         
         NSString *description = [_orderObject objectForKey:@"order_description"];
@@ -380,7 +379,7 @@ static NSUInteger pageSize = 10;
         }
             MZTimerLabel *_timerLabel = [[MZTimerLabel alloc] initWithLabel:cell.remainTime andTimerType:MZTimerLabelTypeTimer];
             
-            double lefttime= [CommonMethods timeLeft:[_orderObject objectForKey:@"order_start_time"] ];
+            double lefttime= [CommonMethods timeLeft:orderTime];
             
          
             [_timerLabel setCountDownTime:lefttime];

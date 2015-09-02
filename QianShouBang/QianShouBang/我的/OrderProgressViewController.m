@@ -20,6 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"订单进度";
     self.scrollView.contentSize = CGSizeMake(ScreenWidth, 650);
     
     self.publisherHeadImageView.clipsToBounds = YES;
@@ -116,7 +117,10 @@
     [self.messageButton addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
     
     
-    if (_isFisnish) {
+    NSInteger state = [[_orderObject objectForKey:@"order_state"]integerValue];
+    
+    if (state == OrderStateDone)
+    {
         
         _redLIneIImageView.image = nil;
         _redLIneIImageView.backgroundColor = kBlueColor;

@@ -48,13 +48,13 @@
             NSString *unicodeStr = [string  stringByReplacingPercentEscapesUsingEncoding:NSUnicodeStringEncoding];
             
             NSString *newString = [self decodeUnicodeBytes:(char *)[unicodeStr UTF8String]];
-            NSString *str = [self getNewEmojiString:unicodeStr];
+//            NSString *str = [self getNewEmojiString:unicodeStr];
             
-            text = [text stringByReplacingOccurrencesOfString:string withString:str];
+            text = [text stringByReplacingOccurrencesOfString:string withString:newString];
         }
     }
     
-    NSLog(@"text:%@",text);
+//    NSLog(@"text:%@",text);
     
     return text;
 }
