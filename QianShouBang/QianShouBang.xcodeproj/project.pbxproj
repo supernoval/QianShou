@@ -72,7 +72,6 @@
 		13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B621B71AA77007CA809 /* RegistTableViewController.m */; };
 		13838B6A1B71ABF9007CA809 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B691B71ABF9007CA809 /* LoginViewController.m */; };
 		13838B6F1B71B780007CA809 /* QSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B6E1B71B780007CA809 /* QSUser.m */; };
-		13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B711B71D4F5007CA809 /* CommonMethods.m */; };
 		13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B781B71DC56007CA809 /* ForgetCodeTVC.m */; };
 		13838B7D1B71E203007CA809 /* ChangeCodeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B7C1B71E203007CA809 /* ChangeCodeTVC.m */; };
 		13838B821B71E35B007CA809 /* MyProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 13838B811B71E35B007CA809 /* MyProgressHUD.m */; };
@@ -97,13 +96,11 @@
 		13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B271B6B603A00D44BF0 /* libsqlite3.dylib */; };
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
-		139D804C1B93E2380095E5A6 /* CatchOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D804B1B93E2380095E5A6 /* CatchOrderTVC.m */; };
 		13BABEED1B9826EB000D40AB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEEC1B9826EB000D40AB /* RootViewController.m */; };
 		13BABEF71B9837E0000D40AB /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF01B9837E0000D40AB /* pinyin.m */; };
 		13BABEF81B9837E0000D40AB /* POAPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF21B9837E0000D40AB /* POAPinyin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13BABEF91B9837E0000D40AB /* NSArray+FirstLetterArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */; };
 		13BABEFA1B9837E0000D40AB /* NSString+FirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */; };
-		13BABEFE1B987F29000D40AB /* WaitingForAccepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D1EA241B84445400D1D81E /* UserDetailTVC.m */; };
 		13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6761B7C415600850683 /* AccountManageTVC.m */; };
@@ -132,7 +129,6 @@
 		159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 159420E91B8C98B900DA5A22 /* MineDarenCell.m */; };
 		15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F51B77137B005A2303 /* DarenTableViewController.m */; };
 		15A721FA1B771393005A2303 /* PayOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721F91B771393005A2303 /* PayOrder.m */; };
-		15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */; };
 		15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 15A722001B771653005A2303 /* AlipaySDK.bundle */; };
 		15A722031B771659005A2303 /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A722021B771659005A2303 /* AlipaySDK.framework */; };
 		15A722051B771660005A2303 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A722041B771660005A2303 /* libcrypto.a */; };
@@ -146,7 +142,6 @@
 		15A7226E1B771686005A2303 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722641B771686005A2303 /* openssl_wrapper.m */; };
 		15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722661B771686005A2303 /* RSADataSigner.m */; };
 		15A722701B771686005A2303 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 15A722681B771686005A2303 /* RSADataVerifier.m */; };
-		15A722721B7716F2005A2303 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15A722711B7716F2005A2303 /* Main.storyboard */; };
 		15B159E81B84BBE80097733A /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B159E71B84BBE80097733A /* OrderCell.m */; };
 		15E183561B7F177C00E13391 /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1834C1B7F177C00E13391 /* SDBrowserImageView.m */; };
 		15E183571B7F177C00E13391 /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1834E1B7F177C00E13391 /* SDPhotoBrowser.m */; };
@@ -158,10 +153,17 @@
 		15E1836F1B80872700E13391 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1836E1B80872700E13391 /* Location.m */; };
 		15E183761B808FF500E13391 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E183751B808FF500E13391 /* CommonUtil.m */; };
 		15E1837C1B80E82600E13391 /* UserService.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E1837B1B80E82600E13391 /* UserService.m */; };
+		15E636991B98BB16006C0D0B /* CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636981B98BB16006C0D0B /* CommonMethods.m */; };
+		15E6369C1B98BB39006C0D0B /* OrderProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6369B1B98BB39006C0D0B /* OrderProgressViewController.m */; };
+		15E636A01B98BBC4006C0D0B /* TheAcceptedOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E6369F1B98BBC4006C0D0B /* TheAcceptedOrderTVC.m */; };
+		15E636A71B98BC00006C0D0B /* WaitingForAccepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636A61B98BC00006C0D0B /* WaitingForAccepViewController.m */; };
+		15E636A91B98BC0C006C0D0B /* MyOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636A81B98BC0C006C0D0B /* MyOrdersTableViewController.m */; };
+		15E636AB1B98BC20006C0D0B /* CatchOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636AA1B98BC20006C0D0B /* CatchOrderTVC.m */; };
+		15E636AD1B98BC44006C0D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E636AC1B98BC44006C0D0B /* Main.storyboard */; };
+		15E636B01B98BC5D006C0D0B /* ConfirmOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */; };
+		15E636B21B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636B11B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m */; };
 		15F0861A1B8852EF008C7EDB /* MyOderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086191B8852EF008C7EDB /* MyOderCell.m */; };
-		15F0861E1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F0861D1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m */; };
 		15F086211B88710A008C7EDB /* CatchPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086201B88710A008C7EDB /* CatchPeopleCell.m */; };
-		15F086251B889DE5008C7EDB /* OrderProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086241B889DE5008C7EDB /* OrderProgressViewController.m */; };
 		15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FFB2A41B78DBA400E5750F /* YellTableViewController.m */; };
 		8EDE5B051B8B09A600940A8A /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE5B041B8B09A600940A8A /* OrderDetailTableViewController.m */; };
 		8EDE5B081B8B362A00940A8A /* OrderDetailCel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EDE5B071B8B362A00940A8A /* OrderDetailCel.m */; };
@@ -206,7 +208,6 @@
 		D269657B1B81AF40009ACEFD /* CompletedOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D269657A1B81AF40009ACEFD /* CompletedOrderCell.m */; };
 		D269657E1B81B7A2009ACEFD /* TheCompletedOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D269657D1B81B7A2009ACEFD /* TheCompletedOrderTVC.m */; };
 		D26965811B81C36F009ACEFD /* AcceptedOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D26965801B81C36F009ACEFD /* AcceptedOrderCell.xib */; };
-		D26965841B81C394009ACEFD /* TheAcceptedOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965831B81C394009ACEFD /* TheAcceptedOrderTVC.m */; };
 		D26965871B81C3B9009ACEFD /* AcceptedOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */; };
 		D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D26965911B832997009ACEFD /* HtmlTextIntroduceViewController.m */; };
 		D26965941B832B6A009ACEFD /* AboutQsBi.html in Resources */ = {isa = PBXBuildFile; fileRef = D26965931B832B6A009ACEFD /* AboutQsBi.html */; };
@@ -381,7 +382,6 @@
 		13838B6D1B71B780007CA809 /* QSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QSUser.h; path = UserModel/QSUser.h; sourceTree = "<group>"; };
 		13838B6E1B71B780007CA809 /* QSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QSUser.m; path = UserModel/QSUser.m; sourceTree = "<group>"; };
 		13838B701B71D4F1007CA809 /* CommonMethods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonMethods.h; sourceTree = "<group>"; };
-		13838B711B71D4F5007CA809 /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
 		13838B771B71DC56007CA809 /* ForgetCodeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ForgetCodeTVC.h; path = ForgetCode/ForgetCodeTVC.h; sourceTree = "<group>"; };
 		13838B781B71DC56007CA809 /* ForgetCodeTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ForgetCodeTVC.m; path = ForgetCode/ForgetCodeTVC.m; sourceTree = "<group>"; };
 		13838B7B1B71E203007CA809 /* ChangeCodeTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangeCodeTVC.h; path = ChangeCode/ChangeCodeTVC.h; sourceTree = "<group>"; };
@@ -422,7 +422,6 @@
 		13983B271B6B603A00D44BF0 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		139D804B1B93E2380095E5A6 /* CatchOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderTVC.m; sourceTree = "<group>"; };
 		13BABEEB1B9826EB000D40AB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		13BABEEC1B9826EB000D40AB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		13BABEEF1B9837E0000D40AB /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
@@ -433,8 +432,6 @@
 		13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FirstLetterArray.m"; sourceTree = "<group>"; };
 		13BABEF51B9837E0000D40AB /* NSString+FirstLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FirstLetter.h"; sourceTree = "<group>"; };
 		13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FirstLetter.m"; sourceTree = "<group>"; };
-		13BABEFC1B987F29000D40AB /* WaitingForAccepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForAccepViewController.h; sourceTree = "<group>"; };
-		13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForAccepViewController.m; sourceTree = "<group>"; };
 		13D1EA231B84445400D1D81E /* UserDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailTVC.h; path = chat/UserDetailTVC.h; sourceTree = "<group>"; };
 		13D1EA241B84445400D1D81E /* UserDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailTVC.m; path = chat/UserDetailTVC.m; sourceTree = "<group>"; };
 		13F5B6751B7C415300850683 /* AccountManageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
@@ -488,7 +485,6 @@
 		15A721F81B771393005A2303 /* PayOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrder.h; sourceTree = "<group>"; };
 		15A721F91B771393005A2303 /* PayOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrder.m; sourceTree = "<group>"; };
 		15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrdersTableViewController.h; sourceTree = "<group>"; };
-		15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersTableViewController.m; sourceTree = "<group>"; };
 		15A722001B771653005A2303 /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
 		15A722021B771659005A2303 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		15A722041B771660005A2303 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
@@ -587,7 +583,6 @@
 		15A722661B771686005A2303 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		15A722671B771686005A2303 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		15A722681B771686005A2303 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
-		15A722711B7716F2005A2303 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		15B159E61B84BBE80097733A /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
 		15B159E71B84BBE80097733A /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		15E1834B1B7F177C00E13391 /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
@@ -611,14 +606,23 @@
 		15E183751B808FF500E13391 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = "<group>"; };
 		15E1837A1B80E82100E13391 /* UserService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
 		15E1837B1B80E82600E13391 /* UserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserService.m; sourceTree = "<group>"; };
+		15E636981B98BB16006C0D0B /* CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonMethods.m; sourceTree = "<group>"; };
+		15E6369A1B98BB39006C0D0B /* OrderProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderProgressViewController.h; sourceTree = "<group>"; };
+		15E6369B1B98BB39006C0D0B /* OrderProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderProgressViewController.m; sourceTree = "<group>"; };
+		15E6369F1B98BBC4006C0D0B /* TheAcceptedOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheAcceptedOrderTVC.m; sourceTree = "<group>"; };
+		15E636A51B98BC00006C0D0B /* WaitingForAccepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForAccepViewController.h; sourceTree = "<group>"; };
+		15E636A61B98BC00006C0D0B /* WaitingForAccepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForAccepViewController.m; sourceTree = "<group>"; };
+		15E636A81B98BC0C006C0D0B /* MyOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrdersTableViewController.m; sourceTree = "<group>"; };
+		15E636AA1B98BC20006C0D0B /* CatchOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderTVC.m; sourceTree = "<group>"; };
+		15E636AC1B98BC44006C0D0B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		15E636AE1B98BC5D006C0D0B /* ConfirmOrderTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderTVC.h; sourceTree = "<group>"; };
+		15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderTVC.m; sourceTree = "<group>"; };
+		15E636B11B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderPeoPleListTVC.m; sourceTree = "<group>"; };
 		15F086181B8852EF008C7EDB /* MyOderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOderCell.h; sourceTree = "<group>"; };
 		15F086191B8852EF008C7EDB /* MyOderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOderCell.m; sourceTree = "<group>"; };
 		15F0861C1B886F22008C7EDB /* CatchOrderPeoPleListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchOrderPeoPleListTVC.h; path = QianShouBang/catchOderPeopleList/CatchOrderPeoPleListTVC.h; sourceTree = SOURCE_ROOT; };
-		15F0861D1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchOrderPeoPleListTVC.m; path = QianShouBang/catchOderPeopleList/CatchOrderPeoPleListTVC.m; sourceTree = SOURCE_ROOT; };
 		15F0861F1B88710A008C7EDB /* CatchPeopleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchPeopleCell.h; path = QianShouBang/catchOderPeopleList/CatchPeopleCell.h; sourceTree = SOURCE_ROOT; };
 		15F086201B88710A008C7EDB /* CatchPeopleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CatchPeopleCell.m; path = QianShouBang/catchOderPeopleList/CatchPeopleCell.m; sourceTree = SOURCE_ROOT; };
-		15F086231B889DE5008C7EDB /* OrderProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderProgressViewController.h; sourceTree = "<group>"; };
-		15F086241B889DE5008C7EDB /* OrderProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderProgressViewController.m; sourceTree = "<group>"; };
 		15FFB2A31B78DB9F00E5750F /* YellTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YellTableViewController.h; path = Yell/YellTableViewController.h; sourceTree = "<group>"; };
 		15FFB2A41B78DBA400E5750F /* YellTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YellTableViewController.m; path = Yell/YellTableViewController.m; sourceTree = "<group>"; };
 		8EDE5B031B8B09A600940A8A /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableViewController.h; sourceTree = "<group>"; };
@@ -697,7 +701,6 @@
 		D269657D1B81B7A2009ACEFD /* TheCompletedOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheCompletedOrderTVC.m; sourceTree = "<group>"; };
 		D26965801B81C36F009ACEFD /* AcceptedOrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AcceptedOrderCell.xib; sourceTree = "<group>"; };
 		D26965821B81C394009ACEFD /* TheAcceptedOrderTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheAcceptedOrderTVC.h; sourceTree = "<group>"; };
-		D26965831B81C394009ACEFD /* TheAcceptedOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheAcceptedOrderTVC.m; sourceTree = "<group>"; };
 		D26965851B81C3B9009ACEFD /* AcceptedOrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcceptedOrderCell.h; sourceTree = "<group>"; };
 		D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcceptedOrderCell.m; sourceTree = "<group>"; };
 		D26965901B832997009ACEFD /* HtmlTextIntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HtmlTextIntroduceViewController.h; sourceTree = "<group>"; };
@@ -1196,7 +1199,7 @@
 				13BABEEB1B9826EB000D40AB /* RootViewController.h */,
 				13BABEEC1B9826EB000D40AB /* RootViewController.m */,
 				131412571B942F3F00C5D082 /* Images.xcassets */,
-				15A722711B7716F2005A2303 /* Main.storyboard */,
+				15E636AC1B98BC44006C0D0B /* Main.storyboard */,
 				D28FEA9D1B730D700026D674 /* Second.storyboard */,
 				13983A351B6B261500D44BF0 /* LaunchScreen.xib */,
 				136A920A1B6F3BD40064B541 /* Framework */,
@@ -1277,7 +1280,7 @@
 				D26119FD1B8FE9F500E033C3 /* 引导页 */,
 				157915331B8E108E00E31111 /* 达人详情 */,
 				13983AE21B6B513A00D44BF0 /* CatchOrderTVC.h */,
-				139D804B1B93E2380095E5A6 /* CatchOrderTVC.m */,
+				15E636AA1B98BC20006C0D0B /* CatchOrderTVC.m */,
 				15B159E61B84BBE80097733A /* OrderCell.h */,
 				15B159E71B84BBE80097733A /* OrderCell.m */,
 				157915301B8E071E00E31111 /* DarenListCell.h */,
@@ -1343,7 +1346,7 @@
 				D24C59501B7ADB86006F88D3 /* StringHeight */,
 				D2B4D9721B7841B300A5AE14 /* DatePick */,
 				13838B701B71D4F1007CA809 /* CommonMethods.h */,
-				13838B711B71D4F5007CA809 /* CommonMethods.m */,
+				15E636981B98BB16006C0D0B /* CommonMethods.m */,
 				13983AE61B6B51BD00D44BF0 /* Constants.h */,
 				13838B831B71FBEA007CA809 /* BmobDataListName.h */,
 				15A721E61B7712AD005A2303 /* NotificationKey.h */,
@@ -1386,8 +1389,8 @@
 		13BABEFB1B987EF3000D40AB /* waitingForAccept */ = {
 			isa = PBXGroup;
 			children = (
-				13BABEFC1B987F29000D40AB /* WaitingForAccepViewController.h */,
-				13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */,
+				15E636A51B98BC00006C0D0B /* WaitingForAccepViewController.h */,
+				15E636A61B98BC00006C0D0B /* WaitingForAccepViewController.m */,
 			);
 			name = waitingForAccept;
 			sourceTree = "<group>";
@@ -1500,10 +1503,11 @@
 		15A721FB1B7713A1005A2303 /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				15E636A11B98BBDA006C0D0B /* confirmOrder */,
 				13BABEFB1B987EF3000D40AB /* waitingForAccept */,
 				8EDE5B021B8B096500940A8A /* OrderDetail */,
 				15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */,
-				15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */,
+				15E636A81B98BC0C006C0D0B /* MyOrdersTableViewController.m */,
 				15F086181B8852EF008C7EDB /* MyOderCell.h */,
 				15F086191B8852EF008C7EDB /* MyOderCell.m */,
 			);
@@ -1673,11 +1677,20 @@
 			name = chat;
 			sourceTree = "<group>";
 		};
+		15E636A11B98BBDA006C0D0B /* confirmOrder */ = {
+			isa = PBXGroup;
+			children = (
+				15E636AE1B98BC5D006C0D0B /* ConfirmOrderTVC.h */,
+				15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */,
+			);
+			name = confirmOrder;
+			sourceTree = "<group>";
+		};
 		15F0861B1B886EC1008C7EDB /* 抢单人列表 */ = {
 			isa = PBXGroup;
 			children = (
 				15F0861C1B886F22008C7EDB /* CatchOrderPeoPleListTVC.h */,
-				15F0861D1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m */,
+				15E636B11B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m */,
 				15F0861F1B88710A008C7EDB /* CatchPeopleCell.h */,
 				15F086201B88710A008C7EDB /* CatchPeopleCell.m */,
 			);
@@ -1687,8 +1700,8 @@
 		15F086221B889DBF008C7EDB /* 订单进度 */ = {
 			isa = PBXGroup;
 			children = (
-				15F086231B889DE5008C7EDB /* OrderProgressViewController.h */,
-				15F086241B889DE5008C7EDB /* OrderProgressViewController.m */,
+				15E6369A1B98BB39006C0D0B /* OrderProgressViewController.h */,
+				15E6369B1B98BB39006C0D0B /* OrderProgressViewController.m */,
 			);
 			name = "订单进度";
 			sourceTree = "<group>";
@@ -1983,7 +1996,7 @@
 			isa = PBXGroup;
 			children = (
 				D26965821B81C394009ACEFD /* TheAcceptedOrderTVC.h */,
-				D26965831B81C394009ACEFD /* TheAcceptedOrderTVC.m */,
+				15E6369F1B98BBC4006C0D0B /* TheAcceptedOrderTVC.m */,
 				D26965801B81C36F009ACEFD /* AcceptedOrderCell.xib */,
 				D26965851B81C3B9009ACEFD /* AcceptedOrderCell.h */,
 				D26965861B81C3B9009ACEFD /* AcceptedOrderCell.m */,
@@ -2199,10 +2212,10 @@
 				D24C37031B74792600228886 /* MallCell.xib in Resources */,
 				15A722011B771653005A2303 /* AlipaySDK.bundle in Resources */,
 				D24C370C1B74933100228886 /* MessageCell.xib in Resources */,
-				15A722721B7716F2005A2303 /* Main.storyboard in Resources */,
 				D28FEAAE1B7336E80026D674 /* RankCell.xib in Resources */,
 				D28FEAA41B73244B0026D674 /* RowTextCell.xib in Resources */,
 				131412581B942F3F00C5D082 /* Images.xcassets in Resources */,
+				15E636AD1B98BC44006C0D0B /* Main.storyboard in Resources */,
 				B35069941B7751270045CF10 /* GoodsDescripCell.xib in Resources */,
 				B35069871B774E6D0045CF10 /* ImageCell.xib in Resources */,
 				B368C7401B887AF5006AB55C /* DrawCashCell.xib in Resources */,
@@ -2248,6 +2261,7 @@
 				D26965921B832997009ACEFD /* HtmlTextIntroduceViewController.m in Sources */,
 				13688F401B79A4F800251AC4 /* SDWebImageDecoder.m in Sources */,
 				13838B6F1B71B780007CA809 /* QSUser.m in Sources */,
+				15E636B01B98BC5D006C0D0B /* ConfirmOrderTVC.m in Sources */,
 				8EDE5B051B8B09A600940A8A /* OrderDetailTableViewController.m in Sources */,
 				132E9FFA1B7891DC00B342D7 /* UIScrollView+MJExtension.m in Sources */,
 				13838B631B71AA77007CA809 /* RegistTableViewController.m in Sources */,
@@ -2270,17 +2284,17 @@
 				132E9FF81B7891DC00B342D7 /* MJRefreshLegendFooter.m in Sources */,
 				D28FEAB11B7337060026D674 /* RankCell.m in Sources */,
 				137263E41B744E3D0006661C /* JSONValueTransformer.m in Sources */,
+				15E636B21B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m in Sources */,
 				D24C370F1B74934F00228886 /* MessageCell.m in Sources */,
 				D28FEAAC1B7336240026D674 /* RankTVC.m in Sources */,
 				15A7226C1B771686005A2303 /* MD5DataSigner.m in Sources */,
 				13838B791B71DC56007CA809 /* ForgetCodeTVC.m in Sources */,
 				13688F461B79A4F800251AC4 /* UIImage+GIF.m in Sources */,
+				15E636991B98BB16006C0D0B /* CommonMethods.m in Sources */,
 				13F5B67F1B7C41CE00850683 /* StringHeight.m in Sources */,
 				136E7C881B95825C0026126D /* SBJsonParser.m in Sources */,
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
 				13BABEF71B9837E0000D40AB /* pinyin.m in Sources */,
-				13BABEFE1B987F29000D40AB /* WaitingForAccepViewController.m in Sources */,
-				15F0861E1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				157915321B8E071E00E31111 /* DarenListCell.m in Sources */,
 				D24C370A1B74931600228886 /* MessageTableViewController.m in Sources */,
@@ -2305,16 +2319,14 @@
 				15A7226B1B771686005A2303 /* DataVerifier.m in Sources */,
 				1363D6891B7B274C00094224 /* PhotoListView.m in Sources */,
 				15F0861A1B8852EF008C7EDB /* MyOderCell.m in Sources */,
-				13838B721B71D4F5007CA809 /* CommonMethods.m in Sources */,
+				15E636A71B98BC00006C0D0B /* WaitingForAccepViewController.m in Sources */,
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */,
 				B3C469D51B91C29500DC7569 /* IntroCell.m in Sources */,
 				15138B8F1B9188D40000A8C0 /* EmojiConvert.m in Sources */,
-				15F086251B889DE5008C7EDB /* OrderProgressViewController.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				15E183581B7F177C00E13391 /* SDPhotoGroup.m in Sources */,
 				B350697A1B773A500045CF10 /* BindPhoneViewController.m in Sources */,
-				D26965841B81C394009ACEFD /* TheAcceptedOrderTVC.m in Sources */,
 				D269657E1B81B7A2009ACEFD /* TheCompletedOrderTVC.m in Sources */,
 				132E9FF71B7891DC00B342D7 /* MJRefreshHeader.m in Sources */,
 				D2611A001B8FEA0C00E033C3 /* GuideViewController.m in Sources */,
@@ -2337,7 +2349,6 @@
 				1511F2D11B837C36002CEBD0 /* MyAnnotation.m in Sources */,
 				B350698A1B774F1C0045CF10 /* ImageCell.m in Sources */,
 				D28FEA971B72FF560026D674 /* ContactTVC.m in Sources */,
-				15A721FE1B7713A1005A2303 /* MyOrdersTableViewController.m in Sources */,
 				8EDE5B081B8B362A00940A8A /* OrderDetailCel.m in Sources */,
 				D26965AB1B85BE70009ACEFD /* ApplyVipTVC.m in Sources */,
 				D24C37151B749E3900228886 /* IntroduceYourselfViewController.m in Sources */,
@@ -2354,11 +2365,13 @@
 				13688F3F1B79A4F800251AC4 /* SDWebImageCompat.m in Sources */,
 				15E1837C1B80E82600E13391 /* UserService.m in Sources */,
 				13F818091B82EC09007E23B2 /* BubbleTableViewCell.m in Sources */,
+				15E636A01B98BBC4006C0D0B /* TheAcceptedOrderTVC.m in Sources */,
 				15A7226F1B771686005A2303 /* RSADataSigner.m in Sources */,
 				B392A3691B72396B00B7CA6D /* InfoCell.m in Sources */,
 				1511F2D61B838A18002CEBD0 /* RecentChatListTVC.m in Sources */,
 				B368C73B1B885971006AB55C /* ExchangeQsBiViewController.m in Sources */,
 				132E9FF51B7891DC00B342D7 /* MJRefreshGifFooter.m in Sources */,
+				15E636A91B98BC0C006C0D0B /* MyOrdersTableViewController.m in Sources */,
 				137263E21B744E3D0006661C /* JSONModel+networking.m in Sources */,
 				132E9FFC1B7891DC00B342D7 /* UIView+MJExtension.m in Sources */,
 				13688F411B79A4F800251AC4 /* SDWebImageDownloader.m in Sources */,
@@ -2368,6 +2381,7 @@
 				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
 				13BABEF81B9837E0000D40AB /* POAPinyin.m in Sources */,
 				13688F481B79A4F800251AC4 /* UIImage+WebP.m in Sources */,
+				15E636AB1B98BC20006C0D0B /* CatchOrderTVC.m in Sources */,
 				159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */,
 				132E9FF91B7891DC00B342D7 /* MJRefreshLegendHeader.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
@@ -2381,6 +2395,7 @@
 				132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */,
 				13688F3C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m in Sources */,
 				13F8180C1B82EC27007E23B2 /* NSDate+TimeAgo.m in Sources */,
+				15E6369C1B98BB39006C0D0B /* OrderProgressViewController.m in Sources */,
 				D28FEAA21B7323D80026D674 /* MyPurseTableViewController.m in Sources */,
 				15E183561B7F177C00E13391 /* SDBrowserImageView.m in Sources */,
 				137263DC1B744E3D0006661C /* JSONModelArray.m in Sources */,
@@ -2388,7 +2403,6 @@
 				13983A5E1B6B3AE600D44BF0 /* BaseTableViewController.m in Sources */,
 				B368C73E1B887A9C006AB55C /* DrawCashDetailTVC.m in Sources */,
 				1363D6851B7B124A00094224 /* PublishYellViewController.m in Sources */,
-				139D804C1B93E2380095E5A6 /* CatchOrderTVC.m in Sources */,
 				136E7C841B95825C0026126D /* NSObject+SBJSON.m in Sources */,
 				13983A291B6B261500D44BF0 /* main.m in Sources */,
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,

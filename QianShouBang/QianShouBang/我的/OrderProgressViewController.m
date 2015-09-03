@@ -21,6 +21,9 @@
     // Do any additional setup after loading the view.
     
     self.title = @"订单进度";
+    
+    self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    
     self.scrollView.contentSize = CGSizeMake(ScreenWidth, 650);
     
     self.publisherHeadImageView.clipsToBounds = YES;
@@ -56,20 +59,20 @@
     self.publishDateLabel.text = createdAt;
     self.publishTimeLabel.text = startTime;
     
-    int i = arc4random()%10;
     
-    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+   
     
-    [self.publisherHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:headString]];
-    [self.secPublishHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:headString]];
+    [self.publisherHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:@"waiteHead"]];
+    [self.secPublishHeadImageView sd_setImageWithURL:[NSURL URLWithString:publisherAvatar] placeholderImage:[UIImage imageNamed:@"waiteHead"]];
     
     
-    NSLog(@"order_start_time:%@",[self.orderObject objectForKey:@"order_start_time"]);
+  
     
     NSString *catchTime = [CommonMethods getHHmmssStr:[self.orderObject objectForKey:@"order_start_time"]];
     NSString *catchAvatar = [user objectForKey:@"avatar"];
     
-    [self.catchHeadImage sd_setImageWithURL:[NSURL URLWithString:catchAvatar] placeholderImage:[UIImage imageNamed:headString]];
+    
+    [self.catchHeadImage sd_setImageWithURL:[NSURL URLWithString:catchAvatar] placeholderImage:[UIImage imageNamed:_headImageName]];
     self.catchTimeLabel.text = catchTime;
     
     
@@ -134,16 +137,19 @@
         _confirmLabel.text = @"确认订单成功";
         _confirmLabel.textColor = [UIColor redColor];
         
+        _orderStatelabel.text = @"已完成";
         
         
     }
     else
     {
+        _confirmLabel.text = nil;
         
     }
     
     
     //倒计时
+    self.countDownLabel.frame = CGRectMake(0, 0, 63, 21);
     
     MZTimerLabel *_timerLabel = [[MZTimerLabel alloc] initWithLabel:self.countDownLabel andTimerType:MZTimerLabelTypeTimer];
     
@@ -158,7 +164,7 @@
     
     
     
-}
+ }
 
 
 -(void)callPhone

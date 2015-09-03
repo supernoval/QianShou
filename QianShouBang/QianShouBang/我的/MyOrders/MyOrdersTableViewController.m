@@ -32,7 +32,7 @@ static NSInteger pageSize = 10;
 {
     [super viewDidAppear:animated];
     
-    [self.tableView.header beginRefreshing];
+  
 }
 
 - (void)viewDidLoad {
@@ -49,9 +49,9 @@ static NSInteger pageSize = 10;
     
     index = 0;
     
-
+  [self.tableView.header beginRefreshing];
     
-
+   
     
     
     
@@ -76,6 +76,8 @@ static NSInteger pageSize = 10;
     BmobQuery *query = [[BmobQuery alloc]initWithClassName:kOrder];
     
     [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
+    
+    [query whereKey:@"order_state" containedIn:@[@(OrderStateAccepted),@(OrderStatePayedUnAccepted)]];
     
     [query orderByDescending:@"updatedAt"];
     
@@ -470,6 +472,8 @@ static NSInteger pageSize = 10;
             {
                 WaitingForAccepViewController *wfpVC = [sb instantiateViewControllerWithIdentifier:@"WaitingForAccepViewController"];
                 
+                wfpVC.orderObject = weiboModel.yellObject;
+                
                 wfpVC.hidesBottomBarWhenPushed = YES;
                 
                 [self.navigationController pushViewController:wfpVC animated:YES];
@@ -645,6 +649,29 @@ static NSInteger pageSize = 10;
 }
 
 
+-(void)getCancelNoti:(NSNotification *)note
+{
+    BmobObject *orderObject = note.object;
+    
+    NSMutableArray *muArray = ordersArray;
+    
+    for (int i = 0; i < ordersArray.count; i ++)
+    {
+        
+        BmobObject *temOrder = ordersArray[i];
+        
+        if ([temOrder.objectId isEqualToString:orderObject.objectId]) {
+            
+            [muArray removeObjectAtIndex:i];
+            
+        }
+    }
+    
+    ordersArray = muArray;
+    
+    [self.tableView reloadData];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

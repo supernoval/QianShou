@@ -12,8 +12,9 @@
 @interface OrderProgressViewController : BaseViewController
 
 @property (nonatomic) BmobObject *orderObject;
+@property (nonatomic) NSString *headImageName;
 
-@property (nonatomic) BOOL isFisnish;
+@property (nonatomic) BOOL isFisnish;  
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -63,6 +64,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *confirmTimeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *orderStatelabel;
 
 
 @end

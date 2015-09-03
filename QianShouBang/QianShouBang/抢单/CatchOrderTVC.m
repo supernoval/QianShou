@@ -902,6 +902,17 @@ static NSString *dareCellId = @"dasrenCell";
     
     BmobObject *orderObject = oneModel.yellObject;
    
+    BmobUser *user = [orderObject objectForKey:@"user"];
+    
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    //判断是不是自己发的订单
+    if ([user.objectId isEqualToString:currentUser.objectId]) {
+        
+        [CommonMethods showDefaultErrorString:@"不能抢自己的订单"];
+        
+        return;
+        
+    }
     
     _catchOrderAlert = [[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"确定接单:%@?",[orderObject objectForKey:@"order_title"]] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     

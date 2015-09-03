@@ -44,6 +44,9 @@ static NSUInteger pageSize = 10;
     
     _dataArray = [[NSMutableArray alloc]init];
     pageIndex = 0;
+    
+    [self.tableView.header beginRefreshing];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +58,7 @@ static NSUInteger pageSize = 10;
 {
     [super viewWillAppear:animated];
     
-    [self.tableView.header beginRefreshing];
+ 
     
 }
 
@@ -160,7 +163,6 @@ static NSUInteger pageSize = 10;
                       
                     }
                     
-//                      NSLog(@"photos:%@",array);
                     
                         oneModel.photos = urls;
            
@@ -404,6 +406,12 @@ static NSUInteger pageSize = 10;
     UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     OrderProgressViewController *progressVC = [main instantiateViewControllerWithIdentifier:@"OrderProgressViewController"];
+    
+    int i = indexPath.section%11;
+    
+     NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    
+    progressVC.headImageName = headString;
     
     progressVC.orderObject = model.yellObject;
     

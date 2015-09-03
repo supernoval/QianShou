@@ -8,10 +8,13 @@
 
 #import "BaseViewController.h"
 
+
+#define kCancelOrderNotification   @"CancelOrderNotification"
+
 @interface WaitingForAccepViewController : BaseViewController
 
 
-@property (nonatomic) BmobObject *order;
+@property (nonatomic) BmobObject *orderObject;
 @property (nonatomic) BmobUser *user;
 
 
@@ -42,6 +45,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *yongjinLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countDownLabelWith;
+
 
 - (IBAction)cancelAction:(id)sender;
 

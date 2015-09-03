@@ -1076,6 +1076,12 @@
             break;
         case DetailAccountTypeReturn_money:
         {
+            tMoney = benjin + commision;
+            tIntegral = 0.0;
+            
+            tMoneyCount += tMoney;
+            
+            
             return_money = true;
         }
             break;
