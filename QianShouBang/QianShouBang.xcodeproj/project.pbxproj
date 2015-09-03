@@ -103,6 +103,7 @@
 		13BABEF81B9837E0000D40AB /* POAPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF21B9837E0000D40AB /* POAPinyin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		13BABEF91B9837E0000D40AB /* NSArray+FirstLetterArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */; };
 		13BABEFA1B9837E0000D40AB /* NSString+FirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */; };
+		13BABEFE1B987F29000D40AB /* WaitingForAccepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D1EA241B84445400D1D81E /* UserDetailTVC.m */; };
 		13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6761B7C415600850683 /* AccountManageTVC.m */; };
@@ -432,6 +433,8 @@
 		13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FirstLetterArray.m"; sourceTree = "<group>"; };
 		13BABEF51B9837E0000D40AB /* NSString+FirstLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FirstLetter.h"; sourceTree = "<group>"; };
 		13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FirstLetter.m"; sourceTree = "<group>"; };
+		13BABEFC1B987F29000D40AB /* WaitingForAccepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitingForAccepViewController.h; sourceTree = "<group>"; };
+		13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaitingForAccepViewController.m; sourceTree = "<group>"; };
 		13D1EA231B84445400D1D81E /* UserDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailTVC.h; path = chat/UserDetailTVC.h; sourceTree = "<group>"; };
 		13D1EA241B84445400D1D81E /* UserDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailTVC.m; path = chat/UserDetailTVC.m; sourceTree = "<group>"; };
 		13F5B6751B7C415300850683 /* AccountManageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
@@ -1380,6 +1383,15 @@
 			path = HTLetter;
 			sourceTree = "<group>";
 		};
+		13BABEFB1B987EF3000D40AB /* waitingForAccept */ = {
+			isa = PBXGroup;
+			children = (
+				13BABEFC1B987F29000D40AB /* WaitingForAccepViewController.h */,
+				13BABEFD1B987F29000D40AB /* WaitingForAccepViewController.m */,
+			);
+			name = waitingForAccept;
+			sourceTree = "<group>";
+		};
 		13D1EA221B84441F00D1D81E /* userDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1488,6 +1500,7 @@
 		15A721FB1B7713A1005A2303 /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				13BABEFB1B987EF3000D40AB /* waitingForAccept */,
 				8EDE5B021B8B096500940A8A /* OrderDetail */,
 				15A721FC1B7713A1005A2303 /* MyOrdersTableViewController.h */,
 				15A721FD1B7713A1005A2303 /* MyOrdersTableViewController.m */,
@@ -2266,6 +2279,7 @@
 				136E7C881B95825C0026126D /* SBJsonParser.m in Sources */,
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
 				13BABEF71B9837E0000D40AB /* pinyin.m in Sources */,
+				13BABEFE1B987F29000D40AB /* WaitingForAccepViewController.m in Sources */,
 				15F0861E1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				157915321B8E071E00E31111 /* DarenListCell.m in Sources */,

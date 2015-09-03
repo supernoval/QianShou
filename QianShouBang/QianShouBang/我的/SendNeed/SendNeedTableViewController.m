@@ -620,68 +620,25 @@ static CGFloat imagesCellHeight = 70.0;
 #pragma mark - 保存明细
 -(void)saveDetailAccount:(BmobObject*)orderObject
 {
+    
+    
     BmobUser *user = [BmobUser getCurrentUser];
     
-    double jiangli = [[orderObject objectForKey:@"jiangli_money"]doubleValue];
-    double benjin = [[orderObject objectForKey:@"order_benjin"]doubleValue];
-    double commision = [[orderObject objectForKey:@"order_commission"]doubleValue];
     
-    
-    BmobObject *detailObject = [BmobObject objectWithClassName:kDetailAccount];
-    
-    
-    [detailObject setObject:user forKey:@"user"];
-    [detailObject setObject:orderObject forKey:@"order"];
-    
-    [detailObject setObject:@NO forKey:@"expenditure"];
-    [detailObject setObject:@NO forKey:@"monthly_bonus_points"];
-    [detailObject setObject:@NO forKey:@"open_vip_error"];
-    [detailObject setObject:@NO forKey:@"receive_order_jl"];
-    [detailObject setObject:@NO forKey:@"recharge"];
-    [detailObject setObject:@NO forKey:@"release_order_jl"];
-    [detailObject setObject:@NO forKey:@"return_money"];
-    [detailObject setObject:@NO forKey:@"cash_error"];
-    [detailObject setObject:@NO forKey:@"cash"];
-    [detailObject setObject:@NO forKey:@"failure_pay"];
-    [detailObject setObject:@NO forKey:@"income"];
-    [detailObject setObject:@YES forKey:@"isAccountAmountType"];
-    [detailObject setObject:@NO forKey:@"pay_error"];
-    [detailObject setObject:@NO forKey:@"return_bzj"];
-    
-    [detailObject setObject:@(jiangli) forKey:@"tIntegralCount"];
-    
-    [detailObject setObject:@(benjin) forKey:@"tMoneyCount"];
-    
-    [detailObject setObject:@NO forKey:@"vip"];
-    
-    [detailObject setObject:@(commision) forKey:@"tIntegral"];
-    
-    [detailObject setObject:@(benjin) forKey:@"tMoney"];
-    
-    [detailObject setObject:@(jiangli) forKey:@"tJiangli"];
-    
-    
-    [detailObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        
-        
-        if (isSuccessful) {
-            
-            [self payOrder:orderObject detailObject:detailObject];
-            
-        }
-        else
+    [CommonMethods updateDetailAccountWithType:DetailAccountTypePay_error Order:orderObject User:user money:0 qianshoubi:0 withResultBlock:^(BOOL success,BmobObject *detailObject) {
+       
+        if (success)
         {
             
-            [MyProgressHUD dismiss];
             
-            
-            NSLog(@"%s,error:%@",__func__,error);
-            
+            [self payOrder:orderObject detailObject:detailObject];
             
             
         }
         
     }];
+    
+      
     
     
     
@@ -745,7 +702,7 @@ static CGFloat imagesCellHeight = 70.0;
             NSInteger resultStatus = [[resultDic objectForKey:@"resultStatus"]integerValue];
             if (resultStatus == 9000) {
                 
-                
+                //更新订单状态
                 [orderObject setObject:@(OrderStatePayedUnAccepted) forKey:@"order_state"];
                 [orderObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                     
@@ -768,6 +725,11 @@ static CGFloat imagesCellHeight = 70.0;
                 }];
                 
                 
+                //更新明细表
+                [CommonMethods updateDetailAccountWithType:DetailAccountTypeSendOrder Order:orderObject User:[BmobUser getCurrentUser] money:0 qianshoubi:0 withResultBlock:^(BOOL success, BmobObject *detailObject) {
+                   
+                    
+                }];
                 
                 
            

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
+
+//订单 达人 状态
 typedef NS_ENUM(NSInteger, OrderState)
 {
     OrderStateUnPay = 3, //未付款
@@ -18,6 +20,35 @@ typedef NS_ENUM(NSInteger, OrderState)
     OrderStateDelete = 10, //删除订单记录
     
     
+    
+};
+
+
+//订单明细更新 类型
+typedef NS_ENUM(NSInteger, DetailAccountType)
+{
+    DetailAccountTypeCash, //提现
+    DetailAccountTypeIncome, //接单收入
+    DetailAccountTypeExpenditure,//发单支出
+    DetailAccountTypePay_error, //支付失败
+    DetailAccountTypeOpen_vip_error,//办理会员失败
+    DetailAccountTypeRecharge,//存款
+    DetailAccountTypeVip,//办理会员
+    DetailAccountTypeReturn_money, //取消订单返还余额
+    DetailAccountTypeIsJiangli, //奖励
+    DetailAccountTypeFailure_pay,//支付失败
+    DetailAccountTypeCash_error,//提现失败
+    DetailAccountTypeRelease_order_jl,//发布订单并完成的奖励
+    DetailAccountTypeReceive_order_jl,//接单奖励
+    DetailAccountTypeIs_master_order,//达人未付款
+    DetailAccountTypeReturn_bzj,//返回保证金
+    DetailAccountTypeIntegral_exchange,//牵手币兑换
+    DetailAccountTypeIsQsMoneyType,//牵手币类型
+    DetailAccountTypeIsAccountAmountType,//帐户金额类型
+    DetailAccountTypeMonthly_bonus_points,//月奖励
+    DetailAccountTypeFirst_bonus_points,//首次牵手币奖励
+    
+    DetailAccountTypeSendOrder,//额外添加类型 发单
     
 };
 
@@ -37,9 +68,9 @@ typedef NS_ENUM(NSInteger, OrderState)
 
 
 #pragma mark - Bmob
-//#define kBmobApplicationID    @"ee9115c95d4ce604631935b1979a5edd"  //测试
+#define kBmobApplicationID    @"ee9115c95d4ce604631935b1979a5edd"  //测试
 
-#define kBmobApplicationID     @"b5cbd002adfbe8feee7bd6f184087379"  //正式
+//#define kBmobApplicationID     @"b5cbd002adfbe8feee7bd6f184087379"  //正式
 
 // 短信验证码  ShareSDK
 #define kShareSDKSMSAppKey     @"95c9c33abb2c"

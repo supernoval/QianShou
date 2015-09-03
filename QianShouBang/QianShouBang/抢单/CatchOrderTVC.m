@@ -154,6 +154,9 @@ static NSString *dareCellId = @"dasrenCell";
     {
         
        [query whereKey:@"order_type" equalTo:@(100)];
+        
+        [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
+        
     }
     else
     {

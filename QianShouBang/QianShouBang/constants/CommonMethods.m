@@ -912,4 +912,268 @@
     
 }
 
+#pragma mark - 更新明细
++(void)updateDetailAccountWithType:(DetailAccountType)type Order:(BmobObject*)order User:(BmobUser*)user  money:(double)money qianshoubi:(double)qianshoubi withResultBlock:(updateDetailAccountBlock)block
+{
+    
+    BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
+    
+    [query whereKey:@"user" equalTo:user];
+    
+    [query orderByDescending:@"updatedAt"];
+    
+    query.limit = 1;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+    
+        
+    if (!error)
+    {
+        
+        double tMoneyCount = 0;
+        double tIntegralCount = 0.0;
+        
+        double jiangli = [[order objectForKey:@"jiangli_money"]doubleValue];
+        double benjin = [[order objectForKey:@"order_benjin"]doubleValue];
+        double commision = [[order objectForKey:@"order_commission"]doubleValue];
+        
+        //交易额
+        double tMoney = 0.0;
+        
+        //积分交易额
+        double tIntegral = 0.0;
+        
+        if (array.count > 0)
+        {
+            
+            BmobObject *beforeDetail = [array firstObject];
+            
+            tMoneyCount = [[beforeDetail objectForKey:@"tMoneyCount"]doubleValue];
+            tIntegralCount = [[beforeDetail objectForKey:@"tIntegralCount"]doubleValue];
+            
+            
+        }
+        
+        
+    bool cash = false; //提现
+    bool income = false;//接单收入
+    bool expenditure = false; //发单支出
+    bool pay_error = false; //支付失败
+    bool open_vip_error = false; //办理会员失败
+    bool recharge = false; //存款
+    bool vip = false; //办理会员
+    bool return_money = false; //取消订单返还的余额
+    bool isJiangli = false; //奖励
+    bool failure_pay = false; //支付失败
+    bool cash_error = false; //提现失败
+    bool release_order_jl = false;//发单并完成的奖励
+    bool receive_order_jl = false; //接单奖励
+    bool is_master_order = false; //达人未付款
+    bool return_bzj = false;// 返回保证金
+    bool Intergral_exchange = false; //牵手币兑换
+    bool isQsMoneyType = false; //牵手币类型
+    bool isAccountAmountType = false; //帐户金额类型
+    bool monthly_bonus_points = false; //月奖励
+    bool first_bonus_points = false; //首次奖励牵手币
+    
+    
+    switch (type) {
+        case DetailAccountTypeCash:
+        {
+            cash = true;
+        }
+            break;
+        case DetailAccountTypeCash_error:
+        {
+            cash_error = true;
+        }
+            break;
+        case DetailAccountTypeExpenditure:
+        {
+            expenditure = true;
+        }
+            break;
+        case DetailAccountTypeFailure_pay:
+        {
+            failure_pay = true;
+        }
+            break;
+        case DetailAccountTypeFirst_bonus_points:
+        {
+            first_bonus_points = true;
+            
+        }
+            break;
+        case DetailAccountTypeIncome:
+        {
+            income = true;
+            
+        }
+            break;
+        case DetailAccountTypeIntegral_exchange:
+        {
+            Intergral_exchange = true;
+        }
+            break;
+        case DetailAccountTypeIs_master_order:
+        {
+            is_master_order = true;
+        }
+            break;
+        case DetailAccountTypeIsAccountAmountType:
+        {
+            isAccountAmountType = true;
+        }
+            break;
+        case DetailAccountTypeIsJiangli:
+        {
+            isJiangli = true;
+        }
+            break;
+        case DetailAccountTypeIsQsMoneyType:
+        {
+            isQsMoneyType = true;
+        }
+            break;
+        case DetailAccountTypeMonthly_bonus_points:
+        {
+            monthly_bonus_points = true;
+        
+        }
+            break;
+        case DetailAccountTypeOpen_vip_error:
+        {
+            open_vip_error = true;
+        }
+            break;
+        case DetailAccountTypePay_error:
+        {
+            tMoney = benjin + commision;
+            tIntegral = 0.0;
+            
+            pay_error = true;
+        }
+            break;
+        case DetailAccountTypeReceive_order_jl:
+        {
+            receive_order_jl = true;
+        }
+            break;
+        case DetailAccountTypeRecharge:
+        {
+            recharge = true;
+        }
+            break;
+        case DetailAccountTypeRelease_order_jl:
+        {
+            release_order_jl = true;
+        }
+            break;
+        case DetailAccountTypeReturn_bzj:
+        {
+            return_bzj = true;
+        }
+            break;
+        case DetailAccountTypeReturn_money:
+        {
+            return_money = true;
+        }
+            break;
+        case DetailAccountTypeVip:
+        {
+            vip = true;
+        }
+            break;
+        case DetailAccountTypeSendOrder:
+        {
+            tMoney = benjin + commision;
+            tIntegral = 0.0;
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+ 
+ 
+       
+  
+    
+    
+    BmobObject *detailObject = [BmobObject objectWithClassName:kDetailAccount];
+    
+    [detailObject setObject:user forKey:@"user"];
+    [detailObject setObject:order forKey:@"order"];
+    
+    
+    [detailObject setObject:@(cash) forKey:@"cash"];
+    [detailObject setObject:@(expenditure) forKey:@"expenditure"];
+    [detailObject setObject:@(monthly_bonus_points) forKey:@"monthly_bonus_points"];
+    [detailObject setObject:@(open_vip_error) forKey:@"open_vip_error"];
+    [detailObject setObject:@(receive_order_jl) forKey:@"receive_order_jl"];
+    [detailObject setObject:@(recharge) forKey:@"recharge"];
+    [detailObject setObject:@(release_order_jl) forKey:@"release_order_jl"];
+    [detailObject setObject:@(return_money) forKey:@"return_money"];
+    [detailObject setObject:@(cash_error) forKey:@"cash_error"];
+    [detailObject setObject:@(failure_pay) forKey:@"failure_pay"];
+    [detailObject setObject:@(income) forKey:@"income"];
+    [detailObject setObject:@(isAccountAmountType) forKey:@"isAccountAmountType"];
+    [detailObject setObject:@(pay_error) forKey:@"pay_error"];
+    [detailObject setObject:@(return_bzj) forKey:@"return_bzj"];
+    [detailObject setObject:@(vip) forKey:@"vip"];
+    [detailObject setObject:@(isJiangli) forKey:@"isJiangli"];
+    
+    
+    
+    [detailObject setObject:@(tIntegral) forKey:@"tIntegral"];
+    
+    [detailObject setObject:@(tMoney) forKey:@"tMoney"];
+    
+    [detailObject setObject:@(jiangli) forKey:@"tJiangli"];
+    
+    [detailObject setObject:@(tIntegralCount) forKey:@"tIntegralCount"];
+    
+    [detailObject setObject:@(tMoneyCount) forKey:@"tMoneyCount"];
+    
+    [detailObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        
+        
+        if (isSuccessful) {
+            
+           
+            block(YES,detailObject);
+            
+        }
+        else
+        {
+            
+             block(NO,detailObject);
+            
+            [MyProgressHUD dismiss];
+            
+            
+            NSLog(@"%s,error:%@",__func__,error);
+            
+            
+            
+        }
+        
+    }];
+           
+       }
+       else
+       {
+           NSLog(@"updateDetailerror:%@",error);
+           
+       }
+       
+   }];
+
+    
+    
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "MyOrdersTableViewController.h"
 #import "MyOderCell.h"
 #import "OrderDetailTableViewController.h"
+#import "WaitingForAccepViewController.h"
 
 
 static NSString *myOrderCell = @"myOrderCell";
@@ -460,17 +461,42 @@ static NSInteger pageSize = 10;
     
     if (ordersArray.count > 0)
     {
-        
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         YellModel *weiboModel = [ordersArray objectAtIndex:indexPath.section];
         
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+         NSInteger order_state = [[weiboModel.yellObject objectForKey:@"order_state"]integerValue];
+        switch (order_state) {
+            case OrderStatePayedUnAccepted:
+            {
+                WaitingForAccepViewController *wfpVC = [sb instantiateViewControllerWithIdentifier:@"WaitingForAccepViewController"];
+                
+                wfpVC.hidesBottomBarWhenPushed = YES;
+                
+                [self.navigationController pushViewController:wfpVC animated:YES];
+                
+                
+            }
+                break;
+            case OrderStateAccepted:
+            {
+                OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+                
+                detatilTVC.hidesBottomBarWhenPushed = YES;
+                detatilTVC.orderObject = weiboModel.yellObject;
+                
+            
+                [self.navigationController pushViewController:detatilTVC animated:YES];
+                
+            }
+                break;
+                
+                
+            default:
+                break;
+        }
         
-        OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
         
-        detatilTVC.hidesBottomBarWhenPushed = YES;
-        detatilTVC.orderObject = weiboModel.yellObject;
-        [self.navigationController pushViewController:detatilTVC animated:YES];
-        
+      
         
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];

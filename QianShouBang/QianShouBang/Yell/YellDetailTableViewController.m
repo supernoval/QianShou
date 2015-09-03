@@ -30,6 +30,9 @@ static NSString *contentCell = @"contentCell";
     
     UITapGestureRecognizer *_resignEmoji;
     
+    UIButton *sendButton;
+    
+    
     
 }
 @end
@@ -596,6 +599,9 @@ static NSString *contentCell = @"contentCell";
         
         BmobUser *user = [commentObject objectForKey:@"from_user"];
         
+        if (![user.objectId isEqualToString:[BmobUser getCurrentUser].objectId])
+        {
+            
         NSString *usernick = [user objectForKey:@"nick"];
         
         if (usernick) {
@@ -608,6 +614,12 @@ static NSString *contentCell = @"contentCell";
             
             
         }
+        
+        [sendButton setTitle:@"回复" forState:UIControlStateNormal];
+            
+        
+        }
+        
     }
 }
 
@@ -659,8 +671,8 @@ static NSString *contentCell = @"contentCell";
     [_bottomView addSubview:emojiButton];
     
     //发送
-    UIButton *sendButton = [[UIButton alloc]initWithFrame:CGRectMake(_replayTextField.frame.origin.x + CGRectGetWidth(_replayTextField.frame) + 5, 0, 50, 44)];
-    [sendButton setTitle:@"回复" forState:UIControlStateNormal];
+    sendButton = [[UIButton alloc]initWithFrame:CGRectMake(_replayTextField.frame.origin.x + CGRectGetWidth(_replayTextField.frame) + 5, 0, 50, 44)];
+    [sendButton setTitle:@"评论" forState:UIControlStateNormal];
     [sendButton setTitleColor:kBlueColor forState:UIControlStateNormal];
     [sendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
     

@@ -19,6 +19,10 @@
 
 #import <BmobSDK/Bmob.h>
 
+//更新明细
+typedef void (^updateDetailAccountBlock)(BOOL success,BmobObject*detailObject);
+
+//上传图片
 typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 
 
@@ -138,6 +142,14 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
                   orderstate:(OrderState)state;
 
 
+
+#pragma mark - 更新明细
++(void)updateDetailAccountWithType:(DetailAccountType)type
+                             Order:(BmobObject*)order
+                              User:(BmobUser*)user
+                             money:(double)money
+                        qianshoubi:(double)qianshoubi
+                   withResultBlock:(updateDetailAccountBlock)block;
 
 
 @end

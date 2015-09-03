@@ -107,27 +107,33 @@ static NSString *cellID = @"contentCell";
     
     NSInteger order_state = [[_orderObject objectForKey:@"order_state"]integerValue];
     
-    if (order_state != 2)
+    _showLocationButton.clipsToBounds = YES;
+    _showLocationButton.layer.cornerRadius = 10.0;
+    
+    _doneButton.clipsToBounds = YES;
+    _doneButton.layer.cornerRadius = 10.0;
+    
+    _cancelButton.clipsToBounds = YES;
+    _cancelButton.layer.cornerRadius = 10.0;
+    
+    
+    if (order_state != OrderStateAccepted)
     {
         
-        _footerView.hidden = YES;
-        
+       
         _cancelButton.hidden = YES;
         _doneButton.hidden = YES;
         
         
     }
-    else
-    {
-        _showLocationButton.clipsToBounds = YES;
-        _showLocationButton.layer.cornerRadius = 5.0;
+ 
+    
+    if (order_state == OrderStatePayedUnAccepted) {
         
-        _doneButton.clipsToBounds = YES;
-        _doneButton.layer.cornerRadius = 5.0;
+        _showLocationButton.hidden = YES;
+        _doneButton.hidden = YES;
         
-        _cancelButton.clipsToBounds = YES;
-        _cancelButton.layer.cornerRadius = 5.0;
-        
+        _cancelButton.hidden = NO;
     }
     
     
