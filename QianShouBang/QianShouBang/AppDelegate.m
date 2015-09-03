@@ -21,6 +21,8 @@
 #import "JSONModel.h"
 #import "SBJSON.h"
 #import "CommonMethods.h"
+#import "GuideViewController.h"
+
 
 //#import <ShareSDK/ShareSDK.h>
 //#import <ShareSDKConnector/ShareSDKConnector.h>
@@ -184,7 +186,7 @@
               }
           }];*/
 
-    
+
     
     return YES;
 }
@@ -329,7 +331,11 @@
     }
     else
     {
-        [[[UIAlertView alloc]initWithTitle:nil message:@"无法定位，请在 设置－隐私－定位服务 里开启对《牵手邦》的定位允许" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil]show ];
+        if ([[[NSUserDefaults standardUserDefaults ] objectForKey:@"FirstLaunch"]boolValue]) {
+            
+            [[[UIAlertView alloc]initWithTitle:nil message:@"无法定位，请在 设置－隐私－定位服务 里开启对《牵手邦》的定位允许" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil]show ];
+        }
+       
         
     }
 }

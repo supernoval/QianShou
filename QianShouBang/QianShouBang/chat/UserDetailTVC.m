@@ -100,6 +100,11 @@
     
     NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
     
+    if (_headImageString) {
+        
+        headString = _headImageString;
+        
+    }
     [self.headButton sd_setBackgroundImageWithURL:[NSURL URLWithString:[targetUser objectForKey:@"avatar"]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:headString]];
     
     

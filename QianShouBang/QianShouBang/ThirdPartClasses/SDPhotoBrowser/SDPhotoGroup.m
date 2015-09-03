@@ -11,7 +11,7 @@
 #import "UIButton+WebCache.h"
 #import "SDPhotoBrowser.h"
 
-#define SDPhotoGroupImageMargin 15
+#define SDPhotoGroupImageMargin 4
 
 @interface SDPhotoGroup () <SDPhotoBrowserDelegate>
 

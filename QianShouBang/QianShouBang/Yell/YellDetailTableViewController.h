@@ -12,5 +12,6 @@
 @interface YellDetailTableViewController : BaseTableViewController
 
 @property (nonatomic) YellModel *yellmodel;
+@property (nonatomic) NSString *headImage;
 
 @end

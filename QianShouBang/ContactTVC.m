@@ -15,11 +15,14 @@
 #import "ChatViewController.h"
 #import "RecentChatListTVC.h"
 #import "UserDetailTVC.h"
+#import "NSString+FirstLetter.h"
 
 @interface ContactTVC ()<UIAlertViewDelegate>
 {
     NSMutableArray *_friendListArray;
     UIAlertView *_deleteContactAlert;
+    
+    
     
     
 }
@@ -86,12 +89,11 @@
     
     NSArray *array = [[BmobDB currentDatabase] contaclList];
     
-    if (array) {
+    if (array)
+    {
        
-        [_friendListArray setArray: array];
+        [self sortedFriendsWithArray:array];
         
-        
-        [self.tableView  reloadData];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -136,49 +138,101 @@
 }
 
 #pragma tableViewDelegate
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    
+  return  [[NSMutableArray arrayWithObjects: UITableViewIndexSearch,nil] arrayByAddingObjectsFromArray :[[UILocalizedIndexedCollation currentCollation] sectionIndexTitles]];
+    
+}
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
+{
+    
+    
+    return index;
+    
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+   
+    if (section < [[UILocalizedIndexedCollation currentCollation] sectionTitles].count) {
+      
+        NSArray *bmobArray = [_friendListArray objectAtIndex:section-1];
+        BmobChatUser *user = [bmobArray firstObject];
+        
+        NSString *shortchar = user.nick;
+        NSString *firstLetter = [shortchar firstLetter];
+        
+        return firstLetter;
+        
+//        const char *objectChar = [shortchar UTF8String];
+//        return [[NSString alloc]initWithFormat:@"%c",objectChar[0]];
+        
+   
+//   return [[[UILocalizedIndexedCollation currentCollation] sectionTitles] objectAtIndex:section];
+        
+        
+        }
+    return nil;
+    
+    
+   
+    
+}
+
+
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 40;
+    return 50;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    if (section < 3) {
+    if (section == 0) {
         
-      return 1;
+      return 3;
     }
     
-    return _friendListArray.count;
+    if (_friendListArray.count > section-1) {
+        
+        NSArray *oneSectionFriends = [_friendListArray objectAtIndex:section-1];
+        
+        return oneSectionFriends.count;
+    }
+   
+    return 0;
+    
     
    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return 4;
+    return _friendListArray.count + 1;
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    
-    if (section < 3)
-    {
-        
-        UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 1)];
-        headView.backgroundColor = [UIColor clearColor];
-        return headView;
-    }
-    
-    
-    
-    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
-    headView.backgroundColor = [UIColor clearColor];
-    return headView;
-   
-    
-    
-  
-    
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+//    
+//    if (section < 3)
+//    {
+//        
+//        UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 1)];
+//        headView.backgroundColor = [UIColor clearColor];
+//        return headView;
+//    }
+//    
+//    
+//    
+//    UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
+//    headView.backgroundColor = [UIColor clearColor];
+//    return headView;
+//   
+//    
+//    
+//  
+//    
+//}
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *headView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
@@ -189,12 +243,30 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     
     
-    if (section < 3) {
+    if (section == 0) {
         
         return 0;
         
     }
-    return 20;
+    
+    if (section-1 < _friendListArray.count) {
+        
+        NSArray *oneSectionFriends = [_friendListArray objectAtIndex:section -1];
+        
+        if (oneSectionFriends.count > 0) {
+            
+            return 20;
+        }
+        else
+        {
+            return 0;
+        }
+       
+    }
+    
+    return 0;
+    
+   
 }
 
 
@@ -218,44 +290,71 @@
     
     switch (indexPath.section) {
         case 0:
-            cell.image.image = [UIImage imageNamed:@"chat_message"];
-            cell.text.text = @"聊天消息";
-            break;
-            
-        case 1:
-            cell.image.image = [UIImage imageNamed:@"new_friend"];
-            cell.text.text = @"新朋友";
-            break;
-            
-        case 2:
-            cell.image.image = [UIImage imageNamed:@"near_by"];
-            cell.text.text = @"附近人";
-            break;
-            
-        case 3:
-        {
-            BmobChatUser *chatUser = [_friendListArray objectAtIndex:indexPath.row];
-            
-            cell.image.clipsToBounds = YES;
-            cell.image.layer.cornerRadius = 12.0;
-            
-            if (chatUser.avatar) {
-             
-             [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar]]; 
+            switch (indexPath.row) {
+                case 0:
+                {
+                    cell.image.image = [UIImage imageNamed:@"chat_message"];
+                    cell.text.text = @"聊天消息";
+                }
+                    break;
+                case 1:
+                {
+                    cell.image.image = [UIImage imageNamed:@"new_friend"];
+                    cell.text.text = @"新朋友";
+                }
+                    break;
+                case 2:
+                {
+                    cell.image.image = [UIImage imageNamed:@"near_by"];
+                    cell.text.text = @"附近人";
+                }
+                    break;
+                    
+                    
+                default:
+                    break;
             }
-        
-            if (chatUser.nick) {
-                
-                 cell.text.text = chatUser.nick;
-            }
-           
-            
-            
-            
-        }
+          
             break;
+            
+
             
         default:
+        {
+            if (_friendListArray.count > indexPath.section -1) {
+                
+                
+
+            NSArray *oneSectionFriends = [_friendListArray objectAtIndex:indexPath.section -1];
+            
+            BmobChatUser *chatUser = [oneSectionFriends objectAtIndex:indexPath.row];
+            
+                NSString *avatar = [chatUser objectForKey:@"avatar"];
+            
+            if (avatar) {
+                
+                [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar] placeholderImage:[UIImage imageNamed:@"default_loading"]];
+                
+            }
+            else
+            {
+                
+                NSInteger i = indexPath.row%11;
+                
+                cell.image.image = [UIImage imageNamed:[NSString stringWithFormat:@"head_default_%ld",(long)i]];
+                
+                
+                
+            }
+            
+            if (chatUser.nick) {
+                
+                cell.text.text = chatUser.nick;
+            }
+                
+                  }
+            
+        }
             break;
     }
     
@@ -267,31 +366,26 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
     
-        switch (indexPath.section) {
-                
+    if (indexPath.section == 0) {
+        
+        switch (indexPath.row) {
             case 0:
             {
                 RecentChatListTVC *recentChat = [[RecentChatListTVC alloc]initWithStyle:UITableViewStyleGrouped];
                 
                 recentChat.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:recentChat animated:YES];
-                
             }
                 break;
-    
             case 1:
             {
-                
                 NewFriendsTableViewController *newFriends = [self.storyboard instantiateViewControllerWithIdentifier:@"NewFriendsTableViewController"];
                 
                 newFriends.hidesBottomBarWhenPushed = YES;
                 
                 [self.navigationController pushViewController:newFriends animated:YES];
-                
-                
             }
                 break;
-    
             case 2:
             {
                 NearPeopleTVC *nearTVC = [sb instantiateViewControllerWithIdentifier:@"NearPeopleTVC"];
@@ -299,27 +393,58 @@
                 [self.navigationController pushViewController:nearTVC animated:YES];
             }
                 break;
-            case 3:
-            {
-                BmobUser *user = [_friendListArray objectAtIndex:indexPath.row];
                 
-                UserDetailTVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetailTVC"];
-                
-                detailVC.fromType = FromTypeFriendList;
-                
-                detailVC.user = user;
-                
-                detailVC.hidesBottomBarWhenPushed = YES;
-                
-                [self.navigationController pushViewController:detailVC animated:YES];
-                
-                
-                
-            }
                 
             default:
                 break;
         }
+    }
+    
+    else
+    {
+        
+        NSArray *friends = [_friendListArray objectAtIndex:indexPath.section -1];
+        
+       
+        
+        
+        NSInteger i = indexPath.row%11;
+        
+        NSString *headString = [NSString stringWithFormat:@"head_default_%ld",(long)i];
+        
+        
+        BmobUser *user = [friends objectAtIndex:indexPath.row];
+        
+        UserDetailTVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetailTVC"];
+        
+        detailVC.fromType = FromTypeFriendList;
+        
+        detailVC.user = user;
+        
+        
+        NSString *avatar = [user objectForKey:@"avatar"];
+        
+        if (!avatar) {
+            
+            NSInteger i = indexPath.row%11;
+            
+            avatar =  [NSString stringWithFormat:@"head_default_%ld",(long)i];
+        }
+      
+        
+    
+            
+            detailVC.headImageString = avatar;
+        
+        
+        
+        
+        detailVC.hidesBottomBarWhenPushed = YES;
+        
+        [self.navigationController pushViewController:detailVC animated:YES];
+    }
+    
+  
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
@@ -433,6 +558,62 @@
     
     [self.navigationController pushViewController:searchTVC animated:YES];
     
+    
+    
+}
+
+
+-(void)sortedFriendsWithArray:(NSArray*)array
+{
+    
+    //将所有城市排序
+    UILocalizedIndexedCollation *collation = [UILocalizedIndexedCollation currentCollation];
+    
+    NSMutableArray *unsortedSections = [[NSMutableArray alloc] initWithCapacity:[[collation sectionTitles] count]];
+    for (NSUInteger i = 0; i < [[collation sectionTitles] count]; i++)
+    {
+        
+        [unsortedSections addObject:[NSMutableArray array]];
+    }
+    
+    for ( int i = 0; i<array.count ; i++)
+    {
+      
+        BmobChatUser *chatUser = [array objectAtIndex:i];
+        
+        NSString *citynamepinyin = chatUser.nick;
+        
+        NSInteger index = [collation sectionForObject:citynamepinyin collationStringSelector:@selector(description)];
+        
+        [[unsortedSections objectAtIndex:index] addObject:chatUser];
+    }
+    
+    
+    
+    NSMutableArray *sortedSections = [[NSMutableArray alloc] initWithCapacity:unsortedSections.count];
+    for (NSMutableArray *section in unsortedSections)
+    {
+        [sortedSections addObject: [collation sortedArrayFromArray:section collationStringSelector:@selector(description)]];
+    }
+    
+    NSMutableArray *temMuArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 0 ; i < sortedSections.count; i ++) {
+        
+        NSArray *array = [sortedSections objectAtIndex:i];
+        
+        if (array.count > 0) {
+            
+            [temMuArray addObject:array];
+            
+        }
+    }
+    
+    [_friendListArray setArray:temMuArray];
+    
+    
+    
+    [self.tableView reloadData];
     
     
 }

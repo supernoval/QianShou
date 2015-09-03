@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nameLabelWithConstrain;
 
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTextHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *photoViewHeight;

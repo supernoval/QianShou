@@ -137,8 +137,14 @@
     if (scrollView.contentOffset.x > 2*(ScreenWidth))
     {
         
+        UIStoryboard *main = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         
-        [self dismissViewControllerAnimated:NO completion:nil];
+        UITabBarController *tabbarVC = [ main instantiateViewControllerWithIdentifier:@"RootTabbarController"];
+        
+        [self presentViewController:tabbarVC animated:NO completion:nil];
+        
+        
+//        [self dismissViewControllerAnimated:NO completion:nil];
         
     }
 

@@ -98,6 +98,11 @@
 		13983B2A1B6B604000D44BF0 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B291B6B604000D44BF0 /* AVFoundation.framework */; };
 		13983B2C1B6B604600D44BF0 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */; };
 		139D804C1B93E2380095E5A6 /* CatchOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 139D804B1B93E2380095E5A6 /* CatchOrderTVC.m */; };
+		13BABEED1B9826EB000D40AB /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEEC1B9826EB000D40AB /* RootViewController.m */; };
+		13BABEF71B9837E0000D40AB /* pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF01B9837E0000D40AB /* pinyin.m */; };
+		13BABEF81B9837E0000D40AB /* POAPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF21B9837E0000D40AB /* POAPinyin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		13BABEF91B9837E0000D40AB /* NSArray+FirstLetterArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */; };
+		13BABEFA1B9837E0000D40AB /* NSString+FirstLetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */; };
 		13BB96D61B74531300FEEB05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13983A2B1B6B261500D44BF0 /* AppDelegate.m */; };
 		13D1EA251B84445400D1D81E /* UserDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D1EA241B84445400D1D81E /* UserDetailTVC.m */; };
 		13F5B6771B7C415600850683 /* AccountManageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F5B6761B7C415600850683 /* AccountManageTVC.m */; };
@@ -417,6 +422,16 @@
 		13983B291B6B604000D44BF0 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		13983B2B1B6B604600D44BF0 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		139D804B1B93E2380095E5A6 /* CatchOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderTVC.m; sourceTree = "<group>"; };
+		13BABEEB1B9826EB000D40AB /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		13BABEEC1B9826EB000D40AB /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		13BABEEF1B9837E0000D40AB /* pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		13BABEF01B9837E0000D40AB /* pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = pinyin.m; sourceTree = "<group>"; };
+		13BABEF11B9837E0000D40AB /* POAPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POAPinyin.h; sourceTree = "<group>"; };
+		13BABEF21B9837E0000D40AB /* POAPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POAPinyin.m; sourceTree = "<group>"; };
+		13BABEF31B9837E0000D40AB /* NSArray+FirstLetterArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+FirstLetterArray.h"; sourceTree = "<group>"; };
+		13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FirstLetterArray.m"; sourceTree = "<group>"; };
+		13BABEF51B9837E0000D40AB /* NSString+FirstLetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FirstLetter.h"; sourceTree = "<group>"; };
+		13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FirstLetter.m"; sourceTree = "<group>"; };
 		13D1EA231B84445400D1D81E /* UserDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailTVC.h; path = chat/UserDetailTVC.h; sourceTree = "<group>"; };
 		13D1EA241B84445400D1D81E /* UserDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailTVC.m; path = chat/UserDetailTVC.m; sourceTree = "<group>"; };
 		13F5B6751B7C415300850683 /* AccountManageTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountManageTVC.h; sourceTree = SOURCE_ROOT; };
@@ -1130,6 +1145,7 @@
 		13983A1A1B6B261500D44BF0 = {
 			isa = PBXGroup;
 			children = (
+				13BABEEA1B9808FD000D40AB /* Frameworks */,
 				D28EFE541B93FFFB00EC0B70 /* Accounts.framework */,
 				D28EFE521B93FFF100EC0B70 /* Social.framework */,
 				D28EFE501B93FFE600EC0B70 /* ImageIO.framework */,
@@ -1174,6 +1190,8 @@
 				13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */,
 				13983A2A1B6B261500D44BF0 /* AppDelegate.h */,
 				13983A2B1B6B261500D44BF0 /* AppDelegate.m */,
+				13BABEEB1B9826EB000D40AB /* RootViewController.h */,
+				13BABEEC1B9826EB000D40AB /* RootViewController.m */,
 				131412571B942F3F00C5D082 /* Images.xcassets */,
 				15A722711B7716F2005A2303 /* Main.storyboard */,
 				D28FEA9D1B730D700026D674 /* Second.storyboard */,
@@ -1213,6 +1231,7 @@
 		13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */ = {
 			isa = PBXGroup;
 			children = (
+				13BABEEE1B9837C5000D40AB /* HTLetter */,
 				136E7C631B95823C0026126D /* SBJSON */,
 				D28EFE131B93EDDC00EC0B70 /* ShareSDK */,
 				137E10791B859F8F009DDE48 /* countdownLabel */,
@@ -1337,6 +1356,28 @@
 				13983AEB1B6B5A4400D44BF0 /* RequestCenter.m */,
 			);
 			path = NetWorkClass;
+			sourceTree = "<group>";
+		};
+		13BABEEA1B9808FD000D40AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		13BABEEE1B9837C5000D40AB /* HTLetter */ = {
+			isa = PBXGroup;
+			children = (
+				13BABEEF1B9837E0000D40AB /* pinyin.h */,
+				13BABEF01B9837E0000D40AB /* pinyin.m */,
+				13BABEF11B9837E0000D40AB /* POAPinyin.h */,
+				13BABEF21B9837E0000D40AB /* POAPinyin.m */,
+				13BABEF31B9837E0000D40AB /* NSArray+FirstLetterArray.h */,
+				13BABEF41B9837E0000D40AB /* NSArray+FirstLetterArray.m */,
+				13BABEF51B9837E0000D40AB /* NSString+FirstLetter.h */,
+				13BABEF61B9837E0000D40AB /* NSString+FirstLetter.m */,
+			);
+			path = HTLetter;
 			sourceTree = "<group>";
 		};
 		13D1EA221B84441F00D1D81E /* userDetail */ = {
@@ -2224,6 +2265,7 @@
 				13F5B67F1B7C41CE00850683 /* StringHeight.m in Sources */,
 				136E7C881B95825C0026126D /* SBJsonParser.m in Sources */,
 				13688F4B1B79A4F800251AC4 /* UIView+WebCacheOperation.m in Sources */,
+				13BABEF71B9837E0000D40AB /* pinyin.m in Sources */,
 				15F0861E1B886F22008C7EDB /* CatchOrderPeoPleListTVC.m in Sources */,
 				B392A3661B7238ED00B7CA6D /* PersonCenterTableViewController.m in Sources */,
 				157915321B8E071E00E31111 /* DarenListCell.m in Sources */,
@@ -2310,14 +2352,17 @@
 				15E183571B7F177C00E13391 /* SDPhotoBrowser.m in Sources */,
 				13F818061B82EB9C007E23B2 /* ChatViewController.m in Sources */,
 				15A721F61B77137B005A2303 /* DarenTableViewController.m in Sources */,
+				13BABEF81B9837E0000D40AB /* POAPinyin.m in Sources */,
 				13688F481B79A4F800251AC4 /* UIImage+WebP.m in Sources */,
 				159420EA1B8C98B900DA5A22 /* MineDarenCell.m in Sources */,
 				132E9FF91B7891DC00B342D7 /* MJRefreshLegendHeader.m in Sources */,
 				13983AEC1B6B5A4400D44BF0 /* RequestCenter.m in Sources */,
+				13BABEED1B9826EB000D40AB /* RootViewController.m in Sources */,
 				136E7C851B95825C0026126D /* NSString+SBJSON.m in Sources */,
 				132E9FF61B7891DC00B342D7 /* MJRefreshGifHeader.m in Sources */,
 				15A7226D1B771686005A2303 /* NSDataEx.m in Sources */,
 				15E1835A1B7F177C00E13391 /* SDWaitingView.m in Sources */,
+				13BABEF91B9837E0000D40AB /* NSArray+FirstLetterArray.m in Sources */,
 				D24C37181B74A84400228886 /* NickNameViewController.m in Sources */,
 				132E9FFB1B7891DC00B342D7 /* UIScrollView+MJRefresh.m in Sources */,
 				13688F3C1B79A4F800251AC4 /* MKAnnotationView+WebCache.m in Sources */,
@@ -2335,6 +2380,7 @@
 				B35069841B774CF90045CF10 /* GoodsDetailTVC.m in Sources */,
 				137263E31B744E3D0006661C /* JSONKeyMapper.m in Sources */,
 				D269657B1B81AF40009ACEFD /* CompletedOrderCell.m in Sources */,
+				13BABEFA1B9837E0000D40AB /* NSString+FirstLetter.m in Sources */,
 				B35069921B77510E0045CF10 /* GoodsDescripCell.m in Sources */,
 				D24C59741B7D92EF006F88D3 /* AccountDetailViewController.m in Sources */,
 				D24C59691B7C2FE7006F88D3 /* GeneralTVC.m in Sources */,

@@ -25,14 +25,15 @@ static NSInteger pageSize = 10;
 
 
 
-@interface YellTableViewController ()
+@interface YellTableViewController ()<UIAlertViewDelegate>
 {
     NSMutableArray *_weiboListArray;
     
     NSInteger pageIndex;
     
   
-   
+    UIAlertView *_deleteAlertView;
+    
     
 }
 @end
@@ -71,17 +72,28 @@ static NSInteger pageSize = 10;
 
 -(void)headerRefresh
 {
-    pageIndex = 0;
-    [self getweibolist];
+    if (self.tableView.footer.state !=  MJRefreshFooterStateRefreshing)
+    {
     
+       pageIndex = 0;
+       [self getweibolist];
+        
+    
+    }
     
 }
 
 -(void)footerRefresh
 {
-    pageIndex ++;
     
-    [self getweibolist];
+    if (self.tableView.header.state !=  MJRefreshHeaderStateRefreshing)
+    {
+        
+        pageIndex ++;
+        
+        [self getweibolist];
+    }
+   
     
 }
 
@@ -101,14 +113,10 @@ static NSInteger pageSize = 10;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
        
-        [self endHeaderRefresh];
-        [self endFooterRefresh];
+      
         
-        if (pageIndex == 0) {
-            
-            [_weiboListArray removeAllObjects];
-            
-        }
+    
+        NSMutableArray *muArray = [[NSMutableArray alloc]init];
         
         for (int i = 0; i < array.count; i ++) {
             
@@ -116,12 +124,81 @@ static NSInteger pageSize = 10;
             
             oneModel.yellObject = array[i];
             
-            [_weiboListArray addObject:oneModel];
+        
+            [muArray addObject:oneModel];
             
             
         }
         
-        [self getPhotos];
+//        if (pageIndex == 0) {
+//            
+//            NSMutableArray *newMuArray = [[NSMutableArray alloc]init];
+//            
+//            for (int i = 0 ; i < muArray.count; i ++) {
+//                
+//                YellModel *newObjectModel = [muArray objectAtIndex:i];
+//                
+//                BOOL isexit = NO;
+//                
+//                for (int d = 0; d < _weiboListArray.count; d++) {
+//                    
+//                    YellModel* model = [muArray objectAtIndex:d];
+//                    
+//                    if ([model.yellObject.objectId isEqualToString:newObjectModel.yellObject.objectId])
+//                    {
+//                        
+//                        isexit = YES;
+//                        model.yellObject = newObjectModel.yellObject;
+//                        
+//                        [_weiboListArray replaceObjectAtIndex:d withObject:model];
+//                        
+//                    }
+//                    
+//                    
+//                    
+//                }
+//                
+//                if (!isexit)
+//                {
+//                    
+//                    [newMuArray addObject:newObjectModel];
+//                    
+//                }
+//                
+//            }
+//            
+//            muArray = newMuArray;
+//            
+//            [muArray addObjectsFromArray:_weiboListArray];
+//            
+//        }
+//        else
+//        {
+//            [_weiboListArray addObjectsFromArray:muArray];
+//        }
+        
+        
+        
+        if (pageIndex == 0)
+        {
+            
+            [self getPhotoswithWeibolist:muArray];
+            
+        }
+        
+        else
+        {
+            NSMutableArray *temMuArray = [[NSMutableArray alloc]initWithArray:_weiboListArray];
+            
+            [temMuArray addObjectsFromArray:muArray];
+            
+            [self getPhotoswithWeibolist:temMuArray];
+            
+        }
+        
+        
+        
+       
         
         
 //        [self.tableView reloadData];
@@ -130,14 +207,25 @@ static NSInteger pageSize = 10;
     }];
 }
 
--(void)getPhotos
+-(void)getPhotoswithWeibolist:(NSArray*)weibolist
 {
+    
+    if (weibolist.count == 0)
+    {
+        
+    
+        
+        
+        [self endHeaderRefresh];
+        [self endFooterRefresh];
+        
+    }
     
     __block NSInteger count = 0;
     
-    for (int i = 0; i < _weiboListArray.count; i ++) {
+    for (int i = 0; i < weibolist.count; i ++) {
         
-        YellModel *oneModel = _weiboListArray[i];
+        YellModel *oneModel = weibolist[i];
         
         if (!oneModel.photos)
         {
@@ -178,8 +266,16 @@ static NSInteger pageSize = 10;
                     
                 }
                 
-                if (count == _weiboListArray.count)
+                if (count == weibolist.count)
                 {
+                    
+                 
+                    
+                    [self endHeaderRefresh];
+                    [self endFooterRefresh];
+                    
+                    
+                    [_weiboListArray setArray:weibolist];
                     
                     [self.tableView reloadData];
                     
@@ -345,12 +441,30 @@ static NSInteger pageSize = 10;
                     
                 }
                 
-                int i = indexPath.section%10;
+                NSInteger i = (indexPath.section)%11;
                 
-                NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+//                NSLog(@"indexPathsection:%ld,i:%d",(long)indexPath.section,i );
+            
+                NSString *headString = [NSString stringWithFormat:@"head_default_%ld",(long)i];
+                NSString *default_loading = @"default_loading";
                 
+                NSString *avatar = [user objectForKey:@"avatar"];
                 
-            [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:headString]];
+            
+                BmobUser *currentUser = [BmobUser getCurrentUser];
+                
+                if ([currentUser.objectId isEqualToString:user.objectId]) {
+                    
+                    cell.deleteButton.hidden = NO;
+                    
+                    [cell.deleteButton addTarget:self action:@selector(deleteYell:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                }
+                else
+                {
+                    cell.deleteButton.hidden = YES;
+                    
+                }
             
             
             headTitle.text = [user objectForKey:@"nick"];
@@ -382,9 +496,6 @@ static NSInteger pageSize = 10;
             //图片view  高度
       
             
-            
-
-                
             if (weiboModel.photos)
             {
                     
@@ -495,12 +606,27 @@ static NSInteger pageSize = 10;
                     
                     distanceLabel.text = @"0.0km";
                     
-                    int i = arc4random()%10;
+                    int i = indexPath.section%11;
                     
                     NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
                     
+                    headImageView.image = nil;
+                    
                     headImageView.image = [UIImage imageNamed:headString];
                     
+                }
+                else
+                {
+                    if (avatar)
+                    {
+                        
+                        [headImageView sd_setImageWithURL:[NSURL URLWithString:[user objectForKey:@"avatar"]] placeholderImage:[UIImage imageNamed:default_loading]];
+                    }
+                    else
+                    {
+                        headImageView.image = [UIImage imageNamed:headString];
+                        
+                    }
                 }
             
               });
@@ -528,15 +654,40 @@ static NSInteger pageSize = 10;
     
       YellModel *weiboModel = [_weiboListArray objectAtIndex:indexPath.section];
     
+    int i = indexPath.section%11;
+    
+    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+    BmobUser *user = [weiboModel.yellObject objectForKey:@"user"];
+    
+     NSString *avatar = [user objectForKey:@"avatar"];
+    
+    BOOL hideInfo = [[weiboModel.yellObject objectForKey:@"hide_info"]boolValue];
+
+    
+    
     YellDetailTableViewController *_detail = [self.storyboard instantiateViewControllerWithIdentifier:@"YellDetailTableViewController"];
+    
     _detail.yellmodel = weiboModel;
+    
+  
+    
+    if (hideInfo) {
+        
+        _detail.headImage = headString;
+        
+    }
+    else
+    {
+        if (!avatar) {
+            
+            _detail.headImage = headString;
+            
+        }
+    }
     
     _detail.hidesBottomBarWhenPushed = YES;
     
     [self.navigationController pushViewController:_detail animated:YES];
-    
-    
-    
     
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -754,4 +905,58 @@ static NSInteger pageSize = 10;
     return NO;
     
 }
+
+-(void)deleteYell:(UIButton*)sender
+{
+    UITableViewCell *cell = (UITableViewCell*)[sender superview];
+    
+   
+    _deleteAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"确定删除该呐喊?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    _deleteAlertView.tag = cell.tag;
+    
+    [_deleteAlertView show];
+    
+    
+    
+    
+}
+
+#pragma mark - UIAlertViewDelegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView == _deleteAlertView && buttonIndex == 1) {
+        
+        YellModel *model = [_weiboListArray objectAtIndex:alertView.tag];
+        
+        NSString *objectId = model.yellObject.objectId;
+        
+        BmobObject *YellObject = [BmobObject objectWithoutDatatWithClassName:kWeiboListItem objectId:objectId];
+        
+        [MyProgressHUD showProgress];
+        
+        [YellObject deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+           
+            [MyProgressHUD dismiss];
+            
+            if (isSuccessful)
+            {
+                
+                [MyProgressHUD showError:@"删除成功"];
+                
+                [self.tableView.header beginRefreshing];
+                
+                
+                
+            }
+            else
+            {
+                 [MyProgressHUD showError:@"删除失败，请重试"];
+            }
+            
+        }];
+        
+        
+    }
+}
+
 @end

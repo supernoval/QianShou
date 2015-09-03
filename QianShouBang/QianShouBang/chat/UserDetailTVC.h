@@ -25,6 +25,8 @@ typedef NS_ENUM(NSInteger, FromType)
 
 @property (nonatomic) FromType fromType;
 
+@property (nonatomic) NSString *headImageString;
+
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 

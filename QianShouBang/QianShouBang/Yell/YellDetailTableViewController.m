@@ -28,6 +28,7 @@ static NSString *contentCell = @"contentCell";
     
      UITapGestureRecognizer *_tapResign;
     
+    UITapGestureRecognizer *_resignEmoji;
     
     
 }
@@ -116,6 +117,63 @@ static NSString *contentCell = @"contentCell";
         
         
     }];
+}
+
+-(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (indexPath.section == 0) {
+        
+        return NO;
+    }
+    
+    BmobUser *currentUser = [BmobUser getCurrentUser];
+    
+    if ([currentUser.objectId isEqualToString:weibouser.objectId]) {
+        
+        return YES;
+        
+    }
+    else
+    {
+        
+        if (_commentArray.count > indexPath.section-1) {
+            
+        
+        BmobObject *commentObject = [_commentArray objectAtIndex:indexPath.section -1];
+        
+        BmobUser *user = [commentObject objectForKey:@"from_user"];
+        
+        if ([currentUser.username isEqualToString:user.username]) {
+            
+            return YES;
+        }
+        else
+        {
+            return NO;
+            
+        }
+            }
+        
+        
+    }
+    return YES;
+}
+
+-(UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    return UITableViewCellEditingStyleDelete;
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    [self deleteComment:indexPath];
+    
+    
 }
 
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
@@ -263,12 +321,11 @@ static NSString *contentCell = @"contentCell";
                     
                 }
                 
+                NSString *avatar = [weibouser objectForKey:@"avatar"];
+                                    
+               
             
-                int i = arc4random()%10;
-                
-                NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
-                
-                [headbutton sd_setImageWithURL:[NSURL URLWithString:[weibouser objectForKey:@"avatar"] ] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:headString]];
+
                  
                 
                 headTitle.text = [weibouser objectForKey:@"nick"];
@@ -416,12 +473,33 @@ static NSString *contentCell = @"contentCell";
                     
                     distanceLabel.text = @"0.0km";
                     
-                    int i = arc4random()%10;
                     
-                    NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
+                      [headbutton setImage:nil forState:UIControlStateNormal];
+                    if (_headImage)
+                    {
+                      
+                        
+                        [headbutton setBackgroundImage:[UIImage imageNamed:_headImage] forState:UIControlStateNormal];
+                        
+                    }
+                
                     
-                    [headbutton setImage:[UIImage imageNamed:headString] forState:UIControlStateNormal];
                     
+                }
+                else
+                {
+                    if (avatar)
+                    {
+                        
+                        [headbutton sd_setImageWithURL:[NSURL URLWithString:[weibouser objectForKey:@"avatar"] ] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default_loading"]];
+                    }
+                    else
+                    {
+                        [headbutton setImage:nil forState:UIControlStateNormal];
+                        
+                        [headbutton setBackgroundImage:[UIImage imageNamed:_headImage] forState:UIControlStateNormal];
+                        
+                    }
                 }
                 
             });
@@ -462,7 +540,7 @@ static NSString *contentCell = @"contentCell";
             NSString *avatar = [user objectForKey:@"avatar"];
             NSInteger user_level = [[user objectForKey:@"user_level"]integerValue];
             
-            int i = arc4random()%10;
+            int i = indexPath.section%11;
             
             NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
             
@@ -599,6 +677,10 @@ static NSString *contentCell = @"contentCell";
    
     [_replayTextField resignFirstResponder];
     
+    _resignEmoji = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(keyBoardHide:)];
+    
+    [self.view addGestureRecognizer:_resignEmoji];
+    
     
     CGFloat bottomViewOrginY = 0.0f;
     
@@ -636,16 +718,23 @@ static NSString *contentCell = @"contentCell";
         
     }
     
-    BmobUser *currentUser = [BmobUser getCurrentUser];
+    NSString *replayWho = _replayTextField.placeholder;
+    if (replayWho.length == 0) {
+        
+        replayWho = @"";
+    }
+    NSString  *text = [NSString stringWithFormat:@"%@ %@",replayWho,_replayTextField.text];
     
+    BmobUser *currentUser = [BmobUser getCurrentUser];
     
     BmobObject *replayObject = [BmobObject objectWithClassName:kCommentList];
     
-    [replayObject setObject:_replayTextField.text forKey:@"comment_content"];
+    [replayObject setObject:text forKey:@"comment_content"];
     
     [replayObject setObject:currentUser forKey:@"from_user"];
     [replayObject setObject:self.yellmodel.yellObject forKey:@"items"];
     
+    [MyProgressHUD showProgress];
     
     [replayObject saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
@@ -755,8 +844,10 @@ static NSString *contentCell = @"contentCell";
 -(void)keyBoardHide:(NSNotification*)note
 {
 
+    [self.view removeGestureRecognizer:_resignEmoji];
     
-    if (note)
+    
+//    if (note)
     {
      
         
@@ -808,12 +899,40 @@ static NSString *contentCell = @"contentCell";
 -(void)showWeiboUser
 {
    
+    NSString *headImageString = nil;
+    
+    BOOL hideInfo = [[_yellmodel.yellObject objectForKey:@"hide_info"]boolValue];
+    
+      NSString *avatar = [weibouser objectForKey:@"avatar"];
+    
+    if (!avatar) {
+        
+        headImageString = _headImage;
+    }
+    //匿名 隐藏信息
+    if (hideInfo)
+    {
+        
+        if (_headImage)
+        {
+            headImageString = _headImage;
+            
+            
+        }
+    }
+    
+    
+    
+    
     
     UserDetailTVC *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserDetailTVC"];
     
     detailVC.fromType = FromTypeFriendList;
     
     detailVC.user =weibouser;
+    
+    detailVC.headImageString = headImageString;
+    
     
     detailVC.hidesBottomBarWhenPushed = YES;
     
@@ -1024,6 +1143,84 @@ static NSString *contentCell = @"contentCell";
     }
     
     return NO;
+    
+}
+
+
+-(void)deleteComment:(NSIndexPath*)indexPath
+{
+    
+    BmobObject *commentObject = [_commentArray objectAtIndex:indexPath.section -1];
+    
+    BmobObject *toDelete = [BmobObject objectWithoutDatatWithClassName:kCommentList objectId:commentObject.objectId];
+    
+    [MyProgressHUD showProgress];
+    
+    [toDelete deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+       
+        [MyProgressHUD dismiss];
+        
+        if (isSuccessful) {
+            
+            NSMutableArray *muArray = [[NSMutableArray alloc]initWithArray:_commentArray];
+            
+            [muArray removeObjectAtIndex:indexPath.section - 1];
+            
+            _commentArray = muArray;
+            
+            
+            
+            BmobUser *user = [_yellmodel.yellObject objectForKey:@"user"];
+            //
+            NSInteger cmment_total = [[_yellmodel.yellObject objectForKey:@"comment_total"]integerValue];
+            
+            cmment_total --;
+            [_yellmodel.yellObject setObject:@(cmment_total) forKey:@"comment_total"];
+            //
+            //
+            [_yellmodel.yellObject setObject:user forKey:@"user"];
+            //            BmobRelation *relation = [BmobRelation relation];
+            //
+            //
+            //            [_yellmodel.yellObject addRelation:relation forKey:@"attachItem"];
+            
+            //            [_yellmodel.yellObject incrementKey:@"comment_total"];
+            
+            BmobRelation *commentRelation = [BmobRelation relation];
+            [commentRelation addObject:commentObject];
+            
+            [_yellmodel.yellObject addRelation:commentRelation forKey:@"commentitem"];
+            
+            
+            [_yellmodel.yellObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+                
+                if (isSuccessful)
+                {
+                    
+                    [self getCommentList];
+                }
+                else
+                {
+                    NSLog(@"error:%@",error);
+                    
+                    [self getCommentList];
+                    
+                }
+            }];
+            
+            [self.tableView reloadData];
+            
+            
+        }
+        else
+        {
+            
+            [CommonMethods showDefaultErrorString:@"删除失败"];
+            
+            
+        }
+    }];
+    
     
 }
 

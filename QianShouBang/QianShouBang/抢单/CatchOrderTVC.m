@@ -90,7 +90,9 @@ static NSString *dareCellId = @"dasrenCell";
     [self.tableView.header beginRefreshing];
     
    
+  
 
+  
     
     
 }
@@ -105,37 +107,21 @@ static NSString *dareCellId = @"dasrenCell";
 {
     [super viewWillAppear:animated];
     
-    
-    //引导页设置
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    if (![userDefaults boolForKey:@"FirstLaunch"])
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
     {
-        self.view.alpha = 0;
-        [UIView animateWithDuration:3.0 animations:^{
-            self.view.alpha = 1;
-        }];
-        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"alpha"];
-        animation.duration = 3;
-        animation.fromValue = @0.5;
-        animation.toValue = @1.0;
-        [self.view.layer addAnimation:animation forKey:@"animation"];
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:kSecondStoryboard bundle:[NSBundle mainBundle]];
-        GuideViewController *guideVC = [sb instantiateViewControllerWithIdentifier:@"GuideViewController"];
-        [self presentViewController:guideVC animated:NO completion:nil];
+        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
+        
+        [self presentViewController:loginVC animated:NO completion:nil];
+        
     }
+
     
 }
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:kHadLogin])
-    {
-        UINavigationController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginNav"];
-        
-        [self presentViewController:loginVC animated:YES completion:nil];
-        
-    }
+  
 }
 
 
