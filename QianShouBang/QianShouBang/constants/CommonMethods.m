@@ -1006,6 +1006,10 @@
             break;
         case DetailAccountTypeIncome:
         {
+            tMoney = benjin + commision;
+            
+            tMoneyCount += benjin + commision;
+            
             income = true;
             
         }
@@ -1027,6 +1031,7 @@
             break;
         case DetailAccountTypeIsJiangli:
         {
+            
             isJiangli = true;
         }
             break;
@@ -1056,6 +1061,8 @@
             break;
         case DetailAccountTypeReceive_order_jl:
         {
+            tIntegralCount += tIntegral;
+            
             receive_order_jl = true;
         }
             break;
@@ -1077,6 +1084,7 @@
         case DetailAccountTypeReturn_money:
         {
             tMoney = benjin + commision;
+            
             tIntegral = 0.0;
             
             tMoneyCount += tMoney;

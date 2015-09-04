@@ -343,7 +343,7 @@ static NSInteger pageSize = 10;
             
 //            text = [CommonUtil turnStringToEmojiText:text];
             
-                textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
+                textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 25];
                 
                 if (textHeight < 30)
                 {
@@ -469,7 +469,7 @@ static NSInteger pageSize = 10;
             
             headTitle.text = [user objectForKey:@"nick"];
             
-            cell.nameLabelWithConstrain.constant = [StringHeight widthtWithText:headTitle.text font:FONT_15 constrainedToHeight:21];
+            cell.nameLabelWithConstrain.constant = [StringHeight widthtWithText:headTitle.text font:FONT_16 constrainedToHeight:21];
                 
             
            // 文字内容
@@ -481,7 +481,7 @@ static NSInteger pageSize = 10;
             
             NSString *text = [weiboModel.yellObject objectForKey:@"content"];
             
-            CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
+            CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 25];
             
             if (textHeight < 30) {
                 

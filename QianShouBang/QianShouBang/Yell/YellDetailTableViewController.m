@@ -222,7 +222,7 @@ static NSString *contentCell = @"contentCell";
             
             NSString *text = [_yellmodel.yellObject objectForKey:@"content"];
             
-            textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
+            textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 20];
             
             if (textHeight < 30)
             {
@@ -345,7 +345,7 @@ static NSString *contentCell = @"contentCell";
                 
                 NSString *text = [_yellmodel.yellObject objectForKey:@"content"];
                 
-                CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 16];
+                CGFloat  textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth - 25];
                 
                 if (textHeight < 30) {
                     

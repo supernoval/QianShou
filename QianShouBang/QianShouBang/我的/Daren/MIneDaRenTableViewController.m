@@ -105,9 +105,11 @@ static NSString *const cellid = @"darencell";
             _darenObject = [array firstObject];
             
             _footerView.hidden = NO;
+            _headerView.hidden = NO;
             
 //            _headerView.frame = CGRectMake(0, 0, ScreenWidth, 125);
-            _headerView.hidden = NO;
+            
+          
             
             
         }
@@ -122,6 +124,25 @@ static NSString *const cellid = @"darencell";
     
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 2) {
+        
+        NSString *content = [_darenObject objectForKey:@"order_description"];
+        
+        CGFloat textHeight = [StringHeight heightWithText:content font:FONT_16 constrainedToWidth:ScreenWidth - 200];
+        if (textHeight < 44) {
+          
+            textHeight = 44;
+            
+        }
+        return textHeight;
+    }
+    
+    return 44;
+    
+}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
@@ -141,7 +162,7 @@ static NSString *const cellid = @"darencell";
         
         UITableViewCell *blankCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"blankCell"];
         
-        blankCell.textLabel.text = @"您还未申请过达人";
+        blankCell.textLabel.text = @"暂无达人信息";
         
         blankCell.textLabel.textColor = kDarkTintColor;
         
@@ -246,12 +267,31 @@ static NSString *const cellid = @"darencell";
     [_darenObject setObject:[BmobUser getCurrentUser] forKey:@"user"];
     [_darenObject setObject:@(OrderStatePublishCancel) forKey:@"order_state"];
     
+    [MyProgressHUD showProgress];
+    
     [_darenObject updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
         
         if (isSuccessful) {
            
             
-            [self saveDetailAccount:_darenObject];
+
+            [CommonMethods updateDetailAccountWithType:DetailAccountTypeReturn_money Order:_darenObject User:[BmobUser getCurrentUser] money:0 qianshoubi:0 withResultBlock:^(BOOL success, BmobObject *detailObject) {
+                
+                [MyProgressHUD dismiss];
+                
+                if (success) {
+                    _sucessAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"下架成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                    
+                    [_sucessAlertView show];
+                }
+                else
+                {
+                      [MyProgressHUD dismiss];
+                      [CommonMethods showDefaultErrorString:@"下架失败"];
+                    
+                }
+                
+            }];
             
            
             
@@ -259,6 +299,7 @@ static NSString *const cellid = @"darencell";
         }
         else
         {
+              [MyProgressHUD dismiss];
             [CommonMethods showDefaultErrorString:@"下架失败"];
             
         }
@@ -322,9 +363,7 @@ static NSString *const cellid = @"darencell";
         
         if (isSuccessful) {
             
-            _sucessAlertView = [[UIAlertView alloc]initWithTitle:nil message:@"下架成功" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            
-            [_sucessAlertView show];
+        
             
         }
         else

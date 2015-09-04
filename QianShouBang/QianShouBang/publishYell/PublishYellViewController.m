@@ -305,6 +305,8 @@
     
     BmobGeoPoint *location = [[BmobGeoPoint alloc]initWithLongitude:longitude WithLatitude:latitude];
     
+    [weiboObject setObject:@(attachItems.count) forKey:@"total"];
+    
     [weiboObject setObject:location forKey:@"location"];
     
     if (_yellTextView.text.length > 0)

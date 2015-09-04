@@ -82,6 +82,7 @@ static NSUInteger pageSize = 10;
     
     [query includeKey:@"user"];
     [query whereKey:@"receive_user" equalTo:user];
+    [query whereKey:@"order_state" equalTo:@(OrderStateAccepted)];
     
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {

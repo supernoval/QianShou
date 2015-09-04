@@ -275,11 +275,16 @@ static NSString *cellid = @"catchPeopleCell";
             
             if (isSuccessful) {
                 
-                [self.tableView.header beginRefreshing];
+             
+                
                 
                 [CommonMethods showDefaultErrorString:@"接受成功"];
                 
                 [CommonMethods sendOrderWithReceiver:receiveUser orderObject:orderObject message:@"您抢的订单已被确认" orderstate:OrderStateAccepted];
+                
+                [_peopleArray removeObjectAtIndex:alertView.tag];
+                
+                [self.tableView reloadData];
                 
                 
             }

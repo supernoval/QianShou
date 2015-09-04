@@ -10,6 +10,7 @@
 #import "MyOderCell.h"
 #import "OrderDetailTableViewController.h"
 #import "WaitingForAccepViewController.h"
+#import "ConfirmOrderTVC.h"
 
 
 static NSString *myOrderCell = @"myOrderCell";
@@ -52,6 +53,10 @@ static NSInteger pageSize = 10;
   [self.tableView.header beginRefreshing];
     
    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(confirmNote:) name:kConfirmedOrderNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelNote:) name:kCancelOrderNotification object:nil];
+    
     
     
     
@@ -77,7 +82,7 @@ static NSInteger pageSize = 10;
     
     [query whereKey:@"user" equalTo:[BmobUser getCurrentUser]];
     
-    [query whereKey:@"order_state" containedIn:@[@(OrderStateAccepted),@(OrderStatePayedUnAccepted)]];
+    [query whereKey:@"order_state" containedIn:@[@(OrderStateAccepted),@(OrderStatePayedUnAccepted),@(OrderStateUnPay)]];
     
     [query orderByDescending:@"updatedAt"];
     
@@ -271,7 +276,7 @@ static NSInteger pageSize = 10;
             case OrderStateAccepted:
             {
                  [statusButton setTitle:@"已接单" forState:UIControlStateNormal];
-               statusButton.backgroundColor = kLightTintColor;
+               statusButton.backgroundColor = kBlueColor;
                 
             }
                 break;
@@ -303,7 +308,7 @@ static NSInteger pageSize = 10;
             case OrderStateUnPay:
             {
                 [statusButton setTitle:@"待支付" forState:UIControlStateNormal];
-                 statusButton.backgroundColor = kBlueColor;
+                 statusButton.backgroundColor = [UIColor redColor];
                 
                 [statusButton addTarget:self
                                  action:@selector(payOrder:)
@@ -483,13 +488,13 @@ static NSInteger pageSize = 10;
                 break;
             case OrderStateAccepted:
             {
-                OrderDetailTableViewController *detatilTVC = [sb instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+               
+                ConfirmOrderTVC *_confirm = [sb instantiateViewControllerWithIdentifier:@"ConfirmOrderTVC"];
                 
-                detatilTVC.hidesBottomBarWhenPushed = YES;
-                detatilTVC.orderObject = weiboModel.yellObject;
+                _confirm.orderObject = weiboModel.yellObject;
                 
-            
-                [self.navigationController pushViewController:detatilTVC animated:YES];
+                [self.navigationController pushViewController:_confirm animated:YES];
+                
                 
             }
                 break;
@@ -649,8 +654,13 @@ static NSInteger pageSize = 10;
 }
 
 
--(void)getCancelNoti:(NSNotification *)note
+
+
+
+-(void)confirmNote:(NSNotification*)note
 {
+    NSLog(@"note:%@",note);
+    
     BmobObject *orderObject = note.object;
     
     NSMutableArray *muArray = ordersArray;
@@ -658,9 +668,9 @@ static NSInteger pageSize = 10;
     for (int i = 0; i < ordersArray.count; i ++)
     {
         
-        BmobObject *temOrder = ordersArray[i];
+        YellModel *temOrderModel = ordersArray[i];
         
-        if ([temOrder.objectId isEqualToString:orderObject.objectId]) {
+        if ([temOrderModel.yellObject.objectId isEqualToString:orderObject.objectId]) {
             
             [muArray removeObjectAtIndex:i];
             
@@ -671,6 +681,30 @@ static NSInteger pageSize = 10;
     
     [self.tableView reloadData];
     
+    
+}
+
+-(void)cancelNote:(NSNotification*)note
+{
+    BmobObject *orderObject = note.object;
+    
+    NSMutableArray *muArray = ordersArray;
+    
+    for (int i = 0; i < ordersArray.count; i ++)
+    {
+        
+        YellModel *temOrderModel = ordersArray[i];
+        
+        if ([temOrderModel.yellObject.objectId isEqualToString:orderObject.objectId]) {
+            
+            [muArray removeObjectAtIndex:i];
+            
+        }
+    }
+    
+    ordersArray = muArray;
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {

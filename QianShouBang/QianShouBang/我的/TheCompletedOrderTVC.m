@@ -39,6 +39,9 @@ static NSUInteger pageSize = 10;
     
     _dataArray = [[NSMutableArray alloc]init];
     pageIndex = 0;
+    
+    [self.tableView.header beginRefreshing];
+    
 }
 
 
@@ -53,7 +56,7 @@ static NSUInteger pageSize = 10;
 {
     [super viewWillAppear:animated];
     
-    [self.tableView.header beginRefreshing];
+  
     
 }
 

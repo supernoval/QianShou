@@ -139,6 +139,9 @@
         
         _orderStatelabel.text = @"已完成";
         
+        self.title = @"已完成";
+        
+        
         
     }
     else
