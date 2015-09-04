@@ -53,7 +53,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _mapView                   = [[MKMapView alloc] initWithFrame:CGRectMake(0, ViewOriginY, 320, ScreenHeight - ViewOriginY)];
+    _mapView                   = [[MKMapView alloc] initWithFrame:CGRectMake(0, ViewOriginY, ScreenWidth, ScreenHeight - ViewOriginY)];
     _mapView.delegate = self;
     [self.view addSubview:_mapView];
     

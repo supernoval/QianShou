@@ -58,6 +58,8 @@ static NSInteger pageSize = 10;
      [self getweibolist];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeNote:) name:kYellObjectChangeNote object:nil];
+    
     
 }
 
@@ -954,6 +956,29 @@ static NSInteger pageSize = 10;
             }
             
         }];
+        
+        
+    }
+}
+
+-(void)changeNote:(NSNotification*)note
+{
+    YellModel *model = note.object;
+    
+   
+    for (int i = 0; i < _weiboListArray.count; i ++) {
+        
+        YellModel *temModel = _weiboListArray[i];
+        
+        if ([temModel.yellObject.objectId isEqualToString:model.yellObject.objectId])
+        {
+            
+            [_weiboListArray replaceObjectAtIndex:i withObject:model];
+            
+            [self.tableView reloadData];
+            
+            
+        }
         
         
     }

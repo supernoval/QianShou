@@ -68,7 +68,9 @@
                                     <rect key="frame" x="8" y="16" width="304" height="30"/>
                                     <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="30" id="02m-gz-gV1"/>
+                                        <constraint firstAttribute="height" constant="30" id="02m-gz-gV1">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                        </constraint>
                                     </constraints>
                                     <state key="normal" title="注册成VIP会员（金邦果）">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +83,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="btw-Yb-yJ8" firstAttribute="top" secondItem="5eV-wz-rDf" secondAttribute="top" constant="16" id="Meg-1f-pHx"/>
+                                <constraint firstItem="btw-Yb-yJ8" firstAttribute="top" secondItem="5eV-wz-rDf" secondAttribute="top" constant="16" id="Meg-1f-pHx">
+                                    <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                </constraint>
                                 <constraint firstAttribute="trailing" secondItem="btw-Yb-yJ8" secondAttribute="trailing" constant="8" id="WSD-fe-iBu"/>
                                 <constraint firstItem="btw-Yb-yJ8" firstAttribute="leading" secondItem="5eV-wz-rDf" secondAttribute="leading" constant="8" id="cGv-0b-fo6"/>
                             </constraints>
@@ -410,7 +414,9 @@
                                 <rect key="frame" x="8" y="196" width="304" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="UUc-iy-c9v"/>
+                                    <constraint firstAttribute="height" constant="30" id="UUc-iy-c9v">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <state key="normal" title="确定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -607,8 +613,11 @@
                                         <rect key="frame" x="8" y="71" width="304" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="ed9-Q5-IVf"/>
+                                            <constraint firstAttribute="height" constant="30" id="ed9-Q5-IVf">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="首次兑换">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -650,8 +659,11 @@
                                         <rect key="frame" x="8" y="166" width="304" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="vYi-Wv-LIw"/>
+                                            <constraint firstAttribute="height" constant="30" id="vYi-Wv-LIw">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="立即兑换">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -693,8 +705,11 @@
                                         <rect key="frame" x="8" y="276" width="304" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="MTp-h1-4OD"/>
+                                            <constraint firstAttribute="height" constant="30" id="MTp-h1-4OD">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="立即兑换">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -736,8 +751,11 @@
                                         <rect key="frame" x="8" y="362" width="304" height="30"/>
                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="qRJ-Wl-GU9"/>
+                                            <constraint firstAttribute="height" constant="30" id="qRJ-Wl-GU9">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                            </constraint>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="立即兑换">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1078,7 +1096,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="IlG-Ni-ALG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" red="0.25490196079999999" green="0.68235294120000001" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1086,7 +1104,9 @@
                                 <rect key="frame" x="8" y="189" width="304" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="oUW-qN-KPS"/>
+                                    <constraint firstAttribute="height" constant="30" id="oUW-qN-KPS">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <state key="normal" title="确定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1165,14 +1185,16 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RBF-tc-WdI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAG-tt-kyt">
                                 <rect key="frame" x="8" y="135" width="304" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="mLA-sH-3Ft"/>
+                                    <constraint firstAttribute="height" constant="30" id="mLA-sH-3Ft">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <state key="normal" title="提交">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1304,7 +1326,9 @@
                                 <rect key="frame" x="8" y="176" width="304" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="f24-6b-5bn"/>
+                                    <constraint firstAttribute="height" constant="30" id="f24-6b-5bn">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <state key="normal" title="确定">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1547,7 +1571,9 @@
                                 <rect key="frame" x="8" y="386" width="304" height="30"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.62352941179999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="A3L-Wm-h5h"/>
+                                    <constraint firstAttribute="height" constant="30" id="A3L-Wm-h5h">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="45"/>
+                                    </constraint>
                                 </constraints>
                                 <state key="normal" title="提交反馈">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1608,7 +1634,7 @@
     </scenes>
     <resources>
         <image name="exchangeQsBi" width="621" height="453"/>
-        <image name="head_default_0" width="30" height="30"/>
+        <image name="head_default_0" width="60" height="60"/>
         <image name="near_catagory" width="22" height="22"/>
         <image name="vip_1" width="27" height="27"/>
     </resources>

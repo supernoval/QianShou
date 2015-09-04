@@ -18,6 +18,12 @@
 
 
 @interface PersonInfoSettingTVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
+{
+    BOOL addressPickerShowed;
+    
+    BOOL datePickShowed;
+    
+}
 @property (nonatomic, strong)UIActionSheet *sexAC;
 @property (nonatomic, strong)UIActionSheet *pickPhotoActionSheet;
 @property (nonatomic, strong)PickDateView *pickDateView ;
@@ -35,6 +41,11 @@
     self.tableView.delegate = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
     currentUser = [[QSUser alloc]init];
+    
+    _pickDateView = [[PickDateView alloc]init];
+    
+     _pickAddressView = [[PickAddressView alloc]initWithFrame:CGRectMake(10, ScreenHeight+100, ScreenWidth -20, 200)];
+    
 }
 
 
@@ -414,35 +425,64 @@
 
 #pragma mark - 显示地址选择View
 - (void)showAddressPickView{
-    _pickAddressView = [[PickAddressView alloc]initWithFrame:CGRectMake(10, ScreenHeight+100, ScreenWidth -20, 200)];
+   
     
-    [_pickAddressView pickAddressBlock:^(NSDictionary *addressDic){
-        if (addressDic != nil) {
-           __block NSString *address = [NSString stringWithFormat:@"%@-%@-%@",[addressDic objectForKey:@"province"],[addressDic objectForKey:@"city"],[addressDic objectForKey:@"town"]];
-            BmobUser *user = [BmobUser getCurrentUser];
-            [MyProgressHUD showProgress];
-            [user setObject:address forKey:kuser_city];
-            [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
-                if (isSuccessful) {
-                    [self getCurrentUserInfo];
-                    [MyProgressHUD dismiss];
-                    
-                    [CommonMethods showAlertString:@"修改地区成功!" delegate:self tag:50];
-                }else {
-                    [MyProgressHUD dismiss];
-                    [CommonMethods showAlertString:@"修改地区失败!" delegate:self tag:51];
-                }
-            }];
-        }
-    }];
-    [self.navigationController.view addSubview:_pickAddressView];
-    
-    [_pickAddressView show];
+    if (addressPickerShowed) {
+        
+        [_pickAddressView  dispear];
+        
+        addressPickerShowed = NO;
+        
+        
+    }
+    else
+    {
+        [_pickAddressView pickAddressBlock:^(NSDictionary *addressDic){
+            if (addressDic != nil) {
+                __block NSString *address = [NSString stringWithFormat:@"%@-%@-%@",[addressDic objectForKey:@"province"],[addressDic objectForKey:@"city"],[addressDic objectForKey:@"town"]];
+                BmobUser *user = [BmobUser getCurrentUser];
+                [MyProgressHUD showProgress];
+                [user setObject:address forKey:kuser_city];
+                [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
+                    if (isSuccessful) {
+                        [self getCurrentUserInfo];
+                        [MyProgressHUD dismiss];
+                        
+                        [CommonMethods showAlertString:@"修改地区成功!" delegate:self tag:50];
+                    }else {
+                        [MyProgressHUD dismiss];
+                        [CommonMethods showAlertString:@"修改地区失败!" delegate:self tag:51];
+                    }
+                }];
+            }
+        }];
+        [self.navigationController.view addSubview:_pickAddressView];
+        
+         addressPickerShowed = YES;
+        
+        [_pickAddressView show];
+        
+        
+    }
+  
 }
 #pragma  mark － 显示日期选择view
 -(void)showDatePickerView
 {
-        _pickDateView = [[PickDateView alloc]init];
+    
+    if (datePickShowed) {
+        
+        datePickShowed = NO;
+        
+        [_pickDateView dispear];
+        
+        
+    }
+    else
+    {
+        
+        datePickShowed = YES;
+        
         [_pickDateView setDateBlock:^(NSString *dateStr) {
             
             if (dateStr != nil) {
@@ -451,7 +491,7 @@
                 [user setObject:dateStr forKey:kuser_birthday];
                 [user updateInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error){
                     if (isSuccessful) {
-                       [self getCurrentUserInfo];
+                        [self getCurrentUserInfo];
                         [MyProgressHUD dismiss];
                         
                         [CommonMethods showAlertString:@"修改生日成功!" delegate:self tag:11];
@@ -470,6 +510,8 @@
         [self.navigationController.view addSubview:_pickDateView];
         
         [_pickDateView show];
+    }
+    
         
     
     

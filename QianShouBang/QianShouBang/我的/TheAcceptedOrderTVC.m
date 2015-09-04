@@ -239,7 +239,7 @@ static NSUInteger pageSize = 10;
         
         
         
-        NSString *text = [weiboModel.yellObject objectForKey:@"content"];
+        NSString *text = [weiboModel.yellObject objectForKey:@"order_description"];
         
         textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
         
@@ -359,7 +359,7 @@ static NSUInteger pageSize = 10;
             
             double textHeight = 20;
             
-            NSString *text = [_orderObject objectForKey:@"content"];
+            NSString *text = [_orderObject objectForKey:@"order_description"];
             
             textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
           

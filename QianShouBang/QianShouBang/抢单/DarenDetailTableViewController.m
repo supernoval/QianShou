@@ -35,6 +35,10 @@
     
     _headerView.frame = CGRectMake(0, 0, ScreenWidth, 90);
     
+    _headImageView.clipsToBounds = YES;
+    _headImageView.layer.cornerRadius = 40.0;
+    
+    [_headImageView bringSubviewToFront:_zixunButton];
     
     
     _footerView.frame = CGRectMake(0, 0, ScreenWidth, 223);
@@ -60,8 +64,8 @@
     
     
   
-    _zixunButton.clipsToBounds = YES;
-    _zixunButton.layer.cornerRadius = 20;
+//    _zixunButton.clipsToBounds = YES;
+//    _zixunButton.layer.cornerRadius = 20;
     
     
 }

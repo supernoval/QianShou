@@ -61,45 +61,45 @@
 
 -(void)getFriendList
 {
-    [[BmobUserManager currentUserManager] queryCurrentContactArray:^(NSArray *array, NSError *error) {
-        NSMutableArray *chatUserArray = [NSMutableArray array];
-        for (BmobUser * user in array)
-        {
-            BmobChatUser *chatUser = [[BmobChatUser alloc] init];
-            chatUser.username      = [user objectForKey:@"username"];
-            chatUser.avatar        = [user objectForKey:@"avatar"];
-            chatUser.nick          = [user objectForKey:@"nick"];
-            chatUser.objectId      = user.objectId;
-            [chatUserArray addObject:chatUser];
-            
-            
-        }
-        
-        
-        _friendListArray = chatUserArray;
-        
-        
-        if (chatUserArray) {
-            
-             [self sortedFriendsWithArray:chatUserArray];
-        }
-        
-  
-        
-    
-    
-    
-    }];
-    
-    
-//    NSArray *array = [[BmobDB currentDatabase] contaclList];
-//    
-//    if (array)
-//    {
-//       
-//        [self sortedFriendsWithArray:array];
+//    [[BmobUserManager currentUserManager] queryCurrentContactArray:^(NSArray *array, NSError *error) {
+//        NSMutableArray *chatUserArray = [NSMutableArray array];
+//        for (BmobUser * user in array)
+//        {
+//            BmobChatUser *chatUser = [[BmobChatUser alloc] init];
+//            chatUser.username      = [user objectForKey:@"username"];
+//            chatUser.avatar        = [user objectForKey:@"avatar"];
+//            chatUser.nick          = [user objectForKey:@"nick"];
+//            chatUser.objectId      = user.objectId;
+//            [chatUserArray addObject:chatUser];
+//            
+//            
+//        }
 //        
-//    }
+//        
+//        _friendListArray = chatUserArray;
+//        
+//        
+//        if (chatUserArray) {
+//            
+//             [self sortedFriendsWithArray:chatUserArray];
+//        }
+//        
+//  
+//        
+//    
+//    
+//    
+//    }];
+    
+    
+    NSArray *array = [[BmobDB currentDatabase] contaclList];
+    
+    if (array)
+    {
+       
+        [self sortedFriendsWithArray:array];
+        
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -6,20 +6,22 @@
 //  Copyright (c) 2015年 zhuhaikun. All rights reserved.
 //
 
-#import "BaseViewController.h"
+
+#import "BaseTableViewController.h"
 
 
 #define kCancelOrderNotification   @"CancelOrderNotification"
 
-@interface WaitingForAccepViewController : BaseViewController
+@interface WaitingForAccepViewController : BaseTableViewController
 
 
 @property (nonatomic) BmobObject *orderObject;
 @property (nonatomic) BmobUser *user;
 
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+
+@property (weak, nonatomic) IBOutlet UIView *headView;
 
 @property (weak, nonatomic) IBOutlet UILabel *publishDatelabel;
 
@@ -46,10 +48,15 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countDownLabelWith;
 
+
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dotLIneHeight;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *redLineHeight;
 
 - (IBAction)cancelAction:(id)sender;
+
 
 
 @end

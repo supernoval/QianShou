@@ -32,6 +32,9 @@ static NSString *contentCell = @"contentCell";
     
     UIButton *sendButton;
     
+    UITapGestureRecognizer *_clearPlaceholder;
+    
+    
     
     
 }
@@ -70,6 +73,7 @@ static NSString *contentCell = @"contentCell";
     self.tableView.dataSource = self;
     
     _tapResign = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+    _clearPlaceholder = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(clearPlaceHolder)];
     
     weibouser = [_yellmodel.yellObject objectForKey:@"user"];
     
@@ -331,9 +335,7 @@ static NSString *contentCell = @"contentCell";
 
                  
                 
-                headTitle.text = [weibouser objectForKey:@"nick"];
-                
-                cell.nameLabelWithConstrain.constant = [StringHeight widthtWithText:headTitle.text font:FONT_15 constrainedToHeight:21];
+            
                 
                 
                 // 文字内容
@@ -465,6 +467,9 @@ static NSString *contentCell = @"contentCell";
                 
                 BOOL hideInfo = [[_yellmodel.yellObject objectForKey:@"hide_info"]boolValue];
                 
+               
+                
+           
                 
                 //匿名 隐藏信息
                 if (hideInfo) {
@@ -503,7 +508,11 @@ static NSString *contentCell = @"contentCell";
                         [headbutton setBackgroundImage:[UIImage imageNamed:_headImage] forState:UIControlStateNormal];
                         
                     }
+                    
+                     headTitle.text = [weibouser objectForKey:@"nick"];
                 }
+                
+                cell.nameLabelWithConstrain.constant = [StringHeight widthtWithText:headTitle.text font:FONT_16 constrainedToHeight:21];
                 
             });
             
@@ -617,7 +626,8 @@ static NSString *contentCell = @"contentCell";
         
         [sendButton setTitle:@"回复" forState:UIControlStateNormal];
             
-        
+            [self.view addGestureRecognizer:_clearPlaceholder];
+            
         }
         
     }
@@ -725,7 +735,7 @@ static NSString *contentCell = @"contentCell";
     
     if (_replayTextField.text.length == 0) {
         
-        [CommonMethods showDefaultErrorString:@"请输入回复内容"];
+        [CommonMethods showDefaultErrorString:@"请输入评论内容"];
         return;
         
     }
@@ -788,6 +798,8 @@ static NSString *contentCell = @"contentCell";
                 
                 if (isSuccessful)
                 {
+                    
+                     [self yellObjectChange ];
                     
                      [self getCommentList];
                 }
@@ -857,6 +869,9 @@ static NSString *contentCell = @"contentCell";
 {
 
     [self.view removeGestureRecognizer:_resignEmoji];
+    [self.view removeGestureRecognizer:_clearPlaceholder];
+     [sendButton setTitle:@"评论" forState:UIControlStateNormal];
+    _replayTextField.placeholder = nil;
     
     
 //    if (note)
@@ -1103,6 +1118,8 @@ static NSString *contentCell = @"contentCell";
                     
                 }
                 
+                 [self yellObjectChange ];
+                
                 [MyProgressHUD dismiss];
                 
             }];
@@ -1209,6 +1226,8 @@ static NSString *contentCell = @"contentCell";
                 if (isSuccessful)
                 {
                     
+                    [self yellObjectChange ];
+                    
                     [self getCommentList];
                 }
                 else
@@ -1233,6 +1252,22 @@ static NSString *contentCell = @"contentCell";
         }
     }];
     
+    
+}
+
+
+-(void)yellObjectChange
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kYellObjectChangeNote object:self.yellmodel];
+    
+}
+
+-(void)clearPlaceHolder
+{
+    [sendButton setTitle:@"评论" forState:UIControlStateNormal];
+    
+    _replayTextField.placeholder = nil;
+    [self.view removeGestureRecognizer:_clearPlaceholder];
     
 }
 

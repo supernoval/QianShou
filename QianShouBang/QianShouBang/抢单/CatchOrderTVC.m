@@ -580,7 +580,7 @@ static NSString *dareCellId = @"dasrenCell";
                 
                 cell.descripLabel.text = [NSString stringWithFormat:@"%@",order_description];
                 
-                textHeight = [StringHeight heightWithText:order_description font:FONT_17 constrainedToWidth:ScreenWidth - 125];
+                textHeight = [StringHeight heightWithText:order_description font:FONT_16 constrainedToWidth:ScreenWidth - 125];
 //                textHeight -= 10;
                 if (textHeight < 20) {
                     
@@ -977,7 +977,11 @@ static NSString *dareCellId = @"dasrenCell";
             isShowDaRen = NO;
             [self.tableView reloadData];
             
-          [self.tableView.header beginRefreshing];
+            if (_ordersArray.count == 0) {
+                
+                [self.tableView.header beginRefreshing];
+            }
+          
             
         }
             break;
@@ -986,7 +990,13 @@ static NSString *dareCellId = @"dasrenCell";
         {
             isShowDaRen = YES;
             [self.tableView reloadData];
-           [self.tableView.header beginRefreshing];
+            
+            if (_darenArray.count == 0)
+            {
+                
+                  [self.tableView.header beginRefreshing];
+            }
+         
             
         }
             break;

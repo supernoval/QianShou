@@ -21,8 +21,8 @@
     [super viewDidLoad];
    
     self.title = @"已接单";
-    
-    _headView.frame = CGRectMake(0, 0, ScreenWidth, 789);
+     [self setUpSubViews];
+//    _headView.frame = CGRectMake(0, 0, ScreenWidth, 789);
     _cancelButton.clipsToBounds = YES;
     _cancelButton.layer.cornerRadius = 22.0;
     
@@ -30,8 +30,14 @@
     _doneButton.layer.cornerRadius = 22.0;
     
     
-    [self setUpSubViews];
     
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+   
 }
 -(void)setUpSubViews
 {
@@ -87,9 +93,11 @@
     NSString *jiangli = [NSString stringWithFormat:@"系统奖励:%.2f(牵手币)",[[self.orderObject objectForKey:@"jiangli_money"]floatValue]];
     
     
-    CGFloat desHeight = [StringHeight heightWithText:description font:FONT_17 constrainedToWidth:150];
+    CGFloat desHeight = [StringHeight heightWithText:description font:FONT_15 constrainedToWidth:150];
     
-    CGFloat addressHeght = [StringHeight heightWithText:address font:FONT_17 constrainedToWidth: 150];
+    CGFloat addressHeght = [StringHeight heightWithText:address font:FONT_16 constrainedToWidth: 150];
+    
+    addressHeght -= 10;
     
     if (desHeight < 20) {
         
@@ -100,7 +108,13 @@
         addressHeght = 20;
         
     }
+    
+    
+     _headView.frame = CGRectMake(0, 0, ScreenWidth, 780 + addressHeght + desHeight);
+    
+    
     self.orderDetailLabel.text = description;
+    
     self.orderDetailHeightConstraint.constant = desHeight;
     
     self.orderAddressLabel.text = address;
@@ -109,7 +123,8 @@
     self.redLineHighConstraint.constant = addressHeght + desHeight + 145;
     self.dotLineHighConstraint.constant = addressHeght + desHeight + 145;
     
-    self.headView.frame = CGRectMake(0, 0, ScreenWidth, 749 + addressHeght + desHeight);
+ 
+    
     
     
     self.benjinLabel.text = benjin;

@@ -362,9 +362,9 @@ static NSInteger pageSize = 10;
         
         double textHeight = 20;
         
-        NSString *text = [model.yellObject objectForKey:@"content"];
+        NSString *text = [model.yellObject objectForKey:@"order_description"];
         
-        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+        textHeight = [StringHeight heightWithText:text font:FONT_16 constrainedToWidth:ScreenWidth -100];
         
         if (textHeight < 20) {
             
@@ -410,9 +410,9 @@ static NSInteger pageSize = 10;
         
         
         
-        NSString *text = [weiboModel.yellObject objectForKey:@"content"];
+        NSString *text = [weiboModel.yellObject objectForKey:@"order_description"];
         
-        textHeight = [StringHeight heightWithText:text font:FONT_17 constrainedToWidth:ScreenWidth];
+        textHeight = [StringHeight heightWithText:text font:FONT_16 constrainedToWidth:ScreenWidth - 100];
         
         if (textHeight < 20)
         {

@@ -101,6 +101,14 @@
         addressHeght = 20;
         
     }
+    
+    self.scrollView.contentSize = CGSizeMake(ScreenWidth, 610 + desHeight + addressHeght);
+    
+    self.dotLineHeightContraint.constant = 210 + desHeight + addressHeght;
+    
+    self.redLineHeightContraint.constant = 210 + desHeight + addressHeght;
+    
+    
     self.orderDetailLabel.text = description;
     self.detailHeightContraint.constant = desHeight;
     
@@ -152,7 +160,7 @@
     
     
     //倒计时
-    self.countDownLabel.frame = CGRectMake(0, 0, 63, 21);
+    self.countDownLabel.frame = CGRectMake(0, 0, 80, 21);
     
     MZTimerLabel *_timerLabel = [[MZTimerLabel alloc] initWithLabel:self.countDownLabel andTimerType:MZTimerLabelTypeTimer];
     

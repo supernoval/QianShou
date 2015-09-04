@@ -33,7 +33,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Vh1-5U-bZO"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.25490196078431371" green="0.68235294117647061" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -42,7 +42,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="3a0-oa-WfD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.52941176469999995" green="0.52941176469999995" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -70,6 +70,6 @@
     </objects>
     <resources>
         <image name="green_location" width="9" height="11"/>
-        <image name="head_default_0" width="30" height="30"/>
+        <image name="head_default_0" width="60" height="60"/>
     </resources>
 </document>

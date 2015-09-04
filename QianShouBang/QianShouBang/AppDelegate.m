@@ -49,7 +49,7 @@
     //设置naigationbar 背景颜色和字体颜色
     [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20],NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     
     [[UITabBar appearance] setTintColor:NavigationBarColor];

@@ -9,6 +9,7 @@
 #import "BaseTableViewController.h"
 #import "YellModel.h"
 
+#define kYellObjectChangeNote   @"YellObjectChangeNote"
 @interface YellDetailTableViewController : BaseTableViewController
 
 @property (nonatomic) YellModel *yellmodel;

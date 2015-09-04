@@ -14,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-Wl-6KP">
-                        <rect key="frame" x="8" y="10" width="30" height="30"/>
+                        <rect key="frame" x="20" y="5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="3tF-Ki-wkc"/>
-                            <constraint firstAttribute="width" constant="30" id="WCZ-OG-gsn"/>
+                            <constraint firstAttribute="height" constant="40" id="3tF-Ki-wkc"/>
+                            <constraint firstAttribute="width" constant="40" id="WCZ-OG-gsn"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeK-vw-zwM">
-                        <rect key="frame" x="46" y="0.0" width="266" height="48"/>
+                        <rect key="frame" x="73" y="0.0" width="234" height="48"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -30,9 +30,9 @@
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="MeK-vw-zwM" secondAttribute="bottom" constant="1" id="6XE-jD-44Z"/>
                     <constraint firstAttribute="centerY" secondItem="KtI-Wl-6KP" secondAttribute="centerY" id="EfR-BK-cI6"/>
-                    <constraint firstAttribute="trailing" secondItem="MeK-vw-zwM" secondAttribute="trailing" constant="8" id="Y0f-6Y-Moz"/>
-                    <constraint firstItem="MeK-vw-zwM" firstAttribute="leading" secondItem="KtI-Wl-6KP" secondAttribute="trailing" constant="8" id="Yfj-vN-71s"/>
-                    <constraint firstItem="KtI-Wl-6KP" firstAttribute="leading" secondItem="SAa-vf-skL" secondAttribute="leading" constant="8" id="tWI-Z6-w1e"/>
+                    <constraint firstAttribute="trailing" secondItem="MeK-vw-zwM" secondAttribute="trailing" constant="13" id="Y0f-6Y-Moz"/>
+                    <constraint firstItem="MeK-vw-zwM" firstAttribute="leading" secondItem="KtI-Wl-6KP" secondAttribute="trailing" constant="13" id="Yfj-vN-71s"/>
+                    <constraint firstItem="KtI-Wl-6KP" firstAttribute="leading" secondItem="SAa-vf-skL" secondAttribute="leading" constant="20" id="tWI-Z6-w1e"/>
                     <constraint firstItem="MeK-vw-zwM" firstAttribute="top" secondItem="SAa-vf-skL" secondAttribute="top" id="zah-we-o7x"/>
                 </constraints>
             </tableViewCellContentView>

@@ -26,11 +26,9 @@
     
     self.title = @"等待接单";
     
-    _scrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-    
-    _scrollView.contentSize = CGSizeMake(ScreenWidth, 603);
-    
-    _scrollView.scrollEnabled = YES;
+    _headView.frame = CGRectMake(0, 0, ScreenWidth, 541);
+
+
     
     _cancelButton.clipsToBounds = YES;
     _cancelButton.layer.cornerRadius = 22.0;
@@ -63,7 +61,7 @@
     
 
     
-    NSLog(@"order_start_time:%@",[self.orderObject objectForKey:@"order_start_time"]);
+    
     
 
     
@@ -81,11 +79,12 @@
     NSString *jiangli = [NSString stringWithFormat:@"系统奖励:%.2f(牵手币)",[[self.orderObject objectForKey:@"jiangli_money"]floatValue]];
     
      self.addressLabel.text = address;
+    self.addressLabel.numberOfLines = 0;
      self.orderDetailLabel.text = description;
     
-    CGFloat desHeight = [StringHeight heightWithText:description font:FONT_17 constrainedToWidth:150];
+    CGFloat desHeight = [StringHeight heightWithText:description font:FONT_17 constrainedToWidth:ScreenWidth - 180];
     
-    CGFloat addressHeght = [StringHeight heightWithText:address font:FONT_17 constrainedToWidth:150];
+    CGFloat addressHeght = [StringHeight heightWithText:address font:FONT_17 constrainedToWidth:ScreenWidth - 200];
     
     if (desHeight < 20) {
         
@@ -97,24 +96,32 @@
         
     }
    
+     _headView.frame = CGRectMake(0, 0, ScreenWidth, 501 + desHeight + addressHeght);
+    
     self.orderDetailHeightConstraint.constant = desHeight;
     
    
     self.addressHeightConstraint.constant = addressHeght;
     
-    
+    self.dotLIneHeight.constant = 140 + desHeight + addressHeght;
+    self.redLineHeight.constant = 140 + desHeight + addressHeght;
+ 
     
     self.benjinLabel.text = benjin;
     self.yongjinLabel.text = commission;
     self.jiangliLabel.text = jiangli;
+    self.jiangliLabel.adjustsFontSizeToFitWidth = YES;
     
     
+  
     
+   
+
 
     
     //倒计时
     
-    self.countDownLabelWith.constant = 100;
+ 
     self.countDownLabel.frame = CGRectMake(0, 0, 100, 21);
 
     

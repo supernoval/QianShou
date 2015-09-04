@@ -61,6 +61,12 @@ CGFloat pickDateheight = 250;
     [self addSubview:selectDoneBtn];
     
     
+    UIButton *cancelButton = [[UIButton alloc]initWithFrame:CGRectMake(8, 0, 50, 30)];
+    [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    [cancelButton setTitleColor:kDarkTintColor forState:UIControlStateNormal];
+    [self addSubview:cancelButton];
+    
     
     
     
@@ -79,6 +85,12 @@ CGFloat pickDateheight = 250;
         
     }
     
+    [self dispear];
+    
+}
+
+-(void)cancel
+{
     [self dispear];
     
 }

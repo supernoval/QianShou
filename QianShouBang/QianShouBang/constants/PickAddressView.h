@@ -36,5 +36,8 @@ typedef void (^PickAddressViewBlock)(NSDictionary*addressDict);
 -(id)initWithFrame:(CGRect)frame;
 
 -(void)show;
+-(void)dispear;
+
+
 
 @end

@@ -106,13 +106,13 @@ typedef NS_ENUM(NSInteger, DetailAccountType)
 
 
 /*字体*/
-#define FONT_18 [UIFont systemFontOfSize:18]
-#define FONT_17 [UIFont systemFontOfSize:17]
-#define FONT_16 [UIFont systemFontOfSize:16]
-#define FONT_15 [UIFont systemFontOfSize:15]
-#define FONT_14 [UIFont systemFontOfSize:14]
-#define FONT_13 [UIFont systemFontOfSize:13]
-#define FONT_12 [UIFont systemFontOfSize:12]
+#define FONT_18 [UIFont systemFontOfSize:19]
+#define FONT_17 [UIFont systemFontOfSize:18]
+#define FONT_16 [UIFont systemFontOfSize:17]
+#define FONT_15 [UIFont systemFontOfSize:16]
+#define FONT_14 [UIFont systemFontOfSize:15]
+#define FONT_13 [UIFont systemFontOfSize:14]
+#define FONT_12 [UIFont systemFontOfSize:13]
 
 
 
