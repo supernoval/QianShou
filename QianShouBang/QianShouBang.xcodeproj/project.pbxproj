@@ -162,6 +162,7 @@
 		15E636AD1B98BC44006C0D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15E636AC1B98BC44006C0D0B /* Main.storyboard */; };
 		15E636B01B98BC5D006C0D0B /* ConfirmOrderTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */; };
 		15E636B21B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636B11B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m */; };
+		15E636B61B9ACB30006C0D0B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 15E636B51B9ACB30006C0D0B /* Reachability.m */; };
 		15F0861A1B8852EF008C7EDB /* MyOderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086191B8852EF008C7EDB /* MyOderCell.m */; };
 		15F086211B88710A008C7EDB /* CatchPeopleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F086201B88710A008C7EDB /* CatchPeopleCell.m */; };
 		15FFB2A51B78DBA400E5750F /* YellTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FFB2A41B78DBA400E5750F /* YellTableViewController.m */; };
@@ -618,6 +619,8 @@
 		15E636AE1B98BC5D006C0D0B /* ConfirmOrderTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfirmOrderTVC.h; sourceTree = "<group>"; };
 		15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderTVC.m; sourceTree = "<group>"; };
 		15E636B11B98BC77006C0D0B /* CatchOrderPeoPleListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatchOrderPeoPleListTVC.m; sourceTree = "<group>"; };
+		15E636B41B9ACB30006C0D0B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		15E636B51B9ACB30006C0D0B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		15F086181B8852EF008C7EDB /* MyOderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOderCell.h; sourceTree = "<group>"; };
 		15F086191B8852EF008C7EDB /* MyOderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOderCell.m; sourceTree = "<group>"; };
 		15F0861C1B886F22008C7EDB /* CatchOrderPeoPleListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CatchOrderPeoPleListTVC.h; path = QianShouBang/catchOderPeopleList/CatchOrderPeoPleListTVC.h; sourceTree = SOURCE_ROOT; };
@@ -757,6 +760,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13983B221B6B601C00D44BF0 /* SystemConfiguration.framework in Frameworks */,
 				13983B281B6B603A00D44BF0 /* libsqlite3.dylib in Frameworks */,
 				D28EFE551B93FFFB00EC0B70 /* Accounts.framework in Frameworks */,
 				D28EFE531B93FFF100EC0B70 /* Social.framework in Frameworks */,
@@ -768,7 +772,6 @@
 				13983B261B6B603200D44BF0 /* libicucore.dylib in Frameworks */,
 				13983B201B6B601500D44BF0 /* CoreTelephony.framework in Frameworks */,
 				D28EFE491B93FF7200EC0B70 /* QuartzCore.framework in Frameworks */,
-				13983B221B6B601C00D44BF0 /* SystemConfiguration.framework in Frameworks */,
 				13983B241B6B602A00D44BF0 /* libz.1.2.5.dylib in Frameworks */,
 				D24C59551B7ADC5A006F88D3 /* UIKit.framework in Frameworks */,
 				13983B161B6B5FF200D44BF0 /* CoreLocation.framework in Frameworks */,
@@ -1237,6 +1240,7 @@
 		13983A501B6B3A5F00D44BF0 /* ThirdPartClasses */ = {
 			isa = PBXGroup;
 			children = (
+				15E636B31B9ACB22006C0D0B /* Reachability */,
 				13BABEEE1B9837C5000D40AB /* HTLetter */,
 				136E7C631B95823C0026126D /* SBJSON */,
 				D28EFE131B93EDDC00EC0B70 /* ShareSDK */,
@@ -1684,6 +1688,15 @@
 				15E636AF1B98BC5D006C0D0B /* ConfirmOrderTVC.m */,
 			);
 			name = confirmOrder;
+			sourceTree = "<group>";
+		};
+		15E636B31B9ACB22006C0D0B /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				15E636B41B9ACB30006C0D0B /* Reachability.h */,
+				15E636B51B9ACB30006C0D0B /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		15F0861B1B886EC1008C7EDB /* 抢单人列表 */ = {
@@ -2323,6 +2336,7 @@
 				13983A561B6B3A7300D44BF0 /* ProgressHUD.m in Sources */,
 				13F5B67A1B7C419A00850683 /* PrivacyTVC.m in Sources */,
 				B3C469D51B91C29500DC7569 /* IntroCell.m in Sources */,
+				15E636B61B9ACB30006C0D0B /* Reachability.m in Sources */,
 				15138B8F1B9188D40000A8C0 /* EmojiConvert.m in Sources */,
 				137263DD1B744E3D0006661C /* JSONModelClassProperty.m in Sources */,
 				15E183581B7F177C00E13391 /* SDPhotoGroup.m in Sources */,

@@ -266,7 +266,7 @@
         case FromTypeFriendList:
         {
             NSMutableDictionary *infoDic = [NSMutableDictionary dictionary];
-            BmobChatUser *user = (BmobChatUser *)self.user;
+            BmobChatUser *user = (BmobChatUser*)targetUser;
             [infoDic setObject:user.objectId forKey:@"uid"];
             [infoDic setObject:user.username forKey:@"name"];
             NSString *avatar = [user objectForKey:@"avatar"];

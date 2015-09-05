@@ -17,10 +17,11 @@
 #import "NSDate+TimeAgo.h"
 #import "LocateViewController.h"
 #import "LocationViewController.h"
+#import "SDPhotoBrowser.h"
 
 
 
-@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,EmojiViewDelegate>{
+@interface ChatViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,EmojiViewDelegate,SDPhotoBrowserDelegate>{
     UITableView             *_chatTableView;
     EmojiView               *_emojiView;//表情
     ChatFootbarView         *_footbarView;//照片，照相，地理位置
@@ -38,6 +39,12 @@
     
     NSMutableDictionary     *_infoDic;
     BmobChatUser            *_chatUser;
+    
+    UITapGestureRecognizer *_hideEmojiViewTap;
+    
+    NSIndexPath             *showImageIndexPath;
+    
+    
 }
 
 @end
@@ -99,10 +106,13 @@
     [self setupViews];
     
     //通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardFrameChange:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hideBottomView) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNewMessage:) name:@"DidRecieveUserMessage" object:nil];
+    
+    _hideEmojiViewTap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideBottomView)];
+    
     //
     _chatArray  = [[NSMutableArray alloc] init];
     _page       = 0;
@@ -121,10 +131,10 @@
 {
     [super viewDidDisappear:animated];
     
-    [_bottomView removeFromSuperview];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidRecieveUserMessage" object:nil];
+//    [_bottomView removeFromSuperview];
+//    
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidRecieveUserMessage" object:nil];
     
     
     
@@ -136,9 +146,61 @@
 -(void)keyboardWillShow:(NSNotification*)note
 {
     
+    if (note) {
+        NSValue *keyboardBoundsValue = [[note userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
+        CGRect keyboardEndRect = [keyboardBoundsValue CGRectValue];
+        
+        CGFloat bottomViewOrginY = 0.0f;
+        if (IS_iOS7) {
+            bottomViewOrginY = ScreenHeight-44-keyboardEndRect.size.height;
+        }else{
+            bottomViewOrginY = ScreenHeight-64-44-keyboardEndRect.size.height;
+        }
+        
+     
+        [UIView animateWithDuration:0.3f animations:^{
+            
+            [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 200)];
+            
+            CGRect originRect = _chatTableView.frame;
+            
+            originRect.size.height  = bottomViewOrginY;
+            
+            [_chatTableView setFrame:originRect];
+            
+            if (_chatArray.count > 0) {
+                
+                [_chatTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_chatArray.count -1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                
+            }
+            
+            
+        } completion:^(BOOL finished) {
+            
+            
+        }];
+        
+        
+    }
 }
 -(void)keyboardWillHide:(NSNotification*)hide
 {
+    [self.view removeGestureRecognizer:_hideEmojiViewTap];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+    
+        
+        CGRect originRect = _chatTableView.frame;
+        
+        originRect.size.height  = ScreenHeight  - 64;
+        
+        [_chatTableView setFrame:originRect];
+        
+        
+        
+    }];
+    
+    [self hideBottomView];
     
 }
 - (void)didReceiveMemoryWarning
@@ -150,24 +212,13 @@
 -(void)dealloc{
     
     
-            _chatTableView.dataSource = nil;
-            _chatTableView.delegate   = nil;
-    
-            _chatUser                 = nil;
+//            _chatTableView.dataSource = nil;
+//            _chatTableView.delegate   = nil;
+//    
+//            _chatUser                 = nil;
    
 }
 
-//-(void)goback{
-//    
-//    [self.view endEditing:YES];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DidRecieveUserMessage" object:nil];
-//    
-////    _chatTableView.dataSource = nil;
-////    _chatTableView.delegate   = nil;
-////    _chatArray                = nil;
-////    _chatUser                 = nil;
-//}
 
 
 
@@ -235,7 +286,7 @@
     UIButton    *emojiButton              = [UIButton buttonWithType:UIButtonTypeCustom];
     emojiButton.tag                       = 100;
     [emojiButton setFrame:CGRectMake(5, 0, 50, 44)];
-    [emojiButton addTarget:self action:@selector(showBottomView:) forControlEvents:UIControlEventTouchUpInside];
+    [emojiButton addTarget:self action:@selector(showEmojiView) forControlEvents:UIControlEventTouchUpInside];
     [emojiButton setImage:[UIImage imageNamed:@"chat_icon2"] forState:UIControlStateNormal];
     [emojiButton setImage:[UIImage imageNamed:@"chat_icon2_"] forState:UIControlStateHighlighted];
     [_bottomView addSubview:emojiButton];
@@ -244,7 +295,7 @@
     UIButton    *barButton                = [UIButton buttonWithType:UIButtonTypeCustom];
     barButton.tag                         = 101;
     [barButton setFrame:CGRectMake(50, 0, 50, 44)];
-    [barButton addTarget:self action:@selector(showBottomView:) forControlEvents:UIControlEventTouchUpInside];
+    [barButton addTarget:self action:@selector(showPhotoView) forControlEvents:UIControlEventTouchUpInside];
     [barButton setImage:[UIImage imageNamed:@"chat_icon1"] forState:UIControlStateNormal];
     [barButton setImage:[UIImage imageNamed:@"chat_icon1_"] forState:UIControlStateHighlighted];
     [_bottomView addSubview:barButton];
@@ -289,12 +340,12 @@
     _footbarView.locationLabel.text       = @"位置";
 
     //隐藏
-    UIButton *hideKeyBoardButton          = [UIButton buttonWithType:UIButtonTypeCustom];
-    hideKeyBoardButton.frame              = CGRectMake(0, ViewOriginY, ScreenWidth, _bottomView.frame.origin.y-ViewOriginY);
-    hideKeyBoardButton.tag                = kHideButtonTag;
-    hideKeyBoardButton.alpha              = 0.0f;
-    [hideKeyBoardButton addTarget:self action:@selector(hideBottomView) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:hideKeyBoardButton];
+//    UIButton *hideKeyBoardButton          = [UIButton buttonWithType:UIButtonTypeCustom];
+//    hideKeyBoardButton.frame              = CGRectMake(0, ViewOriginY, ScreenWidth, _bottomView.frame.origin.y-ViewOriginY);
+//    hideKeyBoardButton.tag                = kHideButtonTag;
+//    hideKeyBoardButton.alpha              = 0.0f;
+//    [hideKeyBoardButton addTarget:self action:@selector(hideBottomView) forControlEvents:UIControlEventTouchUpInside];
+//    [self.view addSubview:hideKeyBoardButton];
 
 
 
@@ -302,22 +353,35 @@
 }
 
 
--(void)showBottomView:(UIButton*)sender{
+-(void)showEmojiView
+{
     
-    if (sender.tag == 100) {
-        _emojiView.hidden   = NO;
-        _footbarView.hidden = YES;
-    }else{
-        _emojiView.hidden   = YES;
-        _footbarView.hidden = NO;
-    }
+    [self.view addGestureRecognizer:_hideEmojiViewTap];
     
-    [self showBottomView];
+    _emojiView.hidden =NO;
+    _footbarView.hidden = YES;
+    
+    [self showEditeBottomView];
+    
     
 }
-//
 
--(void)showBottomView{
+// 显示照片选择
+-(void)showPhotoView
+{
+    
+     [self.view addGestureRecognizer:_hideEmojiViewTap];
+    
+    _emojiView.hidden = YES;
+    _footbarView.hidden = NO;
+    
+    [self showEditeBottomView];
+}
+
+
+
+//显示表情或者照片选择界面
+-(void)showEditeBottomView{
     
     [self.view endEditing:YES];
     CGFloat bottomViewOrginY = 0.0f;
@@ -329,13 +393,27 @@
     
     [UIView animateWithDuration:0.4f animations:^{
         [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 144)];
+        
+        CGRect originRect = _chatTableView.frame;
+        
+        originRect.size.height  = bottomViewOrginY;
+        
+        [_chatTableView setFrame:originRect];
+        
+        if (_chatArray.count > 0) {
+            
+            [_chatTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_chatArray.count -1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+            
+        }
+        
     }];
 
-    UIButton *hideKeyBoardButton =(UIButton*) [self.view viewWithTag:kHideButtonTag];
-    hideKeyBoardButton.alpha = 1.0f;
-    hideKeyBoardButton.frame = CGRectMake(0, ViewOriginY, ScreenWidth, _bottomView.frame.origin.y-ViewOriginY);
+  
 }
 
+
+
+//隐藏
 -(void)hideBottomView{
     [self.view endEditing:YES];
     [_chatTextField resignFirstResponder];
@@ -349,42 +427,16 @@
     [UIView animateWithDuration:0.4f animations:^{
         [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 144)];
         
-//         self.view.center = CGPointMake(self.view.center.x, ScreenHeight/2);
+        CGRect originRect = _chatTableView.frame;
+        
+        originRect.size.height  = bottomViewOrginY;
+        
+        [_chatTableView setFrame:originRect];
+        
     }];
     
-    UIButton *hideKeyBoardButton =(UIButton*) [self.view viewWithTag:kHideButtonTag];
-    hideKeyBoardButton.alpha = 0.0f;
-    hideKeyBoardButton.frame = CGRectMake(0, ViewOriginY, ScreenWidth, _bottomView.frame.origin.y-ViewOriginY);
 }
 
-//浮动编辑框
--(void)keyboardFrameChange:(NSNotification*)noti{
-    
-    if (noti) {
-        NSValue *keyboardBoundsValue = [[noti userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey];
-        CGRect keyboardEndRect = [keyboardBoundsValue CGRectValue];
-        
-        CGFloat bottomViewOrginY = 0.0f;
-        if (IS_iOS7) {
-            bottomViewOrginY = ScreenHeight-44-keyboardEndRect.size.height;
-        }else{
-            bottomViewOrginY = ScreenHeight-64-44-keyboardEndRect.size.height;
-        }
-        
-        
-        [UIView animateWithDuration:0.4f animations:^{
-            [_bottomView setFrame:CGRectMake(0, bottomViewOrginY, ScreenWidth, 200)];
-            
-//            self.view.center = CGPointMake(self.view.center.x,ScreenHeight/2 - keyboardEndRect.size.height);
-            
-        }];
-        
-        UIButton *hideKeyBoardButton =(UIButton*) [self.view viewWithTag:kHideButtonTag];
-        hideKeyBoardButton.alpha = 1.0f;
-        hideKeyBoardButton.frame = CGRectMake(0, ViewOriginY, ScreenWidth, _bottomView.frame.origin.y-ViewOriginY);
-    }
-    
-}
 
 #pragma mark chat
 //接收到消息
@@ -410,6 +462,8 @@
         
         [_chatArray addObject:msg];
         [_chatTableView reloadData];
+        
+        
         [_chatTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:(_chatArray.count -1) inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
         
     }
@@ -473,7 +527,7 @@
     }];
     
     [self.navigationController pushViewController:lvc animated:YES];
-    [self hideBottomView];
+    
 }
 
 
@@ -487,7 +541,7 @@
 
 -(void)presentImagePickerController:(UIImagePickerController *)picker{
     [self presentViewController:picker animated:YES completion:^{
-//        [self hideBottomView];
+        [self hideBottomView];
     }];
 }
 
@@ -587,7 +641,7 @@
         
     }else if(message.msgType == MessageTypeImage){
         cell.contentLabel.text = nil;
-        [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:message.content] placeholderImage:[UIImage imageWithContentsOfFile:message.content]];
+        [cell.contentImageView sd_setImageWithURL:[NSURL URLWithString:message.content] placeholderImage:[UIImage imageNamed:@"default_loading"]];
     }else if (message.msgType == MessageTypeLocation){
 
         
@@ -628,8 +682,11 @@
 #pragma mark - UITableView Delegate methods
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self gotoMessageDetail:indexPath];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self gotoLocationViewController:indexPath];
+    
     
 }
 
@@ -643,7 +700,7 @@
 }
 
 
--(void)gotoLocationViewController:(NSIndexPath *)indexPath{
+-(void)gotoMessageDetail:(NSIndexPath *)indexPath{
     BmobMsg *message = ( BmobMsg *)[_chatArray objectAtIndex:indexPath.row];
     if (message.msgType == MessageTypeLocation) {
         if ([message.content length] > 0) {
@@ -656,7 +713,46 @@
             [self.navigationController pushViewController:lvc animated:YES];
         }
     }
+    
+    if (message.msgType == MessageTypeImage)
+    {
+     
+        showImageIndexPath = indexPath;
+        
+        BubbleTableViewCell *cell =(BubbleTableViewCell*) [_chatTableView cellForRowAtIndexPath:indexPath];
+        
+            SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+            browser.sourceImagesContainerView =cell.contentView; // 原图的父控件
+            browser.imageCount = 1; // 图片总数
+            browser.currentImageIndex = 0;
+            browser.delegate = self;
+            [browser show];
+        
+        
+    }
 }
+
+#pragma mark - photobrowser代理方法
+
+// 返回临时占位图片（即原来的小图）
+- (UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index
+{
+    
+
+    
+    return [UIImage imageNamed:@"default_loading"];
+}
+
+
+// 返回高质量图片的url
+- (NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index
+{
+    BmobMsg *message = ( BmobMsg *)[_chatArray objectAtIndex:showImageIndexPath.row];
+    
+   
+    return [NSURL URLWithString:message.content];
+}
+
 
 #pragma mark imagePickerController delegate
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{

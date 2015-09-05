@@ -68,7 +68,7 @@ typedef NS_ENUM(NSInteger, DetailAccountType)
 
 
 #pragma mark - Bmob
-//#define kBmobApplicationID    @"ee9115c95d4ce604631935b1979a5edd"  //测试
+//#define kBmobApplicationID    @"ee9115c95d4rce604631935b1979a5edd"  //测试
 
 #define kBmobApplicationID     @"b5cbd002adfbe8feee7bd6f184087379"  //正式
 

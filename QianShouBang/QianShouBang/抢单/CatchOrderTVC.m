@@ -543,6 +543,7 @@ static NSString *dareCellId = @"dasrenCell";
                 //保证金
                 CGFloat benjin = [[_object objectForKey:@"order_benjin"]floatValue];
                 
+                
                 cell.benjinLabel.text = [NSString stringWithFormat:@"已交保证金:%.1f元",benjin];
                 
                 
@@ -664,6 +665,8 @@ static NSString *dareCellId = @"dasrenCell";
             
             CGFloat order_commission = [[_object objectForKey:@"order_commission"]floatValue];
             
+//             CGFloat newCommission = [CommonMethods getTwopoint:order_commission];
+             
              cell.moneyLabel.text = [NSString stringWithFormat:@"佣金:%.2f",order_commission];
             cell.moneyLabel.textColor = [UIColor redColor];
             cell.accepteButton.hidden = NO;

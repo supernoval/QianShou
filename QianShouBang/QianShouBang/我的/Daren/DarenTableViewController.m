@@ -349,6 +349,7 @@ static CGFloat imagesCellHeight = 70.0;
     NSString *descrip = _goodAtTF.text;
     
     CGFloat benjin = [_moneyTF.text floatValue];
+    benjin = [CommonMethods getTwopoint:benjin];
     
     
     BmobObject *orderObject = [BmobObject objectWithClassName:kOrder];

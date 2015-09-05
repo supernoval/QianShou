@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    _image.clipsToBounds = YES;
+    _image.layer.cornerRadius = 20.0;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

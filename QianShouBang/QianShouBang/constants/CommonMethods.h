@@ -53,6 +53,8 @@ typedef void (^upLoadPhotoBlock)(BOOL success,NSArray*results);
 #pragma mark - 获取当前机型
 +(NSString*)getCurrentDeviceName;
 
+#pragma mark - 获取两位小数
++(CGFloat)getTwopoint:(CGFloat)value;
 
 
 #pragma mark - 请求图片

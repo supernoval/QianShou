@@ -250,7 +250,20 @@
 //    }
 }
 
+#pragma mark - 获取两位小数
++(CGFloat)getTwopoint:(CGFloat)value
+{
 
+    
+    
+    int newIntValue = value *100;
+    
+    CGFloat newValue = newIntValue /100.00;
+    
+    
+    return newValue;
+    
+}
 #pragma mark - 判断Email格式是否正确
 + (BOOL)isValidateEmail:(NSString *)Email
 {
@@ -1141,7 +1154,12 @@
     [detailObject setObject:@(isJiangli) forKey:@"isJiangli"];
     
     
-    
+        tIntegral = [CommonMethods getTwopoint:tIntegral];
+        tMoney = [CommonMethods getTwopoint:tIntegral];
+        jiangli = [CommonMethods getTwopoint:jiangli];
+        tIntegralCount = [CommonMethods getTwopoint:tIntegralCount];
+        tMoneyCount = [CommonMethods getTwopoint:tMoneyCount];
+        
     [detailObject setObject:@(tIntegral) forKey:@"tIntegral"];
     
     [detailObject setObject:@(tMoney) forKey:@"tMoney"];

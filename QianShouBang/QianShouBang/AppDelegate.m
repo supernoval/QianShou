@@ -188,7 +188,38 @@
 
 
     
+    //网络状况检测
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    
+    Reachability *internetReachbility = [Reachability reachabilityForInternetConnection];
+    
+    [internetReachbility startNotifier];
+    
+    NetworkStatus netStatus = [internetReachbility currentReachabilityStatus];
+    
+    if (netStatus == NotReachable)
+    {
+        
+        [CommonMethods showDefaultErrorString:@"无网络连接，请检测您的网络设置"];
+        
+    }
+    
     return YES;
+}
+
+- (void) reachabilityChanged:(NSNotification *)note
+{
+    Reachability* curReach = [note object];
+    
+    NetworkStatus netStatus = [curReach currentReachabilityStatus];
+    
+    if (netStatus == NotReachable)
+    {
+        
+        [CommonMethods showDefaultErrorString:@"无网络连接，请检测您的网络设置"];
+        
+    }
+    
 }
 
 #ifdef __IPHONE_8_0
@@ -261,12 +292,28 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     
+    Reachability *internetReachbility = [Reachability reachabilityForInternetConnection];
+    
+    [internetReachbility startNotifier];
+    
+    NetworkStatus netStatus = [internetReachbility currentReachabilityStatus];
+    
+    if (netStatus == NotReachable)
+    {
+        
+        [CommonMethods showDefaultErrorString:@"无网络连接，请检测您的网络设置"];
+        
+    }
+    
      application.applicationIconBadgeNumber = 0;
     
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+
+    
+
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

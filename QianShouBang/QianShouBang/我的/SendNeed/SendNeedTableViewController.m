@@ -506,6 +506,10 @@ static CGFloat imagesCellHeight = 70.0;
     
     CGFloat benjin = [_benjinTF.text floatValue];
     
+    benjin = [CommonMethods getTwopoint:benjin];
+    xiaofei = [CommonMethods getTwopoint:xiaofei];
+    jiangli = [CommonMethods getTwopoint:jiangli];
+    
    
     
     

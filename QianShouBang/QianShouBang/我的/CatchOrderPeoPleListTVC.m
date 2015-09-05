@@ -71,8 +71,8 @@ static NSString *cellid = @"catchPeopleCell";
     
     [query whereKey:@"order_state" equalTo:@(OrderStatePayedUnAccepted)];
     
-    [query whereKeySExists:@[@"receive_user"]];
-     
+//    [query whereKeySExists:@[@"receive_user"]];
+    
     
     [query includeKey:@"receive_user"];
     
