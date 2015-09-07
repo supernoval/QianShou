@@ -178,6 +178,10 @@
 }
 
 - (void)logout:(UIButton *)button{
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(0) forKey:kHadLogin];
+    [[NSUserDefaults standardUserDefaults ] synchronize];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     
     

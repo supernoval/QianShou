@@ -336,7 +336,8 @@
             
 //                NSString *avatar = [chatUser objectForKey:@"avatar"];
             
-            if (chatUser.avatar) {
+            if (chatUser.avatar)
+            {
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                    [cell.image sd_setImageWithURL: [NSURL URLWithString:chatUser.avatar] placeholderImage:[UIImage imageNamed:@"default_loading"]];

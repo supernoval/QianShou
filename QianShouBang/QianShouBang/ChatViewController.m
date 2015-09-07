@@ -100,7 +100,7 @@
     _chatTableView.delegate       = self;
     _chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _chatTableView.backgroundColor =[UIColor clearColor];
-    _chatTableView.backgroundView = nil;
+   
     [self.view addSubview:_chatTableView];
     //建立子view
     [self setupViews];
@@ -212,10 +212,10 @@
 -(void)dealloc{
     
     
-//            _chatTableView.dataSource = nil;
-//            _chatTableView.delegate   = nil;
-//    
-//            _chatUser                 = nil;
+            _chatTableView.dataSource = nil;
+            _chatTableView.delegate   = nil;
+//
+            _chatUser                 = nil;
    
 }
 

@@ -111,7 +111,7 @@
                 NSLog(@"____%@",strTime);
                 
                 [_sendCodeButton setTitle:[NSString stringWithFormat:@"%@s",strTime] forState:UIControlStateNormal] ;
-                _sendCodeButton.enabled = YES;
+                _sendCodeButton.enabled = NO;
                 
                 
                 

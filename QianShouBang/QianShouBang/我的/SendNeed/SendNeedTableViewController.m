@@ -575,7 +575,7 @@ static CGFloat imagesCellHeight = 70.0;
             
             
             
-            [self saveDetailAccount:orderObject];
+          
             
        
             
@@ -596,26 +596,42 @@ static CGFloat imagesCellHeight = 70.0;
 #pragma mark - 往AttachItem 添加 order point
 -(void)addItems:(NSArray*)attachItems weiboItem:(BmobObject*)orderitem
 {
-    BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
-    
-    for (int i = 0 ; i < attachItems.count; i ++) {
-        BmobObject *oneItem = [attachItems objectAtIndex:i];
+    if (attachItems.count > 0) {
         
-        [batch updateBmobObjectWithClassName:kAttachItem objectId:oneItem.objectId parameters:@{@"order":orderitem}];
+        BmobObjectsBatch *batch = [[BmobObjectsBatch alloc]init];
         
+        for (int i = 0 ; i < attachItems.count; i ++) {
+            BmobObject *oneItem = [attachItems objectAtIndex:i];
+            
+            [batch updateBmobObjectWithClassName:kAttachItem objectId:oneItem.objectId parameters:@{@"order":orderitem}];
+            
+            
+        }
+        
+        [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            
+            
+            if (isSuccessful) {
+                
+                [self saveDetailAccount:orderitem];
+            }
+            else
+            {
+                [CommonMethods showDefaultErrorString:@"订单提交失败"];
+                NSLog(@"订单提交失败:%@",error);
+                [MyProgressHUD dismiss];
+            }
+            
+            
+            
+        }];
         
     }
-    
-    [batch batchObjectsInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-        
-        
-        [MyProgressHUD dismiss];
-        
-  
-        
-        
-    }];
-    
+    else
+    {
+        [self saveDetailAccount:orderitem];
+    }
+
     
     
 }
@@ -631,6 +647,8 @@ static CGFloat imagesCellHeight = 70.0;
     
     [CommonMethods updateDetailAccountWithType:DetailAccountTypePay_error Order:orderObject User:user money:0 qianshoubi:0 withResultBlock:^(BOOL success,BmobObject *detailObject) {
        
+        [MyProgressHUD dismiss];
+        
         if (success)
         {
             
@@ -638,6 +656,11 @@ static CGFloat imagesCellHeight = 70.0;
             [self payOrder:orderObject detailObject:detailObject];
             
             
+        }
+        else
+        {
+            [CommonMethods showDefaultErrorString:@"订单提交失败"];
+           
         }
         
     }];

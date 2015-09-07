@@ -1056,6 +1056,25 @@ static NSString *dareCellId = @"dasrenCell";
             if (isSuccessful) {
                 
                 
+                //缓存中的订单
+                
+                NSMutableArray *muArray = [[NSMutableArray alloc]init];
+                muArray = _ordersArray;
+                
+                for (int i = 0; i < _ordersArray.count; i ++) {
+                    
+                    YellModel *model = [_ordersArray objectAtIndex:i];
+                    
+                    if ([model.yellObject.objectId isEqualToString:orderObject.objectId]) {
+                        
+                        [muArray removeObjectAtIndex:i];
+                        
+                    }
+                }
+                
+                _ordersArray = muArray;
+                
+                
                 [self sendPushWithObject:orderObject];
                 
                 [CommonMethods showDefaultErrorString:@"抢单成功"];
