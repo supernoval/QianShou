@@ -14,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head_default_0" translatesAutoresizingMaskIntoConstraints="NO" id="5YA-wc-zGD">
-                        <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <rect key="frame" x="18" y="9" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="fPF-HW-pVe"/>
                             <constraint firstAttribute="height" constant="60" id="gNp-Tu-cmF"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_location" translatesAutoresizingMaskIntoConstraints="NO" id="NER-9F-rui">
-                        <rect key="frame" x="82" y="49" width="10" height="13"/>
+                        <rect key="frame" x="92" y="49" width="10" height="13"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="gha-yb-UwB"/>
@@ -29,7 +29,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小小小鱼" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HW9-zB-w6O">
-                        <rect key="frame" x="82" y="17" width="197" height="21"/>
+                        <rect key="frame" x="92" y="17" width="187" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Vh1-5U-bZO"/>
                         </constraints>
@@ -38,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离xxkm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-ug-MWk">
-                        <rect key="frame" x="100" y="47" width="174" height="18"/>
+                        <rect key="frame" x="110" y="47" width="164" height="18"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="18" id="3a0-oa-WfD"/>
                         </constraints>
@@ -50,15 +50,21 @@
                 <constraints>
                     <constraint firstItem="HW9-zB-w6O" firstAttribute="leading" secondItem="5YA-wc-zGD" secondAttribute="trailing" constant="14" id="Dx6-w0-1KK"/>
                     <constraint firstItem="5YA-wc-zGD" firstAttribute="top" secondItem="pVh-7H-HEd" secondAttribute="top" constant="8" id="Ei9-P8-vFs"/>
-                    <constraint firstItem="5YA-wc-zGD" firstAttribute="leading" secondItem="pVh-7H-HEd" secondAttribute="leading" constant="8" id="Lxg-if-01i"/>
+                    <constraint firstItem="5YA-wc-zGD" firstAttribute="leading" secondItem="pVh-7H-HEd" secondAttribute="leading" constant="18" id="Lxg-if-01i"/>
                     <constraint firstItem="NER-9F-rui" firstAttribute="leading" secondItem="5YA-wc-zGD" secondAttribute="trailing" constant="14" id="Mdr-xQ-qK3"/>
                     <constraint firstItem="HW9-zB-w6O" firstAttribute="top" secondItem="pVh-7H-HEd" secondAttribute="top" constant="17" id="Rz1-Hn-vYX"/>
                     <constraint firstAttribute="trailing" secondItem="HW9-zB-w6O" secondAttribute="trailing" constant="8" id="a2V-HH-qBq"/>
                     <constraint firstAttribute="trailing" secondItem="f3u-ug-MWk" secondAttribute="trailing" constant="13" id="cWG-NE-Yy0"/>
                     <constraint firstItem="f3u-ug-MWk" firstAttribute="top" secondItem="HW9-zB-w6O" secondAttribute="bottom" constant="9" id="f89-b4-Eob"/>
+                    <constraint firstAttribute="centerY" secondItem="5YA-wc-zGD" secondAttribute="centerY" id="kvY-u2-Tsi"/>
                     <constraint firstItem="NER-9F-rui" firstAttribute="top" secondItem="HW9-zB-w6O" secondAttribute="bottom" constant="11" id="oWe-oS-s53"/>
                     <constraint firstItem="f3u-ug-MWk" firstAttribute="leading" secondItem="NER-9F-rui" secondAttribute="trailing" constant="8" id="zhy-SL-67n"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="Ei9-P8-vFs"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="distance" destination="f3u-ug-MWk" id="Cum-Rw-OEI"/>

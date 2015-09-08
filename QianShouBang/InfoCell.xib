@@ -14,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p2Z-q4-D9L">
-                        <rect key="frame" x="8" y="10" width="60" height="60"/>
+                        <rect key="frame" x="18" y="14" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="Rl0-TP-YOV"/>
-                            <constraint firstAttribute="height" constant="60" id="lfU-QQ-GuP"/>
+                            <constraint firstAttribute="width" constant="50" id="Rl0-TP-YOV"/>
+                            <constraint firstAttribute="height" constant="50" id="lfU-QQ-GuP"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kd-qU-HrO">
-                        <rect key="frame" x="76" y="44" width="203" height="21"/>
+                        <rect key="frame" x="83" y="44" width="196" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="dng-Gh-oJF"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQG-FL-9sY">
-                        <rect key="frame" x="76" y="15" width="203" height="21"/>
+                        <rect key="frame" x="83" y="15" width="196" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="inh-GI-pQt"/>
                         </constraints>
@@ -40,13 +40,13 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MQG-FL-9sY" firstAttribute="leading" secondItem="p2Z-q4-D9L" secondAttribute="trailing" constant="8" id="1uV-9F-N6d"/>
+                    <constraint firstItem="MQG-FL-9sY" firstAttribute="leading" secondItem="p2Z-q4-D9L" secondAttribute="trailing" constant="15" id="1uV-9F-N6d"/>
+                    <constraint firstAttribute="centerY" secondItem="p2Z-q4-D9L" secondAttribute="centerY" id="FUI-vq-zAV"/>
                     <constraint firstItem="MQG-FL-9sY" firstAttribute="top" secondItem="CGs-nb-2K1" secondAttribute="top" constant="15" id="H1H-vq-4RO"/>
                     <constraint firstItem="8Kd-qU-HrO" firstAttribute="top" secondItem="MQG-FL-9sY" secondAttribute="bottom" constant="8" id="HjD-86-aNj"/>
-                    <constraint firstItem="p2Z-q4-D9L" firstAttribute="top" secondItem="CGs-nb-2K1" secondAttribute="top" constant="10" id="Rxq-yC-GmW"/>
-                    <constraint firstItem="p2Z-q4-D9L" firstAttribute="leading" secondItem="CGs-nb-2K1" secondAttribute="leading" constant="8" id="bY7-bi-KvC"/>
+                    <constraint firstItem="p2Z-q4-D9L" firstAttribute="leading" secondItem="CGs-nb-2K1" secondAttribute="leading" constant="18" id="bY7-bi-KvC"/>
                     <constraint firstAttribute="trailing" secondItem="MQG-FL-9sY" secondAttribute="trailing" constant="8" id="oyA-hE-rqx"/>
-                    <constraint firstItem="8Kd-qU-HrO" firstAttribute="leading" secondItem="p2Z-q4-D9L" secondAttribute="trailing" constant="8" id="rYW-cH-li6"/>
+                    <constraint firstItem="8Kd-qU-HrO" firstAttribute="leading" secondItem="p2Z-q4-D9L" secondAttribute="trailing" constant="15" id="rYW-cH-li6"/>
                     <constraint firstAttribute="trailing" secondItem="8Kd-qU-HrO" secondAttribute="trailing" constant="8" id="zyH-8K-EE9"/>
                 </constraints>
             </tableViewCellContentView>

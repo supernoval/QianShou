@@ -135,9 +135,9 @@ static NSUInteger pageSize = 10;
         
         //头像
         if ([oneUser objectForKey:kavatar] != nil) {
-            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]];
+            [cell.image sd_setImageWithURL:[NSURL URLWithString:[oneUser objectForKey:kavatar]]placeholderImage:[UIImage imageNamed:@"default_loading"]];
         }else{
-            int i = arc4random()%10;
+            int i = indexPath.row%11;
             
             NSString *headString = [NSString stringWithFormat:@"head_default_%d",i];
             

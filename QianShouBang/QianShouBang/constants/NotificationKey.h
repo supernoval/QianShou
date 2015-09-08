@@ -12,3 +12,4 @@
 #define  kPaySucessNotification     @"PaySucessNotification"
 
 #define  kPayFailNotification       @"PayFailNotification"
+

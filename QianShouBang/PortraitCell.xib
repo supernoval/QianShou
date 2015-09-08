@@ -14,12 +14,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wcw-R3-ZaO">
-                        <rect key="frame" x="8" y="19" width="81" height="21"/>
+                        <rect key="frame" x="18" y="19" width="81" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="81" id="k3U-dT-Egy"/>
                             <constraint firstAttribute="height" constant="21" id="ndQ-2B-7I2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,7 +33,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="wSg-gy-c1t" secondAttribute="trailing" constant="8" id="10f-kV-qkn"/>
-                    <constraint firstItem="Wcw-R3-ZaO" firstAttribute="leading" secondItem="Jrf-ks-8N9" secondAttribute="leading" constant="8" id="NxI-nn-2Ek"/>
+                    <constraint firstItem="Wcw-R3-ZaO" firstAttribute="leading" secondItem="Jrf-ks-8N9" secondAttribute="leading" constant="18" id="NxI-nn-2Ek"/>
                     <constraint firstItem="Wcw-R3-ZaO" firstAttribute="top" secondItem="Jrf-ks-8N9" secondAttribute="top" constant="19" id="hUo-qS-lrJ"/>
                     <constraint firstItem="wSg-gy-c1t" firstAttribute="top" secondItem="Jrf-ks-8N9" secondAttribute="top" constant="7" id="pKu-rs-8Ns"/>
                 </constraints>

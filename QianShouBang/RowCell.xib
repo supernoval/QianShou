@@ -14,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ltX-KZ-l41">
-                        <rect key="frame" x="8" y="8" width="25" height="25"/>
+                        <rect key="frame" x="18" y="7" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="Wpn-cF-waY"/>
                             <constraint firstAttribute="width" constant="25" id="yWo-XS-4ey"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mO-re-nMw">
-                        <rect key="frame" x="46" y="9" width="100" height="21"/>
+                        <rect key="frame" x="56" y="9" width="100" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="Bpa-w3-cPR"/>
                             <constraint firstAttribute="width" constant="100" id="ITv-Mb-cb8"/>
@@ -31,24 +31,30 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="余额、牵手币、提现" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jj-dT-ndO">
-                        <rect key="frame" x="149" y="10" width="130" height="21"/>
+                        <rect key="frame" x="139" y="10" width="140" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="130" id="P86-TY-8bt"/>
+                            <constraint firstAttribute="width" constant="140" id="P86-TY-8bt"/>
                             <constraint firstAttribute="height" constant="21" id="t1Z-2i-2D7"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.25490196079999999" green="0.68235294120000001" blue="0.61960784310000006" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ltX-KZ-l41" firstAttribute="leading" secondItem="U1l-vk-ZFc" secondAttribute="leading" constant="8" id="Dp3-oX-zgv"/>
+                    <constraint firstItem="ltX-KZ-l41" firstAttribute="leading" secondItem="U1l-vk-ZFc" secondAttribute="leading" constant="18" id="Dp3-oX-zgv"/>
                     <constraint firstItem="9jj-dT-ndO" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="10" id="HDC-xc-TDj"/>
                     <constraint firstAttribute="trailing" secondItem="9jj-dT-ndO" secondAttribute="trailing" constant="8" id="RyU-8u-a7r"/>
+                    <constraint firstAttribute="centerY" secondItem="ltX-KZ-l41" secondAttribute="centerY" id="Tkd-RV-Rip"/>
                     <constraint firstItem="4mO-re-nMw" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="9" id="aoL-cL-Ve4"/>
                     <constraint firstItem="4mO-re-nMw" firstAttribute="leading" secondItem="ltX-KZ-l41" secondAttribute="trailing" constant="13" id="l6S-ia-i1U"/>
                     <constraint firstItem="ltX-KZ-l41" firstAttribute="top" secondItem="U1l-vk-ZFc" secondAttribute="top" constant="8" id="ugP-IT-Ucm"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ugP-IT-Ucm"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="extraText" destination="9jj-dT-ndO" id="orV-mX-G7U"/>

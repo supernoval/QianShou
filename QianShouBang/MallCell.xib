@@ -14,14 +14,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2o8-RM-gkA">
-                        <rect key="frame" x="8" y="8" width="44" height="44"/>
+                        <rect key="frame" x="18" y="8" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="44" id="TfM-sK-t3j"/>
                             <constraint firstAttribute="width" constant="44" id="fV5-A6-cnE"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wri-AB-L2k">
-                        <rect key="frame" x="60" y="8" width="179" height="21"/>
+                        <rect key="frame" x="70" y="8" width="169" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="pgr-rn-46r"/>
                         </constraints>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssV-bY-e3w">
-                        <rect key="frame" x="60" y="35" width="179" height="21"/>
+                        <rect key="frame" x="70" y="35" width="169" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="UGT-t5-Jxy"/>
                         </constraints>
@@ -59,7 +59,7 @@
                     <constraint firstItem="Wri-AB-L2k" firstAttribute="top" secondItem="Cfd-Vv-YPp" secondAttribute="top" constant="8" id="WMi-jC-wW5"/>
                     <constraint firstItem="1Un-8A-uZ1" firstAttribute="leading" secondItem="ssV-bY-e3w" secondAttribute="trailing" constant="8" id="c0V-d6-LXu"/>
                     <constraint firstItem="ssV-bY-e3w" firstAttribute="top" secondItem="Wri-AB-L2k" secondAttribute="bottom" constant="6" id="msl-WP-yN4"/>
-                    <constraint firstItem="2o8-RM-gkA" firstAttribute="leading" secondItem="Cfd-Vv-YPp" secondAttribute="leading" constant="8" id="oOc-UR-cMS"/>
+                    <constraint firstItem="2o8-RM-gkA" firstAttribute="leading" secondItem="Cfd-Vv-YPp" secondAttribute="leading" constant="18" id="oOc-UR-cMS"/>
                     <constraint firstItem="2o8-RM-gkA" firstAttribute="top" secondItem="Cfd-Vv-YPp" secondAttribute="top" constant="8" id="wW5-JI-h3n"/>
                     <constraint firstItem="1Un-8A-uZ1" firstAttribute="top" secondItem="Cfd-Vv-YPp" secondAttribute="top" constant="29" id="zPy-ds-zbq"/>
                 </constraints>

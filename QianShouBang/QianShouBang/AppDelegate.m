@@ -489,6 +489,7 @@
     NSLog(@"userInfo is :%@",[userInfo description]);
     
     if ([userInfo objectForKey:@"tag"]) {
+        
         if ([[[userInfo objectForKey:@"tag"] description] isEqualToString:@"add"]) {
             [self saveInviteMessageWithAddTag:userInfo];
             [BmobPush handlePush:userInfo];
@@ -498,6 +499,8 @@
             [self saveMessageWith:userInfo];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DidRecieveUserMessage" object:userInfo];
         }
+        
+        
     }
      else
      {

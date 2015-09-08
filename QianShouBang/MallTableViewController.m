@@ -104,7 +104,8 @@ static NSUInteger pageSize = 10;
     
 }
 
-- (NSString *)getQsCountData{
+- (void)getQsCountData:(UILabel*)moneyLabel
+{
     __block NSString *text = @"";
     BmobQuery *query = [BmobQuery queryWithClassName:kDetailAccount];
     [query orderByDescending:@"updatedAt"];
@@ -115,15 +116,23 @@ static NSUInteger pageSize = 10;
             NSLog(@"%@",error);
         }else{
             NSLog(@"牵手%li",(unsigned long)array.count);
-            if (array.count != 0) {
+            if (array.count != 0)
+            {
                 BmobObject *obj = [array firstObject];
                 CGFloat t = [[obj objectForKey:ktIntegralCount]floatValue];
                 text = [NSString stringWithFormat:@"%.1f",t];
                 
+                moneyLabel.text = text;
+                
             }
+            else
+            {
+                moneyLabel.text = @"0";
+            }
+            
         }
     }];
-    return text;
+   
 }
 
 
@@ -159,15 +168,15 @@ static NSUInteger pageSize = 10;
     text.text = @"牵手币";
     text.textAlignment = NSTextAlignmentCenter;
     text.font = FONT_13;
-    text.textColor = [UIColor whiteColor];
+    text.textColor = [UIColor redColor];
     [text bringSubviewToFront:yellowView];
     [yellowView addSubview:text];
     
     UILabel *money = [[UILabel alloc]initWithFrame:CGRectMake(0, 27, 60, 15)];
-    money.text = [self getQsCountData];
+    [self getQsCountData:money];
     money.textAlignment = NSTextAlignmentCenter;
     money.font = FONT_13;
-    money.textColor = [UIColor whiteColor];
+    money.textColor = [UIColor redColor];
     [money bringSubviewToFront:yellowView];
     [yellowView addSubview:money];
     

@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于刷单特别提醒" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="la0-2j-GPW">
-                        <rect key="frame" x="32" y="0.0" width="216" height="39"/>
+                        <rect key="frame" x="42" y="0.0" width="206" height="39"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.48627450980392156" green="0.48627450980392156" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -30,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="green_dot" translatesAutoresizingMaskIntoConstraints="NO" id="f2u-L5-Sbp">
-                        <rect key="frame" x="8" y="13" width="14" height="14"/>
+                        <rect key="frame" x="18" y="13" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="14" id="ECR-cW-IsA"/>
                             <constraint firstAttribute="height" constant="14" id="etj-H1-z8F"/>
@@ -42,7 +42,7 @@
                     <constraint firstAttribute="trailing" secondItem="ihf-qA-Vox" secondAttribute="trailing" constant="8" id="Hoa-WZ-Bob"/>
                     <constraint firstItem="f2u-L5-Sbp" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" constant="13" id="HtS-Uu-R4r"/>
                     <constraint firstItem="ihf-qA-Vox" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" constant="18" id="QWo-EK-Jdi"/>
-                    <constraint firstItem="f2u-L5-Sbp" firstAttribute="leading" secondItem="TRR-Mb-Q8c" secondAttribute="leading" constant="8" id="UXD-Yy-RD1"/>
+                    <constraint firstItem="f2u-L5-Sbp" firstAttribute="leading" secondItem="TRR-Mb-Q8c" secondAttribute="leading" constant="18" id="UXD-Yy-RD1"/>
                     <constraint firstAttribute="trailing" secondItem="la0-2j-GPW" secondAttribute="trailing" constant="72" id="bti-Qd-E7a"/>
                     <constraint firstItem="la0-2j-GPW" firstAttribute="top" secondItem="TRR-Mb-Q8c" secondAttribute="top" id="kPT-EE-0h8"/>
                     <constraint firstAttribute="bottom" secondItem="la0-2j-GPW" secondAttribute="bottom" id="uGD-0w-f6f"/>
