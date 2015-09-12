@@ -27,7 +27,7 @@
     self.title = @"修改密码";
     
     _changeCodeButton.clipsToBounds = YES;
-    _changeCodeButton.layer.cornerRadius = 20.0;
+    _changeCodeButton.layer.cornerRadius = 10.0;
     
     
 }
